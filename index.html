@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Health Board</title>
+  <style>
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#0b1020;color:#dbeafe;display:grid;place-items:center;min-height:100vh}
+    .card{max-width:760px;width:92%;background:linear-gradient(145deg,rgba(30,41,59,.82),rgba(15,23,42,.7));border:1px solid rgba(148,163,184,.25);border-radius:16px;padding:24px;box-shadow:0 12px 30px rgba(2,6,23,.35)}
+    h1{margin:0 0 8px;font-size:1.8rem}
+    p{margin:8px 0 0;color:#bfdbfe}
+    .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    a.btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
+    .primary{background:#2563eb;color:#fff}
+    .ghost{border:1px solid rgba(148,163,184,.35);color:#dbeafe}
+    small{display:block;margin-top:14px;color:#93c5fd}
+    code{background:rgba(148,163,184,.15);padding:2px 6px;border-radius:6px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Health Board</h1>
+    <p>Project hub for metrics, training calendar, and advisory context.</p>
+    <div class="row">
+      <a class="btn primary" href="https://extreme-close-rare-final.trycloudflare.com" target="_blank" rel="noopener">Open Live Dashboard</a>
+      <a class="btn ghost" href="https://github.com/jeanericgagnon/health-board" target="_blank" rel="noopener">View GitHub Repo</a>
+    </div>
+    <small>Note: Live dashboard currently runs as an R Shiny service on a private host and is exposed via Cloudflare tunnel.</small>
+  </div>
+</body>
+</html>
