@@ -159,6 +159,7 @@ ui <- page_navbar(
     ),
     p(class = "text-secondary", textOutput("overview_window")),
     uiOutput("overview_hero"),
+    uiOutput("overview_reco"),
     card(
       card_header("Daily Strain Bars + Overlays"),
       plotlyOutput("trend_plot", height = "420px")
@@ -173,6 +174,7 @@ ui <- page_navbar(
     ),
     p(class = "text-secondary", textOutput("swim_window")),
     uiOutput("swim_hero"),
+    uiOutput("swim_reco"),
     card(
       card_header("Catalina → Long Beach"),
       plotlyOutput("swim_map", height = "430px")
@@ -193,6 +195,7 @@ ui <- page_navbar(
     card(
       card_header("Previous Rolling 7 Days"),
       p(class = "text-secondary", textOutput("snapshot_window")),
+      uiOutput("snapshot_reco"),
       uiOutput("snapshot_table")
     )
   ),
@@ -375,6 +378,75 @@ server <- function(input, output, session) {
         dragmode = FALSE
       ) %>%
       config(displayModeBar = FALSE, responsive = TRUE, scrollZoom = FALSE)
+  })
+
+  output$overview_reco <- renderUI({
+    d <- whoop_all() %>% arrange(day)
+    if (!nrow(d)) return(NULL)
+
+    last <- tail(d, 1)
+    rec <- suppressWarnings(as.numeric(last$recovery_score))
+    slp <- suppressWarnings(as.numeric(last$sleep_performance))
+    strain <- suppressWarnings(as.numeric(last$strain))
+
+    msg <- if (!is.na(rec) && rec < 60) {
+      "Recovery is low today: keep swim easy and skip high-intensity lifting."
+    } else if (!is.na(slp) && slp < 85) {
+      "Sleep is below target: keep volume but reduce intensity 20–30% today."
+    } else if (!is.na(strain) && strain > 14) {
+      "Strain was high: prioritize technique/easy aerobic and recovery work today."
+    } else {
+      "Good readiness: complete the planned key session, then protect sleep timing tonight."
+    }
+
+    tags$div(class = "glass-card", style = "margin-bottom:12px;",
+      tags$div(class = "glass-label", "Today’s Recommendation"),
+      tags$div(style = "font-weight:600;", msg)
+    )
+  })
+
+  output$swim_reco <- renderUI({
+    s <- swim_all() %>% arrange(day)
+    if (!nrow(s)) return(NULL)
+    end <- max(s$day, na.rm = TRUE)
+    wk <- sum(s$yards[s$day >= end - days(6)], na.rm = TRUE)
+    msg <- if (wk < 4000) {
+      "Low recent swim volume: add one medium-long aerobic swim this week."
+    } else if (wk > 12000) {
+      "High weekly swim load: keep quality capped to one hard day and protect recovery."
+    } else {
+      "Swim load is in range: keep one quality day + one long day, with easy days truly easy."
+    }
+
+    tags$div(class = "glass-card", style = "margin-bottom:12px;",
+      tags$div(class = "glass-label", "Swim Next Action"),
+      tags$div(style = "font-weight:600;", msg)
+    )
+  })
+
+  output$snapshot_reco <- renderUI({
+    w <- whoop_all() %>% arrange(day)
+    if (!nrow(w)) return(NULL)
+
+    last7 <- tail(w, 7)
+    prev7 <- tail(head(w, nrow(w) - 7), 7)
+    if (!nrow(prev7)) return(NULL)
+
+    rec_delta <- round(mean(last7$recovery_score, na.rm = TRUE) - mean(prev7$recovery_score, na.rm = TRUE), 1)
+    slp_delta <- round(mean(last7$sleep_performance, na.rm = TRUE) - mean(prev7$sleep_performance, na.rm = TRUE), 1)
+
+    msg <- if (rec_delta < -5 || slp_delta < -3) {
+      glue("This week dipped (Recovery {rec_delta}, Sleep {slp_delta}). Reduce intensity for 48h and tighten sleep consistency.")
+    } else if (rec_delta > 3 && slp_delta > 0) {
+      glue("This week improved (Recovery +{rec_delta}, Sleep +{slp_delta}). Keep structure and progress one key session.")
+    } else {
+      glue("Week is stable (Recovery {rec_delta}, Sleep {slp_delta}). Hold volume steady and avoid adding extra hard days.")
+    }
+
+    tags$div(class = "glass-card", style = "margin-bottom:12px;",
+      tags$div(class = "glass-label", "This Week Adjustment"),
+      tags$div(style = "font-weight:600;", msg)
+    )
   })
 
   output$calendar_view <- renderUI({
