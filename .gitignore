@@ -1,0 +1,12 @@
+# local data
+/db/*.db
+/db/*.bak*
+/data/whoop/*.json
+
+# R/session artifacts
+.Rhistory
+.RData
+.Rproj.user/
+
+# OS
+.DS_Store
