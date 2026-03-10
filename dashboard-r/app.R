@@ -249,13 +249,8 @@ server <- function(input, output, session) {
     on.exit(dbDisconnect(con), add = TRUE)
 
     if (session_type %in% c("Swim", "Swim + Lift") && yards > 0) {
-      dbExecute(con, "UPDATE swim_daily SET distance_value=?, unit='yd', source='manual_calendar', raw_text=?, message_ts=datetime('now') WHERE day=?",
-                params = list(yards, paste(note_parts, collapse = " | "), day))
-      changed <- dbGetQuery(con, "SELECT changes() AS n")$n[[1]]
-      if (isTRUE(changed == 0)) {
-        dbExecute(con, "INSERT INTO swim_daily (day, distance_value, unit, source, raw_text, message_ts) VALUES (?, ?, 'yd', 'manual_calendar', ?, datetime('now'))",
-                  params = list(day, yards, paste(note_parts, collapse = " | ")))
-      }
+      dbExecute(con, "INSERT INTO swim_daily (day, distance_value, unit, source, raw_text, message_ts) VALUES (?, ?, 'yd', 'manual_calendar', ?, datetime('now'))",
+                params = list(day, yards, paste(note_parts, collapse = " | ")))
     }
 
     if (length(note_parts) > 0) {
