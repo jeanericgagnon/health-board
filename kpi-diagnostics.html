@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KPI Diagnostics · TSS</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root { --bg:#0b1020; --panel:#111936; --panel2:#162042; --text:#eaf0ff; --muted:#9fb0df; --border:#23305f; }
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system;background:radial-gradient(1200px 900px at 90% -10%, #223a74 0%, var(--bg) 45%);color:var(--text)}
+    .wrap{max-width:1400px;margin:0 auto;padding:24px}
+    .head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+    .title{font-size:26px;font-weight:800}.sub{font-size:13px;color:var(--muted)}
+    .tag{background:#123157;border:1px solid #29589b;color:#9dd1ff;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:700}
+    .grid{display:grid;gap:14px}.kpis{grid-template-columns:repeat(6,minmax(0,1fr));margin-bottom:14px}
+    .panel{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--border);border-radius:14px;padding:14px}
+    .kpi .l{font-size:12px;color:var(--muted)} .kpi .v{font-size:24px;font-weight:800;margin-top:6px}
+    .main{grid-template-columns:2fr 1fr;margin-bottom:14px}.half{grid-template-columns:1fr 1fr}
+    h3{margin:0 0 10px;font-size:14px} canvas{width:100%!important;height:280px!important}
+    table{width:100%;border-collapse:collapse;font-size:13px} th,td{padding:9px 8px;border-bottom:1px solid #223157;text-align:left} th{color:var(--muted)}
+    .pill{display:inline-block;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:700}.good{background:#143d2f;color:#8ef2ca}.warn{background:#4b2f12;color:#ffd39f}
+    .back{display:inline-block;margin-top:14px;color:#cfe1ff;text-decoration:none}
+    @media (max-width:1200px){.kpis{grid-template-columns:repeat(3,1fr)}.main,.half{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <div><div class="title">KPI Diagnostics</div><div class="sub">Design-first prototype · follower-growth optimization under $60/day cap</div></div>
+      <div class="tag">UI Prototype</div>
+    </div>
+
+    <section class="grid kpis">
+      <article class="panel kpi"><div class="l">Spend Today</div><div class="v">$41.20</div></article>
+      <article class="panel kpi"><div class="l">Net New Followers</div><div class="v">+62</div></article>
+      <article class="panel kpi"><div class="l">Blended CPF</div><div class="v">$0.66</div></article>
+      <article class="panel kpi"><div class="l">CTR (Link)</div><div class="v">2.94%</div></article>
+      <article class="panel kpi"><div class="l">CPC</div><div class="v">$0.42</div></article>
+      <article class="panel kpi"><div class="l">CPM</div><div class="v">$12.85</div></article>
+    </section>
+
+    <section class="grid main">
+      <article class="panel"><h3>Spend vs Followers Trend</h3><canvas id="c1"></canvas></article>
+      <article class="panel"><h3>Creative Mix Efficiency</h3><canvas id="c2"></canvas></article>
+    </section>
+
+    <section class="grid half">
+      <article class="panel">
+        <h3>Campaign Ranking</h3>
+        <table>
+          <thead><tr><th>Campaign</th><th>Spend</th><th>Followers</th><th>CPF</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Always-On IG Follows</td><td>$18.40</td><td>34</td><td>$0.54</td><td><span class="pill good">Scale</span></td></tr>
+            <tr><td>Social Proof Reels</td><td>$12.10</td><td>18</td><td>$0.67</td><td><span class="pill good">Hold</span></td></tr>
+            <tr><td>Founder POV Clips</td><td>$7.95</td><td>7</td><td>$1.14</td><td><span class="pill warn">Tune</span></td></tr>
+          </tbody>
+        </table>
+      </article>
+      <article class="panel">
+        <h3>Action IDs</h3>
+        <table>
+          <thead><tr><th>ID</th><th>Action</th><th>Class</th></tr></thead>
+          <tbody>
+            <tr><td>A-101</td><td>Shift budget to best CPF set</td><td>SAFE TO EXECUTE</td></tr>
+            <tr><td>A-102</td><td>Pause sub-1.2% CTR creatives</td><td>NEEDS APPROVAL</td></tr>
+            <tr><td>A-103</td><td>Launch one hook variant test</td><td>NEEDS APPROVAL</td></tr>
+          </tbody>
+        </table>
+      </article>
+    </section>
+
+    <a class="back" href="/">← Back to Health Board</a>
+  </div>
+
+  <script>
+    new Chart(document.getElementById('c1'), {type:'line', data:{labels:['D-13','D-12','D-11','D-10','D-9','D-8','D-7','D-6','D-5','D-4','D-3','D-2','D-1','Today'], datasets:[{label:'Spend',data:[38,42,39,44,41,43,47,45,46,43,42,40,44,41],borderColor:'#60a5fa',tension:.35},{label:'Followers',data:[44,51,46,53,48,50,58,56,60,55,54,49,57,62],borderColor:'#34d399',tension:.35}]}, options:{plugins:{legend:{labels:{color:'#d7e2ff'}}}, scales:{x:{ticks:{color:'#9fb0df'}},y:{ticks:{color:'#9fb0df'}}}, maintainAspectRatio:false}});
+    new Chart(document.getElementById('c2'), {type:'doughnut', data:{labels:['POV Reels','UGC','Carousels','Static'], datasets:[{data:[42,28,18,12],backgroundColor:['#60a5fa','#34d399','#a78bfa','#fbbf24']}]}, options:{plugins:{legend:{position:'bottom',labels:{color:'#d7e2ff'}}}, maintainAspectRatio:false}});
+  </script>
+</body>
+</html>
