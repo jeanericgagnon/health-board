@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 import csv
 import json
-from datetime import datetime
+from datetime import datetime, UTC
 from pathlib import Path
 
 WORKSPACE = Path('/Users/ericsysclaw/.openclaw/workspace')
 ADS_DIR = WORKSPACE / 'exports' / 'meta-ads'
-OUT = Path('/tmp/health-board/data/kpi_latest.json')
+OUT = (Path(__file__).resolve().parents[1] / 'data' / 'kpi_latest.json')
 
 
 def num(v):
@@ -78,7 +78,7 @@ def main():
     followers = read_followers_series()
 
     payload = {
-        'updated_at': datetime.utcnow().isoformat() + 'Z',
+        'updated_at': datetime.now(UTC).isoformat().replace('+00:00', 'Z'),
         'summary': {
             'total_spend': summary.get('total_spend'),
             'total_clicks': summary.get('total_clicks'),
