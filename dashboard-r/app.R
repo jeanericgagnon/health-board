@@ -148,27 +148,36 @@ ui <- page_navbar(
     .card, .card-body, .bslib-card { overflow: visible !important; }
     select, .form-select { width: 100% !important; max-width: 100% !important; }
     .shiny-input-container { margin-bottom: 10px; }
+    .shiny-options-group { margin-bottom: 8px; }
   ")),
 
   nav_panel(
     "Overview",
     card(
       card_header("Range + Overlay Controls"),
-      div(style = "margin-bottom:10px;",
+      style = "min-height: 300px;",
+      div(style = "margin-bottom:12px;",
         selectInput("overview_range", "Range", choices = c("1D","3D","7D","14D","30D","90D","ALL"), selected = "30D", selectize = FALSE)
       ),
-      div(style = "margin-bottom:6px;",
+      div(style = "margin-bottom:10px;",
         checkboxGroupInput("overlay_metrics", "Overlay lines (off by default)", choices = c("Recovery" = "recovery", "Sleep" = "sleep"), selected = character(0))
       ),
-      checkboxInput("show_mean", "Show strain mean", value = TRUE)
+      div(style = "margin-bottom:12px;",
+        checkboxInput("show_mean", "Show strain mean", value = TRUE)
+      )
     ),
-    p(class = "text-secondary", textOutput("overview_window")),
+    card(
+      style = "min-height: 70px;",
+      p(class = "text-secondary", style = "margin:0;", textOutput("overview_window"))
+    ),
     uiOutput("overview_hero"),
     uiOutput("overview_reco"),
     card(
       full_screen = TRUE,
       card_header("Daily Strain Bars + Overlays"),
-      plotlyOutput("trend_plot", height = "420px")
+      div(style = "overflow-x:auto;",
+        plotlyOutput("trend_plot", height = "520px")
+      )
     )
   ),
 
@@ -417,8 +426,12 @@ server <- function(input, output, session) {
     }
 
     ggplotly(p) %>%
-      layout(dragmode = FALSE) %>%
-      config(displayModeBar = FALSE, responsive = TRUE, scrollZoom = FALSE)
+      layout(
+        dragmode = "pan",
+        xaxis = list(rangeslider = list(visible = TRUE), fixedrange = FALSE),
+        yaxis = list(fixedrange = FALSE)
+      ) %>%
+      config(displayModeBar = TRUE, responsive = TRUE, scrollZoom = TRUE)
   })
 
   output$swim_week <- renderText({
