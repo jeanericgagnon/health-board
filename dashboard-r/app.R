@@ -191,22 +191,6 @@ ui <- page_navbar(
       uiOutput("calendar_view"),
       uiOutput("archive_view")
     ),
-    card(
-      card_header("Log What You Did"),
-      layout_columns(
-        dateInput("log_day", "Day", value = Sys.Date()),
-        selectInput("log_type", "Session", choices = c("Swim", "Lift", "Swim + Lift", "Recovery / Rest"), selected = "Swim"),
-        col_widths = c(6, 6)
-      ),
-      layout_columns(
-        numericInput("log_yards", "Swim yards", value = 0, min = 0, step = 25),
-        numericInput("log_minutes", "Swim minutes", value = 0, min = 0, step = 1),
-        col_widths = c(6, 6)
-      ),
-      textAreaInput("log_note", "Notes", value = "", placeholder = "e.g. Back day before swim"),
-      actionButton("log_save", "Save to DB", class = "btn btn-primary"),
-      tags$div(style = "margin-top:10px;", textOutput("log_status"))
-    )
   ),
 
   nav_panel(
@@ -244,7 +228,6 @@ server <- function(input, output, session) {
   whoop <- reactive(range_filter(whoop_all(), input$overview_range))
   swim <- reactive(range_filter(swim_all(), input$swim_range))
 
-  log_status <- reactiveVal("")
   show_archive <- reactiveVal(FALSE)
 
   observeEvent(input$toggle_archive, {
@@ -252,18 +235,9 @@ server <- function(input, output, session) {
     updateActionButton(session, "toggle_archive", label = if (isTRUE(show_archive())) "Hide Archive" else "Show Archive")
   })
 
-  observeEvent(input$log_save, {
-    req(input$log_day, input$log_type)
-
-    day <- as.character(input$log_day)
-    session_type <- input$log_type
-    yards <- suppressWarnings(as.numeric(input$log_yards))
-    mins <- suppressWarnings(as.numeric(input$log_minutes))
-    if (is.na(yards)) yards <- 0
-    if (is.na(mins)) mins <- 0
-
+  save_training_log <- function(day, session_type, yards, mins, note) {
     note_parts <- c()
-    if (nzchar(trimws(input$log_note))) note_parts <- c(note_parts, trimws(input$log_note))
+    if (nzchar(trimws(note))) note_parts <- c(note_parts, trimws(note))
     if (session_type %in% c("Lift", "Swim + Lift")) note_parts <- c(note_parts, "Lift session")
     if (session_type %in% c("Recovery / Rest")) note_parts <- c(note_parts, "Recovery / rest day")
     if (session_type %in% c("Swim", "Swim + Lift") && mins > 0) note_parts <- c(note_parts, glue("Swim: {round(yards)} yd in {round(mins)} min"))
@@ -285,18 +259,41 @@ server <- function(input, output, session) {
       dbExecute(con, "INSERT INTO notes_daily (day, category, note) VALUES (?, 'workout', ?)",
                 params = list(day, paste(note_parts, collapse = ". ")))
     }
-
-    log_status(glue("Saved {session_type} for {day}."))
-  })
-
-  output$log_status <- renderText(log_status())
+  }
 
   observeEvent(input$picked_day, {
     picked <- suppressWarnings(as.Date(input$picked_day))
-    if (!is.na(picked)) {
-      updateDateInput(session, "log_day", value = picked)
-      log_status(glue("Selected {picked}. Fill details and press Save to DB."))
-    }
+    if (is.na(picked)) return()
+
+    showModal(modalDialog(
+      title = glue("Log Training — {picked}"),
+      selectInput("modal_log_type", "Session", choices = c("Swim", "Lift", "Swim + Lift", "Recovery / Rest"), selected = "Swim"),
+      layout_columns(
+        numericInput("modal_log_yards", "Swim yards", value = 0, min = 0, step = 25),
+        numericInput("modal_log_minutes", "Swim minutes", value = 0, min = 0, step = 1),
+        col_widths = c(6, 6)
+      ),
+      textAreaInput("modal_log_note", "Notes", value = "", placeholder = "e.g. Back day before swim"),
+      footer = tagList(
+        modalButton("Cancel"),
+        actionButton("modal_log_save", "Save to DB", class = "btn btn-primary")
+      ),
+      easyClose = TRUE,
+      size = "m"
+    ))
+  })
+
+  observeEvent(input$modal_log_save, {
+    req(input$picked_day, input$modal_log_type)
+    day <- as.character(as.Date(input$picked_day))
+    session_type <- input$modal_log_type
+    yards <- suppressWarnings(as.numeric(input$modal_log_yards)); if (is.na(yards)) yards <- 0
+    mins <- suppressWarnings(as.numeric(input$modal_log_minutes)); if (is.na(mins)) mins <- 0
+    note <- if (is.null(input$modal_log_note)) "" else input$modal_log_note
+
+    save_training_log(day, session_type, yards, mins, note)
+    removeModal()
+    showNotification(glue("Saved {session_type} for {day}."), type = "message", duration = 3)
   })
 
   output$overview_window <- renderText({
