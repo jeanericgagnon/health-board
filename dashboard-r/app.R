@@ -253,12 +253,18 @@ server <- function(input, output, session) {
     updateActionButton(session, "toggle_archive", label = if (isTRUE(show_archive())) "Hide Archive" else "Show Archive")
   })
 
-  save_training_log <- function(day, session_type, yards, mins, note) {
+  save_training_log <- function(day, session_type, yards, mins, note, hike_miles = 0) {
     note_parts <- c()
     if (nzchar(trimws(note))) note_parts <- c(note_parts, trimws(note))
     if (session_type %in% c("Lift", "Swim + Lift")) note_parts <- c(note_parts, "Lift session")
     if (session_type %in% c("Recovery / Rest")) note_parts <- c(note_parts, "Recovery / rest day")
-    if (session_type %in% c("Hike", "Pickleball", "Spikeball") && mins > 0) note_parts <- c(note_parts, glue("{session_type}: {round(mins)} min"))
+    if (session_type == "Hike" && (mins > 0 || hike_miles > 0)) {
+      miles_txt <- if (hike_miles > 0) glue("{round(hike_miles,1)} mi") else ""
+      mins_txt <- if (mins > 0) glue("{round(mins)} min") else ""
+      sep <- if (nzchar(miles_txt) && nzchar(mins_txt)) " in " else ""
+      note_parts <- c(note_parts, glue("Hike: {miles_txt}{sep}{mins_txt}"))
+    }
+    if (session_type %in% c("Pickleball", "Spikeball") && mins > 0) note_parts <- c(note_parts, glue("{session_type}: {round(mins)} min"))
     if (session_type %in% c("Swim", "Swim + Lift") && mins > 0) note_parts <- c(note_parts, glue("Swim: {round(yards)} yd in {round(mins)} min"))
 
     con <- dbConnect(SQLite(), DB_PATH)
@@ -288,6 +294,11 @@ server <- function(input, output, session) {
       conditionalPanel(
         condition = "input.modal_log_type == 'Swim' || input.modal_log_type == 'Swim + Lift'",
         numericInput("modal_log_yards", "Swim yards", value = 0, min = 0, step = 25)
+      ),
+
+      conditionalPanel(
+        condition = "input.modal_log_type == 'Hike'",
+        numericInput("modal_hike_miles", "Hike miles", value = 0, min = 0, step = 0.1)
       ),
 
       numericInput("modal_log_minutes", "Duration (minutes)", value = 0, min = 0, step = 1),
@@ -321,6 +332,7 @@ server <- function(input, output, session) {
     session_type <- input$modal_log_type
     yards <- suppressWarnings(as.numeric(input$modal_log_yards)); if (is.na(yards)) yards <- 0
     mins <- suppressWarnings(as.numeric(input$modal_log_minutes)); if (is.na(mins)) mins <- 0
+    hike_miles <- suppressWarnings(as.numeric(input$modal_hike_miles)); if (is.na(hike_miles)) hike_miles <- 0
     note <- if (is.null(input$modal_log_note)) "" else input$modal_log_note
     lift_type <- if (is.null(input$modal_lift_type)) "" else trimws(input$modal_lift_type)
 
@@ -328,7 +340,7 @@ server <- function(input, output, session) {
       note <- paste(c(lift_type, note), collapse = if (nzchar(note)) ". " else "")
     }
 
-    save_training_log(day, session_type, yards, mins, note)
+    save_training_log(day, session_type, yards, mins, note, hike_miles)
     removeModal()
     showNotification(glue("Saved {session_type} for {day}."), type = "message", duration = 3)
   })
@@ -394,42 +406,67 @@ server <- function(input, output, session) {
 
   output$trend_plot <- renderPlotly({
     d <- whoop() %>%
-      filter(!is.na(strain)) %>%
+      filter(!is.na(day)) %>%
       mutate(
-        strain_norm = pmin(1, pmax(0, strain / 20)),
-        recovery_norm = pmin(1, pmax(0, recovery_score / 100)),
-        sleep_norm = pmin(1, pmax(0, sleep_performance / 100))
+        strain_norm = pmin(1, pmax(0, as.numeric(strain) / 20)),
+        recovery_norm = pmin(1, pmax(0, as.numeric(recovery_score) / 100)),
+        sleep_norm = pmin(1, pmax(0, as.numeric(sleep_performance) / 100))
       )
 
     validate(need(nrow(d) > 0, "No data in selected range"))
 
-    p <- ggplot(d, aes(x = day)) +
-      geom_col(aes(y = strain_norm), fill = "#f97316", alpha = 0.85, width = 0.8) +
-      scale_y_continuous(labels = percent_format(), limits = c(0, 1.05)) +
-      theme_minimal(base_size = 13) +
-      theme(legend.position = "bottom", axis.title = element_blank())
+    p <- plot_ly(d, x = ~day) %>%
+      add_bars(
+        y = ~strain_norm,
+        name = "Strain",
+        marker = list(color = "#f97316"),
+        opacity = 0.85,
+        hovertemplate = "Date: %{x}<br>Strain: %{customdata:.2f}<extra></extra>",
+        customdata = ~as.numeric(strain)
+      )
 
     if ("recovery" %in% input$overlay_metrics) {
-      p <- p + geom_line(aes(y = recovery_norm, color = "Recovery"), linewidth = 1.2)
+      p <- p %>% add_lines(
+        y = ~recovery_norm,
+        name = "Recovery",
+        line = list(color = "#22c55e", width = 3),
+        hovertemplate = "Date: %{x}<br>Recovery: %{customdata:.0f}%<extra></extra>",
+        customdata = ~as.numeric(recovery_score)
+      )
     }
+
     if ("sleep" %in% input$overlay_metrics) {
-      p <- p + geom_line(aes(y = sleep_norm, color = "Sleep"), linewidth = 1.2)
-    }
-    if (isTRUE(input$show_mean)) {
-      mean_strain <- mean(d$strain_norm, na.rm = TRUE)
-      p <- p + geom_hline(yintercept = mean_strain, linetype = "dashed", color = "#a78bfa", linewidth = 1) +
-        annotate("text", x = min(d$day, na.rm = TRUE), y = mean_strain + 0.03, label = glue("Mean strain: {round(mean_strain*20,1)}"), color = "#a78bfa", hjust = 0, size = 3.5)
-    }
-
-    if (length(input$overlay_metrics) > 0) {
-      p <- p + scale_color_manual(values = c(Recovery = "#22c55e", Sleep = "#38bdf8"))
+      p <- p %>% add_lines(
+        y = ~sleep_norm,
+        name = "Sleep",
+        line = list(color = "#38bdf8", width = 3),
+        hovertemplate = "Date: %{x}<br>Sleep: %{customdata:.0f}%<extra></extra>",
+        customdata = ~as.numeric(sleep_performance)
+      )
     }
 
-    ggplotly(p) %>%
+    mean_strain <- mean(d$strain_norm, na.rm = TRUE)
+
+    p %>%
       layout(
+        barmode = "overlay",
         dragmode = "pan",
-        xaxis = list(rangeslider = list(visible = TRUE), fixedrange = FALSE),
-        yaxis = list(fixedrange = FALSE)
+        xaxis = list(fixedrange = FALSE),
+        yaxis = list(fixedrange = FALSE, tickformat = ".0%", range = c(0, 1.05)),
+        legend = list(orientation = "h", x = 0, y = -0.15),
+        shapes = if (isTRUE(input$show_mean)) list(list(
+          type = "line",
+          xref = "paper", x0 = 0, x1 = 1,
+          y0 = mean_strain, y1 = mean_strain,
+          line = list(color = "#a78bfa", dash = "dash", width = 2)
+        )) else NULL,
+        annotations = if (isTRUE(input$show_mean)) list(list(
+          xref = "paper", x = 0.01,
+          y = mean_strain + 0.03,
+          text = glue("Mean strain: {round(mean_strain*20,1)}"),
+          showarrow = FALSE,
+          font = list(color = "#a78bfa", size = 12)
+        )) else NULL
       ) %>%
       config(displayModeBar = TRUE, responsive = TRUE, scrollZoom = TRUE)
   })
