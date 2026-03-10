@@ -134,12 +134,20 @@ ui <- page_navbar(
   title = "Health Dashboard v1",
   theme = bs_theme(version = 5, bg = "#0b1020", fg = "#dbeafe", primary = "#60a5fa"),
   header = tags$style(HTML("
+    :root {
+      --space-1: 8px;
+      --space-2: 12px;
+      --space-3: 16px;
+      --space-4: 24px;
+      --radius: 16px;
+    }
     .glass-card {
       background: linear-gradient(145deg, rgba(30,41,59,.75), rgba(15,23,42,.55));
       border: 1px solid rgba(148,163,184,.22);
-      border-radius: 16px;
-      padding: 14px 16px;
+      border-radius: var(--radius);
+      padding: var(--space-3);
       box-shadow: 0 10px 26px rgba(2,6,23,.35);
+      margin-bottom: var(--space-2);
     }
     .glass-label { color:#93c5fd; font-size:.82rem; text-transform:uppercase; letter-spacing:.08em; }
     .glass-value { font-size:2rem; font-weight:700; line-height:1.1; margin:6px 0; }
@@ -147,15 +155,17 @@ ui <- page_navbar(
     .chip { background: rgba(148,163,184,.18); border:1px solid rgba(148,163,184,.3); border-radius:999px; padding:4px 10px; font-size:.8rem; }
     .card, .card-body, .bslib-card { overflow: visible !important; }
     select, .form-select { width: 100% !important; max-width: 100% !important; }
-    .shiny-input-container { margin-bottom: 10px; }
-    .shiny-options-group { margin-bottom: 8px; }
+    .shiny-input-container { margin-bottom: var(--space-2); }
+    .shiny-options-group { margin-bottom: var(--space-1); }
+    .controls-card { min-height: 320px; }
+    .muted-card { min-height: 72px; }
   ")),
 
   nav_panel(
     "Overview",
     card(
+      class = "controls-card",
       card_header("Range + Overlay Controls"),
-      style = "min-height: 300px;",
       div(style = "margin-bottom:12px;",
         selectInput("overview_range", "Range", choices = c("1D","3D","7D","14D","30D","90D","ALL"), selected = "30D", selectize = FALSE)
       ),
@@ -167,7 +177,7 @@ ui <- page_navbar(
       )
     ),
     card(
-      style = "min-height: 70px;",
+      class = "muted-card",
       p(class = "text-secondary", style = "margin:0;", textOutput("overview_window"))
     ),
     uiOutput("overview_hero"),
@@ -193,7 +203,9 @@ ui <- page_navbar(
     card(
       full_screen = TRUE,
       card_header("Catalina → Long Beach"),
-      plotlyOutput("swim_map", height = "430px")
+      div(style = "overflow: visible; padding-bottom: 16px;",
+        plotlyOutput("swim_map", height = "82vh")
+      )
     )
   ),
 
