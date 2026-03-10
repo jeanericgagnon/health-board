@@ -93,6 +93,11 @@
 
     const fmtMoney = (n) => '$' + Number(n || 0).toFixed(2);
     const fmtNum = (n) => Number(n || 0).toLocaleString();
+    const adsUrl = (act, campaignId) => {
+      if (!campaignId) return null;
+      const cleanAct = (act || '').replace(/^act_/, '');
+      return `https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=${encodeURIComponent(cleanAct)}&selected_campaign_ids=${encodeURIComponent(campaignId)}`;
+    };
 
     fetch('/data/kpi_latest.json?ts=' + Date.now())
       .then(r => r.json())
@@ -108,7 +113,11 @@
         const campaigns = d.campaigns || d.top_campaigns || [];
         const rows = campaigns.map((c, i) => {
           const status = (c.cpc != null && c.cpc < 0.5) ? '<span class="pill good">Efficient</span>' : '<span class="pill warn">Watch</span>';
-          return `<tr class="clickable" data-cidx="${i}"><td>${c.campaign}</td><td>${fmtMoney(c.spend)}</td><td>${fmtNum(c.clicks)}</td><td>${c.cpc == null ? 'N/A' : fmtMoney(c.cpc)}</td><td>${status}</td></tr>`;
+          const openUrl = adsUrl(s.ad_account_id, c.campaign_id);
+          const campaignCell = openUrl
+            ? `${c.campaign} <a href="${openUrl}" target="_blank" rel="noopener" style="color:#9ec5ff;font-size:11px;margin-left:8px">open ads ↗</a>`
+            : c.campaign;
+          return `<tr class="clickable" data-cidx="${i}"><td>${campaignCell}</td><td>${fmtMoney(c.spend)}</td><td>${fmtNum(c.clicks)}</td><td>${c.cpc == null ? 'N/A' : fmtMoney(c.cpc)}</td><td>${status}</td></tr>`;
         }).join('');
         document.getElementById('campaignRows').innerHTML = rows || '<tr><td colspan="5">No campaign data yet</td></tr>';
 

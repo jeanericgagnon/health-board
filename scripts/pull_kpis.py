@@ -23,6 +23,17 @@ def read_summary():
     return json.loads(p.read_text())
 
 
+def read_meta_config():
+    p = ADS_DIR / 'config.json'
+    if not p.exists():
+        return {}
+    try:
+        cfg = json.loads(p.read_text())
+        return {'ad_account_id': cfg.get('ad_account_id')}
+    except Exception:
+        return {}
+
+
 def read_insights_rows():
     p = ADS_DIR / 'insights_latest.csv'
     if not p.exists():
@@ -38,9 +49,13 @@ def aggregate_hierarchy(rows):
         c = (r.get('campaign_name') or 'Unknown Campaign').strip() or 'Unknown Campaign'
         s = (r.get('adset_name') or 'Unknown Ad Set').strip() or 'Unknown Ad Set'
         a = (r.get('ad_name') or 'Unknown Ad').strip() or 'Unknown Ad'
+        cid = (r.get('campaign_id') or '').strip()
+        sid = (r.get('adset_id') or '').strip()
+        aid = (r.get('ad_id') or '').strip()
 
         cobj = campaigns.setdefault(c, {
             'campaign': c,
+            'campaign_id': cid,
             'spend': 0.0,
             'clicks': 0.0,
             'impressions': 0.0,
@@ -53,6 +68,7 @@ def aggregate_hierarchy(rows):
         })
         sobj = cobj['adsets'].setdefault(s, {
             'adset': s,
+            'adset_id': sid,
             'spend': 0.0,
             'clicks': 0.0,
             'impressions': 0.0,
@@ -65,6 +81,7 @@ def aggregate_hierarchy(rows):
         })
         aobj = sobj['ads'].setdefault(a, {
             'ad': a,
+            'ad_id': aid,
             'spend': 0.0,
             'clicks': 0.0,
             'impressions': 0.0,
@@ -152,6 +169,7 @@ def build_spend_series(rows, limit=30):
 
 def main():
     summary = read_summary()
+    meta = read_meta_config()
     rows = read_insights_rows()
     campaigns = aggregate_hierarchy(rows)
     followers = read_followers_series()
@@ -160,6 +178,7 @@ def main():
     payload = {
         'updated_at': datetime.now(UTC).isoformat().replace('+00:00', 'Z'),
         'summary': {
+            'ad_account_id': meta.get('ad_account_id'),
             'total_spend': summary.get('total_spend'),
             'total_clicks': summary.get('total_clicks'),
             'total_impressions': summary.get('total_impressions'),
