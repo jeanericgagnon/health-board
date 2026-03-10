@@ -187,6 +187,22 @@ ui <- page_navbar(
       card_header("8-Week Swim + Lift Calendar (starts Mar 9, 2026)"),
       p(class = "text-secondary", "Thursday/Friday are merged: one day is Lift Day 3 + easy swim, the other is recovery. Swap as needed."),
       uiOutput("calendar_view")
+    ),
+    card(
+      card_header("Log What You Did"),
+      layout_columns(
+        dateInput("log_day", "Day", value = Sys.Date()),
+        selectInput("log_type", "Session", choices = c("Swim", "Lift", "Swim + Lift", "Recovery / Rest"), selected = "Swim"),
+        col_widths = c(6, 6)
+      ),
+      layout_columns(
+        numericInput("log_yards", "Swim yards", value = 0, min = 0, step = 25),
+        numericInput("log_minutes", "Swim minutes", value = 0, min = 0, step = 1),
+        col_widths = c(6, 6)
+      ),
+      textAreaInput("log_note", "Notes", value = "", placeholder = "e.g. Back day before swim"),
+      actionButton("log_save", "Save to DB", class = "btn btn-primary"),
+      tags$div(style = "margin-top:10px;", textOutput("log_status"))
     )
   ),
 
@@ -224,6 +240,55 @@ server <- function(input, output, session) {
 
   whoop <- reactive(range_filter(whoop_all(), input$overview_range))
   swim <- reactive(range_filter(swim_all(), input$swim_range))
+
+  log_status <- reactiveVal("")
+
+  observeEvent(input$log_save, {
+    req(input$log_day, input$log_type)
+
+    day <- as.character(input$log_day)
+    session_type <- input$log_type
+    yards <- suppressWarnings(as.numeric(input$log_yards))
+    mins <- suppressWarnings(as.numeric(input$log_minutes))
+    if (is.na(yards)) yards <- 0
+    if (is.na(mins)) mins <- 0
+
+    note_parts <- c()
+    if (nzchar(trimws(input$log_note))) note_parts <- c(note_parts, trimws(input$log_note))
+    if (session_type %in% c("Lift", "Swim + Lift")) note_parts <- c(note_parts, "Lift session")
+    if (session_type %in% c("Recovery / Rest")) note_parts <- c(note_parts, "Recovery / rest day")
+    if (session_type %in% c("Swim", "Swim + Lift") && mins > 0) note_parts <- c(note_parts, glue("Swim: {round(yards)} yd in {round(mins)} min"))
+
+    con <- dbConnect(SQLite(), DB_PATH)
+    on.exit(dbDisconnect(con), add = TRUE)
+
+    if (session_type %in% c("Swim", "Swim + Lift") && yards > 0) {
+      dbExecute(con, "UPDATE swim_daily SET distance_value=?, unit='yd', source='manual_calendar', raw_text=?, message_ts=datetime('now') WHERE day=?",
+                params = list(yards, paste(note_parts, collapse = " | "), day))
+      changed <- dbGetQuery(con, "SELECT changes() AS n")$n[[1]]
+      if (isTRUE(changed == 0)) {
+        dbExecute(con, "INSERT INTO swim_daily (day, distance_value, unit, source, raw_text, message_ts) VALUES (?, ?, 'yd', 'manual_calendar', ?, datetime('now'))",
+                  params = list(day, yards, paste(note_parts, collapse = " | ")))
+      }
+    }
+
+    if (length(note_parts) > 0) {
+      dbExecute(con, "INSERT INTO notes_daily (day, category, note) VALUES (?, 'workout', ?)",
+                params = list(day, paste(note_parts, collapse = ". ")))
+    }
+
+    log_status(glue("Saved {session_type} for {day}."))
+  })
+
+  output$log_status <- renderText(log_status())
+
+  observeEvent(input$picked_day, {
+    picked <- suppressWarnings(as.Date(input$picked_day))
+    if (!is.na(picked)) {
+      updateDateInput(session, "log_day", value = picked)
+      log_status(glue("Selected {picked}. Fill details and press Save to DB."))
+    }
+  })
 
   output$overview_window <- renderText({
     d <- whoop()
@@ -484,7 +549,12 @@ server <- function(input, output, session) {
 
             tags$div(
               style = row_style,
-              tags$div(style = title_style, glue("{marker}{format(chunk$date[i], '%b %d')} (W{chunk$week[i]}) • {chunk$day_name[i]}")),
+              tags$a(
+                href = "#",
+                style = paste0(title_style, " color:#dbeafe; text-decoration:none;"),
+                onclick = sprintf("Shiny.setInputValue('picked_day','%s',{priority:'event'}); return false;", as.character(chunk$date[i])),
+                glue("{marker}{format(chunk$date[i], '%b %d')} (W{chunk$week[i]}) • {chunk$day_name[i]}")
+              ),
               tags$div(style = plan_style, chunk$plan[i])
             )
           })
