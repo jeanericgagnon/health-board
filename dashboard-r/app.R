@@ -159,6 +159,9 @@ ui <- page_navbar(
     .shiny-options-group { margin-bottom: var(--space-1); }
     .controls-card { min-height: 320px; }
     .muted-card { min-height: 72px; }
+    .section-stack { display:flex; flex-direction:column; gap: var(--space-2); }
+    .compact-note { opacity:.88; font-size:.9rem; margin:0; }
+    .table-wrap { overflow-x:auto; -webkit-overflow-scrolling: touch; }
   ")),
 
   nav_panel(
@@ -180,8 +183,10 @@ ui <- page_navbar(
       class = "muted-card",
       p(class = "text-secondary", style = "margin:0;", textOutput("overview_window"))
     ),
-    uiOutput("overview_hero"),
-    uiOutput("overview_reco"),
+    div(class = "section-stack",
+      uiOutput("overview_hero"),
+      uiOutput("overview_reco")
+    ),
     card(
       full_screen = TRUE,
       card_header("Daily Strain Bars + Overlays"),
@@ -194,12 +199,15 @@ ui <- page_navbar(
   nav_panel(
     "Swim Progress",
     card(
+      class = "controls-card",
       card_header("Range"),
-      selectInput("swim_range", NULL, choices = c("1D","7D","14D","30D"), selected = "30D", selectize = FALSE)
+      selectInput("swim_range", NULL, choices = c("1D","7D","14D","30D"), selected = "30D", selectize = FALSE),
+      p(class = "text-secondary compact-note", textOutput("swim_window"))
     ),
-    p(class = "text-secondary", textOutput("swim_window")),
-    uiOutput("swim_hero"),
-    uiOutput("swim_reco"),
+    div(class = "section-stack",
+      uiOutput("swim_hero"),
+      uiOutput("swim_reco")
+    ),
     card(
       full_screen = TRUE,
       card_header("Catalina → Long Beach"),
@@ -708,6 +716,7 @@ server <- function(input, output, session) {
       class = "glass-card",
       style = "padding: 10px 12px;",
       tags$div(style = "font-weight:700; color:#bfdbfe; margin-bottom:8px;", "7-Day Snapshot (single-shot view)"),
+      tags$div(class = "table-wrap",
       tags$table(
         style = "width:100%; border-collapse:collapse; font-size:0.82rem; line-height:1.2;",
         tags$thead(
@@ -732,6 +741,7 @@ server <- function(input, output, session) {
             )
           })
         )
+      )
       )
     )
   })
