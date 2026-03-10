@@ -7,6 +7,9 @@ mkdir -p "$LOG_DIR"
 
 cd "$REPO_DIR"
 
+# Best-effort follower scrape fallback (Blastup) to keep blended CPF current.
+python3 "$REPO_DIR/scripts/fetch_followers_blastup.py" >> "$LOG_DIR/follower-scrape.log" 2>&1 || true
+
 python3 "$REPO_DIR/scripts/pull_kpis.py"
 
 if ! git diff --quiet -- data/kpi_latest.json; then
