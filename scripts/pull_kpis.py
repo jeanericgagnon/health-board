@@ -140,7 +140,7 @@ def aggregate_hierarchy(rows):
     return campaign_list
 
 
-def read_followers_series(limit=30):
+def read_followers_series(limit=120):
     p = ADS_DIR / 'followers_daily.csv'
     if not p.exists():
         return []
@@ -156,6 +156,17 @@ def read_followers_series(limit=30):
     return rows[-limit:]
 
 
+def follower_daily_series(followers_rows):
+    out = []
+    prev = None
+    for r in followers_rows:
+        cur = num(r.get('followers_total'))
+        daily = None if prev is None else cur - prev
+        out.append({'date': r['date'], 'followers_per_day': daily, 'followers_total': cur})
+        prev = cur
+    return out
+
+
 def build_spend_series(rows, limit=30):
     by_date = {}
     for r in rows:
@@ -167,12 +178,37 @@ def build_spend_series(rows, limit=30):
     return out[-limit:]
 
 
+def build_insights(summary, campaigns, followers_daily):
+    insights = []
+    if campaigns:
+        best = sorted([c for c in campaigns if c.get('cpc') is not None], key=lambda x: x['cpc'])[0]
+        worst = sorted([c for c in campaigns if c.get('cpc') is not None], key=lambda x: x['cpc'], reverse=True)[0]
+        insights.append({'type': 'working', 'text': f"{best['campaign']} is most efficient (CPC ${best['cpc']:.2f}, CTR {best['ctr']:.2f}%)."})
+        insights.append({'type': 'not_working', 'text': f"{worst['campaign']} is least efficient (CPC ${worst['cpc']:.2f}); consider reducing spend."})
+
+    cpf = summary.get('blended_cost_per_follow')
+    if cpf is None:
+        insights.append({'type': 'data_gap', 'text': 'Follower attribution is still limited; blended CPF will improve as daily follower history grows.'})
+
+    valid = [x for x in followers_daily if x.get('followers_per_day') is not None]
+    if valid:
+        latest = valid[-1]['followers_per_day']
+        if latest is not None and latest < 0:
+            insights.append({'type': 'alert', 'text': f'Latest daily followers is negative ({latest:.0f}); review creative fatigue and audience overlap.'})
+        elif latest is not None:
+            insights.append({'type': 'working', 'text': f'Latest daily followers: {latest:.0f}. Keep top campaign structure stable while testing one variable at a time.'})
+
+    insights.append({'type': 'action', 'text': 'Keep budget under $60/day; shift budget from worst CPC campaign to best CPC campaign in small increments.'})
+    return insights[:6]
+
+
 def main():
     summary = read_summary()
     meta = read_meta_config()
     rows = read_insights_rows()
     campaigns = aggregate_hierarchy(rows)
     followers = read_followers_series()
+    followers_daily = follower_daily_series(followers)
     spend_series = build_spend_series(rows)
 
     payload = {
@@ -190,7 +226,9 @@ def main():
         'campaigns': campaigns,
         'top_campaigns': campaigns[:10],
         'followers_series': followers,
+        'followers_daily_series': followers_daily,
         'spend_series': spend_series,
+        'insights': build_insights(summary, campaigns, followers_daily),
     }
 
     OUT.parent.mkdir(parents=True, exist_ok=True)

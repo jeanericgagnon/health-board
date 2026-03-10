@@ -16,6 +16,9 @@
     .panel{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--border);border-radius:14px;padding:14px}
     .kpi .l{font-size:12px;color:var(--muted)} .kpi .v{font-size:24px;font-weight:800;margin-top:6px}
     .main{grid-template-columns:2fr 1fr;margin-bottom:14px}.half{grid-template-columns:1fr 1fr}
+    .controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+    .btnf{background:#1a2a54;border:1px solid #2b4f92;color:#dbeafe;padding:6px 10px;border-radius:8px;font-size:12px;cursor:pointer}
+    .btnf.active{background:#275ec2}
     h3{margin:0 0 10px;font-size:14px} canvas{width:100%!important;height:280px!important}
     table{width:100%;border-collapse:collapse;font-size:13px} th,td{padding:9px 8px;border-bottom:1px solid #223157;text-align:left} th{color:var(--muted)}
     tr.clickable{cursor:pointer} tr.clickable:hover{background:#162750}
@@ -41,7 +44,17 @@
     </section>
 
     <section class="grid main">
-      <article class="panel"><h3>Spend vs Followers Trend</h3><canvas id="c1"></canvas></article>
+      <article class="panel">
+        <h3>Spend vs Followers/Day</h3>
+        <div class="controls" id="rangeControls">
+          <button class="btnf active" data-range="7">7D</button>
+          <button class="btnf" data-range="14">14D</button>
+          <button class="btnf" data-range="30">30D</button>
+          <button class="btnf" data-range="60">60D</button>
+          <button class="btnf" data-range="90">90D</button>
+        </div>
+        <canvas id="c1"></canvas>
+      </article>
       <article class="panel"><h3>Creative Mix Efficiency</h3><canvas id="c2"></canvas></article>
     </section>
 
@@ -66,6 +79,14 @@
       </article>
     </section>
 
+    <section class="panel" style="margin-top:14px">
+      <h3>Insights (auto-generated each pull)</h3>
+      <table>
+        <thead><tr><th>Type</th><th>Insight</th></tr></thead>
+        <tbody id="insightRows"><tr><td colspan="2">Loading insights…</td></tr></tbody>
+      </table>
+    </section>
+
     <a class="back" href="/">← Back to Health Board</a>
   </div>
 
@@ -76,7 +97,7 @@
         labels:['D-6','D-5','D-4','D-3','D-2','D-1','Today'],
         datasets:[
           {label:'Spend ($)',data:[0,0,0,0,0,0,0],borderColor:'#60a5fa',tension:.35,yAxisID:'y'},
-          {label:'Followers',data:[0,0,0,0,0,0,0],borderColor:'#34d399',tension:.35,yAxisID:'y1'}
+          {label:'Followers/Day',data:[0,0,0,0,0,0,0],borderColor:'#34d399',tension:.35,yAxisID:'y1'}
         ]
       },
       options:{
@@ -97,6 +118,20 @@
       if (!campaignId) return null;
       const cleanAct = (act || '').replace(/^act_/, '');
       return `https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=${encodeURIComponent(cleanAct)}&selected_campaign_ids=${encodeURIComponent(campaignId)}`;
+    };
+
+    let spendSeriesAll = [];
+    let followDailyAll = [];
+
+    const renderTrend = (days) => {
+      const sMap = Object.fromEntries(spendSeriesAll.map(x => [x.date, Number(x.spend || 0)]));
+      const fMap = Object.fromEntries(followDailyAll.map(x => [x.date, x.followers_per_day == null ? null : Number(x.followers_per_day)]));
+      const dates = Array.from(new Set([...Object.keys(sMap), ...Object.keys(fMap)])).sort();
+      const sliced = dates.slice(Math.max(0, dates.length - days));
+      trend.data.labels = sliced.map(x => x.slice(5));
+      trend.data.datasets[0].data = sliced.map(dt => sMap[dt] ?? 0);
+      trend.data.datasets[1].data = sliced.map(dt => fMap[dt] ?? null);
+      trend.update();
     };
 
     fetch('/data/kpi_latest.json?ts=' + Date.now())
@@ -142,26 +177,32 @@
           tr.addEventListener('click', () => renderDrill(Number(tr.dataset.cidx || 0)));
         });
 
-        const followers = d.followers_series || [];
-        const spends = d.spend_series || [];
-        const spendMap = Object.fromEntries(spends.map(x => [x.date, Number(x.spend || 0)]));
-        if (followers.length || spends.length) {
-          const dates = Array.from(new Set([...followers.map(x => x.date), ...spends.map(x => x.date)])).sort();
-          trend.data.labels = dates.map(x => x.slice(5));
-          trend.data.datasets[0].data = dates.map(dt => spendMap[dt] ?? 0);
-          const followerMap = Object.fromEntries(followers.map(x => [x.date, Number(x.followers_total || 0)]));
-          trend.data.datasets[1].data = dates.map(dt => followerMap[dt] ?? null);
-          trend.update();
-        }
+        spendSeriesAll = d.spend_series || [];
+        followDailyAll = d.followers_daily_series || [];
+        renderTrend(7);
+
+        document.querySelectorAll('#rangeControls .btnf').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('#rangeControls .btnf').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderTrend(Number(btn.dataset.range || 7));
+          });
+        });
 
         if (campaigns.length) {
           mix.data.labels = campaigns.slice(0, 6).map(x => x.campaign);
           mix.data.datasets[0].data = campaigns.slice(0, 6).map(x => x.spend);
           mix.update();
         }
+
+        const insights = d.insights || [];
+        document.getElementById('insightRows').innerHTML = insights.length
+          ? insights.map(i => `<tr><td>${i.type}</td><td>${i.text}</td></tr>`).join('')
+          : '<tr><td colspan="2">No insights yet</td></tr>';
       })
       .catch(() => {
         document.getElementById('campaignRows').innerHTML = '<tr><td colspan="5">Waiting for data pipeline…</td></tr>';
+        document.getElementById('insightRows').innerHTML = '<tr><td colspan="2">Waiting for insights…</td></tr>';
       });
   </script>
 </body>
