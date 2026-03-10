@@ -149,10 +149,10 @@ ui <- page_navbar(
       box-shadow: 0 10px 26px rgba(2,6,23,.35);
       margin-bottom: var(--space-2);
     }
-    .glass-label { color:#93c5fd; font-size:.82rem; text-transform:uppercase; letter-spacing:.08em; }
-    .glass-value { font-size:2rem; font-weight:700; line-height:1.1; margin:6px 0; }
+    .glass-label { color:#93c5fd; font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; font-weight:600; }
+    .glass-value { font-size:1.85rem; font-weight:700; line-height:1.1; margin:6px 0; }
     .glass-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
-    .chip { background: rgba(148,163,184,.18); border:1px solid rgba(148,163,184,.3); border-radius:999px; padding:4px 10px; font-size:.8rem; }
+    .chip { background: rgba(148,163,184,.14); border:1px solid rgba(148,163,184,.28); border-radius:999px; padding:3px 9px; font-size:.78rem; }
     .card, .card-body, .bslib-card { overflow: visible !important; }
     select, .form-select { width: 100% !important; max-width: 100% !important; }
     .shiny-input-container { margin-bottom: var(--space-2); }
@@ -162,6 +162,14 @@ ui <- page_navbar(
     .section-stack { display:flex; flex-direction:column; gap: var(--space-2); }
     .compact-note { opacity:.88; font-size:.9rem; margin:0; }
     .table-wrap { overflow-x:auto; -webkit-overflow-scrolling: touch; }
+    .navbar { border-bottom: 1px solid rgba(148,163,184,.2); }
+    .card .card-header { font-weight: 650; letter-spacing:.01em; }
+    @media (max-width: 640px) {
+      .controls-card { min-height: auto; }
+      .glass-card { padding: 12px; }
+      .glass-value { font-size: 1.6rem; }
+      .card .card-header { font-size: .95rem; }
+    }
   ")),
 
   nav_panel(
@@ -191,7 +199,7 @@ ui <- page_navbar(
       full_screen = TRUE,
       card_header("Daily Strain Bars + Overlays"),
       div(style = "overflow-x:auto;",
-        plotlyOutput("trend_plot", height = "520px")
+        plotlyOutput("trend_plot", height = "58vh")
       )
     )
   ),
@@ -212,7 +220,7 @@ ui <- page_navbar(
       full_screen = TRUE,
       card_header("Catalina → Long Beach"),
       div(style = "overflow: visible; padding-bottom: 16px;",
-        plotlyOutput("swim_map", height = "82vh")
+        plotlyOutput("swim_map", height = "76vh")
       )
     )
   ),
