@@ -145,18 +145,22 @@ ui <- page_navbar(
     .glass-value { font-size:2rem; font-weight:700; line-height:1.1; margin:6px 0; }
     .glass-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
     .chip { background: rgba(148,163,184,.18); border:1px solid rgba(148,163,184,.3); border-radius:999px; padding:4px 10px; font-size:.8rem; }
+    .card, .card-body, .bslib-card { overflow: visible !important; }
+    select, .form-select { width: 100% !important; max-width: 100% !important; }
+    .shiny-input-container { margin-bottom: 10px; }
   ")),
 
   nav_panel(
     "Overview",
     card(
       card_header("Range + Overlay Controls"),
-      layout_columns(
-        selectInput("overview_range", "Range", choices = c("1D","3D","7D","14D","30D","90D","ALL"), selected = "30D", selectize = FALSE),
-        checkboxGroupInput("overlay_metrics", "Overlay lines (off by default)", choices = c("Recovery" = "recovery", "Sleep" = "sleep"), selected = character(0)),
-        checkboxInput("show_mean", "Show strain mean", value = TRUE),
-        col_widths = c(5, 5, 2)
-      )
+      div(style = "margin-bottom:10px;",
+        selectInput("overview_range", "Range", choices = c("1D","3D","7D","14D","30D","90D","ALL"), selected = "30D", selectize = FALSE)
+      ),
+      div(style = "margin-bottom:6px;",
+        checkboxGroupInput("overlay_metrics", "Overlay lines (off by default)", choices = c("Recovery" = "recovery", "Sleep" = "sleep"), selected = character(0))
+      ),
+      checkboxInput("show_mean", "Show strain mean", value = TRUE)
     ),
     p(class = "text-secondary", textOutput("overview_window")),
     uiOutput("overview_hero"),
