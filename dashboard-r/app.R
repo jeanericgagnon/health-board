@@ -118,6 +118,7 @@ range_filter <- function(df, preset) {
   end <- max(df$day, na.rm = TRUE)
   start <- switch(
     preset,
+    "1D" = end,
     "3D" = end - days(2),
     "7D" = end - days(6),
     "14D" = end - days(13),
@@ -151,7 +152,7 @@ ui <- page_navbar(
     card(
       card_header("Range + Overlay Controls"),
       layout_columns(
-        selectInput("overview_range", "Range", choices = c("3D","7D","14D","30D","90D","ALL"), selected = "30D"),
+        selectInput("overview_range", "Range", choices = c("1D","3D","7D","14D","30D","90D","ALL"), selected = "30D"),
         checkboxGroupInput("overlay_metrics", "Overlay lines (off by default)", choices = c("Recovery" = "recovery", "Sleep" = "sleep"), selected = character(0)),
         checkboxInput("show_mean", "Show strain mean", value = TRUE),
         col_widths = c(5, 5, 2)
@@ -161,6 +162,7 @@ ui <- page_navbar(
     uiOutput("overview_hero"),
     uiOutput("overview_reco"),
     card(
+      full_screen = TRUE,
       card_header("Daily Strain Bars + Overlays"),
       plotlyOutput("trend_plot", height = "420px")
     )
@@ -170,12 +172,13 @@ ui <- page_navbar(
     "Swim Progress",
     card(
       card_header("Range"),
-      selectInput("swim_range", NULL, choices = c("3D","7D","14D","30D","90D","ALL"), selected = "30D")
+      selectInput("swim_range", NULL, choices = c("1D","7D","14D","30D"), selected = "30D")
     ),
     p(class = "text-secondary", textOutput("swim_window")),
     uiOutput("swim_hero"),
     uiOutput("swim_reco"),
     card(
+      full_screen = TRUE,
       card_header("Catalina → Long Beach"),
       plotlyOutput("swim_map", height = "430px")
     )
