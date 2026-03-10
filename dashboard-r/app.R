@@ -186,6 +186,8 @@ ui <- page_navbar(
     card(
       card_header("8-Week Swim + Lift Calendar (starts Mar 9, 2026)"),
       p(class = "text-secondary", "Thursday/Friday are merged: one day is Lift Day 3 + easy swim, the other is recovery. Swap as needed."),
+      actionButton("add_workout", "Add Workout", class = "btn btn-primary btn-sm"),
+      tags$span(" "),
       actionButton("toggle_archive", "Show Archive", class = "btn btn-outline-light btn-sm"),
       tags$div(style = "height:8px;"),
       uiOutput("calendar_view"),
@@ -240,6 +242,7 @@ server <- function(input, output, session) {
     if (nzchar(trimws(note))) note_parts <- c(note_parts, trimws(note))
     if (session_type %in% c("Lift", "Swim + Lift")) note_parts <- c(note_parts, "Lift session")
     if (session_type %in% c("Recovery / Rest")) note_parts <- c(note_parts, "Recovery / rest day")
+    if (session_type %in% c("Hike", "Pickleball", "Spikeball") && mins > 0) note_parts <- c(note_parts, glue("{session_type}: {round(mins)} min"))
     if (session_type %in% c("Swim", "Swim + Lift") && mins > 0) note_parts <- c(note_parts, glue("Swim: {round(yards)} yd in {round(mins)} min"))
 
     con <- dbConnect(SQLite(), DB_PATH)
@@ -261,19 +264,23 @@ server <- function(input, output, session) {
     }
   }
 
-  observeEvent(input$picked_day, {
-    picked <- suppressWarnings(as.Date(input$picked_day))
-    if (is.na(picked)) return()
-
+  open_log_modal <- function(day_value) {
     showModal(modalDialog(
-      title = glue("Log Training — {picked}"),
-      selectInput("modal_log_type", "Session", choices = c("Swim", "Lift", "Swim + Lift", "Recovery / Rest"), selected = "Swim"),
-      layout_columns(
-        numericInput("modal_log_yards", "Swim yards", value = 0, min = 0, step = 25),
-        numericInput("modal_log_minutes", "Swim minutes", value = 0, min = 0, step = 1),
-        col_widths = c(6, 6)
+      title = glue("Add Workout — {day_value}"),
+      selectInput("modal_log_type", "Session", choices = c("Swim", "Lift", "Swim + Lift", "Hike", "Pickleball", "Spikeball", "Recovery / Rest"), selected = "Swim"),
+
+      conditionalPanel(
+        condition = "input.modal_log_type == 'Lift' || input.modal_log_type == 'Swim + Lift'",
+        textInput("modal_lift_type", "Lift type", value = "", placeholder = "e.g. Back day")
       ),
-      textAreaInput("modal_log_note", "Notes", value = "", placeholder = "e.g. Back day before swim"),
+
+      conditionalPanel(
+        condition = "input.modal_log_type == 'Swim' || input.modal_log_type == 'Swim + Lift'",
+        numericInput("modal_log_yards", "Swim yards", value = 0, min = 0, step = 25)
+      ),
+
+      numericInput("modal_log_minutes", "Duration (minutes)", value = 0, min = 0, step = 1),
+      textAreaInput("modal_log_note", "Notes", value = "", placeholder = "Optional notes"),
       footer = tagList(
         modalButton("Cancel"),
         actionButton("modal_log_save", "Save to DB", class = "btn btn-primary")
@@ -281,15 +288,34 @@ server <- function(input, output, session) {
       easyClose = TRUE,
       size = "m"
     ))
+  }
+
+  observeEvent(input$add_workout, {
+    picked <- Sys.Date()
+    showNotification(glue("Add workout for {picked}"), type = "default", duration = 2)
+    open_log_modal(picked)
+  })
+
+  observeEvent(input$picked_day, {
+    picked <- suppressWarnings(as.Date(input$picked_day))
+    if (is.na(picked)) return()
+    open_log_modal(picked)
   })
 
   observeEvent(input$modal_log_save, {
-    req(input$picked_day, input$modal_log_type)
-    day <- as.character(as.Date(input$picked_day))
+    req(input$modal_log_type)
+
+    day_raw <- if (!is.null(input$picked_day)) input$picked_day else as.character(Sys.Date())
+    day <- as.character(as.Date(day_raw))
     session_type <- input$modal_log_type
     yards <- suppressWarnings(as.numeric(input$modal_log_yards)); if (is.na(yards)) yards <- 0
     mins <- suppressWarnings(as.numeric(input$modal_log_minutes)); if (is.na(mins)) mins <- 0
     note <- if (is.null(input$modal_log_note)) "" else input$modal_log_note
+    lift_type <- if (is.null(input$modal_lift_type)) "" else trimws(input$modal_lift_type)
+
+    if (session_type %in% c("Lift", "Swim + Lift") && nzchar(lift_type)) {
+      note <- paste(c(lift_type, note), collapse = if (nzchar(note)) ". " else "")
+    }
 
     save_training_log(day, session_type, yards, mins, note)
     removeModal()
