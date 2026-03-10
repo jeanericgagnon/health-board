@@ -31,12 +31,12 @@
     </div>
 
     <section class="grid kpis">
-      <article class="panel kpi"><div class="l">Spend Today</div><div class="v">$41.20</div></article>
-      <article class="panel kpi"><div class="l">Net New Followers</div><div class="v">+62</div></article>
-      <article class="panel kpi"><div class="l">Blended CPF</div><div class="v">$0.66</div></article>
-      <article class="panel kpi"><div class="l">CTR (Link)</div><div class="v">2.94%</div></article>
-      <article class="panel kpi"><div class="l">CPC</div><div class="v">$0.42</div></article>
-      <article class="panel kpi"><div class="l">CPM</div><div class="v">$12.85</div></article>
+      <article class="panel kpi"><div class="l">Total Spend</div><div class="v" id="kSpend">$--</div></article>
+      <article class="panel kpi"><div class="l">Total Clicks</div><div class="v" id="kClicks">--</div></article>
+      <article class="panel kpi"><div class="l">Total Impressions</div><div class="v" id="kImpr">--</div></article>
+      <article class="panel kpi"><div class="l">Total Follows</div><div class="v" id="kFollows">--</div></article>
+      <article class="panel kpi"><div class="l">Blended CPF</div><div class="v" id="kCpf">$--</div></article>
+      <article class="panel kpi"><div class="l">Updated</div><div class="v" id="kUpdated" style="font-size:14px">--</div></article>
     </section>
 
     <section class="grid main">
@@ -48,11 +48,9 @@
       <article class="panel">
         <h3>Campaign Ranking</h3>
         <table>
-          <thead><tr><th>Campaign</th><th>Spend</th><th>Followers</th><th>CPF</th><th>Status</th></tr></thead>
-          <tbody>
-            <tr><td>Always-On IG Follows</td><td>$18.40</td><td>34</td><td>$0.54</td><td><span class="pill good">Scale</span></td></tr>
-            <tr><td>Social Proof Reels</td><td>$12.10</td><td>18</td><td>$0.67</td><td><span class="pill good">Hold</span></td></tr>
-            <tr><td>Founder POV Clips</td><td>$7.95</td><td>7</td><td>$1.14</td><td><span class="pill warn">Tune</span></td></tr>
+          <thead><tr><th>Campaign</th><th>Spend</th><th>Clicks</th><th>CPC</th><th>Status</th></tr></thead>
+          <tbody id="campaignRows">
+            <tr><td colspan="5">Loading…</td></tr>
           </tbody>
         </table>
       </article>
@@ -73,8 +71,45 @@
   </div>
 
   <script>
-    new Chart(document.getElementById('c1'), {type:'line', data:{labels:['D-13','D-12','D-11','D-10','D-9','D-8','D-7','D-6','D-5','D-4','D-3','D-2','D-1','Today'], datasets:[{label:'Spend',data:[38,42,39,44,41,43,47,45,46,43,42,40,44,41],borderColor:'#60a5fa',tension:.35},{label:'Followers',data:[44,51,46,53,48,50,58,56,60,55,54,49,57,62],borderColor:'#34d399',tension:.35}]}, options:{plugins:{legend:{labels:{color:'#d7e2ff'}}}, scales:{x:{ticks:{color:'#9fb0df'}},y:{ticks:{color:'#9fb0df'}}}, maintainAspectRatio:false}});
-    new Chart(document.getElementById('c2'), {type:'doughnut', data:{labels:['POV Reels','UGC','Carousels','Static'], datasets:[{data:[42,28,18,12],backgroundColor:['#60a5fa','#34d399','#a78bfa','#fbbf24']}]}, options:{plugins:{legend:{position:'bottom',labels:{color:'#d7e2ff'}}}, maintainAspectRatio:false}});
+    const trend = new Chart(document.getElementById('c1'), {type:'line', data:{labels:['D-13','D-12','D-11','D-10','D-9','D-8','D-7','D-6','D-5','D-4','D-3','D-2','D-1','Today'], datasets:[{label:'Followers',data:[44,51,46,53,48,50,58,56,60,55,54,49,57,62],borderColor:'#34d399',tension:.35}]}, options:{plugins:{legend:{labels:{color:'#d7e2ff'}}}, scales:{x:{ticks:{color:'#9fb0df'}},y:{ticks:{color:'#9fb0df'}}}, maintainAspectRatio:false}});
+    const mix = new Chart(document.getElementById('c2'), {type:'doughnut', data:{labels:['Campaign A','Campaign B'], datasets:[{data:[50,50],backgroundColor:['#60a5fa','#34d399']}]}, options:{plugins:{legend:{position:'bottom',labels:{color:'#d7e2ff'}}}, maintainAspectRatio:false}});
+
+    const fmtMoney = (n) => '$' + Number(n || 0).toFixed(2);
+    const fmtNum = (n) => Number(n || 0).toLocaleString();
+
+    fetch('/data/kpi_latest.json?ts=' + Date.now())
+      .then(r => r.json())
+      .then(d => {
+        const s = d.summary || {};
+        document.getElementById('kSpend').textContent = fmtMoney(s.total_spend);
+        document.getElementById('kClicks').textContent = fmtNum(s.total_clicks);
+        document.getElementById('kImpr').textContent = fmtNum(s.total_impressions);
+        document.getElementById('kFollows').textContent = fmtNum(s.total_follows);
+        document.getElementById('kCpf').textContent = s.blended_cost_per_follow == null ? 'N/A' : fmtMoney(s.blended_cost_per_follow);
+        document.getElementById('kUpdated').textContent = d.updated_at ? new Date(d.updated_at).toLocaleString() : '--';
+
+        const rows = (d.top_campaigns || []).map(c => {
+          const status = (c.cpc != null && c.cpc < 0.5) ? '<span class="pill good">Efficient</span>' : '<span class="pill warn">Watch</span>';
+          return `<tr><td>${c.campaign}</td><td>${fmtMoney(c.spend)}</td><td>${fmtNum(c.clicks)}</td><td>${c.cpc == null ? 'N/A' : fmtMoney(c.cpc)}</td><td>${status}</td></tr>`;
+        }).join('');
+        document.getElementById('campaignRows').innerHTML = rows || '<tr><td colspan="5">No campaign data yet</td></tr>';
+
+        const followers = d.followers_series || [];
+        if (followers.length) {
+          trend.data.labels = followers.map(x => x.date.slice(5));
+          trend.data.datasets[0].data = followers.map(x => x.followers_total);
+          trend.update();
+        }
+
+        if ((d.top_campaigns || []).length) {
+          mix.data.labels = d.top_campaigns.map(x => x.campaign);
+          mix.data.datasets[0].data = d.top_campaigns.map(x => x.spend);
+          mix.update();
+        }
+      })
+      .catch(() => {
+        document.getElementById('campaignRows').innerHTML = '<tr><td colspan="5">Waiting for data pipeline…</td></tr>';
+      });
   </script>
 </body>
 </html>
