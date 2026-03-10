@@ -139,11 +139,23 @@ def read_followers_series(limit=30):
     return rows[-limit:]
 
 
+def build_spend_series(rows, limit=30):
+    by_date = {}
+    for r in rows:
+        d = (r.get('date_start') or '').strip()
+        if not d:
+            continue
+        by_date[d] = by_date.get(d, 0.0) + num(r.get('spend'))
+    out = [{'date': d, 'spend': round(v, 2)} for d, v in sorted(by_date.items())]
+    return out[-limit:]
+
+
 def main():
     summary = read_summary()
     rows = read_insights_rows()
     campaigns = aggregate_hierarchy(rows)
     followers = read_followers_series()
+    spend_series = build_spend_series(rows)
 
     payload = {
         'updated_at': datetime.now(UTC).isoformat().replace('+00:00', 'Z'),
@@ -159,6 +171,7 @@ def main():
         'campaigns': campaigns,
         'top_campaigns': campaigns[:10],
         'followers_series': followers,
+        'spend_series': spend_series,
     }
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
