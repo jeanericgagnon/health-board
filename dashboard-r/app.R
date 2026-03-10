@@ -152,7 +152,7 @@ ui <- page_navbar(
     card(
       card_header("Range + Overlay Controls"),
       layout_columns(
-        selectInput("overview_range", "Range", choices = c("1D","3D","7D","14D","30D","90D","ALL"), selected = "30D"),
+        selectInput("overview_range", "Range", choices = c("1D","3D","7D","14D","30D","90D","ALL"), selected = "30D", selectize = FALSE),
         checkboxGroupInput("overlay_metrics", "Overlay lines (off by default)", choices = c("Recovery" = "recovery", "Sleep" = "sleep"), selected = character(0)),
         checkboxInput("show_mean", "Show strain mean", value = TRUE),
         col_widths = c(5, 5, 2)
@@ -172,7 +172,7 @@ ui <- page_navbar(
     "Swim Progress",
     card(
       card_header("Range"),
-      selectInput("swim_range", NULL, choices = c("1D","7D","14D","30D"), selected = "30D")
+      selectInput("swim_range", NULL, choices = c("1D","7D","14D","30D"), selected = "30D", selectize = FALSE)
     ),
     p(class = "text-secondary", textOutput("swim_window")),
     uiOutput("swim_hero"),
