@@ -56,11 +56,11 @@
         </table>
       </article>
       <article class="panel">
-        <h3>Drill-down (Campaign → Ad Set → Ad)</h3>
+        <h3>Campaign KPI Dashboard (Campaign → Ad Set → Ad)</h3>
         <table>
-          <thead><tr><th>Level</th><th>Name</th><th>Spend</th><th>Clicks</th><th>CPC</th></tr></thead>
+          <thead><tr><th>Level</th><th>Name</th><th>Spend</th><th>Impr.</th><th>Reach</th><th>Clicks</th><th>CTR</th><th>CPC</th><th>CPM</th></tr></thead>
           <tbody id="drillRows">
-            <tr><td colspan="5">Click a campaign on the left</td></tr>
+            <tr><td colspan="9">Click a campaign on the left</td></tr>
           </tbody>
         </table>
       </article>
@@ -125,14 +125,14 @@
         const renderDrill = (campaignIndex = 0) => {
           const c = campaigns[campaignIndex];
           if (!c) {
-            drill.innerHTML = '<tr><td colspan="5">No drill data yet</td></tr>';
+            drill.innerHTML = '<tr><td colspan="9">No drill data yet</td></tr>';
             return;
           }
-          let html = `<tr><td>Campaign</td><td>${c.campaign}</td><td>${fmtMoney(c.spend)}</td><td>${fmtNum(c.clicks)}</td><td>${c.cpc == null ? 'N/A' : fmtMoney(c.cpc)}</td></tr>`;
+          let html = `<tr><td>Campaign</td><td>${c.campaign}</td><td>${fmtMoney(c.spend)}</td><td>${fmtNum(c.impressions)}</td><td>${fmtNum(c.reach)}</td><td>${fmtNum(c.clicks)}</td><td>${Number(c.ctr || 0).toFixed(2)}%</td><td>${c.cpc == null ? 'N/A' : fmtMoney(c.cpc)}</td><td>${fmtMoney(c.cpm)}</td></tr>`;
           (c.adsets || []).forEach(s => {
-            html += `<tr><td>↳ Ad Set</td><td>${s.adset}</td><td>${fmtMoney(s.spend)}</td><td>${fmtNum(s.clicks)}</td><td>${s.cpc == null ? 'N/A' : fmtMoney(s.cpc)}</td></tr>`;
-            (s.ads || []).slice(0, 8).forEach(a => {
-              html += `<tr><td>↳↳ Ad</td><td>${a.ad}</td><td>${fmtMoney(a.spend)}</td><td>${fmtNum(a.clicks)}</td><td>${a.cpc == null ? 'N/A' : fmtMoney(a.cpc)}</td></tr>`;
+            html += `<tr><td>↳ Ad Set</td><td>${s.adset}</td><td>${fmtMoney(s.spend)}</td><td>${fmtNum(s.impressions)}</td><td>${fmtNum(s.reach)}</td><td>${fmtNum(s.clicks)}</td><td>${Number(s.ctr || 0).toFixed(2)}%</td><td>${s.cpc == null ? 'N/A' : fmtMoney(s.cpc)}</td><td>${fmtMoney(s.cpm)}</td></tr>`;
+            (s.ads || []).slice(0, 12).forEach(a => {
+              html += `<tr><td>↳↳ Ad</td><td>${a.ad}</td><td>${fmtMoney(a.spend)}</td><td>${fmtNum(a.impressions)}</td><td>${fmtNum(a.reach)}</td><td>${fmtNum(a.clicks)}</td><td>${Number(a.ctr || 0).toFixed(2)}%</td><td>${a.cpc == null ? 'N/A' : fmtMoney(a.cpc)}</td><td>${fmtMoney(a.cpm)}</td></tr>`;
             });
           });
           drill.innerHTML = html;
