@@ -18,6 +18,7 @@
     .main{grid-template-columns:2fr 1fr;margin-bottom:14px}.half{grid-template-columns:1fr 1fr}
     h3{margin:0 0 10px;font-size:14px} canvas{width:100%!important;height:280px!important}
     table{width:100%;border-collapse:collapse;font-size:13px} th,td{padding:9px 8px;border-bottom:1px solid #223157;text-align:left} th{color:var(--muted)}
+    tr.clickable{cursor:pointer} tr.clickable:hover{background:#162750}
     .pill{display:inline-block;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:700}.good{background:#143d2f;color:#8ef2ca}.warn{background:#4b2f12;color:#ffd39f}
     .back{display:inline-block;margin-top:14px;color:#cfe1ff;text-decoration:none}
     @media (max-width:1200px){.kpis{grid-template-columns:repeat(3,1fr)}.main,.half{grid-template-columns:1fr}}
@@ -55,13 +56,11 @@
         </table>
       </article>
       <article class="panel">
-        <h3>Action IDs</h3>
+        <h3>Drill-down (Campaign → Ad Set → Ad)</h3>
         <table>
-          <thead><tr><th>ID</th><th>Action</th><th>Class</th></tr></thead>
-          <tbody>
-            <tr><td>A-101</td><td>Shift budget to best CPF set</td><td>SAFE TO EXECUTE</td></tr>
-            <tr><td>A-102</td><td>Pause sub-1.2% CTR creatives</td><td>NEEDS APPROVAL</td></tr>
-            <tr><td>A-103</td><td>Launch one hook variant test</td><td>NEEDS APPROVAL</td></tr>
+          <thead><tr><th>Level</th><th>Name</th><th>Spend</th><th>Clicks</th><th>CPC</th></tr></thead>
+          <tbody id="drillRows">
+            <tr><td colspan="5">Click a campaign on the left</td></tr>
           </tbody>
         </table>
       </article>
@@ -88,11 +87,33 @@
         document.getElementById('kCpf').textContent = s.blended_cost_per_follow == null ? 'N/A' : fmtMoney(s.blended_cost_per_follow);
         document.getElementById('kUpdated').textContent = d.updated_at ? new Date(d.updated_at).toLocaleString() : '--';
 
-        const rows = (d.top_campaigns || []).map(c => {
+        const campaigns = d.campaigns || d.top_campaigns || [];
+        const rows = campaigns.map((c, i) => {
           const status = (c.cpc != null && c.cpc < 0.5) ? '<span class="pill good">Efficient</span>' : '<span class="pill warn">Watch</span>';
-          return `<tr><td>${c.campaign}</td><td>${fmtMoney(c.spend)}</td><td>${fmtNum(c.clicks)}</td><td>${c.cpc == null ? 'N/A' : fmtMoney(c.cpc)}</td><td>${status}</td></tr>`;
+          return `<tr class="clickable" data-cidx="${i}"><td>${c.campaign}</td><td>${fmtMoney(c.spend)}</td><td>${fmtNum(c.clicks)}</td><td>${c.cpc == null ? 'N/A' : fmtMoney(c.cpc)}</td><td>${status}</td></tr>`;
         }).join('');
         document.getElementById('campaignRows').innerHTML = rows || '<tr><td colspan="5">No campaign data yet</td></tr>';
+
+        const drill = document.getElementById('drillRows');
+        const renderDrill = (campaignIndex = 0) => {
+          const c = campaigns[campaignIndex];
+          if (!c) {
+            drill.innerHTML = '<tr><td colspan="5">No drill data yet</td></tr>';
+            return;
+          }
+          let html = `<tr><td>Campaign</td><td>${c.campaign}</td><td>${fmtMoney(c.spend)}</td><td>${fmtNum(c.clicks)}</td><td>${c.cpc == null ? 'N/A' : fmtMoney(c.cpc)}</td></tr>`;
+          (c.adsets || []).forEach(s => {
+            html += `<tr><td>↳ Ad Set</td><td>${s.adset}</td><td>${fmtMoney(s.spend)}</td><td>${fmtNum(s.clicks)}</td><td>${s.cpc == null ? 'N/A' : fmtMoney(s.cpc)}</td></tr>`;
+            (s.ads || []).slice(0, 8).forEach(a => {
+              html += `<tr><td>↳↳ Ad</td><td>${a.ad}</td><td>${fmtMoney(a.spend)}</td><td>${fmtNum(a.clicks)}</td><td>${a.cpc == null ? 'N/A' : fmtMoney(a.cpc)}</td></tr>`;
+            });
+          });
+          drill.innerHTML = html;
+        };
+        renderDrill(0);
+        document.querySelectorAll('#campaignRows tr.clickable').forEach(tr => {
+          tr.addEventListener('click', () => renderDrill(Number(tr.dataset.cidx || 0)));
+        });
 
         const followers = d.followers_series || [];
         if (followers.length) {
@@ -101,9 +122,9 @@
           trend.update();
         }
 
-        if ((d.top_campaigns || []).length) {
-          mix.data.labels = d.top_campaigns.map(x => x.campaign);
-          mix.data.datasets[0].data = d.top_campaigns.map(x => x.spend);
+        if (campaigns.length) {
+          mix.data.labels = campaigns.slice(0, 6).map(x => x.campaign);
+          mix.data.datasets[0].data = campaigns.slice(0, 6).map(x => x.spend);
           mix.update();
         }
       })
