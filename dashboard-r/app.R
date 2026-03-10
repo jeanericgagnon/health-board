@@ -186,7 +186,10 @@ ui <- page_navbar(
     card(
       card_header("8-Week Swim + Lift Calendar (starts Mar 9, 2026)"),
       p(class = "text-secondary", "Thursday/Friday are merged: one day is Lift Day 3 + easy swim, the other is recovery. Swap as needed."),
-      uiOutput("calendar_view")
+      actionButton("toggle_archive", "Show Archive", class = "btn btn-outline-light btn-sm"),
+      tags$div(style = "height:8px;"),
+      uiOutput("calendar_view"),
+      uiOutput("archive_view")
     ),
     card(
       card_header("Log What You Did"),
@@ -242,6 +245,12 @@ server <- function(input, output, session) {
   swim <- reactive(range_filter(swim_all(), input$swim_range))
 
   log_status <- reactiveVal("")
+  show_archive <- reactiveVal(FALSE)
+
+  observeEvent(input$toggle_archive, {
+    show_archive(!isTRUE(show_archive()))
+    updateActionButton(session, "toggle_archive", label = if (isTRUE(show_archive())) "Hide Archive" else "Show Archive")
+  })
 
   observeEvent(input$log_save, {
     req(input$log_day, input$log_type)
@@ -518,46 +527,56 @@ server <- function(input, output, session) {
     invalidateLater(60000, session)  # refresh every minute so midnight rollover auto-updates
 
     cal <- build_training_calendar(CAL_START)
-    months <- unique(cal$month)
     today <- Sys.Date()
+    upcoming <- cal %>% filter(date >= today)
+    months <- unique(upcoming$month)
 
     tags$div(
       lapply(months, function(m) {
-        chunk <- cal %>% filter(month == m)
+        chunk <- upcoming %>% filter(month == m)
         tags$div(
           class = "glass-card",
           style = "margin-bottom: 14px;",
           tags$h5(style = "margin-bottom:10px; color:#93c5fd;", m),
           lapply(seq_len(nrow(chunk)), function(i) {
-            is_done <- chunk$date[i] < today
-            row_style <- if (is_done) {
-              "padding:8px 0; border-top:1px solid rgba(148,163,184,.2); opacity:.65;"
-            } else {
-              "padding:8px 0; border-top:1px solid rgba(148,163,184,.2);"
-            }
-            title_style <- if (is_done) {
-              "font-weight:600; text-decoration:line-through;"
-            } else {
-              "font-weight:600;"
-            }
-            plan_style <- if (is_done) {
-              "opacity:.95; text-decoration:line-through;"
-            } else {
-              "opacity:.95;"
-            }
-            marker <- if (is_done) "✅ " else ""
-
             tags$div(
-              style = row_style,
+              style = "padding:8px 0; border-top:1px solid rgba(148,163,184,.2);",
               tags$a(
                 href = "#",
-                style = paste0(title_style, " color:#dbeafe; text-decoration:none;"),
+                style = "font-weight:600; color:#dbeafe; text-decoration:none;",
                 onclick = sprintf("Shiny.setInputValue('picked_day','%s',{priority:'event'}); return false;", as.character(chunk$date[i])),
-                glue("{marker}{format(chunk$date[i], '%b %d')} (W{chunk$week[i]}) • {chunk$day_name[i]}")
+                glue("{format(chunk$date[i], '%b %d')} (W{chunk$week[i]}) • {chunk$day_name[i]}")
               ),
-              tags$div(style = plan_style, chunk$plan[i])
+              tags$div(style = "opacity:.95;", chunk$plan[i])
             )
           })
+        )
+      })
+    )
+  })
+
+  output$archive_view <- renderUI({
+    if (!isTRUE(show_archive())) return(NULL)
+
+    cal <- build_training_calendar(CAL_START)
+    today <- Sys.Date()
+    archived <- cal %>% filter(date < today) %>% arrange(desc(date))
+    if (!nrow(archived)) return(tags$div(class = "text-secondary", "No archived days yet."))
+
+    tags$div(
+      class = "glass-card",
+      style = "margin-top: 10px;",
+      tags$h5(style = "margin-bottom:10px; color:#93c5fd;", "Archive (click day to edit)"),
+      lapply(seq_len(nrow(archived)), function(i) {
+        tags$div(
+          style = "padding:8px 0; border-top:1px solid rgba(148,163,184,.2); opacity:.85;",
+          tags$a(
+            href = "#",
+            style = "font-weight:600; color:#dbeafe; text-decoration:line-through;",
+            onclick = sprintf("Shiny.setInputValue('picked_day','%s',{priority:'event'}); return false;", as.character(archived$date[i])),
+            glue("✅ {format(archived$date[i], '%b %d')} (W{archived$week[i]}) • {archived$day_name[i]}")
+          ),
+          tags$div(style = "opacity:.9; text-decoration:line-through;", archived$plan[i])
         )
       })
     )
