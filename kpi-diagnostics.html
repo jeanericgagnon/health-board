@@ -192,6 +192,11 @@
             <button class="btnf" data-source="followers">Followers Geo</button>
             <button class="btnf" id="ageLocNote" type="button" title="Age+Location requires Meta combined breakdown support">Age+Location: pending</button>
           </div>
+          <div class="controls" id="geoRollupFilters">
+            <button class="btnf" data-rollup="city">City</button>
+            <button class="btnf active" data-rollup="metro">Metro / Greater Area</button>
+            <button class="btnf" data-rollup="county">County</button>
+          </div>
           <div id="regionMap"></div>
         </article>
         <article class="panel">
@@ -249,6 +254,7 @@
     let placementMetric = 'spend';
     let heatMetric = 'spend';
     let heatSource = 'ads';
+    let geoRollup = 'metro';
 
     const metricValue = (r, m) => m === 'ctr' ? Number(r.ctr || 0) : m === 'cpc' ? Number(r.cpc || 0) : Number(r.spend || 0);
     const metricLabel = (m) => m === 'ctr' ? 'CTR %' : m === 'cpc' ? 'CPC $' : 'Spend $';
@@ -301,9 +307,50 @@
       } catch { return null; }
     };
 
+    const OC_CITIES = new Set(['Irvine','Newport Beach','Costa Mesa','Santa Ana','Anaheim','Huntington Beach','Tustin','Fullerton','Orange','Garden Grove','Laguna Niguel','Laguna Beach','Mission Viejo','Yorba Linda']);
+    const SD_CITIES = new Set(['San Diego','Chula Vista','La Mesa','El Cajon','Santee','Escondido','Vista','Oceanside','Carlsbad','Encinitas','National City','Poway','Coronado','Del Mar','Solana Beach']);
+    const DENVER_METRO_CITIES = new Set(['Denver','Arvada','Lakewood','Centennial','Aurora','Thornton','Westminster','Littleton','Broomfield','Englewood']);
+
+    const splitCityState = (cityLabel='') => {
+      const parts = cityLabel.split(',').map(x=>x.trim());
+      return { city: parts[0] || cityLabel, state: parts[1] || '' };
+    };
+
+    const rollupCityLabel = (cityLabel, mode='metro') => {
+      const { city, state } = splitCityState(cityLabel);
+      if (mode === 'city') return cityLabel;
+      if (mode === 'county') {
+        if (state === 'California') {
+          if (OC_CITIES.has(city)) return 'Orange County, California';
+          if (SD_CITIES.has(city)) return 'San Diego County, California';
+          if (city === 'Los Angeles') return 'Los Angeles County, California';
+        }
+        if (state === 'Colorado' && DENVER_METRO_CITIES.has(city)) return 'Denver Metro, Colorado';
+        return cityLabel;
+      }
+      // metro
+      if (state === 'California') {
+        if (OC_CITIES.has(city)) return 'Orange County Metro, California';
+        if (SD_CITIES.has(city)) return 'San Diego Metro, California';
+        if (city === 'Los Angeles') return 'Los Angeles Metro, California';
+      }
+      if (state === 'Colorado' && DENVER_METRO_CITIES.has(city)) return 'Denver Metro, Colorado';
+      return cityLabel;
+    };
+
+    const rollupFollowerCities = (rows, mode='metro') => {
+      const agg = new Map();
+      (rows || []).forEach(r => {
+        const key = rollupCityLabel(r.city || '', mode);
+        agg.set(key, (agg.get(key) || 0) + Number(r.followers || 0));
+      });
+      return [...agg.entries()].map(([city, followers]) => ({ city, followers }))
+        .sort((a,b)=>b.followers-a.followers);
+    };
+
     const renderHeatmap = async (regionRows, followerCityRows, metric, source) => {
       const rows = source === 'followers'
-        ? (followerCityRows || []).slice(0, 30).map(r => ({ label: r.city, followers: Number(r.followers || 0) }))
+        ? rollupFollowerCities(followerCityRows || [], geoRollup).slice(0, 30).map(r => ({ label: r.city, followers: Number(r.followers || 0) }))
         : (regionRows || []).filter(r => Number(r.spend || 0) >= minSpendFilter).slice(0, 20);
       if (!regionMap) {
         regionMap = L.map('regionMap').setView([37.8, -96], 4);
@@ -539,10 +586,11 @@
         const renderFollowerCityTable = () => {
           const el = document.getElementById('followerCityRows');
           if (!el) return;
-          if (!followerCities.length) { el.innerHTML = '<tr><td colspan="5">No follower city data yet</td></tr>'; return; }
-          const total = followerCities.reduce((s,r)=>s+Number(r.followers||0),0) || 1;
+          const rolled = rollupFollowerCities(followerCities, geoRollup);
+          if (!rolled.length) { el.innerHTML = '<tr><td colspan="5">No follower city data yet</td></tr>'; return; }
+          const total = rolled.reduce((s,r)=>s+Number(r.followers||0),0) || 1;
           const latestDaily = Number((followersDailySeries[followersDailySeries.length-1] || {}).followers_per_day || 0);
-          el.innerHTML = followerCities.slice(0,10).map(r => {
+          el.innerHTML = rolled.slice(0,10).map(r => {
             const share = (Number(r.followers||0) / total) * 100;
             const est = latestDaily > 0 ? latestDaily * (share/100) : 0;
             return `<tr><td>${r.city}</td><td>${fmtNum(r.followers)}</td><td>${share.toFixed(1)}%</td><td>${latestDaily>0?est.toFixed(1):'N/A'}</td><td><div class="bar"><span style="width:${Math.max(4,Math.round(share))}%"></span></div></td></tr>`;
@@ -589,6 +637,12 @@
           document.querySelectorAll('#heatmapFilters .btnf[data-source]').forEach(b=>b.classList.remove('active'));
           btn.classList.add('active');
           heatSource = btn.dataset.source || 'ads';
+          rerenderDeep();
+        });
+        document.querySelectorAll('#geoRollupFilters .btnf').forEach(btn => btn.onclick = () => {
+          document.querySelectorAll('#geoRollupFilters .btnf').forEach(b=>b.classList.remove('active'));
+          btn.classList.add('active');
+          geoRollup = btn.dataset.rollup || 'metro';
           rerenderDeep();
         });
 
