@@ -12,6 +12,9 @@
     .head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
     .title{font-size:26px;font-weight:800}.sub{font-size:13px;color:var(--muted)}
     .tag{background:#123157;border:1px solid #29589b;color:#9dd1ff;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:700}
+    .top-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+    .tablink{display:inline-block;padding:8px 12px;border-radius:8px;border:1px solid #2b4f92;background:#1a2a54;color:#dbeafe;text-decoration:none;font-size:12px;font-weight:600}
+    .tablink.active{background:#275ec2}
     .grid{display:grid;gap:14px}.kpis{grid-template-columns:repeat(6,minmax(0,1fr));margin-bottom:14px}
     .panel{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--border);border-radius:14px;padding:14px}
     .kpi .l{font-size:12px;color:var(--muted)} .kpi .v{font-size:24px;font-weight:800;margin-top:6px}
@@ -33,6 +36,11 @@
     <div class="head">
       <div><div class="title">Stuff to Gag On · KPI Diagnostics</div><div class="sub">Follower-growth optimization under $60/day cap</div></div>
       <div class="tag">Live Ops</div>
+    </div>
+
+    <div class="top-tabs">
+      <a class="tablink active" href="/kpi-diagnostics.html">Overview</a>
+      <a class="tablink" href="/kpi-tabs.html">Deep Dive</a>
     </div>
 
     <section class="grid kpis">
