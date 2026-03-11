@@ -371,6 +371,7 @@
     };
 
     const renderHeatmap = async (regionRows, followerCityRows, metric, source) => {
+      if (typeof L === 'undefined') return;
       const rows = source === 'followers'
         ? rollupFollowerCities(followerCityRows || [], geoRollup).slice(0, 30).map(r => ({ label: r.city, followers: Number(r.followers || 0) }))
         : (regionRows || []).filter(r => Number(r.spend || 0) >= minSpendFilter).slice(0, 20);
@@ -400,6 +401,7 @@
     };
 
     const renderFollowersMap = async (followerCityRows) => {
+      if (typeof L === 'undefined') return;
       const rows = rollupFollowerCities(followerCityRows || [], geoRollup).slice(0, 30);
       if (!followersMap) {
         followersMap = L.map('followersMap').setView([37.8, -96], 4);
@@ -429,14 +431,15 @@
       const tabs = [...document.querySelectorAll('#topTabs .tablink')];
       const overview = document.getElementById('overviewPanel');
       const deep = document.getElementById('deepDivePanel');
+      const followers = document.getElementById('followersPanel');
       const setTab = (name) => {
         tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === name));
         overview.classList.toggle('active', name === 'overview');
         deep.classList.toggle('active', name === 'deepdive');
-        followers.classList.toggle('active', name === 'followers');
+        if (followers) followers.classList.toggle('active', name === 'followers');
         overview.style.display = name === 'overview' ? 'block' : 'none';
         deep.style.display = name === 'deepdive' ? 'block' : 'none';
-        followers.style.display = name === 'followers' ? 'block' : 'none';
+        if (followers) followers.style.display = name === 'followers' ? 'block' : 'none';
         if (name === 'deepdive' && regionMap) setTimeout(() => regionMap.invalidateSize(), 50);
         if (name === 'followers' && followersMap) setTimeout(() => followersMap.invalidateSize(), 50);
       };
