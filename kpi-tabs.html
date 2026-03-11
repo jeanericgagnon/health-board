@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KPI Deep Dive</title>
+  <style>
+    :root { --bg:#0b1020; --panel:#111936; --panel2:#162042; --text:#eaf0ff; --muted:#9fb0df; --border:#23305f; }
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system;background:radial-gradient(1200px 900px at 90% -10%, #223a74 0%, var(--bg) 45%);color:var(--text)}
+    .wrap{max-width:1400px;margin:0 auto;padding:24px}
+    .head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+    .title{font-size:24px;font-weight:800}.sub{font-size:13px;color:var(--muted)}
+    .tag{background:#123157;border:1px solid #29589b;color:#9dd1ff;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:700}
+    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+    .btn{background:#1a2a54;border:1px solid #2b4f92;color:#dbeafe;padding:7px 12px;border-radius:8px;font-size:12px;cursor:pointer}
+    .btn.active{background:#275ec2}
+    .panel{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--border);border-radius:14px;padding:14px}
+    .grid{display:grid;gap:14px}
+    .half{grid-template-columns:1fr 1fr}
+    h3{margin:0 0 10px;font-size:14px}
+    table{width:100%;border-collapse:collapse;font-size:13px}
+    th,td{padding:9px 8px;border-bottom:1px solid #223157;text-align:left;vertical-align:top}
+    th{color:var(--muted)}
+    .tab-panel{display:none}.tab-panel.active{display:block}
+    .back{display:inline-block;margin-top:14px;color:#cfe1ff;text-decoration:none}
+    .lock{position:fixed;inset:0;background:rgba(5,10,20,.92);display:flex;align-items:center;justify-content:center;z-index:9999}
+    .lock-card{width:min(420px,92vw);background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--border);border-radius:14px;padding:16px}
+    .lock-card input{width:100%;padding:10px;border-radius:8px;border:1px solid #2b4f92;background:#0f1a39;color:#dbeafe}
+    .lock-error{color:#fca5a5;font-size:12px;min-height:16px;margin-top:8px}
+    @media (max-width:1200px){.half{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div id="lockScreen" class="lock">
+    <div class="lock-card">
+      <h3 style="margin:0 0 8px">KPI Deep Dive Access</h3>
+      <div class="sub" style="margin-bottom:10px">Enter passcode to continue.</div>
+      <input id="lockInput" type="password" placeholder="Passcode" />
+      <div style="display:flex;gap:8px;margin-top:10px"><button id="lockBtn" class="btn active">Unlock</button></div>
+      <div id="lockError" class="lock-error"></div>
+    </div>
+  </div>
+
+  <div class="wrap" id="appWrap" style="display:none">
+    <div class="head">
+      <div><div class="title">KPI Deep Dive</div><div class="sub">Expanded audience, placement, region, and device insights</div></div>
+      <div class="tag">Live Ops</div>
+    </div>
+
+    <div class="tabs" id="tabNav">
+      <button class="btn active" data-tab="audience">Audience</button>
+      <button class="btn" data-tab="placement">Placement</button>
+      <button class="btn" data-tab="region">Region</button>
+      <button class="btn" data-tab="device">Device</button>
+    </div>
+
+    <section class="tab-panel active" data-tab="audience">
+      <div class="panel"><h3>Top Age/Gender Segments</h3><table><thead><tr><th>Segment</th><th>Spend</th><th>Clicks</th><th>CTR</th><th>CPC</th></tr></thead><tbody id="ageGenderRows"><tr><td colspan="5">Loading…</td></tr></tbody></table></div>
+    </section>
+    <section class="tab-panel" data-tab="placement">
+      <div class="panel"><h3>Top Placements</h3><table><thead><tr><th>Placement</th><th>Spend</th><th>Clicks</th><th>CTR</th><th>CPC</th></tr></thead><tbody id="placementRows"><tr><td colspan="5">Loading…</td></tr></tbody></table></div>
+    </section>
+    <section class="tab-panel" data-tab="region">
+      <div class="panel"><h3>Top Regions</h3><table><thead><tr><th>Region</th><th>Spend</th><th>Clicks</th><th>CTR</th><th>CPC</th></tr></thead><tbody id="regionRows"><tr><td colspan="5">Loading…</td></tr></tbody></table></div>
+    </section>
+    <section class="tab-panel" data-tab="device">
+      <div class="panel"><h3>Top Devices</h3><table><thead><tr><th>Device</th><th>Spend</th><th>Clicks</th><th>CTR</th><th>CPC</th></tr></thead><tbody id="deviceRows"><tr><td colspan="5">Loading…</td></tr></tbody></table></div>
+    </section>
+
+    <a class="back" href="/kpi-diagnostics.html">← Back to KPI Dashboard</a>
+  </div>
+
+  <script>
+    (function gate(){
+      const PASS='12345', KEY='kpi_deep_unlocked_v1';
+      const lock=document.getElementById('lockScreen'), wrap=document.getElementById('appWrap');
+      const input=document.getElementById('lockInput'), btn=document.getElementById('lockBtn'), err=document.getElementById('lockError');
+      const unlock=()=>{ lock.style.display='none'; wrap.style.display='block'; };
+      if (localStorage.getItem(KEY)==='1') { unlock(); return; }
+      const tryUnlock=()=>{ if ((input.value||'').trim()===PASS){ localStorage.setItem(KEY,'1'); unlock(); } else { err.textContent='Wrong passcode'; } };
+      btn.onclick=tryUnlock; input.addEventListener('keydown', e=>{ if (e.key==='Enter') tryUnlock(); }); input.focus();
+    })();
+
+    const fmtMoney = (n) => '$' + Number(n || 0).toFixed(2);
+    const fmtNum = (n) => Number(n || 0).toLocaleString();
+    const renderRows = (id, rows) => {
+      const el = document.getElementById(id);
+      if (!rows?.length) { el.innerHTML = '<tr><td colspan="5">No data yet</td></tr>'; return; }
+      el.innerHTML = rows.map(r => `<tr><td>${r.label||'—'}</td><td>${fmtMoney(r.spend)}</td><td>${fmtNum(r.clicks)}</td><td>${Number(r.ctr||0).toFixed(2)}%</td><td>${r.cpc==null?'N/A':fmtMoney(r.cpc)}</td></tr>`).join('');
+    };
+
+    const btns=[...document.querySelectorAll('#tabNav .btn')];
+    const panels=[...document.querySelectorAll('.tab-panel')];
+    const setTab=(tab)=>{ btns.forEach(b=>b.classList.toggle('active',b.dataset.tab===tab)); panels.forEach(p=>p.classList.toggle('active',p.dataset.tab===tab)); };
+    btns.forEach(b=>b.addEventListener('click',()=>setTab(b.dataset.tab)));
+
+    fetch('/data/kpi_latest.json?ts=' + Date.now()).then(r=>r.json()).then(d=>{
+      const b=d.breakdowns||{};
+      renderRows('ageGenderRows', b.age_gender||[]);
+      renderRows('placementRows', b.placement||[]);
+      renderRows('regionRows', b.region||[]);
+      renderRows('deviceRows', b.device||[]);
+    });
+  </script>
+</body>
+</html>
