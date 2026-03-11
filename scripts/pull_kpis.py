@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import csv
 import json
-from datetime import datetime, UTC
+from datetime import datetime, timezone
 from pathlib import Path
 
 WORKSPACE = Path('/Users/ericsysclaw/.openclaw/workspace')
@@ -208,11 +208,18 @@ def main():
     rows = read_insights_rows()
     campaigns = aggregate_hierarchy(rows)
     followers = read_followers_series()
-    followers_daily = follower_daily_series(followers)
     spend_series = build_spend_series(rows)
 
+    # Keep follower history anchored to the ad-data start date, but allow newer
+    # follower points when ad insights lag by a day.
+    if spend_series:
+        start_date = spend_series[0]['date']
+        followers = [r for r in followers if start_date <= r['date']]
+
+    followers_daily = follower_daily_series(followers)
+
     payload = {
-        'updated_at': datetime.now(UTC).isoformat().replace('+00:00', 'Z'),
+        'updated_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
         'summary': {
             'ad_account_id': meta.get('ad_account_id'),
             'total_spend': summary.get('total_spend'),
