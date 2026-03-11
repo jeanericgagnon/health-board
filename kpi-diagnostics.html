@@ -272,6 +272,7 @@
     let heatMetric = 'spend';
     let heatSource = 'ads';
     let geoRollup = 'metro';
+    let selectedFollowerBucket = null;
 
     const metricValue = (r, m) => m === 'ctr' ? Number(r.ctr || 0) : m === 'cpc' ? Number(r.cpc || 0) : Number(r.spend || 0);
     const metricLabel = (m) => m === 'ctr' ? 'CTR %' : m === 'cpc' ? 'CPC $' : 'Spend $';
@@ -413,7 +414,10 @@
 
     const renderFollowersMap = async (followerCityRows) => {
       if (typeof L === 'undefined') return;
-      const rows = rollupFollowerCities(followerCityRows || [], geoRollup).slice(0, 30);
+      let rows = rollupFollowerCities(followerCityRows || [], geoRollup).slice(0, 30);
+      if (selectedFollowerBucket) {
+        rows = rows.filter(r => r.city === selectedFollowerBucket);
+      }
       if (!followersMap) {
         followersMap = L.map('followersMap').setView([37.8, -96], 4);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 10, attribution: '&copy; OpenStreetMap' }).addTo(followersMap);
@@ -681,12 +685,14 @@
               const i = Number(tr.dataset.fidx || -1);
               const row = top[i];
               if (!row) return;
+              selectedFollowerBucket = row.city;
               const bucketCities = (followerCities || [])
                 .filter(c => rollupCityLabel(c.city || '', geoRollup) === row.city)
                 .sort((a,b) => Number(b.followers||0) - Number(a.followers||0))
                 .map(c => `${(c.city || '').split(',')[0]} (${fmtNum(c.followers)})`)
                 .join(' · ');
               tr.children[0].innerHTML = `<b>${row.city}</b><br><span class="sub">${bucketCities || 'No sub-city breakdown'}</span>`;
+              renderFollowersMap(followerCities);
             });
           }
         };
@@ -740,6 +746,7 @@
             document.querySelectorAll(selector + ' .btnf').forEach(b=>b.classList.remove('active'));
             btn.classList.add('active');
             geoRollup = btn.dataset.rollup || 'metro';
+            selectedFollowerBucket = null;
             rerenderDeep();
           });
         };
