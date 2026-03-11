@@ -18,52 +18,24 @@
     .main{grid-template-columns:2fr 1fr;margin-bottom:14px}.half{grid-template-columns:1fr 1fr}
     .controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
     .panel-toggle{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
-    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
-    .tab-panel{display:none}.tab-panel.active{display:block}
-    #lockScreen{max-width:420px;margin:120px auto;padding:20px;border-radius:14px;background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--border)}
-    #lockScreen input{width:100%;padding:10px;border-radius:8px;border:1px solid #2b4f92;background:#0f1b3d;color:#eaf0ff;margin:8px 0}
     .btnf{background:#1a2a54;border:1px solid #2b4f92;color:#dbeafe;padding:6px 10px;border-radius:8px;font-size:12px;cursor:pointer}
     .btnf.active{background:#275ec2}
     h3{margin:0 0 10px;font-size:14px} canvas{width:100%!important;height:280px!important}
-    table{width:100%;border-collapse:collapse;font-size:13px} th,td{padding:9px 8px;border-bottom:1px solid #223157;text-align:left;vertical-align:top;line-height:1.35} th{color:var(--muted)}
-    #drillRows td:nth-child(2){max-width:340px;white-space:normal;word-break:break-word}
+    table{width:100%;border-collapse:collapse;font-size:13px} th,td{padding:9px 8px;border-bottom:1px solid #223157;text-align:left} th{color:var(--muted)}
     tr.clickable{cursor:pointer} tr.clickable:hover{background:#162750}
     .pill{display:inline-block;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:700}.good{background:#143d2f;color:#8ef2ca}.warn{background:#4b2f12;color:#ffd39f}
     .back{display:inline-block;margin-top:14px;color:#cfe1ff;text-decoration:none}
-    .lock{position:fixed;inset:0;background:rgba(5,10,20,.92);display:flex;align-items:center;justify-content:center;z-index:9999}
-    .lock-card{width:min(420px,92vw);background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--border);border-radius:14px;padding:16px}
-    .lock-card input{width:100%;padding:10px;border-radius:8px;border:1px solid #2b4f92;background:#0f1a39;color:#dbeafe}
-    .lock-error{color:#fca5a5;font-size:12px;min-height:16px;margin-top:8px}
     @media (max-width:1200px){.kpis{grid-template-columns:repeat(3,1fr)}.main,.half{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <div id="lockScreen" class="lock">
-    <div class="lock-card">
-      <h3 style="margin:0 0 8px">KPI Dashboard Access</h3>
-      <div class="sub" style="margin-bottom:10px">Enter passcode to continue.</div>
-      <input id="lockInput" type="password" placeholder="Passcode" />
-      <div style="display:flex;gap:8px;margin-top:10px">
-        <button id="lockBtn" class="btnf active">Unlock</button>
-      </div>
-      <div id="lockError" class="lock-error"></div>
-    </div>
-  </div>
-
-  <div class="wrap" id="appWrap" style="display:none">
+  <div class="wrap">
     <div class="head">
       <div><div class="title">Stuff to Gag On · KPI Diagnostics</div><div class="sub">Follower-growth optimization under $60/day cap</div></div>
       <div class="tag">Live Ops</div>
     </div>
 
-    <div class="tabs" id="tabNav">
-      <button class="btnf active" data-tab="overview">Overview</button>
-      <button class="btnf" data-tab="campaigns">Campaigns</button>
-      <button class="btnf" data-tab="audience">Audience / Placement</button>
-      <button class="btnf" data-tab="insights">Insights</button>
-    </div>
-
-    <section class="grid kpis tab-panel active" data-tab="overview">
+    <section class="grid kpis">
       <article class="panel kpi"><div class="l">Total Spend</div><div class="v" id="kSpend">$--</div></article>
       <article class="panel kpi"><div class="l">Total Clicks</div><div class="v" id="kClicks">--</div></article>
       <article class="panel kpi"><div class="l">Total Impressions</div><div class="v" id="kImpr">--</div></article>
@@ -83,7 +55,7 @@
       <article class="panel kpi"><div class="l">Updated</div><div class="v" id="kUpdated" style="font-size:14px">--</div></article>
     </section>
 
-    <section class="grid main tab-panel active" data-tab="overview">
+    <section class="grid main">
       <article class="panel">
         <h3>Spend vs Followers/Day</h3>
         <div class="controls" id="rangeControls">
@@ -96,14 +68,14 @@
         <div class="controls" id="seriesToggles">
           <button class="btnf active" data-series="spend">Spend</button>
           <button class="btnf active" data-series="followers">Followers/Day</button>
-          <button class="btnf" data-series="cpf">CPF Overlay</button>
+          <button class="btnf active" data-series="cpf">CPF Overlay</button>
         </div>
         <canvas id="c1"></canvas>
       </article>
       <article class="panel"><h3>Creative Mix Efficiency</h3><canvas id="c2"></canvas></article>
     </section>
 
-    <section class="grid half tab-panel" data-tab="campaigns">
+    <section class="grid half">
       <article class="panel">
         <h3>Campaign Ranking</h3>
         <table>
@@ -122,7 +94,7 @@
       </article>
     </section>
 
-    <section class="panel tab-panel active" data-tab="overview" style="margin-top:14px">
+    <section class="panel" style="margin-top:14px">
       <h3>Goals Tracker</h3>
       <table>
         <thead><tr><th>Metric</th><th>Value</th></tr></thead>
@@ -132,7 +104,7 @@
       </table>
     </section>
 
-    <section class="tab-panel" data-tab="insights" style="margin-top:14px">
+    <section style="margin-top:14px">
       <div class="panel-toggle">
         <button class="btnf active" id="toggleBoth">Both</button>
         <button class="btnf" id="toggleInsights">Insights only</button>
@@ -140,7 +112,7 @@
       </div>
     </section>
 
-    <section class="grid half tab-panel" data-tab="insights" style="margin-top:14px" id="insightsKpiGrid">
+    <section class="grid half" style="margin-top:14px" id="insightsKpiGrid">
       <article class="panel" id="insightsPanel">
         <h3>Insights (auto-generated each pull)</h3>
         <table>
@@ -159,80 +131,10 @@
       </article>
     </section>
 
-    <section class="grid half tab-panel" data-tab="audience" style="margin-top:14px">
-      <article class="panel">
-        <h3>Top Placements</h3>
-        <table>
-          <thead><tr><th>Placement</th><th>Spend</th><th>Clicks</th><th>CTR</th><th>CPC</th></tr></thead>
-          <tbody id="placementRows"><tr><td colspan="5">Loading…</td></tr></tbody>
-        </table>
-      </article>
-      <article class="panel">
-        <h3>Top Age/Gender Segments</h3>
-        <table>
-          <thead><tr><th>Segment</th><th>Spend</th><th>Clicks</th><th>CTR</th><th>CPC</th></tr></thead>
-          <tbody id="ageGenderRows"><tr><td colspan="5">Loading…</td></tr></tbody>
-        </table>
-      </article>
-    </section>
-
-    <section class="grid half tab-panel" data-tab="audience" style="margin-top:14px">
-      <article class="panel">
-        <h3>Top Regions</h3>
-        <table>
-          <thead><tr><th>Region</th><th>Spend</th><th>Clicks</th><th>CTR</th><th>CPC</th></tr></thead>
-          <tbody id="regionRows"><tr><td colspan="5">Loading…</td></tr></tbody>
-        </table>
-      </article>
-      <article class="panel">
-        <h3>Top Devices</h3>
-        <table>
-          <thead><tr><th>Device</th><th>Spend</th><th>Clicks</th><th>CTR</th><th>CPC</th></tr></thead>
-          <tbody id="deviceRows"><tr><td colspan="5">Loading…</td></tr></tbody>
-        </table>
-      </article>
-    </section>
-
     <a class="back" href="/">← Back to Health Board</a>
   </div>
 
   <script>
-    (function gate(){
-      const PASS='12345';
-      const KEY='kpi_dash_unlocked_v1';
-      const lock=document.getElementById('lockScreen');
-      const wrap=document.getElementById('appWrap');
-      const input=document.getElementById('lockInput');
-      const btn=document.getElementById('lockBtn');
-      const err=document.getElementById('lockError');
-
-      const unlock=()=>{ lock.style.display='none'; wrap.style.display='block'; };
-      if (localStorage.getItem(KEY)==='1') { unlock(); return; }
-
-      const tryUnlock=()=>{
-        if ((input.value||'').trim()===PASS){
-          localStorage.setItem(KEY,'1');
-          unlock();
-        } else {
-          err.textContent='Wrong passcode';
-        }
-      };
-      btn.onclick=tryUnlock;
-      input.addEventListener('keydown', e=>{ if (e.key==='Enter') tryUnlock(); });
-      input.focus();
-    })();
-
-    (function tabs(){
-      const btns=[...document.querySelectorAll('#tabNav .btnf')];
-      const panels=[...document.querySelectorAll('.tab-panel')];
-      const setTab=(tab)=>{
-        btns.forEach(b=>b.classList.toggle('active', b.dataset.tab===tab));
-        panels.forEach(p=>p.classList.toggle('active', p.dataset.tab===tab));
-      };
-      btns.forEach(b=>b.addEventListener('click',()=>setTab(b.dataset.tab)));
-      setTab('overview');
-    })();
-
     const trend = new Chart(document.getElementById('c1'), {
       type:'line',
       data:{
@@ -240,7 +142,7 @@
         datasets:[
           {label:'Spend ($)',data:[0,0,0,0,0,0,0],borderColor:'#60a5fa',backgroundColor:'#60a5fa',tension:.35,yAxisID:'y'},
           {label:'Followers/Day',data:[0,0,0,0,0,0,0],borderColor:'#34d399',backgroundColor:'#34d399',tension:.35,yAxisID:'y1'},
-          {label:'CPF ($/follower)',data:[null,null,null,null,null,null,null],borderColor:'#f59e0b',backgroundColor:'#f59e0b',borderDash:[6,4],tension:.35,yAxisID:'y2',hidden:true}
+          {label:'CPF ($/follower)',data:[null,null,null,null,null,null,null],borderColor:'#f59e0b',backgroundColor:'#f59e0b',borderDash:[6,4],tension:.35,yAxisID:'y2'}
         ]
       },
       options:{
@@ -262,22 +164,6 @@
       if (!campaignId) return null;
       const cleanAct = (act || '').replace(/^act_/, '');
       return `https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=${encodeURIComponent(cleanAct)}&selected_campaign_ids=${encodeURIComponent(campaignId)}`;
-    };
-    const renderBreakdownTable = (id, rows) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      if (!rows || !rows.length) {
-        el.innerHTML = '<tr><td colspan="5">No data yet</td></tr>';
-        return;
-      }
-      el.innerHTML = rows.map(r => `
-        <tr>
-          <td>${r.label || '—'}</td>
-          <td>${fmtMoney(r.spend)}</td>
-          <td>${fmtNum(r.clicks)}</td>
-          <td>${Number(r.ctr || 0).toFixed(2)}%</td>
-          <td>${r.cpc == null ? 'N/A' : fmtMoney(r.cpc)}</td>
-        </tr>`).join('');
     };
 
     let spendSeriesAll = [];
@@ -458,12 +344,6 @@
         document.getElementById('insightRows').innerHTML = insights.length
           ? insights.map(i => `<tr><td>${i.type}</td><td>${i.text}</td></tr>`).join('')
           : '<tr><td colspan="2">No insights yet</td></tr>';
-
-        const b = d.breakdowns || {};
-        renderBreakdownTable('placementRows', b.placement || []);
-        renderBreakdownTable('ageGenderRows', b.age_gender || []);
-        renderBreakdownTable('regionRows', b.region || []);
-        renderBreakdownTable('deviceRows', b.device || []);
 
         // Panel toggles (Both / Insights / KPI)
         const insightsPanel = document.getElementById('insightsPanel');
