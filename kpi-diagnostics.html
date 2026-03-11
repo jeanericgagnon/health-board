@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KPI Dashboard</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <style>
     :root { --bg:#0b1020; --panel:#111936; --panel2:#162042; --text:#eaf0ff; --muted:#9fb0df; --border:#23305f; }
     *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system;background:radial-gradient(1200px 900px at 90% -10%, #223a74 0%, var(--bg) 45%);color:var(--text)}
@@ -35,6 +37,7 @@
     .action-item{background:#101a37;border:1px solid #243567;border-radius:10px;padding:10px}
     .bar{height:6px;background:#0d1530;border-radius:999px;overflow:hidden}
     .bar>span{display:block;height:100%;background:#60a5fa}
+    #regionMap{height:320px;border:1px solid #223157;border-radius:10px}
     @media (max-width:1200px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
     .back{display:inline-block;margin-top:14px;color:#cfe1ff;text-decoration:none}
     @media (max-width:1200px){.kpis{grid-template-columns:repeat(3,1fr)}.main,.half{grid-template-columns:1fr}}
@@ -180,13 +183,14 @@
       </section>
       <section class="grid half" style="margin-top:14px">
         <article class="panel">
-          <h3>Region & Device Heat Map</h3>
+          <h3>Location Heat Map</h3>
           <div class="controls" id="heatmapFilters">
             <button class="btnf active" data-metric="spend">Spend</button>
             <button class="btnf" data-metric="ctr">CTR</button>
             <button class="btnf" data-metric="cpc">CPC</button>
+            <button class="btnf" id="ageLocNote" type="button" title="Age+Location requires Meta combined breakdown support">Age+Location: pending</button>
           </div>
-          <table><thead><tr><th>Dimension</th><th>Value</th><th>Metric</th></tr></thead><tbody id="heatmapRows"><tr><td colspan="3">Loading…</td></tr></tbody></table>
+          <div id="regionMap"></div>
         </article>
         <article class="panel">
           <h3>Filtered Breakdown Tables</h3>
@@ -276,20 +280,47 @@
       chart.update();
     };
 
-    const renderHeatmap = (regionRows, deviceRows, metric) => {
-      const el = document.getElementById('heatmapRows');
-      const rows = [...(regionRows||[]).slice(0,6).map(r=>({dim:'Region',...r})), ...(deviceRows||[]).slice(0,6).map(r=>({dim:'Device',...r}))]
-        .filter(r => Number(r.spend || 0) >= minSpendFilter);
-      if (!rows.length) { el.innerHTML = '<tr><td colspan="3">No data for current filter</td></tr>'; return; }
+    let regionMap = null;
+    let regionLayer = null;
+
+    const geocodeRegion = async (label) => {
+      const key = `geo_${label}`;
+      const cached = localStorage.getItem(key);
+      if (cached) return JSON.parse(cached);
+      try {
+        const q = encodeURIComponent(`${label}, United States`);
+        const r = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${q}`);
+        const js = await r.json();
+        const first = js && js[0] ? { lat: Number(js[0].lat), lon: Number(js[0].lon) } : null;
+        if (first) localStorage.setItem(key, JSON.stringify(first));
+        return first;
+      } catch { return null; }
+    };
+
+    const renderHeatmap = async (regionRows, metric) => {
+      const rows = (regionRows || []).filter(r => Number(r.spend || 0) >= minSpendFilter).slice(0, 20);
+      if (!regionMap) {
+        regionMap = L.map('regionMap').setView([37.8, -96], 4);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 10, attribution: '&copy; OpenStreetMap' }).addTo(regionMap);
+      }
+      if (regionLayer) regionLayer.remove();
+      regionLayer = L.layerGroup().addTo(regionMap);
+      if (!rows.length) return;
+
       const vals = rows.map(r => metricValue(r, metric));
       const min = Math.min(...vals), max = Math.max(...vals);
-      el.innerHTML = rows.map(r => {
+
+      for (const r of rows) {
+        const geo = await geocodeRegion(r.label || '');
+        if (!geo) continue;
         const v = metricValue(r, metric);
         const t = max === min ? 0.5 : (v - min) / (max - min);
-        const bg = `rgba(96,165,250,${0.15 + t * 0.7})`;
-        const txt = metric === 'ctr' ? `${v.toFixed(2)}%` : metric === 'cpc' ? fmtMoney(v) : fmtMoney(v);
-        return `<tr><td>${r.dim}</td><td>${r.label}</td><td style="background:${bg}">${txt}</td></tr>`;
-      }).join('');
+        const radius = 8 + t * 20;
+        const color = metric === 'cpc' ? '#f59e0b' : '#60a5fa';
+        L.circleMarker([geo.lat, geo.lon], { radius, color, fillColor: color, fillOpacity: 0.35, weight: 1.5 })
+          .bindPopup(`<b>${r.label}</b><br>${metricLabel(metric)}: ${metric === 'ctr' ? v.toFixed(2)+'%' : fmtMoney(v)}<br>Spend: ${fmtMoney(r.spend)}<br>Clicks: ${fmtNum(r.clicks)}`)
+          .addTo(regionLayer);
+      }
     };
 
     const bestByCpc = (rows=[]) => rows.filter(r=>r.cpc!=null && Number(r.spend||0)>=5).sort((a,b)=>a.cpc-b.cpc)[0];
@@ -305,6 +336,7 @@
         deep.classList.toggle('active', name === 'deepdive');
         overview.style.display = name === 'overview' ? 'block' : 'none';
         deep.style.display = name === 'deepdive' ? 'block' : 'none';
+        if (name === 'deepdive' && regionMap) setTimeout(() => regionMap.invalidateSize(), 50);
       };
       tabs.forEach(t => t.addEventListener('click', () => setTab(t.dataset.tab)));
       setTab('overview');
@@ -503,7 +535,7 @@
           renderBreakdownTable('deviceRows', dev);
           renderBarChart(audienceChart, age, audienceMetric);
           renderBarChart(placementChart, plc, placementMetric);
-          renderHeatmap(reg, dev, heatMetric);
+          renderHeatmap(reg, heatMetric);
         };
         rerenderDeep();
 
