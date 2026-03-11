@@ -202,6 +202,42 @@ def build_insights(summary, campaigns, followers_daily):
     return insights[:6]
 
 
+def read_csv_rows(name):
+    p = ADS_DIR / name
+    if not p.exists():
+        return []
+    with open(p, newline='', encoding='utf-8') as f:
+        return list(csv.DictReader(f))
+
+
+def top_breakdown(rows, dims, limit=12):
+    agg = {}
+    for r in rows:
+        key = tuple((r.get(d) or 'Unknown').strip() or 'Unknown' for d in dims)
+        item = agg.setdefault(key, {'spend': 0.0, 'clicks': 0.0, 'impressions': 0.0, 'reach': 0.0})
+        item['spend'] += num(r.get('spend'))
+        item['clicks'] += num(r.get('clicks'))
+        item['impressions'] += num(r.get('impressions'))
+        item['reach'] += num(r.get('reach'))
+
+    out = []
+    for key, m in agg.items():
+        clicks = m['clicks']
+        impr = m['impressions']
+        out.append({
+            'label': ' / '.join(key),
+            'spend': round(m['spend'], 2),
+            'clicks': int(clicks),
+            'impressions': int(impr),
+            'reach': int(m['reach']),
+            'ctr': round((clicks / impr) * 100, 3) if impr > 0 else 0.0,
+            'cpc': round(m['spend'] / clicks, 3) if clicks > 0 else None,
+        })
+
+    out.sort(key=lambda x: x['spend'], reverse=True)
+    return out[:limit]
+
+
 def main():
     summary = read_summary()
     meta = read_meta_config()
@@ -209,6 +245,11 @@ def main():
     campaigns = aggregate_hierarchy(rows)
     followers = read_followers_series()
     spend_series = build_spend_series(rows)
+
+    placement_rows = read_csv_rows('insights_placement_latest.csv')
+    age_gender_rows = read_csv_rows('insights_age_gender_latest.csv')
+    device_rows = read_csv_rows('insights_device_latest.csv')
+    region_rows = read_csv_rows('insights_region_latest.csv')
 
     # Keep full follower history for trend continuity/backfill; ad insights can
     # have a different coverage window.
@@ -232,6 +273,12 @@ def main():
         'followers_daily_series': followers_daily,
         'spend_series': spend_series,
         'insights': build_insights(summary, campaigns, followers_daily),
+        'breakdowns': {
+            'placement': top_breakdown(placement_rows, ['publisher_platform', 'platform_position']),
+            'age_gender': top_breakdown(age_gender_rows, ['age', 'gender']),
+            'device': top_breakdown(device_rows, ['device_platform']),
+            'region': top_breakdown(region_rows, ['region']),
+        },
     }
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
