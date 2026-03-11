@@ -1,23 +1,23 @@
 {
-  "updated_at": "2026-03-11T20:21:10.987237+00:00",
+  "updated_at": "2026-03-11T20:36:27.483849+00:00",
   "campaign": [
     {
       "campaign_id": "6951024653957",
       "campaign_name": "1",
-      "spend": 38.65,
-      "impressions": 5892.0,
-      "clicks": 384.0,
-      "ctr": 6.517311608961303,
-      "cpc": 0.10065104166666666
+      "spend": 38.81,
+      "impressions": 5915.0,
+      "clicks": 385.0,
+      "ctr": 6.508875739644971,
+      "cpc": 0.10080519480519481
     },
     {
       "campaign_id": "6953786714157",
       "campaign_name": "2",
-      "spend": 39.269999999999996,
-      "impressions": 5597.0,
-      "clicks": 349.0,
-      "ctr": 6.235483294622119,
-      "cpc": 0.1125214899713467
+      "spend": 39.51,
+      "impressions": 5621.0,
+      "clicks": 350.0,
+      "ctr": 6.226650062266501,
+      "cpc": 0.11288571428571428
     }
   ],
   "ad": [
@@ -28,11 +28,11 @@
       "campaign_name": "1",
       "adset_id": "6953785406157",
       "adset_name": "Test - New Traffic Ad set with recommended settings",
-      "spend": 19.37,
-      "impressions": 2936.0,
-      "clicks": 215.0,
-      "ctr": 7.322888283378746,
-      "cpc": 0.09009302325581396
+      "spend": 19.520000000000003,
+      "impressions": 2954.0,
+      "clicks": 216.0,
+      "ctr": 7.312119160460393,
+      "cpc": 0.09037037037037038
     },
     {
       "ad_id": "6953786714557",
@@ -41,11 +41,11 @@
       "campaign_name": "2",
       "adset_id": "6953786714957",
       "adset_name": "Test - New Traffic Ad set with recommended settings",
-      "spend": 22.08,
-      "impressions": 3211.0,
-      "clicks": 236.0,
-      "ctr": 7.349735284957958,
-      "cpc": 0.0935593220338983
+      "spend": 22.28,
+      "impressions": 3228.0,
+      "clicks": 237.0,
+      "ctr": 7.342007434944238,
+      "cpc": 0.09400843881856541
     },
     {
       "ad_id": "6951024654157",
@@ -54,11 +54,11 @@
       "campaign_name": "1",
       "adset_id": "6951024653757",
       "adset_name": "New Traffic Ad set with recommended settings",
-      "spend": 19.28,
-      "impressions": 2956.0,
+      "spend": 19.29,
+      "impressions": 2961.0,
       "clicks": 169.0,
-      "ctr": 5.7171853856562915,
-      "cpc": 0.1140828402366864
+      "ctr": 5.707531239446133,
+      "cpc": 0.11414201183431952
     },
     {
       "ad_id": "6953786714357",
@@ -67,11 +67,11 @@
       "campaign_name": "2",
       "adset_id": "6953786714757",
       "adset_name": "New Traffic Ad set with recommended settings",
-      "spend": 17.19,
-      "impressions": 2386.0,
+      "spend": 17.23,
+      "impressions": 2393.0,
       "clicks": 113.0,
-      "ctr": 4.735959765297569,
-      "cpc": 0.15212389380530975
+      "ctr": 4.722106142916841,
+      "cpc": 0.1524778761061947
     }
   ],
   "breakdowns": {
@@ -82443,13 +82443,195 @@
     ]
   },
   "followers": {
-    "current": 106036,
+    "current": 106037,
     "username": "thesocial.study",
-    "source": "blastup",
-    "pulled_at": "2026-03-11T20:21:10.987237+00:00",
-    "updated_at": "2026-03-11T20:21:10.987237+00:00",
-    "delta_24h": 157
+    "source": "instagram_graph",
+    "pulled_at": "2026-03-11T20:36:27.483849+00:00",
+    "updated_at": "2026-03-11T20:36:27.483849+00:00",
+    "delta_24h": 158
   },
+  "followers_city": [
+    {
+      "city": "San Diego, California",
+      "followers": 25375
+    },
+    {
+      "city": "Denver, Colorado",
+      "followers": 8057
+    },
+    {
+      "city": "Los Angeles, California",
+      "followers": 3199
+    },
+    {
+      "city": "Irvine, California",
+      "followers": 2276
+    },
+    {
+      "city": "Chula Vista, California",
+      "followers": 1972
+    },
+    {
+      "city": "Anaheim, California",
+      "followers": 1761
+    },
+    {
+      "city": "Santa Ana, California",
+      "followers": 1451
+    },
+    {
+      "city": "Oceanside, California",
+      "followers": 1397
+    },
+    {
+      "city": "Long Beach, California",
+      "followers": 1217
+    },
+    {
+      "city": "Carlsbad, California",
+      "followers": 1013
+    },
+    {
+      "city": "Costa Mesa, California",
+      "followers": 1006
+    },
+    {
+      "city": "Orange, California",
+      "followers": 982
+    },
+    {
+      "city": "Huntington Beach, California",
+      "followers": 942
+    },
+    {
+      "city": "Escondido, California",
+      "followers": 860
+    },
+    {
+      "city": "Fullerton, California",
+      "followers": 847
+    },
+    {
+      "city": "Encinitas, California",
+      "followers": 769
+    },
+    {
+      "city": "La Mesa, California",
+      "followers": 766
+    },
+    {
+      "city": "Vista, California",
+      "followers": 656
+    },
+    {
+      "city": "Lakewood, Colorado",
+      "followers": 652
+    },
+    {
+      "city": "San Marcos, California",
+      "followers": 619
+    },
+    {
+      "city": "Riverside, California",
+      "followers": 573
+    },
+    {
+      "city": "El Cajon, California",
+      "followers": 523
+    },
+    {
+      "city": "Centennial, Colorado",
+      "followers": 490
+    },
+    {
+      "city": "Arvada, Colorado",
+      "followers": 482
+    },
+    {
+      "city": "New York, New York",
+      "followers": 437
+    },
+    {
+      "city": "Garden Grove, California",
+      "followers": 415
+    },
+    {
+      "city": "Newport Beach, California",
+      "followers": 405
+    },
+    {
+      "city": "Santee, California",
+      "followers": 403
+    },
+    {
+      "city": "Tustin, California",
+      "followers": 371
+    },
+    {
+      "city": "Phoenix, Arizona",
+      "followers": 367
+    },
+    {
+      "city": "Temecula, California",
+      "followers": 357
+    },
+    {
+      "city": "Murrieta, California",
+      "followers": 324
+    },
+    {
+      "city": "Mission Viejo, California",
+      "followers": 324
+    },
+    {
+      "city": "La Presa, California",
+      "followers": 316
+    },
+    {
+      "city": "Ontario, California",
+      "followers": 301
+    },
+    {
+      "city": "Chicago, Illinois",
+      "followers": 290
+    },
+    {
+      "city": "Corona, California",
+      "followers": 289
+    },
+    {
+      "city": "San Antonio, Texas",
+      "followers": 284
+    },
+    {
+      "city": "Colorado Springs, Colorado",
+      "followers": 283
+    },
+    {
+      "city": "Houston, Texas",
+      "followers": 283
+    },
+    {
+      "city": "Boulder, Colorado",
+      "followers": 278
+    },
+    {
+      "city": "Whittier, California",
+      "followers": 268
+    },
+    {
+      "city": "National City, California",
+      "followers": 266
+    },
+    {
+      "city": "Poway, California",
+      "followers": 264
+    },
+    {
+      "city": "Rancho Cucamonga, California",
+      "followers": 264
+    }
+  ],
   "followers_history": [
     {
       "day": "2026-03-03",
@@ -82493,13 +82675,13 @@
     },
     {
       "day": "2026-03-11",
-      "followers": 106036,
-      "followers_per_day": 112
+      "followers": 106037,
+      "followers_per_day": 113
     }
   ],
   "insights": [
-    "Follower snapshot: 106,036 at 2026-03-11T20:21:10.987237+00:00 UTC.",
-    "24h follower change: +157.",
+    "Follower snapshot: 106,037 at 2026-03-11T20:36:27.483849+00:00 UTC.",
+    "24h follower change: +158.",
     "Meta API loaded: 2 campaign(s). Click a campaign to view ad-level CPC breakdown."
   ]
 }
