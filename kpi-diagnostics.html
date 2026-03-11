@@ -326,7 +326,7 @@
 
     const OC_CITIES = new Set(['Irvine','Newport Beach','Costa Mesa','Santa Ana','Anaheim','Huntington Beach','Tustin','Fullerton','Orange','Garden Grove','Laguna Niguel','Laguna Beach','Mission Viejo','Yorba Linda']);
     const SD_CITIES = new Set(['San Diego','Chula Vista','La Mesa','El Cajon','Santee','Escondido','Vista','Oceanside','Carlsbad','Encinitas','National City','Poway','Coronado','Del Mar','Solana Beach']);
-    const DENVER_METRO_CITIES = new Set(['Denver','Arvada','Lakewood','Centennial','Aurora','Thornton','Westminster','Littleton','Broomfield','Englewood']);
+    const DENVER_METRO_CITIES = new Set(['Denver','Arvada','Lakewood','Centennial','Aurora','Thornton','Westminster','Littleton','Broomfield','Englewood','Boulder','Longmont','Lafayette','Louisville','Superior','Northglenn','Commerce City','Brighton','Golden','Parker','Castle Rock']);
 
     const splitCityState = (cityLabel='') => {
       const parts = cityLabel.split(',').map(x=>x.trim());
@@ -662,8 +662,10 @@
               const i = Number(tr.dataset.fidx || -1);
               const row = top[i];
               if (!row) return;
-              const bucketCities = (row.children || [])
-                .map(c => `${c.city.split(',')[0]} (${fmtNum(c.followers)})`)
+              const bucketCities = (followerCities || [])
+                .filter(c => rollupCityLabel(c.city || '', geoRollup) === row.city)
+                .sort((a,b) => Number(b.followers||0) - Number(a.followers||0))
+                .map(c => `${(c.city || '').split(',')[0]} (${fmtNum(c.followers)})`)
                 .join(' · ');
               tr.children[0].innerHTML = `<b>${row.city}</b><br><span class="sub">${bucketCities || 'No sub-city breakdown'}</span>`;
             });
