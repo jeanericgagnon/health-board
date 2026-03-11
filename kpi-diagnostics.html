@@ -643,7 +643,9 @@
           const total = rolled.reduce((s,r)=>s+Number(r.followers||0),0) || 1;
           const latestDaily = Number((followersDailySeries[followersDailySeries.length-1] || {}).followers_per_day || 0);
           const isFollowersTab = elId === 'followerCityRowsTab';
-          const top = isFollowersTab ? rolled : rolled.slice(0,10);
+          const top = isFollowersTab
+            ? (geoRollup === 'city' ? rolled : rolled.slice(0,10))
+            : rolled.slice(0,10);
 
           el.innerHTML = top.map((r, idx) => {
             const share = (Number(r.followers||0) / total) * 100;
@@ -655,12 +657,15 @@
             return `<tr${cls} data-fidx="${idx}"><td><b>${r.city}</b>${detail}</td><td>${fmtNum(r.followers)}</td><td>${share.toFixed(1)}%</td><td>${latestDaily>0?est.toFixed(1):'N/A'}</td><td><div class="bar"><span style="width:${Math.max(4,Math.round(share))}%"></span></div></td></tr>`;
           }).join('');
 
-          if (isFollowersTab) {
+          if (isFollowersTab && geoRollup !== 'city') {
             el.querySelectorAll('tr[data-fidx]').forEach(tr => tr.onclick = () => {
-              const allCities = followerCities
+              const i = Number(tr.dataset.fidx || -1);
+              const row = top[i];
+              if (!row) return;
+              const bucketCities = (row.children || [])
                 .map(c => `${c.city.split(',')[0]} (${fmtNum(c.followers)})`)
                 .join(' · ');
-              tr.children[0].innerHTML = `<b>All pulled cities (${followerCities.length})</b><br><span class="sub">${allCities || 'No city data'}</span>`;
+              tr.children[0].innerHTML = `<b>${row.city}</b><br><span class="sub">${bucketCities || 'No sub-city breakdown'}</span>`;
             });
           }
         };
