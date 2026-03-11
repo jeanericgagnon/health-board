@@ -272,7 +272,6 @@
     let heatMetric = 'spend';
     let heatSource = 'ads';
     let geoRollup = 'metro';
-    let selectedFollowerBucket = null;
 
     const metricValue = (r, m) => m === 'ctr' ? Number(r.ctr || 0) : m === 'cpc' ? Number(r.cpc || 0) : Number(r.spend || 0);
     const metricLabel = (m) => m === 'ctr' ? 'CTR %' : m === 'cpc' ? 'CPC $' : 'Spend $';
@@ -313,7 +312,22 @@
     let followersMap = null;
     let followersLayer = null;
 
+    const GEO_OVERRIDES = {
+      'San Diego Metro, California': { lat: 32.7157, lon: -117.1611 },
+      'San Diego County, California': { lat: 32.7157, lon: -117.1611 },
+      'Orange County Metro, California': { lat: 33.7175, lon: -117.8311 },
+      'Orange County, California': { lat: 33.7175, lon: -117.8311 },
+      'Los Angeles Metro, California': { lat: 34.0522, lon: -118.2437 },
+      'Los Angeles County, California': { lat: 34.0522, lon: -118.2437 },
+      'Denver Metro, Colorado': { lat: 39.7392, lon: -104.9903 },
+      'Denver Metro Counties, Colorado': { lat: 39.7392, lon: -104.9903 },
+      'Colorado Springs Metro, Colorado': { lat: 38.8339, lon: -104.8214 },
+      'El Paso County, Colorado': { lat: 38.8339, lon: -104.8214 },
+    };
+
     const geocodeRegion = async (label) => {
+      if (!label || label === 'Unmapped') return null;
+      if (GEO_OVERRIDES[label]) return GEO_OVERRIDES[label];
       const key = `geo_${label}`;
       const cached = localStorage.getItem(key);
       if (cached) return JSON.parse(cached);
@@ -385,7 +399,10 @@
     const renderHeatmap = async (regionRows, followerCityRows, metric, source) => {
       if (typeof L === 'undefined') return;
       const rows = source === 'followers'
-        ? rollupFollowerCities(followerCityRows || [], geoRollup).slice(0, 30).map(r => ({ label: r.city, followers: Number(r.followers || 0) }))
+        ? (geoRollup === 'city'
+            ? rollupFollowerCities(followerCityRows || [], geoRollup)
+            : rollupFollowerCities(followerCityRows || [], geoRollup).slice(0, 10)
+          ).map(r => ({ label: r.city, followers: Number(r.followers || 0) }))
         : (regionRows || []).filter(r => Number(r.spend || 0) >= minSpendFilter).slice(0, 20);
       if (!regionMap) {
         regionMap = L.map('regionMap').setView([37.8, -96], 4);
@@ -414,7 +431,9 @@
 
     const renderFollowersMap = async (followerCityRows) => {
       if (typeof L === 'undefined') return;
-      let rows = rollupFollowerCities(followerCityRows || [], geoRollup).slice(0, 30);
+      let rows = geoRollup === 'city'
+        ? rollupFollowerCities(followerCityRows || [], geoRollup)
+        : rollupFollowerCities(followerCityRows || [], geoRollup).slice(0, 10);
       if (selectedFollowerBucket) {
         rows = rows.filter(r => r.city === selectedFollowerBucket);
       }
