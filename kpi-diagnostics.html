@@ -53,8 +53,7 @@
     <div class="top-tabs" id="topTabs">
       <button class="tablink active" data-tab="overview" type="button">Overview</button>
       <button class="tablink" data-tab="deepdive" type="button">Deep Dive</button>
-      <button class="tablink" data-tab="followers" type="button">Followers Geo</button>
-    </div>
+          </div>
 
     <div id="overviewPanel" class="tab-panel active">
     <section class="grid kpis">
@@ -190,8 +189,7 @@
             <button class="btnf" data-metric="ctr">CTR</button>
             <button class="btnf" data-metric="cpc">CPC</button>
             <button class="btnf active" data-source="ads">Ads Geo</button>
-            <button class="btnf" data-source="followers">Followers Geo</button>
-            <button class="btnf" id="ageLocNote" type="button" title="Age+Location requires Meta combined breakdown support">Age+Location: pending</button>
+                        <button class="btnf" id="ageLocNote" type="button" title="Age+Location requires Meta combined breakdown support">Age+Location: pending</button>
           </div>
           <div class="controls" id="geoRollupFilters">
             <button class="btnf" data-rollup="city">City</button>
@@ -211,7 +209,6 @@
           <table style="margin-top:10px"><thead><tr><th>Placement</th><th>Spend</th><th>CTR</th><th>CPC</th><th>Momentum</th></tr></thead><tbody id="placementRows"><tr><td colspan="5">Loading…</td></tr></tbody></table>
           <table style="margin-top:10px"><thead><tr><th>Region</th><th>Spend</th><th>CTR</th><th>CPC</th><th>Momentum</th></tr></thead><tbody id="regionRows"><tr><td colspan="5">Loading…</td></tr></tbody></table>
           <table style="margin-top:10px"><thead><tr><th>Device</th><th>Spend</th><th>CTR</th><th>CPC</th><th>Momentum</th></tr></thead><tbody id="deviceRows"><tr><td colspan="5">Loading…</td></tr></tbody></table>
-          <table style="margin-top:10px"><thead><tr><th>Follower City</th><th>Followers</th><th>Share</th><th>Estimated Daily</th><th>Momentum</th></tr></thead><tbody id="followerCityRows"><tr><td colspan="5">Loading…</td></tr></tbody></table>
         </article>
       </section>
     </div>
@@ -432,7 +429,6 @@
       const tabs = [...document.querySelectorAll('#topTabs .tablink')];
       const overview = document.getElementById('overviewPanel');
       const deep = document.getElementById('deepDivePanel');
-      const followers = document.getElementById('followersPanel');
       const setTab = (name) => {
         tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === name));
         overview.classList.toggle('active', name === 'overview');
@@ -643,21 +639,14 @@
           const total = rolled.reduce((s,r)=>s+Number(r.followers||0),0) || 1;
           const latestDaily = Number((followersDailySeries[followersDailySeries.length-1] || {}).followers_per_day || 0);
           const top = rolled.slice(0,10);
-          el.innerHTML = top.map((r, idx) => {
+          el.innerHTML = top.map((r) => {
             const share = (Number(r.followers||0) / total) * 100;
             const est = latestDaily > 0 ? latestDaily * (share/100) : 0;
-            return `<tr class="clickable" data-fidx="${idx}"><td>${r.city}</td><td>${fmtNum(r.followers)}</td><td>${share.toFixed(1)}%</td><td>${latestDaily>0?est.toFixed(1):'N/A'}</td><td><div class="bar"><span style="width:${Math.max(4,Math.round(share))}%"></span></div></td></tr>`;
+            const detail = geoRollup !== 'city'
+              ? `<br><span class="sub">${(r.children || []).slice(0,6).map(c => `${c.city.split(',')[0]} (${fmtNum(c.followers)})`).join(' · ') || 'No sub-city breakdown'}</span>`
+              : '';
+            return `<tr><td><b>${r.city}</b>${detail}</td><td>${fmtNum(r.followers)}</td><td>${share.toFixed(1)}%</td><td>${latestDaily>0?est.toFixed(1):'N/A'}</td><td><div class="bar"><span style="width:${Math.max(4,Math.round(share))}%"></span></div></td></tr>`;
           }).join('');
-
-          if (geoRollup !== 'city') {
-            el.querySelectorAll('tr[data-fidx]').forEach(tr => tr.onclick = () => {
-              const i = Number(tr.dataset.fidx || -1);
-              const row = top[i];
-              if (!row) return;
-              const detail = row.children.slice(0,6).map(c => `${c.city.split(',')[0]} (${fmtNum(c.followers)})`).join(' · ');
-              tr.children[0].innerHTML = `<b>${row.city}</b><br><span class="sub">${detail || 'No sub-city breakdown'}</span>`;
-            });
-          }
         };
 
         const rerenderDeep = () => {
