@@ -160,22 +160,45 @@
 
       <section class="grid half" style="margin-top:14px">
         <article class="panel">
-          <h3>Top Age/Gender Segments</h3>
-          <table><thead><tr><th>Segment</th><th>Spend</th><th>CTR</th><th>CPC</th><th>Momentum</th></tr></thead><tbody id="ageGenderRows"><tr><td colspan="5">Loading…</td></tr></tbody></table>
+          <h3>Audience Chart</h3>
+          <div class="controls" id="audienceChartFilters">
+            <button class="btnf active" data-metric="spend">Spend</button>
+            <button class="btnf" data-metric="ctr">CTR</button>
+            <button class="btnf" data-metric="cpc">CPC</button>
+          </div>
+          <canvas id="audienceChart" style="height:240px!important"></canvas>
         </article>
         <article class="panel">
-          <h3>Top Placements</h3>
-          <table><thead><tr><th>Placement</th><th>Spend</th><th>CTR</th><th>CPC</th><th>Momentum</th></tr></thead><tbody id="placementRows"><tr><td colspan="5">Loading…</td></tr></tbody></table>
+          <h3>Placement Chart</h3>
+          <div class="controls" id="placementChartFilters">
+            <button class="btnf active" data-metric="spend">Spend</button>
+            <button class="btnf" data-metric="ctr">CTR</button>
+            <button class="btnf" data-metric="cpc">CPC</button>
+          </div>
+          <canvas id="placementChart" style="height:240px!important"></canvas>
         </article>
       </section>
       <section class="grid half" style="margin-top:14px">
         <article class="panel">
-          <h3>Top Regions</h3>
-          <table><thead><tr><th>Region</th><th>Spend</th><th>CTR</th><th>CPC</th><th>Momentum</th></tr></thead><tbody id="regionRows"><tr><td colspan="5">Loading…</td></tr></tbody></table>
+          <h3>Region & Device Heat Map</h3>
+          <div class="controls" id="heatmapFilters">
+            <button class="btnf active" data-metric="spend">Spend</button>
+            <button class="btnf" data-metric="ctr">CTR</button>
+            <button class="btnf" data-metric="cpc">CPC</button>
+          </div>
+          <table><thead><tr><th>Dimension</th><th>Value</th><th>Metric</th></tr></thead><tbody id="heatmapRows"><tr><td colspan="3">Loading…</td></tr></tbody></table>
         </article>
         <article class="panel">
-          <h3>Top Devices</h3>
-          <table><thead><tr><th>Device</th><th>Spend</th><th>CTR</th><th>CPC</th><th>Momentum</th></tr></thead><tbody id="deviceRows"><tr><td colspan="5">Loading…</td></tr></tbody></table>
+          <h3>Filtered Breakdown Tables</h3>
+          <div class="controls" id="tableFilters">
+            <button class="btnf active" data-min="0">All</button>
+            <button class="btnf" data-min="5">$5+</button>
+            <button class="btnf" data-min="10">$10+</button>
+          </div>
+          <table><thead><tr><th>Segment</th><th>Spend</th><th>CTR</th><th>CPC</th><th>Momentum</th></tr></thead><tbody id="ageGenderRows"><tr><td colspan="5">Loading…</td></tr></tbody></table>
+          <table style="margin-top:10px"><thead><tr><th>Placement</th><th>Spend</th><th>CTR</th><th>CPC</th><th>Momentum</th></tr></thead><tbody id="placementRows"><tr><td colspan="5">Loading…</td></tr></tbody></table>
+          <table style="margin-top:10px"><thead><tr><th>Region</th><th>Spend</th><th>CTR</th><th>CPC</th><th>Momentum</th></tr></thead><tbody id="regionRows"><tr><td colspan="5">Loading…</td></tr></tbody></table>
+          <table style="margin-top:10px"><thead><tr><th>Device</th><th>Spend</th><th>CTR</th><th>CPC</th><th>Momentum</th></tr></thead><tbody id="deviceRows"><tr><td colspan="5">Loading…</td></tr></tbody></table>
         </article>
       </section>
     </div>
@@ -214,17 +237,58 @@
       const cleanAct = (act || '').replace(/^act_/, '');
       return `https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=${encodeURIComponent(cleanAct)}&selected_campaign_ids=${encodeURIComponent(campaignId)}`;
     };
+    let minSpendFilter = 0;
+    let audienceMetric = 'spend';
+    let placementMetric = 'spend';
+    let heatMetric = 'spend';
+
+    const metricValue = (r, m) => m === 'ctr' ? Number(r.ctr || 0) : m === 'cpc' ? Number(r.cpc || 0) : Number(r.spend || 0);
+    const metricLabel = (m) => m === 'ctr' ? 'CTR %' : m === 'cpc' ? 'CPC $' : 'Spend $';
+
     const renderBreakdownTable = (id, rows) => {
       const el = document.getElementById(id);
       if (!el) return;
-      if (!rows || !rows.length) {
-        el.innerHTML = '<tr><td colspan="5">No data yet</td></tr>';
+      const filtered = (rows || []).filter(r => Number(r.spend || 0) >= minSpendFilter);
+      if (!filtered.length) {
+        el.innerHTML = '<tr><td colspan="5">No data for current filter</td></tr>';
         return;
       }
-      const maxSpend = Math.max(...rows.map(r => Number(r.spend || 0)), 1);
-      el.innerHTML = rows.map(r => {
+      const maxSpend = Math.max(...filtered.map(r => Number(r.spend || 0)), 1);
+      el.innerHTML = filtered.map(r => {
         const w = Math.max(4, Math.round((Number(r.spend || 0) / maxSpend) * 100));
         return `<tr><td>${r.label || '—'}</td><td>${fmtMoney(r.spend)}</td><td>${Number(r.ctr || 0).toFixed(2)}%</td><td>${r.cpc == null ? 'N/A' : fmtMoney(r.cpc)}</td><td><div class="bar"><span style="width:${w}%"></span></div></td></tr>`;
+      }).join('');
+    };
+
+    const makeBarChart = (canvasId) => new Chart(document.getElementById(canvasId), {
+      type: 'bar',
+      data: { labels: [], datasets: [{ label: '', data: [], backgroundColor: '#60a5fa' }] },
+      options: { indexAxis: 'y', plugins: { legend: { labels: { color: '#d7e2ff' } } }, scales: { x: { ticks: { color:'#9fb0df' } }, y: { ticks: { color:'#9fb0df' } } }, maintainAspectRatio:false }
+    });
+    const audienceChart = makeBarChart('audienceChart');
+    const placementChart = makeBarChart('placementChart');
+
+    const renderBarChart = (chart, rows, metric) => {
+      const top = (rows || []).filter(r => Number(r.spend || 0) >= minSpendFilter).slice(0, 8);
+      chart.data.labels = top.map(r => r.label);
+      chart.data.datasets[0].label = metricLabel(metric);
+      chart.data.datasets[0].data = top.map(r => metricValue(r, metric));
+      chart.update();
+    };
+
+    const renderHeatmap = (regionRows, deviceRows, metric) => {
+      const el = document.getElementById('heatmapRows');
+      const rows = [...(regionRows||[]).slice(0,6).map(r=>({dim:'Region',...r})), ...(deviceRows||[]).slice(0,6).map(r=>({dim:'Device',...r}))]
+        .filter(r => Number(r.spend || 0) >= minSpendFilter);
+      if (!rows.length) { el.innerHTML = '<tr><td colspan="3">No data for current filter</td></tr>'; return; }
+      const vals = rows.map(r => metricValue(r, metric));
+      const min = Math.min(...vals), max = Math.max(...vals);
+      el.innerHTML = rows.map(r => {
+        const v = metricValue(r, metric);
+        const t = max === min ? 0.5 : (v - min) / (max - min);
+        const bg = `rgba(96,165,250,${0.15 + t * 0.7})`;
+        const txt = metric === 'ctr' ? `${v.toFixed(2)}%` : metric === 'cpc' ? fmtMoney(v) : fmtMoney(v);
+        return `<tr><td>${r.dim}</td><td>${r.label}</td><td style="background:${bg}">${txt}</td></tr>`;
       }).join('');
     };
 
@@ -431,10 +495,42 @@
         const plc = b.placement || [];
         const reg = b.region || [];
         const dev = b.device || [];
-        renderBreakdownTable('ageGenderRows', age);
-        renderBreakdownTable('placementRows', plc);
-        renderBreakdownTable('regionRows', reg);
-        renderBreakdownTable('deviceRows', dev);
+
+        const rerenderDeep = () => {
+          renderBreakdownTable('ageGenderRows', age);
+          renderBreakdownTable('placementRows', plc);
+          renderBreakdownTable('regionRows', reg);
+          renderBreakdownTable('deviceRows', dev);
+          renderBarChart(audienceChart, age, audienceMetric);
+          renderBarChart(placementChart, plc, placementMetric);
+          renderHeatmap(reg, dev, heatMetric);
+        };
+        rerenderDeep();
+
+        document.querySelectorAll('#tableFilters .btnf').forEach(btn => btn.onclick = () => {
+          document.querySelectorAll('#tableFilters .btnf').forEach(b=>b.classList.remove('active'));
+          btn.classList.add('active');
+          minSpendFilter = Number(btn.dataset.min || 0);
+          rerenderDeep();
+        });
+        document.querySelectorAll('#audienceChartFilters .btnf').forEach(btn => btn.onclick = () => {
+          document.querySelectorAll('#audienceChartFilters .btnf').forEach(b=>b.classList.remove('active'));
+          btn.classList.add('active');
+          audienceMetric = btn.dataset.metric || 'spend';
+          rerenderDeep();
+        });
+        document.querySelectorAll('#placementChartFilters .btnf').forEach(btn => btn.onclick = () => {
+          document.querySelectorAll('#placementChartFilters .btnf').forEach(b=>b.classList.remove('active'));
+          btn.classList.add('active');
+          placementMetric = btn.dataset.metric || 'spend';
+          rerenderDeep();
+        });
+        document.querySelectorAll('#heatmapFilters .btnf').forEach(btn => btn.onclick = () => {
+          document.querySelectorAll('#heatmapFilters .btnf').forEach(b=>b.classList.remove('active'));
+          btn.classList.add('active');
+          heatMetric = btn.dataset.metric || 'spend';
+          rerenderDeep();
+        });
 
         const bestSeg = bestByCpc(age) || bestByCpc(plc) || bestByCpc(reg) || bestByCpc(dev);
         const worstSeg = worstByCpc(age) || worstByCpc(plc) || worstByCpc(reg) || worstByCpc(dev);
