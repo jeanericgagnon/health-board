@@ -210,12 +210,8 @@ def main():
     followers = read_followers_series()
     spend_series = build_spend_series(rows)
 
-    # Keep follower history anchored to the ad-data start date, but allow newer
-    # follower points when ad insights lag by a day.
-    if spend_series:
-        start_date = spend_series[0]['date']
-        followers = [r for r in followers if start_date <= r['date']]
-
+    # Keep full follower history for trend continuity/backfill; ad insights can
+    # have a different coverage window.
     followers_daily = follower_daily_series(followers)
 
     payload = {
