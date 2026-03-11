@@ -38,7 +38,7 @@
       <article class="panel kpi"><div class="l">Total Spend</div><div class="v" id="kSpend">$--</div></article>
       <article class="panel kpi"><div class="l">Total Clicks</div><div class="v" id="kClicks">--</div></article>
       <article class="panel kpi"><div class="l">Total Impressions</div><div class="v" id="kImpr">--</div></article>
-      <article class="panel kpi"><div class="l">Total Follows</div><div class="v" id="kFollows">--</div></article>
+      <article class="panel kpi"><div class="l">Current Followers</div><div class="v" id="kFollows">--</div></article>
       <article class="panel kpi">
         <div class="l" style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
           <span>Blended CPF</span>
@@ -80,12 +80,10 @@
         </table>
       </article>
       <article class="panel">
-        <h3>Campaign KPI Dashboard (Campaign → Ad Set → Ad)</h3>
+        <h3>KPI Dashboard Snapshot</h3>
         <table>
-          <thead><tr><th>Level</th><th>Name</th><th>Spend</th><th>Impr.</th><th>Reach</th><th>Clicks</th><th>CTR</th><th>CPC</th><th>CPM</th></tr></thead>
-          <tbody id="drillRows">
-            <tr><td colspan="9">Click a campaign on the left</td></tr>
-          </tbody>
+          <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+          <tbody id="kpiDashRows"><tr><td colspan="2">Loading KPI snapshot…</td></tr></tbody>
         </table>
       </article>
     </section>
@@ -100,12 +98,23 @@
       </table>
     </section>
 
-    <section class="panel" style="margin-top:14px">
-      <h3>Insights (auto-generated each pull)</h3>
-      <table>
-        <thead><tr><th>Type</th><th>Insight</th></tr></thead>
-        <tbody id="insightRows"><tr><td colspan="2">Loading insights…</td></tr></tbody>
-      </table>
+    <section class="grid half" style="margin-top:14px">
+      <article class="panel">
+        <h3>Insights (auto-generated each pull)</h3>
+        <table>
+          <thead><tr><th>Type</th><th>Insight</th></tr></thead>
+          <tbody id="insightRows"><tr><td colspan="2">Loading insights…</td></tr></tbody>
+        </table>
+      </article>
+      <article class="panel">
+        <h3>Campaign KPI Dashboard (Campaign → Ad Set → Ad)</h3>
+        <table>
+          <thead><tr><th>Level</th><th>Name</th><th>Spend</th><th>Impr.</th><th>Reach</th><th>Clicks</th><th>CTR</th><th>CPC</th><th>CPM</th></tr></thead>
+          <tbody id="drillRows">
+            <tr><td colspan="9">Click a campaign on the left</td></tr>
+          </tbody>
+        </table>
+      </article>
     </section>
 
     <a class="back" href="/">← Back to Health Board</a>
@@ -234,6 +243,16 @@
           <tr><td>Needed to 150k</td><td><b>${fmtNum(neededToTarget)}</b> (${daysLeft} days left)</td></tr>
           <tr><td>Daily Growth</td><td>${dailyGrowth == null ? 'N/A' : `<b>${dailyGrowth.toFixed(1)}</b>/day`} · 7D avg: ${dailyGrowth7 == null ? 'N/A' : `<b>${dailyGrowth7.toFixed(1)}</b>/day`}</td></tr>
           <tr><td>Weekly Growth</td><td>${weeklyGrowth == null ? 'N/A (need 8+ days)' : `<b>${weeklyGrowth >= 0 ? '+' : ''}${fmtNum(weeklyGrowth)}</b> followers (last 7 days)`}</td></tr>
+        `;
+
+        const kpiDashRows = document.getElementById('kpiDashRows');
+        kpiDashRows.innerHTML = `
+          <tr><td>Spend (window)</td><td><b>${fmtMoney(s.total_spend)}</b></td></tr>
+          <tr><td>Clicks</td><td><b>${fmtNum(s.total_clicks)}</b></td></tr>
+          <tr><td>Impressions</td><td><b>${fmtNum(s.total_impressions)}</b></td></tr>
+          <tr><td>Current Followers</td><td><b>${fmtNum(currentFollowers)}</b></td></tr>
+          <tr><td>Blended CPF (${cpfSelect?.value || 7}D)</td><td><b>${kCpfEl.textContent}</b></td></tr>
+          <tr><td>Updated</td><td><b>${d.updated_at ? new Date(d.updated_at).toLocaleString() : '--'}</b></td></tr>
         `;
 
         const campaigns = d.campaigns || d.top_campaigns || [];
