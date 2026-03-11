@@ -188,6 +188,8 @@
             <button class="btnf active" data-metric="spend">Spend</button>
             <button class="btnf" data-metric="ctr">CTR</button>
             <button class="btnf" data-metric="cpc">CPC</button>
+            <button class="btnf active" data-source="ads">Ads Geo</button>
+            <button class="btnf" data-source="followers">Followers Geo</button>
             <button class="btnf" id="ageLocNote" type="button" title="Age+Location requires Meta combined breakdown support">Age+Location: pending</button>
           </div>
           <div id="regionMap"></div>
@@ -203,6 +205,7 @@
           <table style="margin-top:10px"><thead><tr><th>Placement</th><th>Spend</th><th>CTR</th><th>CPC</th><th>Momentum</th></tr></thead><tbody id="placementRows"><tr><td colspan="5">Loading…</td></tr></tbody></table>
           <table style="margin-top:10px"><thead><tr><th>Region</th><th>Spend</th><th>CTR</th><th>CPC</th><th>Momentum</th></tr></thead><tbody id="regionRows"><tr><td colspan="5">Loading…</td></tr></tbody></table>
           <table style="margin-top:10px"><thead><tr><th>Device</th><th>Spend</th><th>CTR</th><th>CPC</th><th>Momentum</th></tr></thead><tbody id="deviceRows"><tr><td colspan="5">Loading…</td></tr></tbody></table>
+          <table style="margin-top:10px"><thead><tr><th>Follower City</th><th>Followers</th><th>Share</th><th>Estimated Daily</th><th>Momentum</th></tr></thead><tbody id="followerCityRows"><tr><td colspan="5">Loading…</td></tr></tbody></table>
         </article>
       </section>
     </div>
@@ -245,6 +248,7 @@
     let audienceMetric = 'spend';
     let placementMetric = 'spend';
     let heatMetric = 'spend';
+    let heatSource = 'ads';
 
     const metricValue = (r, m) => m === 'ctr' ? Number(r.ctr || 0) : m === 'cpc' ? Number(r.cpc || 0) : Number(r.spend || 0);
     const metricLabel = (m) => m === 'ctr' ? 'CTR %' : m === 'cpc' ? 'CPC $' : 'Spend $';
@@ -297,8 +301,10 @@
       } catch { return null; }
     };
 
-    const renderHeatmap = async (regionRows, metric) => {
-      const rows = (regionRows || []).filter(r => Number(r.spend || 0) >= minSpendFilter).slice(0, 20);
+    const renderHeatmap = async (regionRows, followerCityRows, metric, source) => {
+      const rows = source === 'followers'
+        ? (followerCityRows || []).slice(0, 30).map(r => ({ label: r.city, followers: Number(r.followers || 0) }))
+        : (regionRows || []).filter(r => Number(r.spend || 0) >= minSpendFilter).slice(0, 20);
       if (!regionMap) {
         regionMap = L.map('regionMap').setView([37.8, -96], 4);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 10, attribution: '&copy; OpenStreetMap' }).addTo(regionMap);
@@ -307,18 +313,19 @@
       regionLayer = L.layerGroup().addTo(regionMap);
       if (!rows.length) return;
 
-      const vals = rows.map(r => metricValue(r, metric));
+      const vals = rows.map(r => source === 'followers' ? Number(r.followers || 0) : metricValue(r, metric));
       const min = Math.min(...vals), max = Math.max(...vals);
 
       for (const r of rows) {
         const geo = await geocodeRegion(r.label || '');
         if (!geo) continue;
-        const v = metricValue(r, metric);
+        const v = source === 'followers' ? Number(r.followers || 0) : metricValue(r, metric);
         const t = max === min ? 0.5 : (v - min) / (max - min);
         const radius = 8 + t * 20;
-        const color = metric === 'cpc' ? '#f59e0b' : '#60a5fa';
+        const color = source === 'followers' ? '#34d399' : (metric === 'cpc' ? '#f59e0b' : '#60a5fa');
+        const metricText = source === 'followers' ? `${fmtNum(v)} followers` : `${metricLabel(metric)}: ${metric === 'ctr' ? v.toFixed(2)+'%' : fmtMoney(v)}`;
         L.circleMarker([geo.lat, geo.lon], { radius, color, fillColor: color, fillOpacity: 0.35, weight: 1.5 })
-          .bindPopup(`<b>${r.label}</b><br>${metricLabel(metric)}: ${metric === 'ctr' ? v.toFixed(2)+'%' : fmtMoney(v)}<br>Spend: ${fmtMoney(r.spend)}<br>Clicks: ${fmtNum(r.clicks)}`)
+          .bindPopup(`<b>${r.label}</b><br>${metricText}`)
           .addTo(regionLayer);
       }
     };
@@ -527,15 +534,30 @@
         const plc = b.placement || [];
         const reg = b.region || [];
         const dev = b.device || [];
+        const followerCities = ((d.follower_demographics || {}).city || []).slice(0, 25);
+
+        const renderFollowerCityTable = () => {
+          const el = document.getElementById('followerCityRows');
+          if (!el) return;
+          if (!followerCities.length) { el.innerHTML = '<tr><td colspan="5">No follower city data yet</td></tr>'; return; }
+          const total = followerCities.reduce((s,r)=>s+Number(r.followers||0),0) || 1;
+          const latestDaily = Number((followersDailySeries[followersDailySeries.length-1] || {}).followers_per_day || 0);
+          el.innerHTML = followerCities.slice(0,10).map(r => {
+            const share = (Number(r.followers||0) / total) * 100;
+            const est = latestDaily > 0 ? latestDaily * (share/100) : 0;
+            return `<tr><td>${r.city}</td><td>${fmtNum(r.followers)}</td><td>${share.toFixed(1)}%</td><td>${latestDaily>0?est.toFixed(1):'N/A'}</td><td><div class="bar"><span style="width:${Math.max(4,Math.round(share))}%"></span></div></td></tr>`;
+          }).join('');
+        };
 
         const rerenderDeep = () => {
           renderBreakdownTable('ageGenderRows', age);
           renderBreakdownTable('placementRows', plc);
           renderBreakdownTable('regionRows', reg);
           renderBreakdownTable('deviceRows', dev);
+          renderFollowerCityTable();
           renderBarChart(audienceChart, age, audienceMetric);
           renderBarChart(placementChart, plc, placementMetric);
-          renderHeatmap(reg, heatMetric);
+          renderHeatmap(reg, followerCities, heatMetric, heatSource);
         };
         rerenderDeep();
 
@@ -557,10 +579,16 @@
           placementMetric = btn.dataset.metric || 'spend';
           rerenderDeep();
         });
-        document.querySelectorAll('#heatmapFilters .btnf').forEach(btn => btn.onclick = () => {
-          document.querySelectorAll('#heatmapFilters .btnf').forEach(b=>b.classList.remove('active'));
+        document.querySelectorAll('#heatmapFilters .btnf[data-metric]').forEach(btn => btn.onclick = () => {
+          document.querySelectorAll('#heatmapFilters .btnf[data-metric]').forEach(b=>b.classList.remove('active'));
           btn.classList.add('active');
           heatMetric = btn.dataset.metric || 'spend';
+          rerenderDeep();
+        });
+        document.querySelectorAll('#heatmapFilters .btnf[data-source]').forEach(btn => btn.onclick = () => {
+          document.querySelectorAll('#heatmapFilters .btnf[data-source]').forEach(b=>b.classList.remove('active'));
+          btn.classList.add('active');
+          heatSource = btn.dataset.source || 'ads';
           rerenderDeep();
         });
 

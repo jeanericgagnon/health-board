@@ -210,6 +210,24 @@ def read_csv_rows(name):
         return list(csv.DictReader(f))
 
 
+def read_follower_city_rows(limit=200):
+    p = ADS_DIR / 'follower_demographics_city_latest.json'
+    if not p.exists():
+        return []
+    try:
+        d = json.loads(p.read_text())
+        rows = d.get('rows') or []
+        out = []
+        for r in rows[:limit]:
+            city = (r.get('city') or '').strip()
+            if not city:
+                continue
+            out.append({'city': city, 'followers': int(num(r.get('followers')))})
+        return out
+    except Exception:
+        return []
+
+
 def top_breakdown(rows, dims, limit=12):
     agg = {}
     for r in rows:
@@ -250,6 +268,7 @@ def main():
     age_gender_rows = read_csv_rows('insights_age_gender_latest.csv')
     device_rows = read_csv_rows('insights_device_latest.csv')
     region_rows = read_csv_rows('insights_region_latest.csv')
+    follower_city_rows = read_follower_city_rows()
 
     # Keep full follower history for trend continuity/backfill; ad insights can
     # have a different coverage window.
@@ -278,6 +297,9 @@ def main():
             'age_gender': top_breakdown(age_gender_rows, ['age', 'gender']),
             'device': top_breakdown(device_rows, ['device_platform']),
             'region': top_breakdown(region_rows, ['region']),
+        },
+        'follower_demographics': {
+            'city': follower_city_rows,
         },
     }
 
