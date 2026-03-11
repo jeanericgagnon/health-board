@@ -39,7 +39,18 @@
       <article class="panel kpi"><div class="l">Total Clicks</div><div class="v" id="kClicks">--</div></article>
       <article class="panel kpi"><div class="l">Total Impressions</div><div class="v" id="kImpr">--</div></article>
       <article class="panel kpi"><div class="l">Total Follows</div><div class="v" id="kFollows">--</div></article>
-      <article class="panel kpi"><div class="l">Blended CPF</div><div class="v" id="kCpf">$--</div></article>
+      <article class="panel kpi">
+        <div class="l" style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+          <span>Blended CPF</span>
+          <select id="cpfWindow" style="background:#1a2a54;color:#dbeafe;border:1px solid #2b4f92;border-radius:8px;padding:2px 6px;font-size:11px;">
+            <option value="1">1D</option>
+            <option value="3">3D</option>
+            <option value="7" selected>7D</option>
+            <option value="30">1M</option>
+          </select>
+        </div>
+        <div class="v" id="kCpf">$--</div>
+      </article>
       <article class="panel kpi"><div class="l">Updated</div><div class="v" id="kUpdated" style="font-size:14px">--</div></article>
     </section>
 
@@ -161,13 +172,34 @@
 
         // Top KPI cards fallback:
         // - Total Follows: show current follower total when ad-attributed follows are unavailable/zero
-        // - Blended CPF: fallback to spend / weekly net follower growth
+        // - Blended CPF: compute from selectable window (1D/3D/7D/1M) using spend_series and followers_daily_series
         const topFollows = Number(s.total_follows || 0) > 0 ? Number(s.total_follows) : currentFollowers;
-        const cpfFallback = (weeklyGrowthForTop && weeklyGrowthForTop > 0) ? (Number(s.total_spend || 0) / weeklyGrowthForTop) : null;
-        const topCpf = s.blended_cost_per_follow == null ? cpfFallback : Number(s.blended_cost_per_follow);
+
+        const spendSeries = d.spend_series || [];
+        const cpfSelect = document.getElementById('cpfWindow');
+        const kCpfEl = document.getElementById('kCpf');
+
+        const computeWindowCpf = (days) => {
+          const recentSpend = spendSeries.slice(-days).reduce((sum, x) => sum + Number(x.spend || 0), 0);
+          const recentFollowers = followersDailySeries
+            .slice(-days)
+            .map(x => Number(x.followers_per_day))
+            .filter(v => Number.isFinite(v))
+            .reduce((sum, v) => sum + v, 0);
+          if (recentFollowers > 0) return recentSpend / recentFollowers;
+          return null;
+        };
+
+        const renderCpf = () => {
+          const days = Number(cpfSelect?.value || 7);
+          const windowCpf = computeWindowCpf(days);
+          const topCpf = s.blended_cost_per_follow == null ? windowCpf : Number(s.blended_cost_per_follow);
+          kCpfEl.textContent = topCpf == null ? 'N/A' : fmtMoney(topCpf);
+        };
 
         document.getElementById('kFollows').textContent = fmtNum(topFollows);
-        document.getElementById('kCpf').textContent = topCpf == null ? 'N/A' : fmtMoney(topCpf);
+        renderCpf();
+        if (cpfSelect) cpfSelect.onchange = renderCpf;
         document.getElementById('kUpdated').textContent = d.updated_at ? new Date(d.updated_at).toLocaleString() : '--';
 
         // Goals area
