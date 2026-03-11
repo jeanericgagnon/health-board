@@ -37,7 +37,7 @@
     .action-item{background:#101a37;border:1px solid #243567;border-radius:10px;padding:10px}
     .bar{height:6px;background:#0d1530;border-radius:999px;overflow:hidden}
     .bar>span{display:block;height:100%;background:#60a5fa}
-    #regionMap{height:260px;border:1px solid #223157;border-radius:10px}
+    #regionMap,#followersMap{height:260px;border:1px solid #223157;border-radius:10px}
     @media (max-width:1200px){.cards{grid-template-columns:1fr}}
     .back{display:inline-block;margin-top:14px;color:#cfe1ff;text-decoration:none}
     @media (max-width:1200px){.kpis{grid-template-columns:repeat(3,1fr)}.main,.half{grid-template-columns:1fr}}
@@ -53,6 +53,7 @@
     <div class="top-tabs" id="topTabs">
       <button class="tablink active" data-tab="overview" type="button">Overview</button>
       <button class="tablink" data-tab="deepdive" type="button">Deep Dive</button>
+      <button class="tablink" data-tab="followers" type="button">Followers Geo</button>
     </div>
 
     <div id="overviewPanel" class="tab-panel active">
@@ -215,6 +216,22 @@
       </section>
     </div>
 
+    <div id="followersPanel" class="tab-panel" style="display:none">
+      <section class="panel" style="margin-top:14px">
+        <h3>Follower Location Heat Map</h3>
+        <div class="controls" id="followersRollupFilters">
+          <button class="btnf" data-rollup="city">City</button>
+          <button class="btnf active" data-rollup="metro">Metro / Greater Area</button>
+          <button class="btnf" data-rollup="county">County</button>
+        </div>
+        <div id="followersMap"></div>
+      </section>
+      <section class="panel" style="margin-top:14px">
+        <h3>Follower Location Breakdown</h3>
+        <table><thead><tr><th>Location</th><th>Followers</th><th>Share</th><th>Estimated Daily</th><th>Momentum</th></tr></thead><tbody id="followerCityRowsTab"><tr><td colspan="5">Loading…</td></tr></tbody></table>
+      </section>
+    </div>
+
     <a class="back" href="/">← Back to Health Board</a>
   </div>
 
@@ -292,6 +309,8 @@
 
     let regionMap = null;
     let regionLayer = null;
+    let followersMap = null;
+    let followersLayer = null;
 
     const geocodeRegion = async (label) => {
       const key = `geo_${label}`;
@@ -377,6 +396,29 @@
       }
     };
 
+    const renderFollowersMap = async (followerCityRows) => {
+      const rows = rollupFollowerCities(followerCityRows || [], geoRollup).slice(0, 30);
+      if (!followersMap) {
+        followersMap = L.map('followersMap').setView([37.8, -96], 4);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 10, attribution: '&copy; OpenStreetMap' }).addTo(followersMap);
+      }
+      if (followersLayer) followersLayer.remove();
+      followersLayer = L.layerGroup().addTo(followersMap);
+      if (!rows.length) return;
+      const vals = rows.map(r => Number(r.followers || 0));
+      const min = Math.min(...vals), max = Math.max(...vals);
+      for (const r of rows) {
+        const geo = await geocodeRegion(r.city || '');
+        if (!geo) continue;
+        const v = Number(r.followers || 0);
+        const t = max === min ? 0.5 : (v - min) / (max - min);
+        const radius = 8 + t * 20;
+        L.circleMarker([geo.lat, geo.lon], { radius, color: '#34d399', fillColor: '#34d399', fillOpacity: 0.35, weight: 1.5 })
+          .bindPopup(`<b>${r.city}</b><br>${fmtNum(v)} followers`)
+          .addTo(followersLayer);
+      }
+    };
+
     const bestByCpc = (rows=[]) => rows.filter(r=>r.cpc!=null && Number(r.spend||0)>=5).sort((a,b)=>a.cpc-b.cpc)[0];
     const worstByCpc = (rows=[]) => rows.filter(r=>r.cpc!=null && Number(r.spend||0)>=5).sort((a,b)=>b.cpc-a.cpc)[0];
 
@@ -384,13 +426,17 @@
       const tabs = [...document.querySelectorAll('#topTabs .tablink')];
       const overview = document.getElementById('overviewPanel');
       const deep = document.getElementById('deepDivePanel');
+      const followers = document.getElementById('followersPanel');
       const setTab = (name) => {
         tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === name));
         overview.classList.toggle('active', name === 'overview');
         deep.classList.toggle('active', name === 'deepdive');
+        followers.classList.toggle('active', name === 'followers');
         overview.style.display = name === 'overview' ? 'block' : 'none';
         deep.style.display = name === 'deepdive' ? 'block' : 'none';
+        followers.style.display = name === 'followers' ? 'block' : 'none';
         if (name === 'deepdive' && regionMap) setTimeout(() => regionMap.invalidateSize(), 50);
+        if (name === 'followers' && followersMap) setTimeout(() => followersMap.invalidateSize(), 50);
       };
       tabs.forEach(t => t.addEventListener('click', () => setTab(t.dataset.tab)));
       setTab('overview');
@@ -583,8 +629,8 @@
         const dev = b.device || [];
         const followerCities = ((d.follower_demographics || {}).city || []).slice(0, 25);
 
-        const renderFollowerCityTable = () => {
-          const el = document.getElementById('followerCityRows');
+        const renderFollowerCityTable = (elId='followerCityRows') => {
+          const el = document.getElementById(elId);
           if (!el) return;
           const rolled = rollupFollowerCities(followerCities, geoRollup);
           if (!rolled.length) { el.innerHTML = '<tr><td colspan="5">No follower city data yet</td></tr>'; return; }
@@ -602,10 +648,12 @@
           renderBreakdownTable('placementRows', plc);
           renderBreakdownTable('regionRows', reg);
           renderBreakdownTable('deviceRows', dev);
-          renderFollowerCityTable();
+          renderFollowerCityTable('followerCityRows');
+          renderFollowerCityTable('followerCityRowsTab');
           renderBarChart(audienceChart, age, audienceMetric);
           renderBarChart(placementChart, plc, placementMetric);
           renderHeatmap(reg, followerCities, heatMetric, heatSource);
+          renderFollowersMap(followerCities);
         };
         rerenderDeep();
 
@@ -639,12 +687,16 @@
           heatSource = btn.dataset.source || 'ads';
           rerenderDeep();
         });
-        document.querySelectorAll('#geoRollupFilters .btnf').forEach(btn => btn.onclick = () => {
-          document.querySelectorAll('#geoRollupFilters .btnf').forEach(b=>b.classList.remove('active'));
-          btn.classList.add('active');
-          geoRollup = btn.dataset.rollup || 'metro';
-          rerenderDeep();
-        });
+        const bindRollup = (selector) => {
+          document.querySelectorAll(selector + ' .btnf').forEach(btn => btn.onclick = () => {
+            document.querySelectorAll(selector + ' .btnf').forEach(b=>b.classList.remove('active'));
+            btn.classList.add('active');
+            geoRollup = btn.dataset.rollup || 'metro';
+            rerenderDeep();
+          });
+        };
+        bindRollup('#geoRollupFilters');
+        bindRollup('#followersRollupFilters');
 
         const bestSeg = bestByCpc(age) || bestByCpc(plc) || bestByCpc(reg) || bestByCpc(dev);
         const worstSeg = worstByCpc(age) || worstByCpc(plc) || worstByCpc(reg) || worstByCpc(dev);
