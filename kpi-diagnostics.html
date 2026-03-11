@@ -180,12 +180,20 @@
         const kCpfEl = document.getElementById('kCpf');
 
         const computeWindowCpf = (days) => {
-          const recentSpend = spendSeries.slice(-days).reduce((sum, x) => sum + Number(x.spend || 0), 0);
-          const recentFollowers = followersDailySeries
-            .slice(-days)
-            .map(x => Number(x.followers_per_day))
-            .filter(v => Number.isFinite(v))
-            .reduce((sum, v) => sum + v, 0);
+          // CPF should only use dates where both spend + follower deltas exist.
+          const spendMap = new Map(spendSeries.map(x => [x.date, Number(x.spend || 0)]));
+          const overlap = followersDailySeries
+            .filter(x => spendMap.has(x.date) && Number.isFinite(Number(x.followers_per_day)))
+            .map(x => ({ date: x.date, spend: spendMap.get(x.date), followers: Number(x.followers_per_day) }))
+            .sort((a, b) => a.date.localeCompare(b.date));
+
+          // If selector asks for a longer range than available overlapping campaign data,
+          // show N/A instead of silently shrinking the window.
+          if (overlap.length < days) return null;
+
+          const windowRows = overlap.slice(-days);
+          const recentSpend = windowRows.reduce((sum, x) => sum + x.spend, 0);
+          const recentFollowers = windowRows.reduce((sum, x) => sum + x.followers, 0);
           if (recentFollowers > 0) return recentSpend / recentFollowers;
           return null;
         };
