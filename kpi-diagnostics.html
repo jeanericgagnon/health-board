@@ -361,10 +361,16 @@
       const agg = new Map();
       (rows || []).forEach(r => {
         const key = rollupCityLabel(r.city || '', mode);
-        agg.set(key, (agg.get(key) || 0) + Number(r.followers || 0));
+        const curr = agg.get(key) || { city: key, followers: 0, children: [] };
+        curr.followers += Number(r.followers || 0);
+        curr.children.push({ city: r.city, followers: Number(r.followers || 0) });
+        agg.set(key, curr);
       });
-      return [...agg.entries()].map(([city, followers]) => ({ city, followers }))
-        .sort((a,b)=>b.followers-a.followers);
+      return [...agg.values()].map(x => ({
+        city: x.city,
+        followers: x.followers,
+        children: x.children.sort((a,b)=>b.followers-a.followers),
+      })).sort((a,b)=>b.followers-a.followers);
     };
 
     const renderHeatmap = async (regionRows, followerCityRows, metric, source) => {
@@ -636,11 +642,22 @@
           if (!rolled.length) { el.innerHTML = '<tr><td colspan="5">No follower city data yet</td></tr>'; return; }
           const total = rolled.reduce((s,r)=>s+Number(r.followers||0),0) || 1;
           const latestDaily = Number((followersDailySeries[followersDailySeries.length-1] || {}).followers_per_day || 0);
-          el.innerHTML = rolled.slice(0,10).map(r => {
+          const top = rolled.slice(0,10);
+          el.innerHTML = top.map((r, idx) => {
             const share = (Number(r.followers||0) / total) * 100;
             const est = latestDaily > 0 ? latestDaily * (share/100) : 0;
-            return `<tr><td>${r.city}</td><td>${fmtNum(r.followers)}</td><td>${share.toFixed(1)}%</td><td>${latestDaily>0?est.toFixed(1):'N/A'}</td><td><div class="bar"><span style="width:${Math.max(4,Math.round(share))}%"></span></div></td></tr>`;
+            return `<tr class="clickable" data-fidx="${idx}"><td>${r.city}</td><td>${fmtNum(r.followers)}</td><td>${share.toFixed(1)}%</td><td>${latestDaily>0?est.toFixed(1):'N/A'}</td><td><div class="bar"><span style="width:${Math.max(4,Math.round(share))}%"></span></div></td></tr>`;
           }).join('');
+
+          if (geoRollup !== 'city') {
+            el.querySelectorAll('tr[data-fidx]').forEach(tr => tr.onclick = () => {
+              const i = Number(tr.dataset.fidx || -1);
+              const row = top[i];
+              if (!row) return;
+              const detail = row.children.slice(0,6).map(c => `${c.city.split(',')[0]} (${fmtNum(c.followers)})`).join(' · ');
+              tr.children[0].innerHTML = `<b>${row.city}</b><br><span class="sub">${detail || 'No sub-city breakdown'}</span>`;
+            });
+          }
         };
 
         const rerenderDeep = () => {
