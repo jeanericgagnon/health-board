@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-11T16:58:27.204928Z",
+  "updated_at": "2026-03-11T16:59:08.810718Z",
   "summary": {
     "ad_account_id": "act_1379452680603809",
     "total_spend": 46.81,
@@ -260,6 +260,10 @@
   ],
   "followers_series": [
     {
+      "date": "2026-03-02",
+      "followers_total": 105585.0
+    },
+    {
       "date": "2026-03-03",
       "followers_total": 105655.0
     },
@@ -293,13 +297,18 @@
     },
     {
       "date": "2026-03-11",
-      "followers_total": 106017.0
+      "followers_total": 106018.0
     }
   ],
   "followers_daily_series": [
     {
-      "date": "2026-03-03",
+      "date": "2026-03-02",
       "followers_per_day": null,
+      "followers_total": 105585.0
+    },
+    {
+      "date": "2026-03-03",
+      "followers_per_day": 70.0,
       "followers_total": 105655.0
     },
     {
@@ -339,8 +348,8 @@
     },
     {
       "date": "2026-03-11",
-      "followers_per_day": 70.0,
-      "followers_total": 106017.0
+      "followers_per_day": 71.0,
+      "followers_total": 106018.0
     }
   ],
   "spend_series": [
@@ -372,7 +381,7 @@
     },
     {
       "type": "working",
-      "text": "Latest daily followers: 70. Keep top campaign structure stable while testing one variable at a time."
+      "text": "Latest daily followers: 71. Keep top campaign structure stable while testing one variable at a time."
     },
     {
       "type": "action",
