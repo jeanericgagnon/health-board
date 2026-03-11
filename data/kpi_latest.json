@@ -1,133 +1,133 @@
 {
-  "updated_at": "2026-03-11T19:22:23.098938Z",
+  "updated_at": "2026-03-11T19:26:23.016137Z",
   "summary": {
     "ad_account_id": "act_1379452680603809",
-    "total_spend": 46.81,
-    "total_clicks": 413,
-    "total_impressions": 6887,
+    "total_spend": 76.27,
+    "total_clicks": 718,
+    "total_impressions": 11243,
     "total_follows": 0,
     "blended_cost_per_follow": null,
-    "since": "2026-02-08",
-    "until": "2026-03-10"
+    "since": "2026-02-09",
+    "until": "2026-03-11"
   },
   "campaigns": [
     {
-      "campaign": "1",
-      "campaign_id": "6951024653957",
-      "spend": 23.83,
-      "clicks": 211,
-      "impressions": 3613,
-      "reach": 3610,
-      "ctr": 5.132,
-      "cpm": 6.614,
-      "cpc": 0.113,
-      "adsets": [
-        {
-          "adset": "Test - New Traffic Ad set with recommended settings",
-          "adset_id": "6953785406157",
-          "spend": 11.99,
-          "clicks": 125,
-          "impressions": 1806,
-          "reach": 1805,
-          "ctr": 6.04,
-          "cpm": 6.791,
-          "cpc": 0.096,
-          "ads": [
-            {
-              "ad": "1",
-              "ad_id": "6953785406357",
-              "spend": 11.99,
-              "clicks": 125,
-              "impressions": 1806,
-              "reach": 1805,
-              "ctr": 6.04,
-              "cpm": 6.791,
-              "cpc": 0.096
-            }
-          ]
-        },
-        {
-          "adset": "New Traffic Ad set with recommended settings",
-          "adset_id": "6951024653757",
-          "spend": 11.84,
-          "clicks": 86,
-          "impressions": 1807,
-          "reach": 1805,
-          "ctr": 4.224,
-          "cpm": 6.436,
-          "cpc": 0.138,
-          "ads": [
-            {
-              "ad": "1",
-              "ad_id": "6951024654157",
-              "spend": 11.84,
-              "clicks": 86,
-              "impressions": 1807,
-              "reach": 1805,
-              "ctr": 4.224,
-              "cpm": 6.436,
-              "cpc": 0.138
-            }
-          ]
-        }
-      ]
-    },
-    {
       "campaign": "2",
       "campaign_id": "6953786714157",
-      "spend": 22.98,
-      "clicks": 202,
-      "impressions": 3274,
-      "reach": 3252,
-      "ctr": 5.49,
-      "cpm": 6.779,
-      "cpc": 0.114,
+      "spend": 38.45,
+      "clicks": 343,
+      "impressions": 5474,
+      "reach": 5400,
+      "ctr": 5.788,
+      "cpm": 6.866,
+      "cpc": 0.112,
       "adsets": [
         {
           "adset": "Test - New Traffic Ad set with recommended settings",
           "adset_id": "6953786714957",
-          "spend": 13.56,
-          "clicks": 152,
-          "impressions": 1949,
-          "reach": 1937,
-          "ctr": 7.673,
-          "cpm": 6.97,
-          "cpc": 0.089,
+          "spend": 21.69,
+          "clicks": 232,
+          "impressions": 3152,
+          "reach": 3138,
+          "ctr": 7.23,
+          "cpm": 6.964,
+          "cpc": 0.093,
           "ads": [
             {
               "ad": "1",
               "ad_id": "6953786714557",
-              "spend": 13.56,
-              "clicks": 152,
-              "impressions": 1949,
-              "reach": 1937,
-              "ctr": 7.673,
-              "cpm": 6.97,
-              "cpc": 0.089
+              "spend": 21.69,
+              "clicks": 232,
+              "impressions": 3152,
+              "reach": 3138,
+              "ctr": 7.23,
+              "cpm": 6.964,
+              "cpc": 0.093
             }
           ]
         },
         {
           "adset": "New Traffic Ad set with recommended settings",
           "adset_id": "6953786714757",
-          "spend": 9.42,
-          "clicks": 50,
-          "impressions": 1325,
-          "reach": 1315,
-          "ctr": 3.307,
-          "cpm": 6.589,
-          "cpc": 0.188,
+          "spend": 16.76,
+          "clicks": 111,
+          "impressions": 2322,
+          "reach": 2262,
+          "ctr": 4.346,
+          "cpm": 6.767,
+          "cpc": 0.151,
           "ads": [
             {
               "ad": "1",
               "ad_id": "6953786714357",
-              "spend": 9.42,
-              "clicks": 50,
-              "impressions": 1325,
-              "reach": 1315,
-              "ctr": 3.307,
-              "cpm": 6.589,
-              "cpc": 0.188
+              "spend": 16.76,
+              "clicks": 111,
+              "impressions": 2322,
+              "reach": 2262,
+              "ctr": 4.346,
+              "cpm": 6.767,
+              "cpc": 0.151
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "campaign": "1",
+      "campaign_id": "6951024653957",
+      "spend": 37.82,
+      "clicks": 375,
+      "impressions": 5769,
+      "reach": 5717,
+      "ctr": 5.82,
+      "cpm": 6.612,
+      "cpc": 0.101,
+      "adsets": [
+        {
+          "adset": "Test - New Traffic Ad set with recommended settings",
+          "adset_id": "6953785406157",
+          "spend": 18.97,
+          "clicks": 210,
+          "impressions": 2878,
+          "reach": 2846,
+          "ctr": 6.387,
+          "cpm": 6.751,
+          "cpc": 0.09,
+          "ads": [
+            {
+              "ad": "1",
+              "ad_id": "6953785406357",
+              "spend": 18.97,
+              "clicks": 210,
+              "impressions": 2878,
+              "reach": 2846,
+              "ctr": 6.387,
+              "cpm": 6.751,
+              "cpc": 0.09
+            }
+          ]
+        },
+        {
+          "adset": "New Traffic Ad set with recommended settings",
+          "adset_id": "6951024653757",
+          "spend": 18.85,
+          "clicks": 165,
+          "impressions": 2891,
+          "reach": 2871,
+          "ctr": 5.253,
+          "cpm": 6.473,
+          "cpc": 0.114,
+          "ads": [
+            {
+              "ad": "1",
+              "ad_id": "6951024654157",
+              "spend": 18.85,
+              "clicks": 165,
+              "impressions": 2891,
+              "reach": 2871,
+              "ctr": 5.253,
+              "cpm": 6.473,
+              "cpc": 0.114
             }
           ]
         }
@@ -136,122 +136,122 @@
   ],
   "top_campaigns": [
     {
-      "campaign": "1",
-      "campaign_id": "6951024653957",
-      "spend": 23.83,
-      "clicks": 211,
-      "impressions": 3613,
-      "reach": 3610,
-      "ctr": 5.132,
-      "cpm": 6.614,
-      "cpc": 0.113,
-      "adsets": [
-        {
-          "adset": "Test - New Traffic Ad set with recommended settings",
-          "adset_id": "6953785406157",
-          "spend": 11.99,
-          "clicks": 125,
-          "impressions": 1806,
-          "reach": 1805,
-          "ctr": 6.04,
-          "cpm": 6.791,
-          "cpc": 0.096,
-          "ads": [
-            {
-              "ad": "1",
-              "ad_id": "6953785406357",
-              "spend": 11.99,
-              "clicks": 125,
-              "impressions": 1806,
-              "reach": 1805,
-              "ctr": 6.04,
-              "cpm": 6.791,
-              "cpc": 0.096
-            }
-          ]
-        },
-        {
-          "adset": "New Traffic Ad set with recommended settings",
-          "adset_id": "6951024653757",
-          "spend": 11.84,
-          "clicks": 86,
-          "impressions": 1807,
-          "reach": 1805,
-          "ctr": 4.224,
-          "cpm": 6.436,
-          "cpc": 0.138,
-          "ads": [
-            {
-              "ad": "1",
-              "ad_id": "6951024654157",
-              "spend": 11.84,
-              "clicks": 86,
-              "impressions": 1807,
-              "reach": 1805,
-              "ctr": 4.224,
-              "cpm": 6.436,
-              "cpc": 0.138
-            }
-          ]
-        }
-      ]
-    },
-    {
       "campaign": "2",
       "campaign_id": "6953786714157",
-      "spend": 22.98,
-      "clicks": 202,
-      "impressions": 3274,
-      "reach": 3252,
-      "ctr": 5.49,
-      "cpm": 6.779,
-      "cpc": 0.114,
+      "spend": 38.45,
+      "clicks": 343,
+      "impressions": 5474,
+      "reach": 5400,
+      "ctr": 5.788,
+      "cpm": 6.866,
+      "cpc": 0.112,
       "adsets": [
         {
           "adset": "Test - New Traffic Ad set with recommended settings",
           "adset_id": "6953786714957",
-          "spend": 13.56,
-          "clicks": 152,
-          "impressions": 1949,
-          "reach": 1937,
-          "ctr": 7.673,
-          "cpm": 6.97,
-          "cpc": 0.089,
+          "spend": 21.69,
+          "clicks": 232,
+          "impressions": 3152,
+          "reach": 3138,
+          "ctr": 7.23,
+          "cpm": 6.964,
+          "cpc": 0.093,
           "ads": [
             {
               "ad": "1",
               "ad_id": "6953786714557",
-              "spend": 13.56,
-              "clicks": 152,
-              "impressions": 1949,
-              "reach": 1937,
-              "ctr": 7.673,
-              "cpm": 6.97,
-              "cpc": 0.089
+              "spend": 21.69,
+              "clicks": 232,
+              "impressions": 3152,
+              "reach": 3138,
+              "ctr": 7.23,
+              "cpm": 6.964,
+              "cpc": 0.093
             }
           ]
         },
         {
           "adset": "New Traffic Ad set with recommended settings",
           "adset_id": "6953786714757",
-          "spend": 9.42,
-          "clicks": 50,
-          "impressions": 1325,
-          "reach": 1315,
-          "ctr": 3.307,
-          "cpm": 6.589,
-          "cpc": 0.188,
+          "spend": 16.76,
+          "clicks": 111,
+          "impressions": 2322,
+          "reach": 2262,
+          "ctr": 4.346,
+          "cpm": 6.767,
+          "cpc": 0.151,
           "ads": [
             {
               "ad": "1",
               "ad_id": "6953786714357",
-              "spend": 9.42,
-              "clicks": 50,
-              "impressions": 1325,
-              "reach": 1315,
-              "ctr": 3.307,
-              "cpm": 6.589,
-              "cpc": 0.188
+              "spend": 16.76,
+              "clicks": 111,
+              "impressions": 2322,
+              "reach": 2262,
+              "ctr": 4.346,
+              "cpm": 6.767,
+              "cpc": 0.151
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "campaign": "1",
+      "campaign_id": "6951024653957",
+      "spend": 37.82,
+      "clicks": 375,
+      "impressions": 5769,
+      "reach": 5717,
+      "ctr": 5.82,
+      "cpm": 6.612,
+      "cpc": 0.101,
+      "adsets": [
+        {
+          "adset": "Test - New Traffic Ad set with recommended settings",
+          "adset_id": "6953785406157",
+          "spend": 18.97,
+          "clicks": 210,
+          "impressions": 2878,
+          "reach": 2846,
+          "ctr": 6.387,
+          "cpm": 6.751,
+          "cpc": 0.09,
+          "ads": [
+            {
+              "ad": "1",
+              "ad_id": "6953785406357",
+              "spend": 18.97,
+              "clicks": 210,
+              "impressions": 2878,
+              "reach": 2846,
+              "ctr": 6.387,
+              "cpm": 6.751,
+              "cpc": 0.09
+            }
+          ]
+        },
+        {
+          "adset": "New Traffic Ad set with recommended settings",
+          "adset_id": "6951024653757",
+          "spend": 18.85,
+          "clicks": 165,
+          "impressions": 2891,
+          "reach": 2871,
+          "ctr": 5.253,
+          "cpm": 6.473,
+          "cpc": 0.114,
+          "ads": [
+            {
+              "ad": "1",
+              "ad_id": "6951024654157",
+              "spend": 18.85,
+              "clicks": 165,
+              "impressions": 2891,
+              "reach": 2871,
+              "ctr": 5.253,
+              "cpm": 6.473,
+              "cpc": 0.114
             }
           ]
         }
@@ -363,13 +363,17 @@
     },
     {
       "date": "2026-03-10",
-      "spend": 17.61
+      "spend": 34.24
+    },
+    {
+      "date": "2026-03-11",
+      "spend": 12.83
     }
   ],
   "insights": [
     {
       "type": "working",
-      "text": "1 is most efficient (CPC $0.11, CTR 5.13%)."
+      "text": "1 is most efficient (CPC $0.10, CTR 5.82%)."
     },
     {
       "type": "not_working",
