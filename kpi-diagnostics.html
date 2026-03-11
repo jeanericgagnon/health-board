@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KPI Diagnostics · TSS</title>
+  <title>Stuff to Gag On · KPI Diagnostics</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     :root { --bg:#0b1020; --panel:#111936; --panel2:#162042; --text:#eaf0ff; --muted:#9fb0df; --border:#23305f; }
@@ -30,8 +30,8 @@
 <body>
   <div class="wrap">
     <div class="head">
-      <div><div class="title">KPI Diagnostics</div><div class="sub">Design-first prototype · follower-growth optimization under $60/day cap</div></div>
-      <div class="tag">UI Prototype</div>
+      <div><div class="title">Stuff to Gag On · KPI Diagnostics</div><div class="sub">Follower-growth optimization under $60/day cap</div></div>
+      <div class="tag">Live Ops</div>
     </div>
 
     <section class="grid kpis">
@@ -77,6 +77,16 @@
           </tbody>
         </table>
       </article>
+    </section>
+
+    <section class="panel" style="margin-top:14px">
+      <h3>Goals Tracker</h3>
+      <table>
+        <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+        <tbody id="goalRows">
+          <tr><td colspan="2">Loading goals…</td></tr>
+        </tbody>
+      </table>
     </section>
 
     <section class="panel" style="margin-top:14px">
@@ -144,6 +154,35 @@
         document.getElementById('kFollows').textContent = fmtNum(s.total_follows);
         document.getElementById('kCpf').textContent = s.blended_cost_per_follow == null ? 'N/A' : fmtMoney(s.blended_cost_per_follow);
         document.getElementById('kUpdated').textContent = d.updated_at ? new Date(d.updated_at).toLocaleString() : '--';
+
+        // Goals area
+        const targetFollowers = 150000;
+        const goalDate = new Date('2026-06-11T23:59:59');
+        const now = new Date();
+        const followersSeries = d.followers_series || [];
+        const followersDailySeries = d.followers_daily_series || [];
+        const currentFollowers = followersSeries.length ? Number(followersSeries[followersSeries.length - 1].followers_total || 0) : 0;
+        const neededToTarget = Math.max(0, targetFollowers - currentFollowers);
+        const daysLeft = Math.max(1, Math.ceil((goalDate.getTime() - now.getTime()) / (1000*60*60*24)));
+
+        const dailyVals = followersDailySeries.map(x => Number(x.followers_per_day)).filter(v => Number.isFinite(v));
+        const dailyGrowth = dailyVals.length ? dailyVals[dailyVals.length - 1] : null;
+        const dailyGrowth7 = dailyVals.length ? (dailyVals.slice(-7).reduce((a,b)=>a+b,0) / Math.min(7, dailyVals.length)) : null;
+
+        let weeklyGrowth = null;
+        if (followersSeries.length >= 8) {
+          const end = Number(followersSeries[followersSeries.length - 1].followers_total || 0);
+          const start = Number(followersSeries[followersSeries.length - 8].followers_total || 0);
+          weeklyGrowth = end - start;
+        }
+
+        const goalRows = document.getElementById('goalRows');
+        goalRows.innerHTML = `
+          <tr><td>Current Followers</td><td><b>${fmtNum(currentFollowers)}</b></td></tr>
+          <tr><td>Needed to 150k</td><td><b>${fmtNum(neededToTarget)}</b> (${daysLeft} days left)</td></tr>
+          <tr><td>Daily Growth</td><td>${dailyGrowth == null ? 'N/A' : `<b>${dailyGrowth.toFixed(1)}</b>/day`} · 7D avg: ${dailyGrowth7 == null ? 'N/A' : `<b>${dailyGrowth7.toFixed(1)}</b>/day`}</td></tr>
+          <tr><td>Weekly Growth</td><td>${weeklyGrowth == null ? 'N/A (need 8+ days)' : `<b>${weeklyGrowth >= 0 ? '+' : ''}${fmtNum(weeklyGrowth)}</b> followers (last 7 days)`}</td></tr>
+        `;
 
         const campaigns = d.campaigns || d.top_campaigns || [];
         const rows = campaigns.map((c, i) => {
