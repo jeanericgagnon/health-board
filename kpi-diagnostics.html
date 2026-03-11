@@ -151,17 +151,29 @@
         document.getElementById('kSpend').textContent = fmtMoney(s.total_spend);
         document.getElementById('kClicks').textContent = fmtNum(s.total_clicks);
         document.getElementById('kImpr').textContent = fmtNum(s.total_impressions);
-        document.getElementById('kFollows').textContent = fmtNum(s.total_follows);
-        document.getElementById('kCpf').textContent = s.blended_cost_per_follow == null ? 'N/A' : fmtMoney(s.blended_cost_per_follow);
+
+        const followersSeries = d.followers_series || [];
+        const followersDailySeries = d.followers_daily_series || [];
+        const currentFollowers = followersSeries.length ? Number(followersSeries[followersSeries.length - 1].followers_total || 0) : 0;
+        const weeklyGrowthForTop = followersSeries.length >= 8
+          ? (Number(followersSeries[followersSeries.length - 1].followers_total || 0) - Number(followersSeries[followersSeries.length - 8].followers_total || 0))
+          : null;
+
+        // Top KPI cards fallback:
+        // - Total Follows: show current follower total when ad-attributed follows are unavailable/zero
+        // - Blended CPF: fallback to spend / weekly net follower growth
+        const topFollows = Number(s.total_follows || 0) > 0 ? Number(s.total_follows) : currentFollowers;
+        const cpfFallback = (weeklyGrowthForTop && weeklyGrowthForTop > 0) ? (Number(s.total_spend || 0) / weeklyGrowthForTop) : null;
+        const topCpf = s.blended_cost_per_follow == null ? cpfFallback : Number(s.blended_cost_per_follow);
+
+        document.getElementById('kFollows').textContent = fmtNum(topFollows);
+        document.getElementById('kCpf').textContent = topCpf == null ? 'N/A' : fmtMoney(topCpf);
         document.getElementById('kUpdated').textContent = d.updated_at ? new Date(d.updated_at).toLocaleString() : '--';
 
         // Goals area
         const targetFollowers = 150000;
         const goalDate = new Date('2026-06-11T23:59:59');
         const now = new Date();
-        const followersSeries = d.followers_series || [];
-        const followersDailySeries = d.followers_daily_series || [];
-        const currentFollowers = followersSeries.length ? Number(followersSeries[followersSeries.length - 1].followers_total || 0) : 0;
         const neededToTarget = Math.max(0, targetFollowers - currentFollowers);
         const daysLeft = Math.max(1, Math.ceil((goalDate.getTime() - now.getTime()) / (1000*60*60*24)));
 
