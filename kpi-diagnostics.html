@@ -222,10 +222,12 @@
           <button class="btnf active" data-rollup="metro">Metro / Greater Area</button>
           <button class="btnf" data-rollup="county">County</button>
         </div>
+        <div id="followersCoverageMap" class="sub" style="margin:4px 0 10px">Coverage: --</div>
         <div id="followersMap"></div>
       </section>
       <section class="panel" style="margin-top:14px">
         <h3>Follower Location Breakdown</h3>
+        <div class="sub" id="followersCoverageTable" style="margin-bottom:8px">Coverage: --</div>
         <table><thead><tr><th>Location</th><th>Followers</th><th>Share</th><th>Estimated Daily</th><th>Momentum</th></tr></thead><tbody id="followerCityRowsTab"><tr><td colspan="5">Loading…</td></tr></tbody></table>
       </section>
     </div>
@@ -326,7 +328,7 @@
 
     const OC_CITIES = new Set(['Irvine','Newport Beach','Costa Mesa','Santa Ana','Anaheim','Huntington Beach','Tustin','Fullerton','Orange','Garden Grove','Laguna Niguel','Laguna Beach','Mission Viejo','Yorba Linda']);
     const SD_CITIES = new Set(['San Diego','Chula Vista','La Mesa','El Cajon','Santee','Escondido','Vista','Oceanside','Carlsbad','Encinitas','National City','Poway','Coronado','Del Mar','Solana Beach']);
-    const DENVER_METRO_CITIES = new Set(['Denver','Arvada','Lakewood','Centennial','Aurora','Thornton','Westminster','Littleton','Broomfield','Englewood','Boulder','Longmont','Lafayette','Louisville','Superior','Northglenn','Commerce City','Brighton','Golden','Parker','Castle Rock']);
+    const DENVER_METRO_CITIES = new Set(['Denver','Arvada','Lakewood','Centennial','Aurora','Thornton','Westminster','Littleton','Broomfield','Englewood','Boulder','Longmont','Lafayette','Louisville','Superior','Northglenn','Commerce City','Brighton','Golden','Parker','Castle Rock','Colorado Springs']);
 
     const splitCityState = (cityLabel='') => {
       const parts = cityLabel.split(',').map(x=>x.trim());
@@ -336,23 +338,31 @@
     const rollupCityLabel = (cityLabel, mode='metro') => {
       const { city, state } = splitCityState(cityLabel);
       if (mode === 'city') return cityLabel;
+
       if (mode === 'county') {
         if (state === 'California') {
           if (OC_CITIES.has(city)) return 'Orange County, California';
           if (SD_CITIES.has(city)) return 'San Diego County, California';
           if (city === 'Los Angeles') return 'Los Angeles County, California';
         }
-        if (state === 'Colorado' && DENVER_METRO_CITIES.has(city)) return 'Denver Metro, Colorado';
-        return cityLabel;
+        if (state === 'Colorado') {
+          if (city === 'Colorado Springs') return 'El Paso County, Colorado';
+          if (DENVER_METRO_CITIES.has(city)) return 'Denver Metro Counties, Colorado';
+        }
+        return 'Unmapped';
       }
+
       // metro
       if (state === 'California') {
         if (OC_CITIES.has(city)) return 'Orange County Metro, California';
         if (SD_CITIES.has(city)) return 'San Diego Metro, California';
         if (city === 'Los Angeles') return 'Los Angeles Metro, California';
       }
-      if (state === 'Colorado' && DENVER_METRO_CITIES.has(city)) return 'Denver Metro, Colorado';
-      return cityLabel;
+      if (state === 'Colorado') {
+        if (city === 'Colorado Springs') return 'Colorado Springs Metro, Colorado';
+        if (DENVER_METRO_CITIES.has(city)) return 'Denver Metro, Colorado';
+      }
+      return 'Unmapped';
     };
 
     const rollupFollowerCities = (rows, mode='metro') => {
@@ -640,6 +650,15 @@
           if (!el) return;
           const rolled = rollupFollowerCities(followerCities, geoRollup);
           if (!rolled.length) { el.innerHTML = '<tr><td colspan="5">No follower city data yet</td></tr>'; return; }
+
+          const covMapEl = document.getElementById('followersCoverageMap');
+          const covTableEl = document.getElementById('followersCoverageTable');
+          const totalRaw = (followerCities || []).length;
+          const mappedRaw = (followerCities || []).filter(c => rollupCityLabel(c.city || '', geoRollup) !== 'Unmapped').length;
+          const pct = totalRaw > 0 ? (mappedRaw / totalRaw * 100) : 0;
+          const coverageText = `Coverage (${geoRollup}): mapped ${mappedRaw}/${totalRaw} (${pct.toFixed(1)}%) · unmapped ${Math.max(0,totalRaw-mappedRaw)}`;
+          if (covMapEl) covMapEl.textContent = coverageText;
+          if (covTableEl) covTableEl.textContent = coverageText;
           const total = rolled.reduce((s,r)=>s+Number(r.followers||0),0) || 1;
           const latestDaily = Number((followersDailySeries[followersDailySeries.length-1] || {}).followers_per_day || 0);
           const isFollowersTab = elId === 'followerCityRowsTab';
