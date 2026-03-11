@@ -25,7 +25,8 @@
     .btnf{background:#1a2a54;border:1px solid #2b4f92;color:#dbeafe;padding:6px 10px;border-radius:8px;font-size:12px;cursor:pointer}
     .btnf.active{background:#275ec2}
     h3{margin:0 0 10px;font-size:14px} canvas{width:100%!important;height:280px!important}
-    table{width:100%;border-collapse:collapse;font-size:13px} th,td{padding:9px 8px;border-bottom:1px solid #223157;text-align:left} th{color:var(--muted)}
+    table{width:100%;border-collapse:collapse;font-size:13px} th,td{padding:9px 8px;border-bottom:1px solid #223157;text-align:left;vertical-align:top;line-height:1.35} th{color:var(--muted)}
+    #drillRows td:nth-child(2){max-width:340px;white-space:normal;word-break:break-word}
     tr.clickable{cursor:pointer} tr.clickable:hover{background:#162750}
     .pill{display:inline-block;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:700}.good{background:#143d2f;color:#8ef2ca}.warn{background:#4b2f12;color:#ffd39f}
     .back{display:inline-block;margin-top:14px;color:#cfe1ff;text-decoration:none}
@@ -95,7 +96,7 @@
         <div class="controls" id="seriesToggles">
           <button class="btnf active" data-series="spend">Spend</button>
           <button class="btnf active" data-series="followers">Followers/Day</button>
-          <button class="btnf active" data-series="cpf">CPF Overlay</button>
+          <button class="btnf" data-series="cpf">CPF Overlay</button>
         </div>
         <canvas id="c1"></canvas>
       </article>
@@ -239,7 +240,7 @@
         datasets:[
           {label:'Spend ($)',data:[0,0,0,0,0,0,0],borderColor:'#60a5fa',backgroundColor:'#60a5fa',tension:.35,yAxisID:'y'},
           {label:'Followers/Day',data:[0,0,0,0,0,0,0],borderColor:'#34d399',backgroundColor:'#34d399',tension:.35,yAxisID:'y1'},
-          {label:'CPF ($/follower)',data:[null,null,null,null,null,null,null],borderColor:'#f59e0b',backgroundColor:'#f59e0b',borderDash:[6,4],tension:.35,yAxisID:'y2'}
+          {label:'CPF ($/follower)',data:[null,null,null,null,null,null,null],borderColor:'#f59e0b',backgroundColor:'#f59e0b',borderDash:[6,4],tension:.35,yAxisID:'y2',hidden:true}
         ]
       },
       options:{
