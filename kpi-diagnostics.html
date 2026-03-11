@@ -17,6 +17,7 @@
     .kpi .l{font-size:12px;color:var(--muted)} .kpi .v{font-size:24px;font-weight:800;margin-top:6px}
     .main{grid-template-columns:2fr 1fr;margin-bottom:14px}.half{grid-template-columns:1fr 1fr}
     .controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+    .panel-toggle{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
     .btnf{background:#1a2a54;border:1px solid #2b4f92;color:#dbeafe;padding:6px 10px;border-radius:8px;font-size:12px;cursor:pointer}
     .btnf.active{background:#275ec2}
     h3{margin:0 0 10px;font-size:14px} canvas{width:100%!important;height:280px!important}
@@ -64,6 +65,11 @@
           <button class="btnf" data-range="60">60D</button>
           <button class="btnf" data-range="90">90D</button>
         </div>
+        <div class="controls" id="seriesToggles">
+          <button class="btnf active" data-series="spend">Spend</button>
+          <button class="btnf active" data-series="followers">Followers/Day</button>
+          <button class="btnf active" data-series="cpf">CPF Overlay</button>
+        </div>
         <canvas id="c1"></canvas>
       </article>
       <article class="panel"><h3>Creative Mix Efficiency</h3><canvas id="c2"></canvas></article>
@@ -79,7 +85,7 @@
           </tbody>
         </table>
       </article>
-      <article class="panel">
+      <article class="panel" id="kpiSnapshotPanel">
         <h3>KPI Dashboard Snapshot</h3>
         <table>
           <thead><tr><th>Metric</th><th>Value</th></tr></thead>
@@ -98,8 +104,16 @@
       </table>
     </section>
 
-    <section class="grid half" style="margin-top:14px">
-      <article class="panel">
+    <section style="margin-top:14px">
+      <div class="panel-toggle">
+        <button class="btnf active" id="toggleBoth">Both</button>
+        <button class="btnf" id="toggleInsights">Insights only</button>
+        <button class="btnf" id="toggleKpiSnap">KPI only</button>
+      </div>
+    </section>
+
+    <section class="grid half" style="margin-top:14px" id="insightsKpiGrid">
+      <article class="panel" id="insightsPanel">
         <h3>Insights (auto-generated each pull)</h3>
         <table>
           <thead><tr><th>Type</th><th>Insight</th></tr></thead>
@@ -126,8 +140,9 @@
       data:{
         labels:['D-6','D-5','D-4','D-3','D-2','D-1','Today'],
         datasets:[
-          {label:'Spend ($)',data:[0,0,0,0,0,0,0],borderColor:'#60a5fa',tension:.35,yAxisID:'y'},
-          {label:'Followers/Day',data:[0,0,0,0,0,0,0],borderColor:'#34d399',tension:.35,yAxisID:'y1'}
+          {label:'Spend ($)',data:[0,0,0,0,0,0,0],borderColor:'#60a5fa',backgroundColor:'#60a5fa',tension:.35,yAxisID:'y'},
+          {label:'Followers/Day',data:[0,0,0,0,0,0,0],borderColor:'#34d399',backgroundColor:'#34d399',tension:.35,yAxisID:'y1'},
+          {label:'CPF ($/follower)',data:[null,null,null,null,null,null,null],borderColor:'#f59e0b',backgroundColor:'#f59e0b',borderDash:[6,4],tension:.35,yAxisID:'y2'}
         ]
       },
       options:{
@@ -135,7 +150,8 @@
         scales:{
           x:{ticks:{color:'#9fb0df'}},
           y:{position:'left',ticks:{color:'#9fb0df'}},
-          y1:{position:'right',ticks:{color:'#9fb0df'},grid:{drawOnChartArea:false}}
+          y1:{position:'right',ticks:{color:'#9fb0df'},grid:{drawOnChartArea:false}},
+          y2:{position:'right',ticks:{color:'#fcd34d'},grid:{drawOnChartArea:false}}
         },
         maintainAspectRatio:false
       }
@@ -152,8 +168,10 @@
 
     let spendSeriesAll = [];
     let followDailyAll = [];
+    let trendDays = 7;
 
-    const renderTrend = (days) => {
+    const renderTrend = (days = trendDays) => {
+      trendDays = days;
       const sMap = Object.fromEntries(spendSeriesAll.map(x => [x.date, Number(x.spend || 0)]));
       const fMap = Object.fromEntries(followDailyAll.map(x => [x.date, x.followers_per_day == null ? null : Number(x.followers_per_day)]));
       const dates = Array.from(new Set([...Object.keys(sMap), ...Object.keys(fMap)])).sort();
@@ -161,6 +179,12 @@
       trend.data.labels = sliced.map(x => x.slice(5));
       trend.data.datasets[0].data = sliced.map(dt => sMap[dt] ?? 0);
       trend.data.datasets[1].data = sliced.map(dt => fMap[dt] ?? null);
+      trend.data.datasets[2].data = sliced.map(dt => {
+        const spend = sMap[dt];
+        const follows = fMap[dt];
+        if (!Number.isFinite(spend) || !Number.isFinite(follows) || follows <= 0) return null;
+        return spend / follows;
+      });
       trend.update();
     };
 
@@ -296,6 +320,17 @@
             document.querySelectorAll('#rangeControls .btnf').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             renderTrend(Number(btn.dataset.range || 7));
+          });
+        });
+
+        const seriesIndex = { spend: 0, followers: 1, cpf: 2 };
+        document.querySelectorAll('#seriesToggles .btnf').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const idx = seriesIndex[btn.dataset.series];
+            const ds = trend.data.datasets[idx];
+            ds.hidden = !ds.hidden;
+            btn.classList.toggle('active', !ds.hidden);
+            trend.update();
           });
         });
 
