@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stuff to Gag On · KPI Diagnostics</title>
+  <title>KPI Dashboard</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     :root { --bg:#0b1020; --panel:#111936; --panel2:#162042; --text:#eaf0ff; --muted:#9fb0df; --border:#23305f; }
@@ -344,6 +344,35 @@
         document.getElementById('insightRows').innerHTML = insights.length
           ? insights.map(i => `<tr><td>${i.type}</td><td>${i.text}</td></tr>`).join('')
           : '<tr><td colspan="2">No insights yet</td></tr>';
+
+        // Panel toggles (Both / Insights / KPI)
+        const insightsPanel = document.getElementById('insightsPanel');
+        const kpiSnapshotPanel = document.getElementById('kpiSnapshotPanel');
+        const toggleBoth = document.getElementById('toggleBoth');
+        const toggleInsights = document.getElementById('toggleInsights');
+        const toggleKpiSnap = document.getElementById('toggleKpiSnap');
+        const allToggles = [toggleBoth, toggleInsights, toggleKpiSnap].filter(Boolean);
+
+        const setMode = (mode) => {
+          allToggles.forEach(b => b.classList.remove('active'));
+          if (mode === 'both') {
+            insightsPanel.style.display = 'block';
+            kpiSnapshotPanel.style.display = 'block';
+            toggleBoth?.classList.add('active');
+          } else if (mode === 'insights') {
+            insightsPanel.style.display = 'block';
+            kpiSnapshotPanel.style.display = 'none';
+            toggleInsights?.classList.add('active');
+          } else {
+            insightsPanel.style.display = 'none';
+            kpiSnapshotPanel.style.display = 'block';
+            toggleKpiSnap?.classList.add('active');
+          }
+        };
+
+        toggleBoth && (toggleBoth.onclick = () => setMode('both'));
+        toggleInsights && (toggleInsights.onclick = () => setMode('insights'));
+        toggleKpiSnap && (toggleKpiSnap.onclick = () => setMode('kpi'));
       })
       .catch(() => {
         document.getElementById('campaignRows').innerHTML = '<tr><td colspan="5">Waiting for data pipeline…</td></tr>';
