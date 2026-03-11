@@ -13,8 +13,9 @@
     .title{font-size:26px;font-weight:800}.sub{font-size:13px;color:var(--muted)}
     .tag{background:#123157;border:1px solid #29589b;color:#9dd1ff;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:700}
     .top-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
-    .tablink{display:inline-block;padding:8px 12px;border-radius:8px;border:1px solid #2b4f92;background:#1a2a54;color:#dbeafe;text-decoration:none;font-size:12px;font-weight:600}
+    .tablink{display:inline-block;padding:8px 12px;border-radius:8px;border:1px solid #2b4f92;background:#1a2a54;color:#dbeafe;text-decoration:none;font-size:12px;font-weight:600;cursor:pointer}
     .tablink.active{background:#275ec2}
+    .tab-panel{display:none}.tab-panel.active{display:block}
     .grid{display:grid;gap:14px}.kpis{grid-template-columns:repeat(6,minmax(0,1fr));margin-bottom:14px}
     .panel{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--border);border-radius:14px;padding:14px}
     .kpi .l{font-size:12px;color:var(--muted)} .kpi .v{font-size:24px;font-weight:800;margin-top:6px}
@@ -38,11 +39,12 @@
       <div class="tag">Live Ops</div>
     </div>
 
-    <div class="top-tabs">
-      <a class="tablink active" href="/kpi-diagnostics.html">Overview</a>
-      <a class="tablink" href="/kpi-tabs.html">Deep Dive</a>
+    <div class="top-tabs" id="topTabs">
+      <button class="tablink active" data-tab="overview" type="button">Overview</button>
+      <button class="tablink" data-tab="deepdive" type="button">Deep Dive</button>
     </div>
 
+    <div id="overviewPanel" class="tab-panel active">
     <section class="grid kpis">
       <article class="panel kpi"><div class="l">Total Spend</div><div class="v" id="kSpend">$--</div></article>
       <article class="panel kpi"><div class="l">Total Clicks</div><div class="v" id="kClicks">--</div></article>
@@ -139,8 +141,32 @@
       </article>
     </section>
 
+    </div>
+
+    <div id="deepDivePanel" class="tab-panel" style="display:none">
+      <section class="grid half" style="margin-top:14px">
+        <article class="panel">
+          <h3>Top Age/Gender Segments</h3>
+          <table><thead><tr><th>Segment</th><th>Spend</th><th>Clicks</th><th>CTR</th><th>CPC</th></tr></thead><tbody id="ageGenderRows"><tr><td colspan="5">Loading…</td></tr></tbody></table>
+        </article>
+        <article class="panel">
+          <h3>Top Placements</h3>
+          <table><thead><tr><th>Placement</th><th>Spend</th><th>Clicks</th><th>CTR</th><th>CPC</th></tr></thead><tbody id="placementRows"><tr><td colspan="5">Loading…</td></tr></tbody></table>
+        </article>
+      </section>
+      <section class="grid half" style="margin-top:14px">
+        <article class="panel">
+          <h3>Top Regions</h3>
+          <table><thead><tr><th>Region</th><th>Spend</th><th>Clicks</th><th>CTR</th><th>CPC</th></tr></thead><tbody id="regionRows"><tr><td colspan="5">Loading…</td></tr></tbody></table>
+        </article>
+        <article class="panel">
+          <h3>Top Devices</h3>
+          <table><thead><tr><th>Device</th><th>Spend</th><th>Clicks</th><th>CTR</th><th>CPC</th></tr></thead><tbody id="deviceRows"><tr><td colspan="5">Loading…</td></tr></tbody></table>
+        </article>
+      </section>
+    </div>
+
     <a class="back" href="/">← Back to Health Board</a>
-    <a class="back" style="margin-left:10px" href="/kpi-tabs.html">Open KPI Deep Dive →</a>
   </div>
 
   <script>
@@ -174,6 +200,30 @@
       const cleanAct = (act || '').replace(/^act_/, '');
       return `https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=${encodeURIComponent(cleanAct)}&selected_campaign_ids=${encodeURIComponent(campaignId)}`;
     };
+    const renderBreakdownTable = (id, rows) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (!rows || !rows.length) {
+        el.innerHTML = '<tr><td colspan="5">No data yet</td></tr>';
+        return;
+      }
+      el.innerHTML = rows.map(r => `<tr><td>${r.label || '—'}</td><td>${fmtMoney(r.spend)}</td><td>${fmtNum(r.clicks)}</td><td>${Number(r.ctr || 0).toFixed(2)}%</td><td>${r.cpc == null ? 'N/A' : fmtMoney(r.cpc)}</td></tr>`).join('');
+    };
+
+    (() => {
+      const tabs = [...document.querySelectorAll('#topTabs .tablink')];
+      const overview = document.getElementById('overviewPanel');
+      const deep = document.getElementById('deepDivePanel');
+      const setTab = (name) => {
+        tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+        overview.classList.toggle('active', name === 'overview');
+        deep.classList.toggle('active', name === 'deepdive');
+        overview.style.display = name === 'overview' ? 'block' : 'none';
+        deep.style.display = name === 'deepdive' ? 'block' : 'none';
+      };
+      tabs.forEach(t => t.addEventListener('click', () => setTab(t.dataset.tab)));
+      setTab('overview');
+    })();
 
     let spendSeriesAll = [];
     let followDailyAll = [];
@@ -196,6 +246,7 @@
       });
       trend.update();
     };
+
 
     fetch('/data/kpi_latest.json?ts=' + Date.now())
       .then(r => r.json())
@@ -353,6 +404,12 @@
         document.getElementById('insightRows').innerHTML = insights.length
           ? insights.map(i => `<tr><td>${i.type}</td><td>${i.text}</td></tr>`).join('')
           : '<tr><td colspan="2">No insights yet</td></tr>';
+
+        const b = d.breakdowns || {};
+        renderBreakdownTable('ageGenderRows', b.age_gender || []);
+        renderBreakdownTable('placementRows', b.placement || []);
+        renderBreakdownTable('regionRows', b.region || []);
+        renderBreakdownTable('deviceRows', b.device || []);
 
         // Panel toggles (Both / Insights / KPI)
         const insightsPanel = document.getElementById('insightsPanel');
