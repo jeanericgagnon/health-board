@@ -77,18 +77,24 @@
       <article class="panel kpi"><div class="l">Current Followers</div><div class="v" id="kFollows">--</div></article>
       <article class="panel kpi">
         <div class="l kpi-select-row">
-          <select id="kpiMetric" class="kpi-select" style="flex:1 1 auto;min-width:0">
-            <option value="cpf" selected>Blended CPF</option>
-            <option value="cpc">CPC</option>
-            <option value="ctr">CTR</option>
-            <option value="cpm">CPM</option>
-          </select>
-          <select id="cpfWindow" class="kpi-select" style="width:96px">
-            <option value="1">1D</option>
-            <option value="3">3D</option>
-            <option value="7" selected>7D</option>
-            <option value="30">1M</option>
-          </select>
+          <div style="display:flex;align-items:center;gap:6px;min-width:0;">
+            <span class="sub" style="font-size:11px;white-space:nowrap;">Metric</span>
+            <select id="kpiMetric" class="kpi-select" style="flex:1 1 auto;min-width:0">
+              <option value="cpf" selected>CPF</option>
+              <option value="cpc">CPC</option>
+              <option value="ctr">CTR</option>
+              <option value="cpm">CPM</option>
+            </select>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span class="sub" style="font-size:11px;white-space:nowrap;">Range</span>
+            <select id="cpfWindow" class="kpi-select" style="width:96px">
+              <option value="1">1D</option>
+              <option value="3">3D</option>
+              <option value="7" selected>7D</option>
+              <option value="30">1M</option>
+            </select>
+          </div>
         </div>
         <div class="v" id="kCpf">$--</div>
       </article>
@@ -525,12 +531,17 @@
       const sliced = dates.slice(Math.max(0, dates.length - days));
       trend.data.labels = sliced.map(x => x.slice(5));
       trend.data.datasets[0].data = sliced.map(dt => sMap[dt] ?? 0);
-      trend.data.datasets[1].data = sliced.map(dt => fMap[dt] ?? null);
       const latestDate = sliced.length ? sliced[sliced.length - 1] : null;
+      trend.data.datasets[1].data = sliced.map(dt => {
+        if (dt === latestDate && Number.isFinite(Number(window.__liveDailyGain)) && Number(window.__liveDailyGain) > 0) {
+          return Number(window.__liveDailyGain);
+        }
+        return fMap[dt] ?? null;
+      });
       trend.data.datasets[2].data = sliced.map(dt => {
         const spend = sMap[dt];
         // For the most recent day, prefer live intraday gain when available.
-        const follows = (dt === latestDate && Number.isFinite(Number(window.__liveDailyGain)))
+        const follows = (dt === latestDate && Number.isFinite(Number(window.__liveDailyGain)) && Number(window.__liveDailyGain) > 0)
           ? Number(window.__liveDailyGain)
           : fMap[dt];
         if (!Number.isFinite(spend) || !Number.isFinite(follows) || follows <= 0) return null;
