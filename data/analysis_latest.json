@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-03-12T21:15:57.169585Z",
-  "source_updated_at": "2026-03-12T21:15:57.143163Z",
+  "generated_at": "2026-03-12T21:19:14.812216Z",
+  "source_updated_at": "2026-03-12T21:19:14.785251Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 18.36,
-    "expected_by_now": 35.62,
-    "pace_ratio": 0.515,
+    "expected_by_now": 35.79,
+    "pace_ratio": 0.513,
     "status": "too_slow"
   },
   "data_health": {
@@ -19,9 +19,9 @@
   "summary": {
     "total_spend": 43.37,
     "total_clicks": 1332,
-    "total_impressions": 20228,
-    "daily_gain_live": 92,
-    "current_followers_live": 106199
+    "total_impressions": 20233,
+    "daily_gain_live": 95,
+    "current_followers_live": 106202
   },
   "recommendations": {
     "scale": [
@@ -30,7 +30,13 @@
         "campaign_id": "6951024653957",
         "tag": "Scale",
         "reason": "Strong CTR + low CPC with acceptable frequency",
-        "confidence": "high"
+        "confidence": "high",
+        "priority": "normal",
+        "diagnostic_tags": [
+          "efficiency"
+        ],
+        "expected_impact": "high",
+        "fatigue_score": 0.0
       }
     ],
     "cut": [],
@@ -41,14 +47,22 @@
         "campaign_id": "6953786714157",
         "tag": "Hold",
         "reason": "Baseline monitoring",
-        "confidence": "low"
+        "confidence": "low",
+        "priority": "normal",
+        "diagnostic_tags": [],
+        "expected_impact": "low",
+        "fatigue_score": 1.5
       },
       {
         "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
         "campaign_id": "6955113574357",
         "tag": "Hold",
         "reason": "Baseline monitoring",
-        "confidence": "low"
+        "confidence": "low",
+        "priority": "normal",
+        "diagnostic_tags": [],
+        "expected_impact": "low",
+        "fatigue_score": null
       }
     ]
   },
