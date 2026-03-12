@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-03-12T21:05:37.836469Z",
+  "updated_at": "2026-03-12T21:07:03.009793Z",
   "summary": {
     "ad_account_id": "act_1379452680603809",
     "total_spend": 43.37,
-    "total_clicks": 1328,
-    "total_impressions": 20173,
+    "total_clicks": 1329,
+    "total_impressions": 20189,
     "total_follows": 0,
     "blended_cost_per_follow": null,
     "since": null,
@@ -18,7 +18,7 @@
     "cost_per_landing_page_view": null,
     "lpv_per_outbound_click_rate": null,
     "manual_intraday_spend_override_note": "intraday spend manually overridden from data/manual_intraday_spend.json",
-    "manual_intraday_spend_as_of_local": "2026-03-12T13:34:00-07:00"
+    "manual_intraday_spend_as_of_local": "2026-03-12T14:03:00-08:00"
   },
   "campaigns": [
     {
@@ -821,7 +821,7 @@
     },
     {
       "date": "2026-03-12",
-      "spend": 18.36
+      "spend": 43.37
     }
   ],
   "insights": [
@@ -843,7 +843,7 @@
     },
     {
       "type": "action",
-      "text": "Pacing watch: spend today is $18.36 vs $60/day target."
+      "text": "Pacing watch: spend today is $43.37 vs $60/day target."
     },
     {
       "type": "action",
@@ -876,8 +876,8 @@
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 18.36,
-    "expected_by_now": 35.21,
-    "pace_ratio": 0.521,
+    "expected_by_now": 35.29,
+    "pace_ratio": 0.52,
     "status": "too_slow"
   },
   "geo_efficiency": [
@@ -1494,8 +1494,8 @@
     "pacing": {
       "day_target": 60.0,
       "today_spend": 18.36,
-      "expected_spend_now": 35.21,
-      "pace_ratio": 0.521
+      "expected_spend_now": 35.29,
+      "pace_ratio": 0.52
     },
     "geo_efficiency": [
       {
