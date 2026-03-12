@@ -190,6 +190,40 @@
       </table>
     </section>
 
+    <section class="grid half" style="margin-top:14px">
+      <article class="panel">
+        <h3>Creative Fatigue Risks</h3>
+        <table>
+          <thead><tr><th>Campaign</th><th>Score</th><th>Freq</th><th>CTR Δ</th><th>CPC Δ</th><th>Conf</th></tr></thead>
+          <tbody id="fatigueRows"><tr><td colspan="6">Loading fatigue diagnostics…</td></tr></tbody>
+        </table>
+      </article>
+      <article class="panel">
+        <h3>Anomaly Monitor</h3>
+        <table>
+          <thead><tr><th>Campaign</th><th>Metric</th><th>Value vs Baseline</th><th>σ</th><th>Severity</th></tr></thead>
+          <tbody id="anomalyRows"><tr><td colspan="5">Loading anomalies…</td></tr></tbody>
+        </table>
+      </article>
+    </section>
+
+    <section class="grid half" style="margin-top:14px">
+      <article class="panel">
+        <h3>Time Efficiency (Daypart Fallback Aware)</h3>
+        <table>
+          <thead><tr><th>Bucket</th><th>CTR</th><th>CPC</th><th>Score</th></tr></thead>
+          <tbody id="timeEfficiencyRows"><tr><td colspan="4">Loading time diagnostics…</td></tr></tbody>
+        </table>
+      </article>
+      <article class="panel">
+        <h3>Attribution Confidence Factors</h3>
+        <table>
+          <thead><tr><th>Factor</th><th>Value</th><th>Penalty</th></tr></thead>
+          <tbody id="attributionRows"><tr><td colspan="3">Loading attribution diagnostics…</td></tr></tbody>
+        </table>
+      </article>
+    </section>
+
     <section style="margin-top:14px">
       <div class="panel-toggle">
         <button class="btnf active" id="toggleBoth">Both</button>
@@ -777,7 +811,10 @@
         const recommendations = d.recommendations || [];
         const recommendationRows = document.getElementById('recommendationRows');
         recommendationRows.innerHTML = recommendations.length
-          ? recommendations.slice(0, 10).map(r => `<tr><td>${r.campaign || '—'}</td><td><b>${r.tag}</b></td><td>${r.confidence || '—'}</td><td>${r.reason || ''}</td></tr>`).join('')
+          ? recommendations.slice(0, 10).map(r => {
+              const suffix = [r.priority ? `priority:${r.priority}` : null, (r.diagnostic_tags || []).slice(0,2).join(', ') || null].filter(Boolean).join(' · ');
+              return `<tr><td>${r.campaign || '—'}</td><td><b>${r.tag}</b></td><td>${r.confidence || '—'}</td><td>${r.reason || ''}${suffix ? `<br><span class="sub">${suffix}</span>` : ''}</td></tr>`;
+            }).join('')
           : '<tr><td colspan="4">No recommendations yet</td></tr>';
 
         const h = d.data_health || {};
@@ -801,6 +838,42 @@
         geoEfficiencyRows.innerHTML = geoEfficiency.length
           ? geoEfficiency.slice(0, 10).map(r => `<tr><td>${r.region || 'Unknown'}</td><td>${fmtMoney(r.spend)}</td><td>${Number(r.ctr || 0).toFixed(2)}%</td><td>${r.cpc == null ? 'N/A' : fmtMoney(r.cpc)}</td><td><b>${Number(r.score || 0).toFixed(2)}</b></td></tr>`).join('')
           : '<tr><td colspan="5">No geo efficiency data yet</td></tr>';
+
+        const diagnostics = d.diagnostics || {};
+        const fatigueCampaigns = ((diagnostics.creative_fatigue || {}).campaigns || []);
+        const fatigueRows = document.getElementById('fatigueRows');
+        if (fatigueRows) {
+          fatigueRows.innerHTML = fatigueCampaigns.length
+            ? fatigueCampaigns.slice(0, 8).map(x => `<tr><td>${x.campaign || '—'}</td><td><b>${Number(x.fatigue_score || 0).toFixed(1)}</b></td><td>${x.recent_frequency_avg == null ? 'N/A' : Number(x.recent_frequency_avg).toFixed(2)}</td><td>${Number((x.ctr_decay || 0) * 100).toFixed(1)}%</td><td>${Number((x.cpc_decay || 0) * 100).toFixed(1)}%</td><td>${x.confidence || '—'}</td></tr>`).join('')
+            : '<tr><td colspan="6">No fatigue risks above threshold</td></tr>';
+        }
+
+        const anomalyRows = document.getElementById('anomalyRows');
+        const anomalyItems = ((diagnostics.anomalies || {}).items || []);
+        if (anomalyRows) {
+          anomalyRows.innerHTML = anomalyItems.length
+            ? anomalyItems.slice(0, 8).map(a => `<tr><td>${a.campaign || '—'}</td><td>${(a.metric || '').toUpperCase()}</td><td>${a.value} vs ${a.baseline_mean}</td><td>${Number(a.z_score || 0).toFixed(2)}</td><td><b>${a.severity || '—'}</b></td></tr>`).join('')
+            : '<tr><td colspan="5">No significant anomalies (noise guards active)</td></tr>';
+        }
+
+        const timeRows = document.getElementById('timeEfficiencyRows');
+        const te = diagnostics.time_efficiency || {};
+        const bestTime = te.best_windows || [];
+        if (timeRows) {
+          const sourceLabel = `${te.source || 'unknown'} · conf ${te.confidence || 'low'}`;
+          timeRows.innerHTML = bestTime.length
+            ? (`<tr><td colspan="4"><span class="sub">${sourceLabel}</span></td></tr>` + bestTime.slice(0, 4).map(t => `<tr><td>${t.bucket || '—'}</td><td>${Number(t.ctr || 0).toFixed(2)}%</td><td>${t.cpc == null ? 'N/A' : fmtMoney(t.cpc)}</td><td><b>${Number(t.efficiency_score || 0).toFixed(2)}</b></td></tr>`).join(''))
+            : '<tr><td colspan="4">No time-efficiency diagnostics yet</td></tr>';
+        }
+
+        const attributionRows = document.getElementById('attributionRows');
+        const att = diagnostics.attribution_confidence || {};
+        if (attributionRows) {
+          const factors = att.factors || [];
+          attributionRows.innerHTML = factors.length
+            ? (`<tr><td><b>Overall</b></td><td><b>${att.band || 'low'} (${Number(att.score || 0).toFixed(1)}/100)</b></td><td><b>${Number(att.penalty_total || 0).toFixed(1)}</b></td></tr>` + factors.slice(0, 6).map(f => `<tr><td>${f.factor || '—'}</td><td>${f.value == null ? 'N/A' : f.value}</td><td>${Number(f.penalty || 0).toFixed(1)}</td></tr>`).join(''))
+            : '<tr><td colspan="3">No attribution confidence factors yet</td></tr>';
+        }
 
         const subtitleEl = document.getElementById('subtitleUpdated');
         if (subtitleEl) {

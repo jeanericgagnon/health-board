@@ -508,30 +508,367 @@ def build_creative_hook_leaderboard(rows, limit=12):
     return out[:limit]
 
 
-def build_action_recommendations(campaigns):
+def _bucket_confidence(sample_points=0, spend=0.0, impressions=0.0):
+    if sample_points >= 10 and spend >= 40 and impressions >= 20000:
+        return 'high'
+    if sample_points >= 6 and spend >= 20 and impressions >= 9000:
+        return 'med'
+    return 'low'
+
+
+def build_creative_fatigue_diagnostics(rows, limit=12):
+    def collect(entity='campaign'):
+        by_key = {}
+        for r in rows:
+            d = (r.get('date_start') or '').strip()
+            if not d:
+                continue
+            if entity == 'campaign':
+                key = (r.get('campaign_id') or '').strip() or (r.get('campaign_name') or 'Unknown Campaign').strip()
+                label = (r.get('campaign_name') or 'Unknown Campaign').strip() or 'Unknown Campaign'
+            else:
+                key = (r.get('ad_id') or '').strip() or (r.get('ad_name') or 'Unknown Ad').strip()
+                label = (r.get('ad_name') or 'Unknown Ad').strip() or 'Unknown Ad'
+            if not key:
+                continue
+            m = by_key.setdefault((key, label), {})
+            cur = m.setdefault(d, {'spend': 0.0, 'clicks': 0.0, 'impressions': 0.0, 'freq_num': 0.0, 'freq_den': 0.0})
+            impr = num(r.get('impressions'))
+            freq_raw = r.get('frequency')
+            freq = num(freq_raw) if freq_raw not in (None, '') else None
+            cur['spend'] += num(r.get('spend'))
+            cur['clicks'] += num(r.get('clicks'))
+            cur['impressions'] += impr
+            if freq is not None:
+                cur['freq_num'] += (freq * impr)
+                cur['freq_den'] += impr
+
+        out = []
+        for (entity_id, label), daymap in by_key.items():
+            days = sorted(daymap.keys())
+            if len(days) < 4:
+                continue
+            recent_days = days[-3:]
+            baseline_days = days[-10:-3] if len(days) > 6 else days[:-3]
+            if not baseline_days:
+                continue
+
+            def aggregate(day_keys):
+                spend = sum(daymap[d]['spend'] for d in day_keys)
+                clicks = sum(daymap[d]['clicks'] for d in day_keys)
+                impr = sum(daymap[d]['impressions'] for d in day_keys)
+                freq_num = sum(daymap[d]['freq_num'] for d in day_keys)
+                freq_den = sum(daymap[d]['freq_den'] for d in day_keys)
+                return {
+                    'spend': spend,
+                    'clicks': clicks,
+                    'impressions': impr,
+                    'ctr': (clicks / impr * 100) if impr > 0 else 0.0,
+                    'cpc': (spend / clicks) if clicks > 0 else None,
+                    'frequency_avg': (freq_num / freq_den) if freq_den > 0 else None,
+                }
+
+            recent = aggregate(recent_days)
+            base = aggregate(baseline_days)
+            if recent['impressions'] < 1200 or recent['spend'] < 8:
+                continue
+
+            freq = recent.get('frequency_avg')
+            freq_pressure = max(0.0, min(1.0, ((freq or 0.0) - 1.7) / 1.2))
+            ctr_decay = max(0.0, ((base['ctr'] - recent['ctr']) / base['ctr'])) if base['ctr'] > 0 else 0.0
+            if base.get('cpc') and recent.get('cpc'):
+                cpc_decay = max(0.0, ((recent['cpc'] - base['cpc']) / base['cpc']))
+            else:
+                cpc_decay = 0.0
+
+            score = (freq_pressure * 42.0) + (min(1.2, ctr_decay) * 34.0) + (min(1.2, cpc_decay) * 24.0)
+            out.append({
+                f'{entity}_id': entity_id,
+                entity: label,
+                'fatigue_score': round(min(100.0, max(0.0, score)), 1),
+                'frequency_pressure': round(freq_pressure, 3),
+                'ctr_decay': round(ctr_decay, 3),
+                'cpc_decay': round(cpc_decay, 3),
+                'recent_ctr': round(recent['ctr'], 3),
+                'baseline_ctr': round(base['ctr'], 3),
+                'recent_cpc': None if recent.get('cpc') is None else round(recent['cpc'], 3),
+                'baseline_cpc': None if base.get('cpc') is None else round(base['cpc'], 3),
+                'recent_frequency_avg': None if recent.get('frequency_avg') is None else round(recent['frequency_avg'], 3),
+                'recent_spend': round(recent['spend'], 2),
+                'recent_impressions': int(recent['impressions']),
+                'confidence': _bucket_confidence(len(days), recent['spend'], recent['impressions']),
+            })
+
+        out.sort(key=lambda x: x.get('fatigue_score', 0), reverse=True)
+        return out[:limit]
+
+    return {
+        'campaigns': collect('campaign'),
+        'ads': collect('ad'),
+        'method': 'frequency_pressure_plus_ctr_cpc_decay',
+    }
+
+
+def build_time_efficiency_diagnostics(rows):
+    hourly_file = ADS_DIR / 'insights_hourly_latest.csv'
+    if hourly_file.exists():
+        try:
+            with open(hourly_file, newline='', encoding='utf-8') as f:
+                hrows = list(csv.DictReader(f))
+            by_hour = {}
+            for r in hrows:
+                hour_key = str(r.get('hour') or r.get('hour_of_day') or r.get('hourly_stats_aggregated_by_advertiser_time_zone') or '').strip()
+                if not hour_key:
+                    continue
+                m = by_hour.setdefault(hour_key, {'spend': 0.0, 'clicks': 0.0, 'impressions': 0.0})
+                m['spend'] += num(r.get('spend'))
+                m['clicks'] += num(r.get('clicks'))
+                m['impressions'] += num(r.get('impressions'))
+            points = []
+            for hour_key, m in by_hour.items():
+                ctr = (m['clicks'] / m['impressions'] * 100) if m['impressions'] > 0 else 0.0
+                cpc = (m['spend'] / m['clicks']) if m['clicks'] > 0 else None
+                score = (ctr * 8) - ((cpc or 1.5) * 5)
+                points.append({'bucket': hour_key, 'spend': round(m['spend'], 2), 'ctr': round(ctr, 3), 'cpc': None if cpc is None else round(cpc, 3), 'efficiency_score': round(score, 3)})
+            points.sort(key=lambda x: x['efficiency_score'], reverse=True)
+            return {
+                'source': 'hourly',
+                'confidence': 'high' if len(points) >= 12 else 'med',
+                'best_windows': points[:5],
+                'worst_windows': sorted(points, key=lambda x: x['efficiency_score'])[:5],
+                'notes': 'Using hourly breakdown from insights_hourly_latest.csv',
+            }
+        except Exception:
+            pass
+
+    by_dow = {}
+    for r in rows:
+        d = (r.get('date_start') or '').strip()
+        if not d:
+            continue
+        try:
+            dow = datetime.fromisoformat(d).strftime('%a')
+        except Exception:
+            continue
+        m = by_dow.setdefault(dow, {'spend': 0.0, 'clicks': 0.0, 'impressions': 0.0, 'days': set()})
+        m['spend'] += num(r.get('spend'))
+        m['clicks'] += num(r.get('clicks'))
+        m['impressions'] += num(r.get('impressions'))
+        m['days'].add(d)
+
+    points = []
+    for dow, m in by_dow.items():
+        ctr = (m['clicks'] / m['impressions'] * 100) if m['impressions'] > 0 else 0.0
+        cpc = (m['spend'] / m['clicks']) if m['clicks'] > 0 else None
+        score = (ctr * 8) - ((cpc or 1.5) * 5)
+        points.append({
+            'bucket': dow,
+            'spend': round(m['spend'], 2),
+            'ctr': round(ctr, 3),
+            'cpc': None if cpc is None else round(cpc, 3),
+            'efficiency_score': round(score, 3),
+            'sample_days': len(m['days']),
+        })
+
+    points.sort(key=lambda x: x['efficiency_score'], reverse=True)
+    coverage = sum(x.get('sample_days', 0) for x in points)
+    return {
+        'source': 'day_of_week_fallback',
+        'confidence': 'med' if coverage >= 14 else 'low',
+        'best_windows': points[:3],
+        'worst_windows': sorted(points, key=lambda x: x['efficiency_score'])[:3],
+        'notes': 'Hourly data unavailable; fallback uses day-of-week efficiency.',
+    }
+
+
+def build_attribution_confidence(summary, data_health, campaigns):
+    outbound = int(sum(num(c.get('outbound_clicks')) for c in campaigns))
+    lpv = int(sum(num(c.get('landing_page_views')) for c in campaigns))
+    follows = int(num(summary.get('total_follows')))
+    pull_age = data_health.get('last_pull_age_min')
+
+    factors = []
+    penalty = 0.0
+
+    lpv_rate = (lpv / outbound) if outbound > 0 else 0.0
+    lpv_penalty = 20.0 if outbound >= 50 and lpv_rate < 0.45 else (10.0 if outbound >= 20 and lpv_rate < 0.6 else 0.0)
+    penalty += lpv_penalty
+    factors.append({'factor': 'LPV coverage of outbound clicks', 'value': round(lpv_rate * 100, 1), 'penalty': round(lpv_penalty, 1)})
+
+    event_penalty = 0.0 if follows > 0 else 18.0
+    penalty += event_penalty
+    factors.append({'factor': 'Direct follow events', 'value': follows, 'penalty': round(event_penalty, 1)})
+
+    stale_penalty = 0.0
+    if pull_age is not None and pull_age > 180:
+        stale_penalty = 20.0
+    elif pull_age is not None and pull_age > 90:
+        stale_penalty = 10.0
+    penalty += stale_penalty
+    factors.append({'factor': 'Data freshness (minutes)', 'value': pull_age, 'penalty': round(stale_penalty, 1)})
+
+    sample_penalty = 10.0 if outbound < 25 else (5.0 if outbound < 60 else 0.0)
+    penalty += sample_penalty
+    factors.append({'factor': 'Attribution sample size (outbound clicks)', 'value': outbound, 'penalty': round(sample_penalty, 1)})
+
+    score = max(0.0, min(100.0, 100.0 - penalty))
+    if score >= 80:
+        band = 'high'
+    elif score >= 60:
+        band = 'med'
+    else:
+        band = 'low'
+
+    return {
+        'score': round(score, 1),
+        'band': band,
+        'factors': factors,
+        'penalty_total': round(penalty, 1),
+        'summary': f'Attribution confidence {band.upper()} ({round(score,1)}/100).',
+    }
+
+
+def build_anomaly_diagnostics(campaign_daily_rows, limit=12):
+    by_campaign = {}
+    for r in campaign_daily_rows:
+        cid = (r.get('campaign_id') or r.get('campaign_name') or '').strip()
+        if not cid:
+            continue
+        by_campaign.setdefault(cid, {'name': r.get('campaign_name') or cid, 'rows': []})['rows'].append(r)
+
+    anomalies = []
+    for info in by_campaign.values():
+        rows = sorted(info['rows'], key=lambda x: x.get('date') or '')
+        if len(rows) < 8:
+            continue
+        baseline = rows[:-2]
+        recent = rows[-2:]
+
+        def stats(metric):
+            vals = [num(x.get(metric)) for x in baseline if num(x.get('impressions')) >= 600 and num(x.get('spend')) >= 4]
+            if len(vals) < 4:
+                return None, None
+            mean = sum(vals) / len(vals)
+            var = sum((v - mean) ** 2 for v in vals) / max(1, (len(vals) - 1))
+            std = var ** 0.5
+            return mean, std
+
+        for metric in ('ctr', 'cpc', 'spend'):
+            mean, std = stats(metric)
+            if mean is None:
+                continue
+            for rec in recent:
+                if num(rec.get('impressions')) < 800 and metric != 'spend':
+                    continue
+                val = num(rec.get(metric))
+                if metric == 'cpc' and rec.get('cpc') is None:
+                    continue
+                if std <= 1e-6:
+                    continue
+                z = (val - mean) / std
+                if abs(z) < 2.4:
+                    continue
+                direction = 'up' if z > 0 else 'down'
+                severity = 'high' if abs(z) >= 3.2 else 'med'
+                anomalies.append({
+                    'campaign': info['name'],
+                    'date': rec.get('date'),
+                    'metric': metric,
+                    'value': round(val, 3),
+                    'baseline_mean': round(mean, 3),
+                    'z_score': round(z, 2),
+                    'direction': direction,
+                    'severity': severity,
+                    'confidence': _bucket_confidence(len(rows), num(rec.get('spend')), num(rec.get('impressions'))),
+                })
+
+    anomalies.sort(key=lambda x: abs(x.get('z_score') or 0), reverse=True)
+    return {
+        'count': len(anomalies),
+        'items': anomalies[:limit],
+        'noise_guards': {
+            'min_impressions': 800,
+            'min_spend': 4,
+            'min_baseline_points': 4,
+            'z_threshold': 2.4,
+        }
+    }
+
+
+def build_action_recommendations(campaigns, creative_fatigue=None, anomalies=None, time_efficiency=None, attribution=None):
+    fatigue_by_campaign = {}
+    for x in (creative_fatigue or {}).get('campaigns', []):
+        fatigue_by_campaign[str(x.get('campaign_id') or x.get('campaign') or '')] = x
+
+    anomaly_by_campaign = {}
+    for a in (anomalies or {}).get('items', []):
+        anomaly_by_campaign.setdefault(str(a.get('campaign') or ''), []).append(a)
+
     out = []
     for c in campaigns:
         freq = c.get('frequency_avg')
         cpc = c.get('cpc')
         ctr = c.get('ctr') or 0
         spend = c.get('spend') or 0
+        cid = str(c.get('campaign_id') or c.get('campaign') or '')
+
+        fatigue = fatigue_by_campaign.get(cid) or fatigue_by_campaign.get(str(c.get('campaign') or ''))
+        fatigue_score = num((fatigue or {}).get('fatigue_score'))
+        related_anoms = anomaly_by_campaign.get(str(c.get('campaign') or ''), [])
+
         tag = 'Hold'
         reason = 'Baseline monitoring'
         confidence = 'low'
+        priority = 'normal'
+        diagnostic_tags = []
+        expected_impact = 'low'
 
         if spend >= 15 and cpc is not None and ctr >= 2.5 and cpc <= 0.35 and (freq is None or freq < 1.8):
-            tag = 'Scale'; reason = 'Strong CTR + low CPC with acceptable frequency'; confidence = 'high'
+            tag = 'Scale'; reason = 'Strong CTR + low CPC with acceptable frequency'; confidence = 'high'; expected_impact = 'high'; diagnostic_tags.append('efficiency')
         elif spend >= 10 and (cpc is None or cpc > 0.8 or ctr < 1.0):
-            tag = 'Cut'; reason = 'Weak efficiency after spend'; confidence = 'high'
+            tag = 'Cut'; reason = 'Weak efficiency after spend'; confidence = 'high'; priority = 'high'; diagnostic_tags.append('inefficiency')
         elif spend >= 8 and freq is not None and freq >= 1.8:
-            tag = 'Retest'; reason = 'Fatigue risk; rotate creatives/audiences'; confidence = 'med'
+            tag = 'Retest'; reason = 'Fatigue risk; rotate creatives/audiences'; confidence = 'med'; diagnostic_tags.append('frequency')
         elif spend < 8:
             tag = 'Hold'; reason = 'Insufficient spend for confident action'; confidence = 'low'
 
-        out.append({'campaign': c.get('campaign'), 'campaign_id': c.get('campaign_id'), 'tag': tag, 'reason': reason, 'confidence': confidence})
+        if fatigue_score >= 65:
+            tag = 'Retest'
+            reason = f"Creative fatigue score {fatigue_score:.1f} is elevated (refresh hooks and broaden audience)."
+            priority = 'high' if fatigue_score >= 78 else priority
+            diagnostic_tags.append('fatigue')
 
-    rank = {'Scale': 0, 'Hold': 1, 'Retest': 2, 'Cut': 3}
-    out.sort(key=lambda x: rank.get(x['tag'], 9))
+        if related_anoms:
+            worst = sorted(related_anoms, key=lambda x: abs(num(x.get('z_score'))), reverse=True)[0]
+            diagnostic_tags.append(f"anomaly_{worst.get('metric')}")
+            if worst.get('metric') == 'ctr' and worst.get('direction') == 'down':
+                tag = 'Retest'
+                reason = f"CTR anomaly ({worst.get('z_score')}σ) detected; test new creative angle immediately."
+                priority = 'high'
+            elif worst.get('metric') == 'cpc' and worst.get('direction') == 'up':
+                tag = 'Cut'
+                reason = f"CPC spike anomaly ({worst.get('z_score')}σ); cap budget until efficiency normalizes."
+                priority = 'high'
+
+        if (attribution or {}).get('band') == 'low':
+            confidence = 'low'
+            diagnostic_tags.append('low_attribution_confidence')
+
+        out.append({
+            'campaign': c.get('campaign'),
+            'campaign_id': c.get('campaign_id'),
+            'tag': tag,
+            'reason': reason,
+            'confidence': confidence,
+            'priority': priority,
+            'diagnostic_tags': diagnostic_tags,
+            'expected_impact': expected_impact,
+            'fatigue_score': None if fatigue is None else fatigue.get('fatigue_score'),
+        })
+
+    rank = {'Scale': 0, 'Retest': 1, 'Hold': 2, 'Cut': 3}
+    pr = {'high': 0, 'normal': 1, 'low': 2}
+    out.sort(key=lambda x: (pr.get(x.get('priority') or 'normal', 9), rank.get(x['tag'], 9)))
     return out
 
 
@@ -822,7 +1159,6 @@ def main():
     # Keep full follower history for trend continuity/backfill; ad insights can
     # have a different coverage window.
     followers_daily = follower_daily_series(followers)
-    action_recommendations = build_action_recommendations(campaigns)
     pacing = build_pacing(spend_series, target_daily=60.0)
 
     total_outbound_clicks = int(sum(num(c.get('outbound_clicks')) for c in campaigns))
@@ -849,6 +1185,18 @@ def main():
     breakdown_region = top_breakdown(region_rows, ['region'])
     geo_efficiency = build_geo_efficiency(breakdown_region)
     data_health = build_data_health(summary, campaigns, rows)
+
+    creative_fatigue = build_creative_fatigue_diagnostics(rows)
+    time_efficiency = build_time_efficiency_diagnostics(rows)
+    attribution_confidence = build_attribution_confidence(summary, data_health, campaigns)
+    anomalies = build_anomaly_diagnostics(campaign_daily_rows)
+    action_recommendations = build_action_recommendations(
+        campaigns,
+        creative_fatigue=creative_fatigue,
+        anomalies=anomalies,
+        time_efficiency=time_efficiency,
+        attribution=attribution_confidence,
+    )
 
     payload = {
         'updated_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
@@ -883,6 +1231,18 @@ def main():
         'pacing': pacing,
         'geo_efficiency': geo_efficiency,
         'data_health': data_health,
+        'diagnostics': {
+            'creative_fatigue': creative_fatigue,
+            'time_efficiency': time_efficiency,
+            'attribution_confidence': attribution_confidence,
+            'anomalies': anomalies,
+            'recommendation_context': {
+                'top_fatigue_campaigns': creative_fatigue.get('campaigns', [])[:3],
+                'anomaly_count': anomalies.get('count', 0),
+                'time_efficiency_source': time_efficiency.get('source'),
+                'attribution_band': attribution_confidence.get('band'),
+            },
+        },
         'breakdowns': {
             'placement': breakdown_placement,
             'age_gender': breakdown_age_gender,
