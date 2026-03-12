@@ -8,6 +8,7 @@ KPI_PATH = ROOT / 'data' / 'kpi_latest.json'
 OUT_JSON = ROOT / 'data' / 'analysis_latest.json'
 OUT_BRIEF = ROOT / 'data' / 'analysis_brief.txt'
 OUT_HISTORY = ROOT / 'data' / 'analysis_history.jsonl'
+CREATIVE_META = ROOT / 'data' / 'creative_metadata_latest.json'
 
 
 def num(v, default=0.0):
@@ -40,12 +41,32 @@ def summarize_recommendations(recos):
     cut = [r for r in recos if (r.get('tag') or '').lower() == 'cut']
     retest = [r for r in recos if (r.get('tag') or '').lower() == 'retest']
     hold = [r for r in recos if (r.get('tag') or '').lower() == 'hold']
+    conv_proven = [r for r in recos if r.get('signal_ready') is True]
+    traffic_only = [r for r in recos if r.get('signal_ready') is False]
     return {
         'scale': scale[:3],
         'cut': cut[:3],
         'retest': retest[:3],
         'hold': hold[:3],
+        'conversion_proven': conv_proven[:5],
+        'traffic_only': traffic_only[:5],
     }
+
+
+def read_creative_meta():
+    if not CREATIVE_META.exists():
+        return {}
+    try:
+        d = json.loads(CREATIVE_META.read_text())
+        rows = d.get('rows') or []
+        out = {}
+        for r in rows:
+            aid = str(r.get('ad_id') or '')
+            if aid:
+                out[aid] = r
+        return out
+    except Exception:
+        return {}
 
 
 def immediate_actions(summary, pacing, recos, confidence):
@@ -102,6 +123,7 @@ def main():
     data_health = d.get('data_health', {})
     action_coverage = d.get('action_coverage', [])
     recommendations = d.get('recommendations', [])
+    creative_meta = read_creative_meta()
 
     conf, core_cov = decision_confidence(data_health, action_coverage)
     recos = summarize_recommendations(recommendations)
@@ -113,6 +135,25 @@ def main():
             prev = json.loads(OUT_JSON.read_text())
         except Exception:
             prev = None
+
+    creative_watchlist = []
+    for c in d.get('campaigns', []):
+        for s in c.get('adsets', []):
+            for a in s.get('ads', [])[:3]:
+                aid = str(a.get('ad_id') or '')
+                cm = creative_meta.get(aid, {})
+                creative_watchlist.append({
+                    'campaign': c.get('campaign'),
+                    'ad_id': aid,
+                    'ad_name': a.get('ad'),
+                    'ctr': a.get('ctr'),
+                    'cpc': a.get('cpc'),
+                    'spend': a.get('spend'),
+                    'creative_name': cm.get('creative_name'),
+                    'cta': cm.get('cta'),
+                    'body': cm.get('body'),
+                })
+    creative_watchlist.sort(key=lambda x: (num(x.get('cpc'), 9.0), -num(x.get('ctr'), 0.0)))
 
     payload = {
         'generated_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
@@ -129,9 +170,14 @@ def main():
             'current_followers_live': summary.get('current_followers_live'),
         },
         'recommendations': recos,
+        'creative_watchlist': creative_watchlist[:10],
         'immediate_actions': actions,
     }
     payload['alert'] = compute_alert(prev, payload)
+    payload['change_digest'] = {
+        'has_material_change': payload['alert'].get('should_alert', False),
+        'reasons': payload['alert'].get('reasons', []),
+    }
 
     brief = []
     brief.append(f"Decision confidence: {conf} (core coverage {payload['core_signal_coverage_pct']}%)")
@@ -140,6 +186,7 @@ def main():
         brief.append('Scale: ' + ', '.join([x.get('campaign','?') for x in recos['scale']]))
     if recos['cut']:
         brief.append('Cut: ' + ', '.join([x.get('campaign','?') for x in recos['cut']]))
+    brief.append(f"Signal split: conversion-proven={len(recos.get('conversion_proven',[]))}, traffic-only={len(recos.get('traffic_only',[]))}")
     if actions:
         brief.append('Do now: ' + ' | '.join(actions))
     brief.append(f"Alert: {'YES' if payload.get('alert',{}).get('should_alert') else 'NO'} ({', '.join(payload.get('alert',{}).get('reasons',[])) or 'no_change'})")
