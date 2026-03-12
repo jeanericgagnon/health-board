@@ -268,12 +268,39 @@ def read_follower_city_rows(limit=200):
     try:
         d = json.loads(p.read_text())
         rows = d.get('rows') or []
+
+        # Try to load earliest snapshot from today (PT) for true per-city daily gain.
+        baseline_map = {}
+        hist_dir = ADS_DIR / 'follower_demographics_city_history'
+        if hist_dir.exists():
+            today_pt = datetime.now(ZoneInfo('America/Los_Angeles')).date().isoformat()
+            candidates = sorted(hist_dir.glob('follower_demographics_city_*.json'))
+            day_files = []
+            for f in candidates:
+                try:
+                    js = json.loads(f.read_text())
+                    ts = js.get('updated_at', '')
+                    dt = datetime.fromisoformat(ts.replace('Z', '+00:00')).astimezone(ZoneInfo('America/Los_Angeles'))
+                    if dt.date().isoformat() == today_pt:
+                        day_files.append((dt, js))
+                except Exception:
+                    continue
+            if day_files:
+                day_files.sort(key=lambda x: x[0])
+                first_js = day_files[0][1]
+                for r in first_js.get('rows') or []:
+                    c = (r.get('city') or '').strip()
+                    if c:
+                        baseline_map[c] = int(num(r.get('followers')))
+
         out = []
         for r in rows[:limit]:
             city = (r.get('city') or '').strip()
             if not city:
                 continue
-            out.append({'city': city, 'followers': int(num(r.get('followers')))})
+            cur = int(num(r.get('followers')))
+            base = baseline_map.get(city, cur)
+            out.append({'city': city, 'followers': cur, 'gained_today': cur - base})
         return out
     except Exception:
         return []
