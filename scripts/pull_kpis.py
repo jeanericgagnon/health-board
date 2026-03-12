@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 import csv
 import json
+import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 WORKSPACE = Path('/Users/ericsysclaw/.openclaw/workspace')
 ADS_DIR = WORKSPACE / 'exports' / 'meta-ads'
+DB_PATH = WORKSPACE / 'ads-ops' / 'db' / 'kpi.sqlite'
 OUT = (Path(__file__).resolve().parents[1] / 'data' / 'kpi_latest.json')
 
 
@@ -178,6 +181,54 @@ def build_spend_series(rows, limit=30):
     return out[-limit:]
 
 
+def read_live_followers_stats():
+    if not DB_PATH.exists():
+        return {'current_followers_live': None, 'daily_gain_live': None, 'baseline_followers': None}
+
+    try:
+        conn = sqlite3.connect(DB_PATH)
+        conn.row_factory = sqlite3.Row
+
+        latest = conn.execute(
+            """
+            SELECT pulled_at_utc, follower_count
+            FROM follower_snapshots
+            WHERE username='thesocial.study'
+            ORDER BY pulled_at_utc DESC
+            LIMIT 1
+            """
+        ).fetchone()
+        if not latest:
+            conn.close()
+            return {'current_followers_live': None, 'daily_gain_live': None, 'baseline_followers': None}
+
+        now_local = datetime.now(ZoneInfo('America/Los_Angeles'))
+        day_start_local = now_local.replace(hour=0, minute=0, second=0, microsecond=0)
+        day_start_utc = day_start_local.astimezone(timezone.utc).isoformat()
+
+        baseline = conn.execute(
+            """
+            SELECT follower_count
+            FROM follower_snapshots
+            WHERE username='thesocial.study' AND pulled_at_utc < ?
+            ORDER BY pulled_at_utc DESC
+            LIMIT 1
+            """,
+            (day_start_utc,)
+        ).fetchone()
+        conn.close()
+
+        current = int(latest['follower_count'])
+        baseline_count = int(baseline['follower_count']) if baseline else current
+        return {
+            'current_followers_live': current,
+            'daily_gain_live': current - baseline_count,
+            'baseline_followers': baseline_count,
+        }
+    except Exception:
+        return {'current_followers_live': None, 'daily_gain_live': None, 'baseline_followers': None}
+
+
 def build_insights(summary, campaigns, followers_daily):
     insights = []
     if campaigns:
@@ -263,6 +314,7 @@ def main():
     campaigns = aggregate_hierarchy(rows)
     followers = read_followers_series()
     spend_series = build_spend_series(rows)
+    live_followers = read_live_followers_stats()
 
     placement_rows = read_csv_rows('insights_placement_latest.csv')
     age_gender_rows = read_csv_rows('insights_age_gender_latest.csv')
@@ -285,6 +337,9 @@ def main():
             'blended_cost_per_follow': summary.get('blended_cost_per_follow'),
             'since': summary.get('since'),
             'until': summary.get('until'),
+            'current_followers_live': live_followers.get('current_followers_live'),
+            'daily_gain_live': live_followers.get('daily_gain_live'),
+            'baseline_followers': live_followers.get('baseline_followers'),
         },
         'campaigns': campaigns,
         'top_campaigns': campaigns[:10],

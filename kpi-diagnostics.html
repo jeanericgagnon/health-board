@@ -347,7 +347,11 @@
 
     const splitCityState = (cityLabel='') => {
       const parts = cityLabel.split(',').map(x=>x.trim());
-      return { city: parts[0] || cityLabel, state: parts[1] || '' };
+      const city = parts[0] || cityLabel;
+      let state = (parts[1] || '').toLowerCase();
+      if (state === 'co') state = 'colorado';
+      if (state === 'ca') state = 'california';
+      return { city, state };
     };
 
     const rollupCityLabel = (cityLabel, mode='metro') => {
@@ -355,12 +359,12 @@
       if (mode === 'city') return cityLabel;
 
       if (mode === 'county') {
-        if (state === 'California') {
+        if (state === 'california') {
           if (OC_CITIES.has(city)) return 'Orange County, California';
           if (SD_CITIES.has(city)) return 'San Diego County, California';
           if (city === 'Los Angeles') return 'Los Angeles County, California';
         }
-        if (state === 'Colorado') {
+        if (state === 'colorado') {
           if (city === 'Colorado Springs') return 'El Paso County, Colorado';
           if (DENVER_METRO_CITIES.has(city)) return 'Denver Metro Counties, Colorado';
         }
@@ -368,13 +372,13 @@
       }
 
       // metro
-      if (state === 'California') {
+      if (state === 'california') {
         if (OC_CITIES.has(city)) return 'Orange County Metro, California';
         if (SD_CITIES.has(city)) return 'San Diego Metro, California';
         if (city === 'Los Angeles') return 'Los Angeles Metro, California';
       }
-      if (state === 'Colorado') {
-        if (DENVER_METRO_CITIES.has(city)) return 'Denver Metro, Colorado';
+      if (state === 'colorado') {
+        if (city === 'Colorado Springs' || DENVER_METRO_CITIES.has(city)) return 'Denver Metro, Colorado';
       }
       return 'Unmapped';
     };
@@ -510,7 +514,7 @@
 
         const followersSeries = d.followers_series || [];
         const followersDailySeries = d.followers_daily_series || [];
-        const currentFollowers = followersSeries.length ? Number(followersSeries[followersSeries.length - 1].followers_total || 0) : 0;
+        const currentFollowers = Number(s.current_followers_live ?? (followersSeries.length ? Number(followersSeries[followersSeries.length - 1].followers_total || 0) : 0));
         const weeklyGrowthForTop = followersSeries.length >= 8
           ? (Number(followersSeries[followersSeries.length - 1].followers_total || 0) - Number(followersSeries[followersSeries.length - 8].followers_total || 0))
           : null;
@@ -577,7 +581,7 @@
         goalRows.innerHTML = `
           <tr><td>Current Followers</td><td><b>${fmtNum(currentFollowers)}</b></td></tr>
           <tr><td>Needed to 150k</td><td><b>${fmtNum(neededToTarget)}</b> (${daysLeft} days left)</td></tr>
-          <tr><td>Daily Growth</td><td>${dailyGrowth == null ? 'N/A' : `<b>${dailyGrowth.toFixed(1)}</b>/day`} · 7D avg: ${dailyGrowth7 == null ? 'N/A' : `<b>${dailyGrowth7.toFixed(1)}</b>/day`}</td></tr>
+          <tr><td>Daily Growth</td><td>${s.daily_gain_live == null ? (dailyGrowth == null ? 'N/A' : `<b>${dailyGrowth.toFixed(1)}</b>/day`) : `<b>${fmtNum(s.daily_gain_live)}</b> today`} · 7D avg: ${dailyGrowth7 == null ? 'N/A' : `<b>${dailyGrowth7.toFixed(1)}</b>/day`}</td></tr>
           <tr><td>Weekly Growth</td><td>${weeklyGrowth == null ? 'N/A (need 8+ days)' : `<b>${weeklyGrowth >= 0 ? '+' : ''}${fmtNum(weeklyGrowth)}</b> followers (last 7 days)`}</td></tr>
         `;
 
@@ -587,6 +591,7 @@
           <tr><td>Clicks</td><td><b>${fmtNum(s.total_clicks)}</b></td></tr>
           <tr><td>Impressions</td><td><b>${fmtNum(s.total_impressions)}</b></td></tr>
           <tr><td>Current Followers</td><td><b>${fmtNum(currentFollowers)}</b></td></tr>
+          <tr><td>Today Gain (live)</td><td><b>${s.daily_gain_live == null ? 'N/A' : fmtNum(s.daily_gain_live)}</b></td></tr>
           <tr><td>Blended CPF (${cpfSelect?.value || 7}D)</td><td><b>${kCpfEl.textContent}</b></td></tr>
           <tr><td>Updated</td><td><b>${d.updated_at ? new Date(d.updated_at).toLocaleString() : '--'}</b></td></tr>
         `;
