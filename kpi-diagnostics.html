@@ -374,7 +374,6 @@
         if (city === 'Los Angeles') return 'Los Angeles Metro, California';
       }
       if (state === 'Colorado') {
-        if (city === 'Colorado Springs') return 'Colorado Springs Metro, Colorado';
         if (DENVER_METRO_CITIES.has(city)) return 'Denver Metro, Colorado';
       }
       return 'Unmapped';
@@ -434,9 +433,6 @@
       let rows = geoRollup === 'city'
         ? rollupFollowerCities(followerCityRows || [], geoRollup)
         : rollupFollowerCities(followerCityRows || [], geoRollup).slice(0, 10);
-      if (selectedFollowerBucket) {
-        rows = rows.filter(r => r.city === selectedFollowerBucket);
-      }
       if (!followersMap) {
         followersMap = L.map('followersMap').setView([37.8, -96], 4);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 10, attribution: '&copy; OpenStreetMap' }).addTo(followersMap);
@@ -704,7 +700,6 @@
               const i = Number(tr.dataset.fidx || -1);
               const row = top[i];
               if (!row) return;
-              selectedFollowerBucket = row.city;
               const bucketCities = (followerCities || [])
                 .filter(c => rollupCityLabel(c.city || '', geoRollup) === row.city)
                 .sort((a,b) => Number(b.followers||0) - Number(a.followers||0))
@@ -765,7 +760,6 @@
             document.querySelectorAll(selector + ' .btnf').forEach(b=>b.classList.remove('active'));
             btn.classList.add('active');
             geoRollup = btn.dataset.rollup || 'metro';
-            selectedFollowerBucket = null;
             rerenderDeep();
           });
         };
