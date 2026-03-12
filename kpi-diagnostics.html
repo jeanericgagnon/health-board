@@ -529,15 +529,19 @@
         const kCpfEl = document.getElementById('kCpf');
 
         const computeWindowCpf = (days) => {
-          // CPF should only use dates where both spend + follower deltas exist.
+          // 1D: prefer live intraday follower gain when available.
+          if (days === 1 && Number.isFinite(Number(s.daily_gain_live)) && Number(s.daily_gain_live) > 0 && spendSeries.length) {
+            const latestSpend = Number(spendSeries[spendSeries.length - 1].spend || 0);
+            return latestSpend > 0 ? (latestSpend / Number(s.daily_gain_live)) : null;
+          }
+
+          // CPF should otherwise use dates where both spend + follower deltas exist.
           const spendMap = new Map(spendSeries.map(x => [x.date, Number(x.spend || 0)]));
           const overlap = followersDailySeries
             .filter(x => spendMap.has(x.date) && Number.isFinite(Number(x.followers_per_day)))
             .map(x => ({ date: x.date, spend: spendMap.get(x.date), followers: Number(x.followers_per_day) }))
             .sort((a, b) => a.date.localeCompare(b.date));
 
-          // If selector asks for a longer range than available overlapping campaign data,
-          // show N/A instead of silently shrinking the window.
           if (overlap.length < days) return null;
 
           const windowRows = overlap.slice(-days);
