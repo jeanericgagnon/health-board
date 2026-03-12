@@ -58,7 +58,18 @@
 
     <div id="overviewPanel" class="tab-panel active">
     <section class="grid kpis">
-      <article class="panel kpi"><div class="l">Total Spend</div><div class="v" id="kSpend">$--</div></article>
+      <article class="panel kpi">
+        <div class="l" style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+          <span>Total Spend</span>
+          <select id="spendWindow" style="background:#1a2a54;color:#dbeafe;border:1px solid #2b4f92;border-radius:8px;padding:2px 6px;font-size:11px;">
+            <option value="1">1D</option>
+            <option value="3">3D</option>
+            <option value="7" selected>7D</option>
+            <option value="30">1M</option>
+          </select>
+        </div>
+        <div class="v" id="kSpend">$--</div>
+      </article>
       <article class="panel kpi"><div class="l">Total Clicks</div><div class="v" id="kClicks">--</div></article>
       <article class="panel kpi"><div class="l">Total Impressions</div><div class="v" id="kImpr">--</div></article>
       <article class="panel kpi"><div class="l">Current Followers</div><div class="v" id="kFollows">--</div></article>
@@ -508,7 +519,16 @@
       .then(r => r.json())
       .then(d => {
         const s = d.summary || {};
-        document.getElementById('kSpend').textContent = fmtMoney(s.total_spend);
+        const spendSelect = document.getElementById('spendWindow');
+        const kSpendEl = document.getElementById('kSpend');
+        const renderSpend = () => {
+          const days = Number(spendSelect?.value || 7);
+          const spendSeries = d.spend_series || [];
+          const windowSpend = spendSeries.slice(-days).reduce((sum, x) => sum + Number(x.spend || 0), 0);
+          kSpendEl.textContent = fmtMoney(windowSpend > 0 ? windowSpend : s.total_spend);
+        };
+        renderSpend();
+        if (spendSelect) spendSelect.onchange = renderSpend;
         document.getElementById('kClicks').textContent = fmtNum(s.total_clicks);
         document.getElementById('kImpr').textContent = fmtNum(s.total_impressions);
 
