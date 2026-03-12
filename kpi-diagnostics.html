@@ -38,8 +38,9 @@
     .bar{height:6px;background:#0d1530;border-radius:999px;overflow:hidden}
     .bar>span{display:block;height:100%;background:#60a5fa}
     #regionMap,#followersMap{height:260px;border:1px solid #223157;border-radius:10px}
-    .kpi-select-row{display:flex;gap:8px;align-items:center;flex-wrap:nowrap;width:100%}
-    .kpi-select{background:#1a2a54;color:#dbeafe;border:1px solid #2b4f92;border-radius:10px;padding:6px 10px;font-size:13px;font-weight:600;min-height:36px}
+    .kpi-select-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:center;width:100%;position:relative;z-index:5}
+    .kpi-select{background:#1a2a54;color:#ffffff;border:1px solid #4b72c7;border-radius:10px;padding:6px 10px;font-size:13px;font-weight:700;min-height:36px;cursor:pointer;pointer-events:auto;position:relative;z-index:6}
+    .kpi-select option{color:#111827;background:#ffffff}
     @media (max-width:1200px){.cards{grid-template-columns:1fr}}
     .back{display:inline-block;margin-top:14px;color:#cfe1ff;text-decoration:none}
     @media (max-width:1200px){.kpis{grid-template-columns:repeat(3,1fr)}.main,.half{grid-template-columns:1fr}}
@@ -77,24 +78,18 @@
       <article class="panel kpi"><div class="l">Current Followers</div><div class="v" id="kFollows">--</div></article>
       <article class="panel kpi">
         <div class="l kpi-select-row">
-          <div style="display:flex;align-items:center;gap:6px;min-width:0;">
-            <span class="sub" style="font-size:11px;white-space:nowrap;">Metric</span>
-            <select id="kpiMetric" class="kpi-select" style="flex:1 1 auto;min-width:0">
-              <option value="cpf" selected>CPF</option>
-              <option value="cpc">CPC</option>
-              <option value="ctr">CTR</option>
-              <option value="cpm">CPM</option>
-            </select>
-          </div>
-          <div style="display:flex;align-items:center;gap:6px;">
-            <span class="sub" style="font-size:11px;white-space:nowrap;">Range</span>
-            <select id="cpfWindow" class="kpi-select" style="width:96px">
-              <option value="1">1D</option>
-              <option value="3">3D</option>
-              <option value="7" selected>7D</option>
-              <option value="30">1M</option>
-            </select>
-          </div>
+          <select id="kpiMetric" class="kpi-select" title="Metric">
+            <option value="cpf" selected>CPF</option>
+            <option value="cpc">CPC</option>
+            <option value="ctr">CTR</option>
+            <option value="cpm">CPM</option>
+          </select>
+          <select id="cpfWindow" class="kpi-select" title="Range">
+            <option value="1">1D</option>
+            <option value="3">3D</option>
+            <option value="7" selected>7D</option>
+            <option value="30">1M</option>
+          </select>
         </div>
         <div class="v" id="kCpf">$--</div>
       </article>
