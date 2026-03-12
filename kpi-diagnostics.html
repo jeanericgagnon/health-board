@@ -85,7 +85,18 @@
         </div>
         <div class="v" id="kCpf">$--</div>
       </article>
-      <article class="panel kpi"><div class="l">Updated</div><div class="v" id="kUpdated" style="font-size:14px">--</div></article>
+      <article class="panel kpi">
+        <div class="l" style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+          <span>Followers Gained</span>
+          <select id="gainWindow" style="background:#1a2a54;color:#dbeafe;border:1px solid #2b4f92;border-radius:8px;padding:2px 6px;font-size:11px;">
+            <option value="1">1D</option>
+            <option value="3">3D</option>
+            <option value="7" selected>7D</option>
+            <option value="30">1M</option>
+          </select>
+        </div>
+        <div class="v" id="kGained">--</div>
+      </article>
     </section>
 
     <section class="grid main">
@@ -581,7 +592,20 @@
         document.getElementById('kFollows').textContent = fmtNum(topFollows);
         renderCpf();
         if (cpfSelect) cpfSelect.onchange = renderCpf;
-        document.getElementById('kUpdated').textContent = d.updated_at ? new Date(d.updated_at).toLocaleString() : '--';
+
+        const gainSelect = document.getElementById('gainWindow');
+        const kGainedEl = document.getElementById('kGained');
+        const renderGained = () => {
+          const days = Number(gainSelect?.value || 7);
+          const vals = followersDailySeries
+            .slice(-days)
+            .map(x => Number(x.followers_per_day))
+            .filter(v => Number.isFinite(v));
+          const gained = vals.reduce((a,b)=>a+b,0);
+          kGainedEl.textContent = vals.length ? fmtNum(Math.round(gained)) : 'N/A';
+        };
+        renderGained();
+        if (gainSelect) gainSelect.onchange = renderGained;
 
         // Goals area
         const targetFollowers = 150000;
