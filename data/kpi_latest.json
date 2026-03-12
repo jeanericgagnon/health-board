@@ -819,7 +819,7 @@
     },
     {
       "date": "2026-03-12",
-      "spend": 18.36
+      "spend": 43.37
     }
   ],
   "insights": [
@@ -968,7 +968,13 @@
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
     "last_pull_age_min": 0.0,
-    "attribution_confidence": "estimated"
+    "attribution_confidence": "estimated",
+    "manual_spend_override": {
+      "date": "2026-03-12",
+      "spend": 43.37,
+      "set_at": "2026-03-12T21:03:19.462989Z",
+      "note": "Temporary manual override per operator input"
+    }
   },
   "breakdowns": {
     "placement": [
