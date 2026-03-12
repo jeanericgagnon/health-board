@@ -581,6 +581,7 @@
         goalRows.innerHTML = `
           <tr><td>Current Followers</td><td><b>${fmtNum(currentFollowers)}</b></td></tr>
           <tr><td>Needed to 150k</td><td><b>${fmtNum(neededToTarget)}</b> (${daysLeft} days left)</td></tr>
+          <tr><td>Daily Spend</td><td><b>${spendSeries.length ? fmtMoney(spendSeries[spendSeries.length - 1].spend) : 'N/A'}</b></td></tr>
           <tr><td>Daily Growth Number</td><td><b>${s.daily_gain_live == null ? (dailyGrowth == null ? 'N/A' : dailyGrowth.toFixed(1)) : fmtNum(s.daily_gain_live)}</b></td></tr>
           <tr><td>Daily Growth</td><td>${s.daily_gain_live == null ? (dailyGrowth == null ? 'N/A' : `<b>${dailyGrowth.toFixed(1)}</b>/day`) : `<b>${fmtNum(s.daily_gain_live)}</b> today`} · 7D avg: ${dailyGrowth7 == null ? 'N/A' : `<b>${dailyGrowth7.toFixed(1)}</b>/day`}</td></tr>
           <tr><td>Weekly Growth</td><td>${weeklyGrowth == null ? 'N/A (need 8+ days)' : `<b>${weeklyGrowth >= 0 ? '+' : ''}${fmtNum(weeklyGrowth)}</b> followers (last 7 days)`}</td></tr>
