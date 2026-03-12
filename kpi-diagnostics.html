@@ -764,7 +764,11 @@
           <tr><td>Current Followers</td><td><b>${fmtNum(currentFollowers)}</b></td></tr>
           <tr><td>Today Gain (live)</td><td><b>${s.daily_gain_live == null ? 'N/A' : fmtNum(s.daily_gain_live)}</b></td></tr>
           <tr><td>Landing Page Views</td><td><b>${fmtNum(s.total_landing_page_views || 0)}</b></td></tr>
+          <tr><td>View Content / ATC / IC</td><td><b>${fmtNum(s.total_view_content || 0)} / ${fmtNum(s.total_add_to_cart || 0)} / ${fmtNum(s.total_initiate_checkout || 0)}</b></td></tr>
+          <tr><td>Purchases / Leads</td><td><b>${fmtNum(s.total_purchases || 0)} / ${fmtNum(s.total_leads || 0)}</b></td></tr>
           <tr><td>Cost / LPV</td><td><b>${s.cost_per_landing_page_view == null ? 'N/A' : fmtMoney(s.cost_per_landing_page_view)}</b></td></tr>
+          <tr><td>Cost / Purchase</td><td><b>${s.cost_per_purchase == null ? 'N/A' : fmtMoney(s.cost_per_purchase)}</b></td></tr>
+          <tr><td>Cost / Lead</td><td><b>${s.cost_per_lead == null ? 'N/A' : fmtMoney(s.cost_per_lead)}</b></td></tr>
           <tr><td>LPV per Outbound Click</td><td><b>${s.lpv_per_outbound_click_rate == null ? 'N/A' : `${Number(s.lpv_per_outbound_click_rate).toFixed(1)}%`}</b></td></tr>
           <tr><td>Blended CPF (${cpfSelect?.value || 7}D)</td><td><b>${kCpfEl.textContent}</b></td></tr>
           <tr><td>Updated</td><td><b>${d.updated_at ? new Date(d.updated_at).toLocaleString() : '--'}</b></td></tr>
