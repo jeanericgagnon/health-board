@@ -258,7 +258,7 @@
       <section class="panel" style="margin-top:14px">
         <h3>Follower Location Breakdown</h3>
         <div class="sub" id="followersCoverageTable" style="margin-bottom:8px">Coverage: --</div>
-        <table><thead><tr><th>Location</th><th>Followers</th><th>Share</th><th>Daily Gained</th><th>Momentum</th></tr></thead><tbody id="followerCityRowsTab"><tr><td colspan="5">Loading…</td></tr></tbody></table>
+        <table><thead><tr><th>Location</th><th>Followers</th><th>Share</th><th>Today Est.</th><th>Momentum</th></tr></thead><tbody id="followerCityRowsTab"><tr><td colspan="5">Loading…</td></tr></tbody></table>
       </section>
     </div>
 
@@ -801,12 +801,13 @@
 
           el.innerHTML = top.map((r, idx) => {
             const share = (Number(r.followers||0) / total) * 100;
-            const gained = Number(r.gained_today || 0);
+            const liveGain = Number.isFinite(Number(s.daily_gain_live)) ? Number(s.daily_gain_live) : 0;
+            const est = liveGain > 0 ? Math.round(liveGain * (share / 100)) : 0;
             const detail = (!isFollowersTab && geoRollup !== 'city')
-              ? `<br><span class="sub">${(r.children || []).slice(0,6).map(c => `${c.city.split(',')[0]} (${fmtNum(c.followers)}, +${fmtNum(c.gained_today || 0)})`).join(' · ') || 'No sub-city breakdown'}</span>`
+              ? `<br><span class="sub">${(r.children || []).slice(0,6).map(c => `${c.city.split(',')[0]} (${fmtNum(c.followers)})`).join(' · ') || 'No sub-city breakdown'}</span>`
               : '';
             const cls = isFollowersTab ? ' class="clickable"' : '';
-            return `<tr${cls} data-fidx="${idx}"><td><b>${r.city}</b>${detail}</td><td>${fmtNum(r.followers)}</td><td>${share.toFixed(1)}%</td><td>${fmtNum(gained)}</td><td><div class="bar"><span style="width:${Math.max(4,Math.round(share))}%"></span></div></td></tr>`;
+            return `<tr${cls} data-fidx="${idx}"><td><b>${r.city}</b>${detail}</td><td>${fmtNum(r.followers)}</td><td>${share.toFixed(1)}%</td><td>${fmtNum(est)}</td><td><div class="bar"><span style="width:${Math.max(4,Math.round(share))}%"></span></div></td></tr>`;
           }).join('');
 
           if (isFollowersTab && geoRollup !== 'city') {
@@ -817,7 +818,7 @@
               const bucketCities = (followerCities || [])
                 .filter(c => rollupCityLabel(c.city || '', geoRollup) === row.city)
                 .sort((a,b) => Number(b.followers||0) - Number(a.followers||0))
-                .map(c => `${(c.city || '').split(',')[0]} (${fmtNum(c.followers)}, +${fmtNum(c.gained_today || 0)})`)
+                .map(c => `${(c.city || '').split(',')[0]} (${fmtNum(c.followers)})`)
                 .join(' · ');
               tr.children[0].innerHTML = `<b>${row.city}</b><br><span class="sub">${bucketCities || 'No sub-city breakdown'}</span>`;
               renderFollowersMap(followerCities);
