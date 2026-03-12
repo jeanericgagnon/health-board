@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-03-12T21:14:27.612841Z",
-  "source_updated_at": "2026-03-12T21:07:18.043581Z",
+  "generated_at": "2026-03-12T21:15:57.169585Z",
+  "source_updated_at": "2026-03-12T21:15:57.143163Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 18.36,
-    "expected_by_now": 35.29,
-    "pace_ratio": 0.52,
+    "expected_by_now": 35.62,
+    "pace_ratio": 0.515,
     "status": "too_slow"
   },
   "data_health": {
@@ -18,10 +18,10 @@
   },
   "summary": {
     "total_spend": 43.37,
-    "total_clicks": 1329,
-    "total_impressions": 20189,
-    "daily_gain_live": 91,
-    "current_followers_live": 106198
+    "total_clicks": 1332,
+    "total_impressions": 20228,
+    "daily_gain_live": 92,
+    "current_followers_live": 106199
   },
   "recommendations": {
     "scale": [
@@ -58,9 +58,7 @@
     "Confidence LOW: prioritize tracking/event reliability before major budget shifts."
   ],
   "alert": {
-    "should_alert": true,
-    "reasons": [
-      "scale_candidates_changed"
-    ]
+    "should_alert": false,
+    "reasons": []
   }
 }
