@@ -2,14 +2,16 @@
 import csv
 import json
 import sqlite3
-from datetime import datetime, timezone
+from datetime import datetime, timezone, date
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 WORKSPACE = Path('/Users/ericsysclaw/.openclaw/workspace')
 ADS_DIR = WORKSPACE / 'exports' / 'meta-ads'
 DB_PATH = WORKSPACE / 'ads-ops' / 'db' / 'kpi.sqlite'
-OUT = (Path(__file__).resolve().parents[1] / 'data' / 'kpi_latest.json')
+DATA_DIR = Path(__file__).resolve().parents[1] / 'data'
+OUT = DATA_DIR / 'kpi_latest.json'
+MANUAL_INTRADAY_SPEND_PATH = DATA_DIR / 'manual_intraday_spend.json'
 
 
 def num(v):
@@ -59,6 +61,32 @@ def read_meta_config():
         return {'ad_account_id': cfg.get('ad_account_id')}
     except Exception:
         return {}
+
+
+def read_manual_intraday_spend_override():
+    if not MANUAL_INTRADAY_SPEND_PATH.exists():
+        return None
+    try:
+        d = json.loads(MANUAL_INTRADAY_SPEND_PATH.read_text())
+        m = d.get('campaign_spend') or {}
+        if not isinstance(m, dict) or not m:
+            return None
+        as_of_local = d.get('as_of_local')
+        apply_until_local_date = d.get('apply_until_local_date')
+        if not apply_until_local_date and as_of_local:
+            try:
+                apply_until_local_date = datetime.fromisoformat(str(as_of_local)).date().isoformat()
+            except Exception:
+                apply_until_local_date = None
+        return {
+            'as_of_local': as_of_local,
+            'apply_until_local_date': apply_until_local_date,
+            'campaign_spend': {str(k): num(v) for k, v in m.items()},
+            'total_spend': num(d.get('total_spend')) if d.get('total_spend') is not None else None,
+            'source': d.get('source') or 'manual_user_input',
+        }
+    except Exception:
+        return None
 
 
 def read_insights_rows():
@@ -763,6 +791,23 @@ def main():
     meta = read_meta_config()
     rows = read_insights_rows()
     campaigns = aggregate_hierarchy(rows)
+    manual_spend_override = read_manual_intraday_spend_override()
+    if manual_spend_override:
+        today_pt = datetime.now(ZoneInfo('America/Los_Angeles')).date().isoformat()
+        until = manual_spend_override.get('apply_until_local_date')
+        if until and today_pt > str(until):
+            manual_spend_override = None
+
+    if manual_spend_override:
+        cmap = manual_spend_override.get('campaign_spend', {})
+        for c in campaigns:
+            n = c.get('campaign')
+            if n in cmap:
+                c['spend'] = round(num(cmap[n]), 2)
+                clicks = num(c.get('clicks'))
+                impr = num(c.get('impressions'))
+                c['cpc'] = round(c['spend'] / clicks, 3) if clicks > 0 else None
+                c['cpm'] = round((c['spend'] / impr) * 1000, 3) if impr > 0 else c.get('cpm')
     followers = read_followers_series()
     spend_series = build_spend_series(rows)
     campaign_daily_rows = build_campaign_daily(rows)
@@ -784,6 +829,19 @@ def main():
     total_landing_page_views = int(sum(num(c.get('landing_page_views')) for c in campaigns))
     total_link_clicks = int(sum(num(c.get('link_clicks')) for c in campaigns))
     total_spend = num(summary.get('total_spend'))
+    if manual_spend_override and manual_spend_override.get('total_spend') is not None:
+        total_spend = round(num(manual_spend_override.get('total_spend')), 2)
+        # Keep UI 'Daily Spend' aligned by overriding today's spend_series point.
+        today_pt = datetime.now(ZoneInfo('America/Los_Angeles')).date().isoformat()
+        found = False
+        for r in spend_series:
+            if r.get('date') == today_pt:
+                r['spend'] = total_spend
+                found = True
+                break
+        if not found:
+            spend_series.append({'date': today_pt, 'spend': total_spend})
+            spend_series.sort(key=lambda x: x.get('date', ''))
 
     breakdown_placement = top_breakdown(placement_rows, ['publisher_platform', 'platform_position'])
     breakdown_age_gender = top_breakdown(age_gender_rows, ['age', 'gender'])
@@ -796,7 +854,7 @@ def main():
         'updated_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
         'summary': {
             'ad_account_id': meta.get('ad_account_id'),
-            'total_spend': summary.get('total_spend'),
+            'total_spend': total_spend,
             'total_clicks': summary.get('total_clicks'),
             'total_impressions': summary.get('total_impressions'),
             'total_follows': summary.get('total_follows'),
@@ -811,6 +869,8 @@ def main():
             'total_landing_page_views': total_landing_page_views,
             'cost_per_landing_page_view': round(total_spend / total_landing_page_views, 3) if total_landing_page_views > 0 else None,
             'lpv_per_outbound_click_rate': round((total_landing_page_views / total_outbound_clicks) * 100, 3) if total_outbound_clicks > 0 else None,
+            'manual_intraday_spend_override_note': ('intraday spend manually overridden from data/manual_intraday_spend.json' if manual_spend_override else None),
+            'manual_intraday_spend_as_of_local': (manual_spend_override.get('as_of_local') if manual_spend_override else None),
         },
         'campaigns': campaigns,
         'top_campaigns': campaigns[:10],
