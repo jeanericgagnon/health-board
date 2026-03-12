@@ -597,6 +597,10 @@
         const kGainedEl = document.getElementById('kGained');
         const renderGained = () => {
           const days = Number(gainSelect?.value || 7);
+          if (days === 1 && Number.isFinite(Number(s.daily_gain_live))) {
+            kGainedEl.textContent = fmtNum(Number(s.daily_gain_live));
+            return;
+          }
           const vals = followersDailySeries
             .slice(-days)
             .map(x => Number(x.followers_per_day))
