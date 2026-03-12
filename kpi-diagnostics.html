@@ -46,7 +46,7 @@
 <body>
   <div class="wrap">
     <div class="head">
-      <div><div class="title">Stuff to Gag On · KPI Diagnostics</div><div class="sub">Follower-growth optimization under $60/day cap</div></div>
+      <div><div class="title">KPI Dashboard</div><div class="sub" id="subtitleUpdated">Last updated: --</div></div>
       <div class="tag">Live Ops</div>
     </div>
 
@@ -530,6 +530,8 @@
       .then(r => r.json())
       .then(d => {
         const s = d.summary || {};
+        const subtitleUpdated = document.getElementById('subtitleUpdated');
+        if (subtitleUpdated) subtitleUpdated.textContent = `Last updated: ${d.updated_at ? new Date(d.updated_at).toLocaleString() : '--'}`;
         const spendSelect = document.getElementById('spendWindow');
         const kSpendEl = document.getElementById('kSpend');
         const renderSpend = () => {
@@ -597,8 +599,12 @@
         const kGainedEl = document.getElementById('kGained');
         const renderGained = () => {
           const days = Number(gainSelect?.value || 7);
-          if (days === 1 && Number.isFinite(Number(s.daily_gain_live))) {
-            kGainedEl.textContent = fmtNum(Number(s.daily_gain_live));
+          const liveFromSummary = (Number.isFinite(Number(s.current_followers_live)) && Number.isFinite(Number(s.baseline_followers)))
+            ? (Number(s.current_followers_live) - Number(s.baseline_followers))
+            : null;
+          const liveGain = Number.isFinite(Number(s.daily_gain_live)) ? Number(s.daily_gain_live) : liveFromSummary;
+          if (days === 1 && Number.isFinite(Number(liveGain))) {
+            kGainedEl.textContent = fmtNum(Number(liveGain));
             return;
           }
           const vals = followersDailySeries
