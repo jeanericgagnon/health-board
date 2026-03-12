@@ -20,6 +20,30 @@ def num(v):
 
 
 def read_summary():
+    # Prefer fresh ads-ops dashboard payload (DB-backed) when available.
+    p_new = WORKSPACE / 'ads-ops' / 'dashboard' / 'data' / 'latest.json'
+    if p_new.exists():
+        try:
+            d = json.loads(p_new.read_text())
+            campaigns = d.get('campaign') or []
+            total_spend = round(sum(num(x.get('spend')) for x in campaigns), 2)
+            total_clicks = int(sum(num(x.get('clicks')) for x in campaigns))
+            total_impressions = int(sum(num(x.get('impressions')) for x in campaigns))
+            return {
+                'since': None,
+                'until': None,
+                'rows': len(campaigns),
+                'total_spend': total_spend,
+                'total_clicks': total_clicks,
+                'total_impressions': total_impressions,
+                'total_follows': 0,
+                'blended_cost_per_follow': None,
+                'pulled_at': d.get('updated_at'),
+            }
+        except Exception:
+            pass
+
+    # Fallback: legacy exports summary
     p = ADS_DIR / 'summary_latest.json'
     if not p.exists():
         return {}
@@ -144,6 +168,33 @@ def aggregate_hierarchy(rows):
 
 
 def read_followers_series(limit=120):
+    # Prefer live DB snapshots so chart/date advances even when manual CSV lags.
+    if DB_PATH.exists():
+        try:
+            conn = sqlite3.connect(DB_PATH)
+            conn.row_factory = sqlite3.Row
+            rows = conn.execute("""
+                SELECT pulled_at_utc, follower_count
+                FROM follower_snapshots
+                WHERE username='thesocial.study'
+                ORDER BY pulled_at_utc ASC, id ASC
+            """).fetchall()
+            conn.close()
+
+            by_day = {}
+            for r in rows:
+                ts = r['pulled_at_utc']
+                dt = datetime.fromisoformat(ts.replace('Z', '+00:00')).astimezone(ZoneInfo('America/Los_Angeles'))
+                day = dt.date().isoformat()
+                by_day[day] = int(r['follower_count'])  # latest snapshot wins for day
+
+            out = [{'date': d, 'followers_total': v} for d, v in sorted(by_day.items())]
+            if out:
+                return out[-limit:]
+        except Exception:
+            pass
+
+    # Fallback: legacy CSV backfill
     p = ADS_DIR / 'followers_daily.csv'
     if not p.exists():
         return []
@@ -179,6 +230,38 @@ def build_spend_series(rows, limit=30):
         by_date[d] = by_date.get(d, 0.0) + num(r.get('spend'))
     out = [{'date': d, 'spend': round(v, 2)} for d, v in sorted(by_date.items())]
     return out[-limit:]
+
+
+def build_campaign_daily(rows, limit_days=30):
+    # Keep raw daily campaign stats so UI can apply 1D/5D/7D/14D toggles.
+    by_key = {}
+    for r in rows:
+        d = (r.get('date_start') or '').strip()
+        cid = (r.get('campaign_id') or '').strip()
+        cname = (r.get('campaign_name') or 'Unknown Campaign').strip() or 'Unknown Campaign'
+        if not d or not cid:
+            continue
+        key = (d, cid, cname)
+        m = by_key.setdefault(key, {'date': d, 'campaign_id': cid, 'campaign_name': cname, 'spend': 0.0, 'clicks': 0.0, 'impressions': 0.0})
+        m['spend'] += num(r.get('spend'))
+        m['clicks'] += num(r.get('clicks'))
+        m['impressions'] += num(r.get('impressions'))
+    out = []
+    for m in by_key.values():
+        impr = m['impressions']
+        clk = m['clicks']
+        out.append({
+            'date': m['date'],
+            'campaign_id': m['campaign_id'],
+            'campaign_name': m['campaign_name'],
+            'spend': round(m['spend'], 2),
+            'clicks': int(clk),
+            'impressions': int(impr),
+            'ctr': round((clk / impr) * 100, 3) if impr > 0 else 0.0,
+            'cpc': round(m['spend'] / clk, 3) if clk > 0 else None,
+        })
+    out.sort(key=lambda x: (x['date'], x['campaign_name']))
+    return out[-(limit_days * 10):]
 
 
 def read_live_followers_stats():
@@ -269,26 +352,27 @@ def read_follower_city_rows(limit=200):
         d = json.loads(p.read_text())
         rows = d.get('rows') or []
 
-        # Try to load earliest snapshot from today (PT) for true per-city daily gain.
+        # Baseline = yesterday close (latest snapshot from previous PT day)
         baseline_map = {}
         hist_dir = ADS_DIR / 'follower_demographics_city_history'
         if hist_dir.exists():
-            today_pt = datetime.now(ZoneInfo('America/Los_Angeles')).date().isoformat()
+            now_pt = datetime.now(ZoneInfo('America/Los_Angeles'))
+            today_pt = now_pt.date().isoformat()
             candidates = sorted(hist_dir.glob('follower_demographics_city_*.json'))
-            day_files = []
+            prev_day_files = []
             for f in candidates:
                 try:
                     js = json.loads(f.read_text())
                     ts = js.get('updated_at', '')
                     dt = datetime.fromisoformat(ts.replace('Z', '+00:00')).astimezone(ZoneInfo('America/Los_Angeles'))
-                    if dt.date().isoformat() == today_pt:
-                        day_files.append((dt, js))
+                    if dt.date().isoformat() < today_pt:
+                        prev_day_files.append((dt, js))
                 except Exception:
                     continue
-            if day_files:
-                day_files.sort(key=lambda x: x[0])
-                first_js = day_files[0][1]
-                for r in first_js.get('rows') or []:
+            if prev_day_files:
+                prev_day_files.sort(key=lambda x: x[0])
+                yclose_js = prev_day_files[-1][1]
+                for r in yclose_js.get('rows') or []:
                     c = (r.get('city') or '').strip()
                     if c:
                         baseline_map[c] = int(num(r.get('followers')))
@@ -300,7 +384,8 @@ def read_follower_city_rows(limit=200):
                 continue
             cur = int(num(r.get('followers')))
             base = baseline_map.get(city, cur)
-            out.append({'city': city, 'followers': cur, 'gained_today': cur - base})
+            gained = cur - base
+            out.append({'city': city, 'followers': cur, 'gained_today': gained})
         return out
     except Exception:
         return []
@@ -341,6 +426,7 @@ def main():
     campaigns = aggregate_hierarchy(rows)
     followers = read_followers_series()
     spend_series = build_spend_series(rows)
+    campaign_daily_rows = build_campaign_daily(rows)
     live_followers = read_live_followers_stats()
 
     placement_rows = read_csv_rows('insights_placement_latest.csv')
@@ -370,6 +456,7 @@ def main():
         },
         'campaigns': campaigns,
         'top_campaigns': campaigns[:10],
+        'campaign_daily': campaign_daily_rows,
         'followers_series': followers,
         'followers_daily_series': followers_daily,
         'spend_series': spend_series,
