@@ -69,6 +69,23 @@ def read_insights_rows():
         return list(csv.DictReader(f))
 
 
+def action_count(row, action_type: str):
+    raw = row.get('actions')
+    if not raw:
+        return 0.0
+    try:
+        arr = json.loads(raw) if isinstance(raw, str) else raw
+        if not isinstance(arr, list):
+            return 0.0
+        total = 0.0
+        for a in arr:
+            if (a or {}).get('action_type') == action_type:
+                total += num((a or {}).get('value'))
+        return total
+    except Exception:
+        return 0.0
+
+
 def aggregate_hierarchy(rows):
     campaigns = {}
 
@@ -91,6 +108,11 @@ def aggregate_hierarchy(rows):
             'cpm_sum': 0.0,
             'cpc_sum': 0.0,
             'rows': 0,
+            'link_clicks': 0.0,
+            'outbound_clicks': 0.0,
+            'landing_page_views': 0.0,
+            'freq_num': 0.0,
+            'freq_den': 0.0,
             'adsets': {}
         })
         sobj = cobj['adsets'].setdefault(s, {
@@ -104,6 +126,11 @@ def aggregate_hierarchy(rows):
             'cpm_sum': 0.0,
             'cpc_sum': 0.0,
             'rows': 0,
+            'link_clicks': 0.0,
+            'outbound_clicks': 0.0,
+            'landing_page_views': 0.0,
+            'freq_num': 0.0,
+            'freq_den': 0.0,
             'ads': {}
         })
         aobj = sobj['ads'].setdefault(a, {
@@ -117,16 +144,34 @@ def aggregate_hierarchy(rows):
             'cpm_sum': 0.0,
             'cpc_sum': 0.0,
             'rows': 0,
+            'link_clicks': 0.0,
+            'outbound_clicks': 0.0,
+            'landing_page_views': 0.0,
+            'freq_num': 0.0,
+            'freq_den': 0.0,
         })
+
+        link_clicks = action_count(r, 'link_click') or num(r.get('inline_link_clicks'))
+        outbound_clicks = action_count(r, 'outbound_click') or num(r.get('outbound_clicks'))
+        lpv = action_count(r, 'landing_page_view')
+        raw_freq = r.get('frequency')
+        freq = num(raw_freq) if raw_freq not in (None, '') else None
+        impr = num(r.get('impressions'))
 
         for obj in (cobj, sobj, aobj):
             obj['spend'] += num(r.get('spend'))
             obj['clicks'] += num(r.get('clicks'))
-            obj['impressions'] += num(r.get('impressions'))
+            obj['impressions'] += impr
             obj['reach'] += num(r.get('reach'))
             obj['ctr_sum'] += num(r.get('ctr'))
             obj['cpm_sum'] += num(r.get('cpm'))
             obj['cpc_sum'] += num(r.get('cpc'))
+            obj['link_clicks'] += link_clicks
+            obj['outbound_clicks'] += outbound_clicks
+            obj['landing_page_views'] += lpv
+            if freq is not None:
+                obj['freq_num'] += (freq * impr)
+                obj['freq_den'] += impr
             obj['rows'] += 1
 
     def finalize_node(node):
@@ -136,16 +181,27 @@ def aggregate_hierarchy(rows):
         cpc = node['spend'] / node['clicks'] if node['clicks'] > 0 else None
         out = {
             k: v for k, v in node.items()
-            if k not in {'adsets', 'ads', 'ctr_sum', 'cpm_sum', 'cpc_sum', 'rows'}
+            if k not in {'adsets', 'ads', 'ctr_sum', 'cpm_sum', 'cpc_sum', 'rows', 'freq_num', 'freq_den'}
         }
+        freq_avg = (node.get('freq_num', 0.0) / node.get('freq_den', 0.0)) if node.get('freq_den', 0.0) > 0 else None
+        out_clicks = out.get('outbound_clicks', 0.0)
+        lpv = out.get('landing_page_views', 0.0)
         out.update({
             'spend': round(out['spend'], 2),
             'clicks': int(out['clicks']),
             'impressions': int(out['impressions']),
             'reach': int(out['reach']),
+            'link_clicks': int(out.get('link_clicks', 0.0)),
+            'outbound_clicks': int(out_clicks),
+            'landing_page_views': int(lpv),
             'ctr': round(ctr, 3),
             'cpm': round(cpm, 3),
             'cpc': None if cpc is None else round(cpc, 3),
+            'outbound_ctr': round((out_clicks / out['impressions']) * 100, 3) if out['impressions'] > 0 else 0.0,
+            'lpv_rate': round((lpv / out_clicks) * 100, 3) if out_clicks > 0 else None,
+            'cost_per_lpv': round(out['spend'] / lpv, 3) if lpv > 0 else None,
+            'frequency_avg': None if freq_avg is None else round(freq_avg, 3),
+            'first_time_impression_ratio': round((out['reach'] / out['impressions']) * 100, 3) if out['impressions'] > 0 else None,
         })
         return out
 
@@ -242,14 +298,28 @@ def build_campaign_daily(rows, limit_days=30):
         if not d or not cid:
             continue
         key = (d, cid, cname)
-        m = by_key.setdefault(key, {'date': d, 'campaign_id': cid, 'campaign_name': cname, 'spend': 0.0, 'clicks': 0.0, 'impressions': 0.0})
+        m = by_key.setdefault(key, {
+            'date': d, 'campaign_id': cid, 'campaign_name': cname,
+            'spend': 0.0, 'clicks': 0.0, 'impressions': 0.0,
+            'landing_page_views': 0.0, 'freq_num': 0.0, 'freq_den': 0.0
+        })
+        impr = num(r.get('impressions'))
+        freq_raw = r.get('frequency')
+        freq = num(freq_raw) if freq_raw not in (None, '') else None
+        lpv = action_count(r, 'landing_page_view')
         m['spend'] += num(r.get('spend'))
         m['clicks'] += num(r.get('clicks'))
-        m['impressions'] += num(r.get('impressions'))
+        m['impressions'] += impr
+        m['landing_page_views'] += lpv
+        if freq is not None:
+            m['freq_num'] += (freq * impr)
+            m['freq_den'] += impr
     out = []
     for m in by_key.values():
         impr = m['impressions']
         clk = m['clicks']
+        lpv = m['landing_page_views']
+        freq_avg = (m['freq_num'] / m['freq_den']) if m['freq_den'] > 0 else None
         out.append({
             'date': m['date'],
             'campaign_id': m['campaign_id'],
@@ -257,8 +327,11 @@ def build_campaign_daily(rows, limit_days=30):
             'spend': round(m['spend'], 2),
             'clicks': int(clk),
             'impressions': int(impr),
+            'landing_page_views': int(lpv),
             'ctr': round((clk / impr) * 100, 3) if impr > 0 else 0.0,
             'cpc': round(m['spend'] / clk, 3) if clk > 0 else None,
+            'cost_per_lpv': round(m['spend'] / lpv, 3) if lpv > 0 else None,
+            'frequency_avg': None if freq_avg is None else round(freq_avg, 3),
         })
     out.sort(key=lambda x: (x['date'], x['campaign_name']))
     return out[-(limit_days * 10):]
@@ -312,13 +385,19 @@ def read_live_followers_stats():
         return {'current_followers_live': None, 'daily_gain_live': None, 'baseline_followers': None}
 
 
-def build_insights(summary, campaigns, followers_daily):
+def build_insights(summary, campaigns, followers_daily, spend_series, recommendations, data_health):
     insights = []
     if campaigns:
-        best = sorted([c for c in campaigns if c.get('cpc') is not None], key=lambda x: x['cpc'])[0]
-        worst = sorted([c for c in campaigns if c.get('cpc') is not None], key=lambda x: x['cpc'], reverse=True)[0]
-        insights.append({'type': 'working', 'text': f"{best['campaign']} is most efficient (CPC ${best['cpc']:.2f}, CTR {best['ctr']:.2f}%)."})
-        insights.append({'type': 'not_working', 'text': f"{worst['campaign']} is least efficient (CPC ${worst['cpc']:.2f}); consider reducing spend."})
+        cpc_ready = [c for c in campaigns if c.get('cpc') is not None]
+        if cpc_ready:
+            best = sorted(cpc_ready, key=lambda x: x['cpc'])[0]
+            worst = sorted(cpc_ready, key=lambda x: x['cpc'], reverse=True)[0]
+            insights.append({'type': 'working', 'text': f"{best['campaign']} is most efficient (CPC ${best['cpc']:.2f}, CTR {best['ctr']:.2f}%)."})
+            insights.append({'type': 'not_working', 'text': f"{worst['campaign']} is least efficient (CPC ${worst['cpc']:.2f}); consider reducing spend."})
+
+        high_freq = sorted([c for c in campaigns if c.get('frequency_avg') is not None], key=lambda x: x.get('frequency_avg') or 0, reverse=True)
+        if high_freq and (high_freq[0].get('frequency_avg') or 0) >= 1.8:
+            insights.append({'type': 'alert', 'text': f"Fatigue risk: {high_freq[0]['campaign']} frequency is {high_freq[0]['frequency_avg']:.2f}. Consider creative refresh or audience expansion."})
 
     cpf = summary.get('blended_cost_per_follow')
     if cpf is None:
@@ -332,8 +411,18 @@ def build_insights(summary, campaigns, followers_daily):
         elif latest is not None:
             insights.append({'type': 'working', 'text': f'Latest daily followers: {latest:.0f}. Keep top campaign structure stable while testing one variable at a time.'})
 
-    insights.append({'type': 'action', 'text': 'Keep budget under $60/day; shift budget from worst CPC campaign to best CPC campaign in small increments.'})
-    return insights[:6]
+    if spend_series:
+        today_spend = num(spend_series[-1].get('spend'))
+        insights.append({'type': 'action', 'text': f'Pacing watch: spend today is ${today_spend:.2f} vs $60/day target.'})
+
+    if recommendations:
+        tags = ', '.join([f"{r['campaign']}: {r['tag']}" for r in recommendations[:3]])
+        insights.append({'type': 'action', 'text': f'Auto recommendations: {tags}.'})
+
+    if data_health.get('status') != 'ok':
+        insights.append({'type': 'alert', 'text': f"Data health: {data_health.get('status')} ({data_health.get('reason')})."})
+
+    return insights[:8]
 
 
 def read_csv_rows(name):
@@ -342,6 +431,134 @@ def read_csv_rows(name):
         return []
     with open(p, newline='', encoding='utf-8') as f:
         return list(csv.DictReader(f))
+
+
+def video_metric_count(raw):
+    if raw in (None, ''):
+        return 0.0
+    try:
+        arr = json.loads(raw) if isinstance(raw, str) else raw
+        if isinstance(arr, list) and arr:
+            return num((arr[0] or {}).get('value'))
+    except Exception:
+        pass
+    return 0.0
+
+
+def build_creative_hook_leaderboard(rows, limit=12):
+    ads = {}
+    for r in rows:
+        ad_id = (r.get('ad_id') or '').strip()
+        ad_name = (r.get('ad_name') or 'Unknown Ad').strip() or 'Unknown Ad'
+        if not ad_id:
+            continue
+        m = ads.setdefault(ad_id, {
+            'ad_id': ad_id, 'ad_name': ad_name, 'campaign_name': (r.get('campaign_name') or '').strip(),
+            'spend': 0.0, 'impressions': 0.0, 'clicks': 0.0, 'plays': 0.0, 'p25': 0.0
+        })
+        m['spend'] += num(r.get('spend'))
+        m['impressions'] += num(r.get('impressions'))
+        m['clicks'] += num(r.get('clicks'))
+        m['plays'] += video_metric_count(r.get('video_play_actions'))
+        m['p25'] += video_metric_count(r.get('video_p25_watched_actions'))
+
+    out = []
+    for m in ads.values():
+        ctr = (m['clicks'] / m['impressions'] * 100) if m['impressions'] > 0 else 0.0
+        cpc = (m['spend'] / m['clicks']) if m['clicks'] > 0 else None
+        play_rate = (m['plays'] / m['impressions'] * 100) if m['impressions'] > 0 else 0.0
+        hold_rate = (m['p25'] / m['plays'] * 100) if m['plays'] > 0 else 0.0
+        score = (ctr * 0.5) + (play_rate * 0.25) + (hold_rate * 0.25) - ((cpc or 2.0) * 4)
+        out.append({
+            'ad_id': m['ad_id'], 'ad_name': m['ad_name'], 'campaign_name': m['campaign_name'],
+            'spend': round(m['spend'], 2), 'impressions': int(m['impressions']), 'clicks': int(m['clicks']),
+            'ctr': round(ctr, 3), 'cpc': None if cpc is None else round(cpc, 3),
+            'play_rate_3s': round(play_rate, 3), 'hold_rate_25pct': round(hold_rate, 3),
+            'score': round(score, 3)
+        })
+    out.sort(key=lambda x: x['score'], reverse=True)
+    return out[:limit]
+
+
+def build_action_recommendations(campaigns):
+    out = []
+    for c in campaigns:
+        freq = c.get('frequency_avg')
+        cpc = c.get('cpc')
+        ctr = c.get('ctr') or 0
+        spend = c.get('spend') or 0
+        tag = 'Hold'
+        reason = 'Baseline monitoring'
+        confidence = 'low'
+
+        if spend >= 15 and cpc is not None and ctr >= 2.5 and cpc <= 0.35 and (freq is None or freq < 1.8):
+            tag = 'Scale'; reason = 'Strong CTR + low CPC with acceptable frequency'; confidence = 'high'
+        elif spend >= 10 and (cpc is None or cpc > 0.8 or ctr < 1.0):
+            tag = 'Cut'; reason = 'Weak efficiency after spend'; confidence = 'high'
+        elif spend >= 8 and freq is not None and freq >= 1.8:
+            tag = 'Retest'; reason = 'Fatigue risk; rotate creatives/audiences'; confidence = 'med'
+        elif spend < 8:
+            tag = 'Hold'; reason = 'Insufficient spend for confident action'; confidence = 'low'
+
+        out.append({'campaign': c.get('campaign'), 'campaign_id': c.get('campaign_id'), 'tag': tag, 'reason': reason, 'confidence': confidence})
+
+    rank = {'Scale': 0, 'Hold': 1, 'Retest': 2, 'Cut': 3}
+    out.sort(key=lambda x: rank.get(x['tag'], 9))
+    return out
+
+
+def build_pacing(spend_series, target_daily=60.0):
+    if not spend_series:
+        return {'target_daily': target_daily, 'today_spend': 0.0, 'status': 'unknown'}
+    today_spend = num(spend_series[-1].get('spend'))
+    now_pt = datetime.now(ZoneInfo('America/Los_Angeles'))
+    elapsed = max(1/24, (now_pt.hour + now_pt.minute / 60) / 24)
+    expected = target_daily * elapsed
+    ratio = (today_spend / expected) if expected > 0 else 0
+    if ratio > 1.2:
+        status = 'too_fast'
+    elif ratio < 0.7:
+        status = 'too_slow'
+    else:
+        status = 'on_track'
+    return {
+        'target_daily': target_daily,
+        'today_spend': round(today_spend, 2),
+        'expected_by_now': round(expected, 2),
+        'pace_ratio': round(ratio, 3),
+        'status': status,
+    }
+
+
+def build_data_health(summary, campaigns, rows):
+    status = 'ok'
+    reason = 'Fresh pull and non-empty campaign data'
+    pulled_at = summary.get('pulled_at')
+    age_min = None
+    if pulled_at:
+        try:
+            dt = datetime.fromisoformat(str(pulled_at).replace('Z', '+00:00'))
+            age_min = (datetime.now(timezone.utc) - dt.astimezone(timezone.utc)).total_seconds() / 60
+        except Exception:
+            pass
+
+    if not rows or not campaigns:
+        status = 'degraded'; reason = 'No insights rows or no campaign rollup'
+    elif age_min is not None and age_min > 180:
+        status = 'stale'; reason = f'Last successful pull is {int(age_min)} min old'
+
+    attribution_confidence = 'direct'
+    if int(sum(num(c.get('landing_page_views')) for c in campaigns)) == 0:
+        attribution_confidence = 'estimated'
+    if status in ('stale', 'degraded'):
+        attribution_confidence = 'stale'
+
+    return {
+        'status': status,
+        'reason': reason,
+        'last_pull_age_min': None if age_min is None else round(age_min, 1),
+        'attribution_confidence': attribution_confidence,
+    }
 
 
 def read_follower_city_rows(limit=200):
@@ -419,6 +636,128 @@ def top_breakdown(rows, dims, limit=12):
     return out[:limit]
 
 
+def build_geo_efficiency(region_breakdown, limit=12):
+    out = []
+    for r in region_breakdown[:limit]:
+        ctr = num(r.get('ctr'))
+        cpc = num(r.get('cpc')) if r.get('cpc') is not None else 1.5
+        spend = num(r.get('spend'))
+        score = (ctr * 12) - (cpc * 20) - (spend * 0.08)
+        out.append({
+            'region': r.get('label'),
+            'spend': spend,
+            'ctr': ctr,
+            'cpc': r.get('cpc'),
+            'score': round(score, 3),
+        })
+    out.sort(key=lambda x: x['score'], reverse=True)
+    return out
+
+
+def build_optimization(rows, campaigns, summary, followers_daily):
+    now_pt = datetime.now(ZoneInfo('America/Los_Angeles'))
+
+    total_clicks = sum(num(r.get('clicks')) for r in rows)
+    total_outbound = sum(num(r.get('outbound_clicks')) for r in rows)
+    total_impr = sum(num(r.get('impressions')) for r in rows)
+    total_reach = sum(num(r.get('reach')) for r in rows)
+    avg_freq = (total_impr / total_reach) if total_reach > 0 else None
+    first_time_ratio = (total_reach / total_impr) if total_impr > 0 else None
+
+    # Pacing vs $60/day target
+    day_target = 60.0
+    today_spend = 0.0
+    for r in rows:
+        if (r.get('date_start') or '').strip() == now_pt.date().isoformat():
+            today_spend += num(r.get('spend'))
+    hour_progress = max(1e-6, (now_pt.hour + now_pt.minute / 60) / 24)
+    expected_spend_now = day_target * hour_progress
+    pace_ratio = (today_spend / expected_spend_now) if expected_spend_now > 0 else None
+
+    # Geo efficiency score (region-level)
+    region_rows = read_csv_rows('insights_region_latest.csv')
+    geo = {}
+    for r in region_rows:
+        region = (r.get('region') or 'Unknown').strip() or 'Unknown'
+        g = geo.setdefault(region, {'spend': 0.0, 'clicks': 0.0, 'impressions': 0.0})
+        g['spend'] += num(r.get('spend'))
+        g['clicks'] += num(r.get('clicks'))
+        g['impressions'] += num(r.get('impressions'))
+
+    geo_scores = []
+    for region, g in geo.items():
+        clicks = g['clicks']
+        impr = g['impressions']
+        spend = g['spend']
+        ctr = (clicks / impr) * 100 if impr > 0 else 0
+        cpc = (spend / clicks) if clicks > 0 else None
+        # higher is better
+        score = ((ctr * 4) - ((cpc or 1.5) * 3))
+        geo_scores.append({'region': region, 'score': round(score, 3), 'ctr': round(ctr, 3), 'cpc': None if cpc is None else round(cpc, 3), 'spend': round(spend, 2)})
+    geo_scores.sort(key=lambda x: x['score'], reverse=True)
+
+    # Action engine from campaign performance
+    actions = []
+    for c in campaigns:
+        cpc = c.get('cpc')
+        ctr = c.get('ctr') or 0
+        spend = c.get('spend') or 0
+        tag = 'hold'
+        why = 'stable'
+        if cpc is not None and spend >= 5:
+            if cpc < 0.35 and ctr >= 1.2:
+                tag, why = 'scale', 'strong efficiency'
+            elif cpc > 0.85 or ctr < 0.7:
+                tag, why = 'cut', 'inefficient traffic'
+            elif 0.35 <= cpc <= 0.6:
+                tag, why = 'retest', 'middle efficiency'
+        actions.append({'campaign': c.get('campaign'), 'tag': tag, 'why': why, 'cpc': cpc, 'ctr': ctr, 'spend': spend})
+
+    # Attribution confidence
+    follows = num(summary.get('total_follows'))
+    attribution = {
+        'status': 'direct' if follows > 0 else 'estimated',
+        'reason': 'Meta follow events available' if follows > 0 else 'Using blended model (spend + follower deltas)'
+    }
+
+    # Token/data health
+    pulled_at = summary.get('pulled_at')
+    stale_minutes = None
+    if pulled_at:
+        try:
+            dt = datetime.fromisoformat(str(pulled_at).replace('Z', '+00:00'))
+            stale_minutes = int((datetime.now(timezone.utc) - dt).total_seconds() / 60)
+        except Exception:
+            pass
+    data_health = {
+        'stale_minutes': stale_minutes,
+        'status': 'stale' if stale_minutes is not None and stale_minutes > 120 else 'ok',
+    }
+
+    # Creative leaderboard (ad-level hook proxy)
+    leaderboard = []
+    for c in campaigns:
+        for s in c.get('adsets', []):
+            for a in s.get('ads', []):
+                ctr = a.get('ctr') or 0
+                cpc = a.get('cpc') if a.get('cpc') is not None else 9.99
+                spend = a.get('spend') or 0
+                hook_score = (ctr * 10) - cpc
+                leaderboard.append({'ad': a.get('ad'), 'campaign': c.get('campaign'), 'ctr': ctr, 'cpc': a.get('cpc'), 'spend': spend, 'hook_score': round(hook_score, 3)})
+    leaderboard.sort(key=lambda x: x['hook_score'], reverse=True)
+
+    return {
+        'frequency': {'avg_frequency': None if avg_freq is None else round(avg_freq, 3), 'first_time_impression_ratio': None if first_time_ratio is None else round(first_time_ratio, 3)},
+        'traffic_quality': {'outbound_clicks': int(total_outbound), 'clicks': int(total_clicks), 'outbound_click_rate': round((total_outbound / total_clicks), 3) if total_clicks > 0 else None},
+        'pacing': {'day_target': day_target, 'today_spend': round(today_spend, 2), 'expected_spend_now': round(expected_spend_now, 2), 'pace_ratio': None if pace_ratio is None else round(pace_ratio, 3)},
+        'geo_efficiency': geo_scores[:12],
+        'actions': actions[:20],
+        'attribution': attribution,
+        'data_health': data_health,
+        'creative_leaderboard': leaderboard[:20],
+    }
+
+
 def main():
     summary = read_summary()
     meta = read_meta_config()
@@ -438,6 +777,20 @@ def main():
     # Keep full follower history for trend continuity/backfill; ad insights can
     # have a different coverage window.
     followers_daily = follower_daily_series(followers)
+    action_recommendations = build_action_recommendations(campaigns)
+    pacing = build_pacing(spend_series, target_daily=60.0)
+
+    total_outbound_clicks = int(sum(num(c.get('outbound_clicks')) for c in campaigns))
+    total_landing_page_views = int(sum(num(c.get('landing_page_views')) for c in campaigns))
+    total_link_clicks = int(sum(num(c.get('link_clicks')) for c in campaigns))
+    total_spend = num(summary.get('total_spend'))
+
+    breakdown_placement = top_breakdown(placement_rows, ['publisher_platform', 'platform_position'])
+    breakdown_age_gender = top_breakdown(age_gender_rows, ['age', 'gender'])
+    breakdown_device = top_breakdown(device_rows, ['device_platform'])
+    breakdown_region = top_breakdown(region_rows, ['region'])
+    geo_efficiency = build_geo_efficiency(breakdown_region)
+    data_health = build_data_health(summary, campaigns, rows)
 
     payload = {
         'updated_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
@@ -453,6 +806,11 @@ def main():
             'current_followers_live': live_followers.get('current_followers_live'),
             'daily_gain_live': live_followers.get('daily_gain_live'),
             'baseline_followers': live_followers.get('baseline_followers'),
+            'total_link_clicks': total_link_clicks,
+            'total_outbound_clicks': total_outbound_clicks,
+            'total_landing_page_views': total_landing_page_views,
+            'cost_per_landing_page_view': round(total_spend / total_landing_page_views, 3) if total_landing_page_views > 0 else None,
+            'lpv_per_outbound_click_rate': round((total_landing_page_views / total_outbound_clicks) * 100, 3) if total_outbound_clicks > 0 else None,
         },
         'campaigns': campaigns,
         'top_campaigns': campaigns[:10],
@@ -460,16 +818,21 @@ def main():
         'followers_series': followers,
         'followers_daily_series': followers_daily,
         'spend_series': spend_series,
-        'insights': build_insights(summary, campaigns, followers_daily),
+        'insights': build_insights(summary, campaigns, followers_daily, spend_series, action_recommendations, data_health),
+        'recommendations': action_recommendations,
+        'pacing': pacing,
+        'geo_efficiency': geo_efficiency,
+        'data_health': data_health,
         'breakdowns': {
-            'placement': top_breakdown(placement_rows, ['publisher_platform', 'platform_position']),
-            'age_gender': top_breakdown(age_gender_rows, ['age', 'gender']),
-            'device': top_breakdown(device_rows, ['device_platform']),
-            'region': top_breakdown(region_rows, ['region']),
+            'placement': breakdown_placement,
+            'age_gender': breakdown_age_gender,
+            'device': breakdown_device,
+            'region': breakdown_region,
         },
         'follower_demographics': {
             'city': follower_city_rows,
         },
+        'optimization': build_optimization(rows, campaigns, summary, followers_daily),
     }
 
     OUT.parent.mkdir(parents=True, exist_ok=True)

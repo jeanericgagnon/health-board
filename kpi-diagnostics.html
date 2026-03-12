@@ -130,10 +130,19 @@
     <section class="grid half">
       <article class="panel">
         <h3>Campaign Ranking</h3>
+        <div class="controls" id="campaignRangeControls" style="margin-bottom:8px">
+          <button class="btnf active" data-days="1">1D</button>
+          <button class="btnf" data-days="2">2D</button>
+          <button class="btnf" data-days="3">3D</button>
+          <button class="btnf" data-days="4">4D</button>
+          <button class="btnf" data-days="5">5D</button>
+          <button class="btnf" data-days="7">7D</button>
+          <button class="btnf" data-days="14">14D</button>
+        </div>
         <table>
-          <thead><tr><th>Campaign</th><th>Spend</th><th>Clicks</th><th>CPC</th><th>Status</th></tr></thead>
+          <thead><tr><th>Campaign</th><th>Spend</th><th>Clicks</th><th>LPV</th><th>CPLPV</th><th>Freq</th><th>Status</th></tr></thead>
           <tbody id="campaignRows">
-            <tr><td colspan="5">Loading…</td></tr>
+            <tr><td colspan="7">Loading…</td></tr>
           </tbody>
         </table>
       </article>
@@ -153,6 +162,31 @@
         <tbody id="goalRows">
           <tr><td colspan="2">Loading goals…</td></tr>
         </tbody>
+      </table>
+    </section>
+
+    <section class="grid half" style="margin-top:14px">
+      <article class="panel">
+        <h3>Action Recommendation Engine</h3>
+        <table>
+          <thead><tr><th>Campaign</th><th>Tag</th><th>Confidence</th><th>Reason</th></tr></thead>
+          <tbody id="recommendationRows"><tr><td colspan="4">Loading recommendations…</td></tr></tbody>
+        </table>
+      </article>
+      <article class="panel">
+        <h3>Data Health Monitor</h3>
+        <table>
+          <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+          <tbody id="healthRows"><tr><td colspan="2">Loading health…</td></tr></tbody>
+        </table>
+      </article>
+    </section>
+
+    <section class="panel" style="margin-top:14px">
+      <h3>Geo Efficiency Score</h3>
+      <table>
+        <thead><tr><th>Region</th><th>Spend</th><th>CTR</th><th>CPC</th><th>Score</th></tr></thead>
+        <tbody id="geoEfficiencyRows"><tr><td colspan="5">Loading geo efficiency…</td></tr></tbody>
       </table>
     </section>
 
@@ -190,6 +224,7 @@
         <h3>Deep Dive Summary</h3>
         <div class="cards" id="deepCards"></div>
         <div class="action-list" id="deepActions"><div class="action-item">Loading recommendations…</div></div>
+        <table style="margin-top:10px"><thead><tr><th>Data/Attribution Health</th><th>Value</th></tr></thead><tbody id="optHealthRows"><tr><td colspan="2">Loading…</td></tr></tbody></table>
       </section>
 
       <section class="grid half" style="margin-top:14px">
@@ -245,15 +280,21 @@
     </div>
 
     <div id="followersPanel" class="tab-panel" style="display:none">
-      <section class="panel" style="margin-top:14px">
-        <h3>Follower Location Heat Map</h3>
-        <div class="controls" id="followersRollupFilters">
-          <button class="btnf" data-rollup="city">City</button>
-          <button class="btnf active" data-rollup="metro">Metro / Greater Area</button>
-          <button class="btnf" data-rollup="county">County</button>
-        </div>
-        <div id="followersCoverageMap" class="sub" style="margin:4px 0 10px">Coverage: --</div>
-        <div id="followersMap"></div>
+      <section class="grid half" style="margin-top:14px">
+        <article class="panel">
+          <h3>Follower Location Heat Map</h3>
+          <div class="controls" id="followersRollupFilters">
+            <button class="btnf" data-rollup="city">City</button>
+            <button class="btnf active" data-rollup="metro">Metro / Greater Area</button>
+            <button class="btnf" data-rollup="county">County</button>
+          </div>
+          <div id="followersCoverageMap" class="sub" style="margin:4px 0 10px">Coverage: --</div>
+          <div id="followersMap"></div>
+        </article>
+        <article class="panel">
+          <h3>Follower Location Bar Chart</h3>
+          <canvas id="followersGeoChart" style="height:260px!important"></canvas>
+        </article>
       </section>
       <section class="panel" style="margin-top:14px">
         <h3>Follower Location Breakdown</h3>
@@ -328,6 +369,7 @@
     });
     const audienceChart = makeBarChart('audienceChart');
     const placementChart = makeBarChart('placementChart');
+    const followersGeoChart = makeBarChart('followersGeoChart');
 
     const renderBarChart = (chart, rows, metric) => {
       const top = (rows || []).filter(r => Number(r.spend || 0) >= minSpendFilter).slice(0, 8);
@@ -335,6 +377,24 @@
       chart.data.datasets[0].label = metricLabel(metric);
       chart.data.datasets[0].data = top.map(r => metricValue(r, metric));
       chart.update();
+    };
+
+    const renderFollowersBarChart = (rows) => {
+      const top = (rows || []).slice(0, 10);
+      followersGeoChart.data.labels = top.map(r => r.city);
+      followersGeoChart.data.datasets = [
+        {
+          label: 'Followers',
+          data: top.map(r => Number(r.followers || 0)),
+          backgroundColor: '#60a5fa'
+        },
+        {
+          label: 'Today Gained',
+          data: top.map(r => Number(r.gained_today || 0)),
+          backgroundColor: '#34d399'
+        }
+      ];
+      followersGeoChart.update();
     };
 
     let regionMap = null;
@@ -604,9 +664,10 @@
             .map(x => ({ date: x.date, spend: spendMap.get(x.date), followers: Number(x.followers_per_day) }))
             .sort((a, b) => a.date.localeCompare(b.date));
 
-          if (overlap.length < days) return null;
+          if (!overlap.length) return null;
 
-          const windowRows = overlap.slice(-days);
+          const useDays = Math.min(days, overlap.length);
+          const windowRows = overlap.slice(-useDays);
           const recentSpend = windowRows.reduce((sum, x) => sum + x.spend, 0);
           const recentFollowers = windowRows.reduce((sum, x) => sum + x.followers, 0);
           if (recentFollowers > 0) return recentSpend / recentFollowers;
@@ -618,7 +679,13 @@
           const metric = metricSelect?.value || 'cpf';
           if (metric === 'cpf') {
             const windowCpf = computeWindowCpf(days);
-            const topCpf = s.blended_cost_per_follow == null ? windowCpf : Number(s.blended_cost_per_follow);
+            let topCpf = s.blended_cost_per_follow == null ? windowCpf : Number(s.blended_cost_per_follow);
+            // Safety fallback: if overlap is missing, use live intraday ratio when available.
+            if (topCpf == null) {
+              const liveGain = Number(s.daily_gain_live);
+              const latestSpend = Number((spendSeries[spendSeries.length - 1] || {}).spend || 0);
+              if (liveGain > 0 && latestSpend > 0) topCpf = latestSpend / liveGain;
+            }
             kCpfEl.textContent = topCpf == null ? 'N/A' : fmtMoney(topCpf);
             return;
           }
@@ -696,9 +763,40 @@
           <tr><td>Impressions</td><td><b>${fmtNum(s.total_impressions)}</b></td></tr>
           <tr><td>Current Followers</td><td><b>${fmtNum(currentFollowers)}</b></td></tr>
           <tr><td>Today Gain (live)</td><td><b>${s.daily_gain_live == null ? 'N/A' : fmtNum(s.daily_gain_live)}</b></td></tr>
+          <tr><td>Landing Page Views</td><td><b>${fmtNum(s.total_landing_page_views || 0)}</b></td></tr>
+          <tr><td>Cost / LPV</td><td><b>${s.cost_per_landing_page_view == null ? 'N/A' : fmtMoney(s.cost_per_landing_page_view)}</b></td></tr>
+          <tr><td>LPV per Outbound Click</td><td><b>${s.lpv_per_outbound_click_rate == null ? 'N/A' : `${Number(s.lpv_per_outbound_click_rate).toFixed(1)}%`}</b></td></tr>
           <tr><td>Blended CPF (${cpfSelect?.value || 7}D)</td><td><b>${kCpfEl.textContent}</b></td></tr>
           <tr><td>Updated</td><td><b>${d.updated_at ? new Date(d.updated_at).toLocaleString() : '--'}</b></td></tr>
         `;
+
+        const recommendations = d.recommendations || [];
+        const recommendationRows = document.getElementById('recommendationRows');
+        recommendationRows.innerHTML = recommendations.length
+          ? recommendations.slice(0, 10).map(r => `<tr><td>${r.campaign || '—'}</td><td><b>${r.tag}</b></td><td>${r.confidence || '—'}</td><td>${r.reason || ''}</td></tr>`).join('')
+          : '<tr><td colspan="4">No recommendations yet</td></tr>';
+
+        const h = d.data_health || {};
+        const p = d.pacing || {};
+        const opt = d.optimization || {};
+        const fq = opt.frequency || {};
+        const tq = opt.traffic_quality || {};
+        const healthRows = document.getElementById('healthRows');
+        healthRows.innerHTML = `
+          <tr><td>Status</td><td><b>${h.status || 'unknown'}</b> ${h.reason ? `· ${h.reason}` : ''}</td></tr>
+          <tr><td>Attribution Confidence</td><td><b>${h.attribution_confidence || 'unknown'}</b></td></tr>
+          <tr><td>Last Pull Age</td><td><b>${h.last_pull_age_min == null ? 'N/A' : `${h.last_pull_age_min} min`}</b></td></tr>
+          <tr><td>Pacing</td><td><b>${p.status || 'unknown'}</b> · ${p.today_spend == null ? 'N/A' : `$${Number(p.today_spend).toFixed(2)}`} today vs ${p.expected_by_now == null ? 'N/A' : `$${Number(p.expected_by_now).toFixed(2)}`} expected by now</td></tr>
+          <tr><td>Avg Frequency</td><td><b>${fq.avg_frequency == null ? 'N/A' : Number(fq.avg_frequency).toFixed(2)}</b></td></tr>
+          <tr><td>1st-Time Impression Ratio</td><td><b>${fq.first_time_impression_ratio == null ? 'N/A' : `${(Number(fq.first_time_impression_ratio) * 100).toFixed(1)}%`}</b></td></tr>
+          <tr><td>Outbound Click Rate</td><td><b>${tq.outbound_click_rate == null ? 'N/A' : `${(Number(tq.outbound_click_rate) * 100).toFixed(1)}%`}</b> (${fmtNum(tq.outbound_clicks || 0)}/${fmtNum(tq.clicks || 0)})</td></tr>
+        `;
+
+        const geoEfficiencyRows = document.getElementById('geoEfficiencyRows');
+        const geoEfficiency = d.geo_efficiency || [];
+        geoEfficiencyRows.innerHTML = geoEfficiency.length
+          ? geoEfficiency.slice(0, 10).map(r => `<tr><td>${r.region || 'Unknown'}</td><td>${fmtMoney(r.spend)}</td><td>${Number(r.ctr || 0).toFixed(2)}%</td><td>${r.cpc == null ? 'N/A' : fmtMoney(r.cpc)}</td><td><b>${Number(r.score || 0).toFixed(2)}</b></td></tr>`).join('')
+          : '<tr><td colspan="5">No geo efficiency data yet</td></tr>';
 
         const subtitleEl = document.getElementById('subtitleUpdated');
         if (subtitleEl) {
@@ -706,15 +804,67 @@
         }
 
         const campaigns = d.campaigns || d.top_campaigns || [];
-        const rows = campaigns.map((c, i) => {
-          const status = (c.cpc != null && c.cpc < 0.5) ? '<span class="pill good">Efficient</span>' : '<span class="pill warn">Watch</span>';
-          const openUrl = adsUrl(s.ad_account_id, c.campaign_id);
-          const campaignCell = openUrl
-            ? `${c.campaign} <a href="${openUrl}" target="_blank" rel="noopener" style="color:#9ec5ff;font-size:11px;margin-left:8px">open ads ↗</a>`
-            : c.campaign;
-          return `<tr class="clickable" data-cidx="${i}"><td>${campaignCell}</td><td>${fmtMoney(c.spend)}</td><td>${fmtNum(c.clicks)}</td><td>${c.cpc == null ? 'N/A' : fmtMoney(c.cpc)}</td><td>${status}</td></tr>`;
-        }).join('');
-        document.getElementById('campaignRows').innerHTML = rows || '<tr><td colspan="5">No campaign data yet</td></tr>';
+        const campaignDaily = d.campaign_daily || [];
+
+        const renderCampaignRanking = (days = 1) => {
+          let view = campaigns;
+          if (campaignDaily.length) {
+            const dates = [...new Set(campaignDaily.map(r => r.date))].sort();
+            const keep = new Set(dates.slice(-days));
+            const agg = new Map();
+            for (const r of campaignDaily) {
+              if (!keep.has(r.date)) continue;
+              const key = r.campaign_id || r.campaign_name;
+              const cur = agg.get(key) || { campaign: r.campaign_name, campaign_id: r.campaign_id, spend: 0, clicks: 0, impressions: 0, landing_page_views: 0, freq_num: 0, freq_den: 0 };
+              const impr = Number(r.impressions || 0);
+              const freq = Number(r.frequency_avg || 0);
+              cur.spend += Number(r.spend || 0);
+              cur.clicks += Number(r.clicks || 0);
+              cur.impressions += impr;
+              cur.landing_page_views += Number(r.landing_page_views || 0);
+              if (Number.isFinite(freq) && freq > 0 && impr > 0) {
+                cur.freq_num += (freq * impr);
+                cur.freq_den += impr;
+              }
+              agg.set(key, cur);
+            }
+            view = [...agg.values()].map(c => ({
+              ...c,
+              cpc: c.clicks > 0 ? c.spend / c.clicks : null,
+              ctr: c.impressions > 0 ? (c.clicks / c.impressions) * 100 : 0,
+              cost_per_lpv: c.landing_page_views > 0 ? c.spend / c.landing_page_views : null,
+              frequency_avg: c.freq_den > 0 ? (c.freq_num / c.freq_den) : null
+            })).sort((a,b)=>(a.cpc??999)-(b.cpc??999));
+          }
+
+          const rows = view.map((c, i) => {
+            const status = (c.cpc != null && c.cpc < 0.5) ? '<span class="pill good">Efficient</span>' : '<span class="pill warn">Watch</span>';
+            const openUrl = adsUrl(s.ad_account_id, c.campaign_id);
+            const campaignCell = openUrl
+              ? `${c.campaign} <a href="${openUrl}" target="_blank" rel="noopener" style="color:#9ec5ff;font-size:11px;margin-left:8px">open ads ↗</a>`
+              : c.campaign;
+            return `<tr class="clickable" data-cid="${c.campaign_id || ''}"><td>${campaignCell}</td><td>${fmtMoney(c.spend)}</td><td>${fmtNum(c.clicks)}</td><td>${fmtNum(c.landing_page_views || 0)}</td><td>${c.cost_per_lpv == null ? 'N/A' : fmtMoney(c.cost_per_lpv)}</td><td>${c.frequency_avg == null ? 'N/A' : Number(c.frequency_avg).toFixed(2)}</td><td>${status}</td></tr>`;
+          }).join('');
+          document.getElementById('campaignRows').innerHTML = rows || '<tr><td colspan="7">No campaign data yet</td></tr>';
+
+          // re-bind drill to canonical campaigns index when possible
+          document.querySelectorAll('#campaignRows tr.clickable').forEach(tr => {
+            tr.addEventListener('click', () => {
+              const cid = tr.dataset.cid || '';
+              const idx = campaigns.findIndex(c => (c.campaign_id || '') === cid);
+              renderDrill(idx >= 0 ? idx : 0);
+            });
+          });
+        };
+
+        renderCampaignRanking(1);
+        document.querySelectorAll('#campaignRangeControls .btnf').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('#campaignRangeControls .btnf').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderCampaignRanking(Number(btn.dataset.days || 1));
+          });
+        });
 
         const drill = document.getElementById('drillRows');
         const renderDrill = (campaignIndex = 0) => {
@@ -733,9 +883,6 @@
           drill.innerHTML = html;
         };
         renderDrill(0);
-        document.querySelectorAll('#campaignRows tr.clickable').forEach(tr => {
-          tr.addEventListener('click', () => renderDrill(Number(tr.dataset.cidx || 0)));
-        });
 
         spendSeriesAll = d.spend_series || [];
         followDailyAll = d.followers_daily_series || [];
@@ -789,10 +936,12 @@
           const totalRaw = (followerCities || []).length;
           const mappedRaw = (followerCities || []).filter(c => rollupCityLabel(c.city || '', geoRollup) !== 'Unmapped').length;
           const pct = totalRaw > 0 ? (mappedRaw / totalRaw * 100) : 0;
-          const coverageText = `Coverage (${geoRollup}): mapped ${mappedRaw}/${totalRaw} (${pct.toFixed(1)}%) · unmapped ${Math.max(0,totalRaw-mappedRaw)}`;
+          const pulledFollowers = rolled.reduce((acc, r) => acc + Number(r.followers || 0), 0);
+          const allFollowers = Number(currentFollowers || 0);
+          const coverageText = `Coverage (${geoRollup}): mapped ${mappedRaw}/${totalRaw} (${pct.toFixed(1)}%) · pulled followers ${fmtNum(pulledFollowers)} of ${fmtNum(allFollowers)} total`;
           if (covMapEl) covMapEl.textContent = coverageText;
           if (covTableEl) covTableEl.textContent = coverageText;
-          const total = rolled.reduce((s,r)=>s+Number(r.followers||0),0) || 1;
+          const total = Number.isFinite(Number(currentFollowers)) ? Number(currentFollowers) : (rolled.reduce((s,r)=>s+Number(r.followers||0),0) || 1);
           const latestDaily = Number((followersDailySeries[followersDailySeries.length-1] || {}).followers_per_day || 0);
           const isFollowersTab = elId === 'followerCityRowsTab';
           const top = isFollowersTab
@@ -830,8 +979,10 @@
           renderBreakdownTable('placementRows', plc);
           renderBreakdownTable('regionRows', reg);
           renderBreakdownTable('deviceRows', dev);
+          const rolledFollowers = rollupFollowerCities(followerCities, geoRollup);
           renderFollowerCityTable('followerCityRows');
           renderFollowerCityTable('followerCityRowsTab');
+          renderFollowersBarChart(rolledFollowers);
           renderBarChart(audienceChart, age, audienceMetric);
           renderBarChart(placementChart, plc, placementMetric);
           renderHeatmap(reg, followerCities, heatMetric, heatSource);
@@ -928,7 +1079,7 @@
         toggleKpiSnap && (toggleKpiSnap.onclick = () => setMode('kpi'));
       })
       .catch(() => {
-        document.getElementById('campaignRows').innerHTML = '<tr><td colspan="5">Waiting for data pipeline…</td></tr>';
+        document.getElementById('campaignRows').innerHTML = '<tr><td colspan="7">Waiting for data pipeline…</td></tr>';
         document.getElementById('insightRows').innerHTML = '<tr><td colspan="2">Waiting for insights…</td></tr>';
       });
   </script>
