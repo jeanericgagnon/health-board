@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-03-13T17:01:00.702682Z",
+  "updated_at": "2026-03-13T18:01:00.294191Z",
   "summary": {
     "ad_account_id": "act_1379452680603809",
-    "total_spend": 205.15,
-    "total_clicks": 1865,
-    "total_impressions": 27366,
+    "total_spend": 208.47,
+    "total_clicks": 1894,
+    "total_impressions": 27718,
     "total_follows": 0,
     "blended_cost_per_follow": null,
     "since": null,
     "until": null,
-    "current_followers_live": 106368,
-    "daily_gain_live": 88,
+    "current_followers_live": 106372,
+    "daily_gain_live": 92,
     "baseline_followers": 106280,
     "total_link_clicks": 0,
     "total_outbound_clicks": 0,
@@ -751,7 +751,7 @@
     },
     {
       "date": "2026-03-13",
-      "followers_total": 106368
+      "followers_total": 106372
     }
   ],
   "followers_daily_series": [
@@ -807,8 +807,8 @@
     },
     {
       "date": "2026-03-13",
-      "followers_per_day": 88.0,
-      "followers_total": 106368.0
+      "followers_per_day": 92.0,
+      "followers_total": 106372.0
     }
   ],
   "spend_series": [
@@ -848,7 +848,7 @@
     },
     {
       "type": "working",
-      "text": "Latest daily followers: 88. Keep top campaign structure stable while testing one variable at a time."
+      "text": "Latest daily followers: 92. Keep top campaign structure stable while testing one variable at a time."
     },
     {
       "type": "action",
@@ -903,9 +903,9 @@
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 18.36,
-    "expected_by_now": 25.04,
-    "pace_ratio": 0.733,
-    "status": "on_track"
+    "expected_by_now": 27.54,
+    "pace_ratio": 0.667,
+    "status": "too_slow"
   },
   "geo_efficiency": [
     {
@@ -996,7 +996,7 @@
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 0.1,
+    "last_pull_age_min": 0.0,
     "attribution_confidence": "estimated"
   },
   "diagnostics": {
@@ -1176,7 +1176,7 @@
         },
         {
           "factor": "Data freshness (minutes)",
-          "value": 0.1,
+          "value": 0.0,
           "penalty": 0.0
         },
         {
@@ -1760,7 +1760,7 @@
     "pacing": {
       "day_target": 60.0,
       "today_spend": 0.0,
-      "expected_spend_now": 25.04,
+      "expected_spend_now": 27.54,
       "pace_ratio": 0.0
     },
     "geo_efficiency": [
