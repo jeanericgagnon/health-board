@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-03-13T16:01:02.359025Z",
+  "updated_at": "2026-03-13T17:01:00.702682Z",
   "summary": {
     "ad_account_id": "act_1379452680603809",
-    "total_spend": 204.0,
-    "total_clicks": 1859,
-    "total_impressions": 27200,
+    "total_spend": 205.15,
+    "total_clicks": 1865,
+    "total_impressions": 27366,
     "total_follows": 0,
     "blended_cost_per_follow": null,
     "since": null,
@@ -903,8 +903,8 @@
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 18.36,
-    "expected_by_now": 22.54,
-    "pace_ratio": 0.814,
+    "expected_by_now": 25.04,
+    "pace_ratio": 0.733,
     "status": "on_track"
   },
   "geo_efficiency": [
@@ -996,7 +996,7 @@
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 0.0,
+    "last_pull_age_min": 0.1,
     "attribution_confidence": "estimated"
   },
   "diagnostics": {
@@ -1176,7 +1176,7 @@
         },
         {
           "factor": "Data freshness (minutes)",
-          "value": 0.0,
+          "value": 0.1,
           "penalty": 0.0
         },
         {
@@ -1760,7 +1760,7 @@
     "pacing": {
       "day_target": 60.0,
       "today_spend": 0.0,
-      "expected_spend_now": 22.54,
+      "expected_spend_now": 25.04,
       "pace_ratio": 0.0
     },
     "geo_efficiency": [
