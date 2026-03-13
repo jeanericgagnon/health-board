@@ -1,30 +1,30 @@
 {
-  "updated_at": "2026-03-13T04:01:00.893634Z",
+  "updated_at": "2026-03-13T13:00:56.751350Z",
   "summary": {
     "ad_account_id": "act_1379452680603809",
-    "total_spend": 43.37,
-    "total_clicks": 1589,
-    "total_impressions": 23577,
+    "total_spend": 197.36,
+    "total_clicks": 1792,
+    "total_impressions": 26382,
     "total_follows": 0,
     "blended_cost_per_follow": null,
     "since": null,
     "until": null,
-    "current_followers_live": 106280,
-    "daily_gain_live": 173,
-    "baseline_followers": 106107,
+    "current_followers_live": 106356,
+    "daily_gain_live": 76,
+    "baseline_followers": 106280,
     "total_link_clicks": 0,
     "total_outbound_clicks": 0,
     "total_landing_page_views": 0,
     "cost_per_landing_page_view": null,
     "lpv_per_outbound_click_rate": null,
-    "manual_intraday_spend_override_note": "intraday spend manually overridden from data/manual_intraday_spend.json",
-    "manual_intraday_spend_as_of_local": "2026-03-12T14:03:00-08:00"
+    "manual_intraday_spend_override_note": null,
+    "manual_intraday_spend_as_of_local": null
   },
   "campaigns": [
     {
       "campaign": "2",
       "campaign_id": "6953786714157",
-      "spend": 14.1,
+      "spend": 60.83,
       "clicks": 519,
       "impressions": 8226,
       "reach": 8129,
@@ -32,8 +32,8 @@
       "outbound_clicks": 0,
       "landing_page_views": 0,
       "ctr": 5.618,
-      "cpm": 1.714,
-      "cpc": 0.027,
+      "cpm": 7.317,
+      "cpc": 0.117,
       "outbound_ctr": 0.0,
       "lpv_rate": null,
       "cost_per_lpv": null,
@@ -125,7 +125,7 @@
     {
       "campaign": "1",
       "campaign_id": "6951024653957",
-      "spend": 15.1,
+      "spend": 58.8,
       "clicks": 560,
       "impressions": 8566,
       "reach": 8494,
@@ -133,8 +133,8 @@
       "outbound_clicks": 0,
       "landing_page_views": 0,
       "ctr": 6.016,
-      "cpm": 1.763,
-      "cpc": 0.027,
+      "cpm": 6.913,
+      "cpc": 0.105,
       "outbound_ctr": 0.0,
       "lpv_rate": null,
       "cost_per_lpv": null,
@@ -226,7 +226,7 @@
     {
       "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
       "campaign_id": "6955113574357",
-      "spend": 14.17,
+      "spend": 20.68,
       "clicks": 214,
       "impressions": 2753,
       "reach": 2680,
@@ -234,8 +234,8 @@
       "outbound_clicks": 0,
       "landing_page_views": 0,
       "ctr": 7.952,
-      "cpm": 5.147,
-      "cpc": 0.066,
+      "cpm": 7.629,
+      "cpc": 0.097,
       "outbound_ctr": 0.0,
       "lpv_rate": null,
       "cost_per_lpv": null,
@@ -289,7 +289,7 @@
     {
       "campaign": "2",
       "campaign_id": "6953786714157",
-      "spend": 14.1,
+      "spend": 60.83,
       "clicks": 519,
       "impressions": 8226,
       "reach": 8129,
@@ -297,8 +297,8 @@
       "outbound_clicks": 0,
       "landing_page_views": 0,
       "ctr": 5.618,
-      "cpm": 1.714,
-      "cpc": 0.027,
+      "cpm": 7.317,
+      "cpc": 0.117,
       "outbound_ctr": 0.0,
       "lpv_rate": null,
       "cost_per_lpv": null,
@@ -390,7 +390,7 @@
     {
       "campaign": "1",
       "campaign_id": "6951024653957",
-      "spend": 15.1,
+      "spend": 58.8,
       "clicks": 560,
       "impressions": 8566,
       "reach": 8494,
@@ -398,8 +398,8 @@
       "outbound_clicks": 0,
       "landing_page_views": 0,
       "ctr": 6.016,
-      "cpm": 1.763,
-      "cpc": 0.027,
+      "cpm": 6.913,
+      "cpc": 0.105,
       "outbound_ctr": 0.0,
       "lpv_rate": null,
       "cost_per_lpv": null,
@@ -491,7 +491,7 @@
     {
       "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
       "campaign_id": "6955113574357",
-      "spend": 14.17,
+      "spend": 20.68,
       "clicks": 214,
       "impressions": 2753,
       "reach": 2680,
@@ -499,8 +499,8 @@
       "outbound_clicks": 0,
       "landing_page_views": 0,
       "ctr": 7.952,
-      "cpm": 5.147,
-      "cpc": 0.066,
+      "cpm": 7.629,
+      "cpc": 0.097,
       "outbound_ctr": 0.0,
       "lpv_rate": null,
       "cost_per_lpv": null,
@@ -748,6 +748,10 @@
     {
       "date": "2026-03-12",
       "followers_total": 106280
+    },
+    {
+      "date": "2026-03-13",
+      "followers_total": 106356
     }
   ],
   "followers_daily_series": [
@@ -800,6 +804,11 @@
       "date": "2026-03-12",
       "followers_per_day": 173.0,
       "followers_total": 106280.0
+    },
+    {
+      "date": "2026-03-13",
+      "followers_per_day": 76.0,
+      "followers_total": 106356.0
     }
   ],
   "spend_series": [
@@ -821,17 +830,17 @@
     },
     {
       "date": "2026-03-12",
-      "spend": 43.37
+      "spend": 18.36
     }
   ],
   "insights": [
     {
       "type": "working",
-      "text": "2 is most efficient (CPC $0.03, CTR 5.62%)."
+      "text": "Tailored web traffic campaign 3/11/2026 Campaign is most efficient (CPC $0.10, CTR 7.95%)."
     },
     {
       "type": "not_working",
-      "text": "Tailored web traffic campaign 3/11/2026 Campaign is least efficient (CPC $0.07); consider reducing spend."
+      "text": "2 is least efficient (CPC $0.12); consider reducing spend."
     },
     {
       "type": "data_gap",
@@ -839,18 +848,31 @@
     },
     {
       "type": "working",
-      "text": "Latest daily followers: 173. Keep top campaign structure stable while testing one variable at a time."
+      "text": "Latest daily followers: 76. Keep top campaign structure stable while testing one variable at a time."
     },
     {
       "type": "action",
-      "text": "Pacing watch: spend today is $43.37 vs $60/day target."
+      "text": "Pacing watch: spend today is $18.36 vs $60/day target."
     },
     {
       "type": "action",
-      "text": "Auto recommendations: 1: Scale, 2: Hold, Tailored web traffic campaign 3/11/2026 Campaign: Hold."
+      "text": "Auto recommendations: 2: Scale, 1: Scale, Tailored web traffic campaign 3/11/2026 Campaign: Scale."
     }
   ],
   "recommendations": [
+    {
+      "campaign": "2",
+      "campaign_id": "6953786714157",
+      "tag": "Scale",
+      "reason": "Strong CTR + low CPC with acceptable frequency",
+      "confidence": "high",
+      "priority": "normal",
+      "diagnostic_tags": [
+        "efficiency"
+      ],
+      "expected_impact": "high",
+      "fatigue_score": 1.5
+    },
     {
       "campaign": "1",
       "campaign_id": "6951024653957",
@@ -865,34 +887,25 @@
       "fatigue_score": 0.0
     },
     {
-      "campaign": "2",
-      "campaign_id": "6953786714157",
-      "tag": "Hold",
-      "reason": "Baseline monitoring",
-      "confidence": "low",
-      "priority": "normal",
-      "diagnostic_tags": [],
-      "expected_impact": "low",
-      "fatigue_score": 1.5
-    },
-    {
       "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
       "campaign_id": "6955113574357",
-      "tag": "Hold",
-      "reason": "Baseline monitoring",
-      "confidence": "low",
+      "tag": "Scale",
+      "reason": "Strong CTR + low CPC with acceptable frequency",
+      "confidence": "high",
       "priority": "normal",
-      "diagnostic_tags": [],
-      "expected_impact": "low",
+      "diagnostic_tags": [
+        "efficiency"
+      ],
+      "expected_impact": "high",
       "fatigue_score": null
     }
   ],
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 18.36,
-    "expected_by_now": 52.54,
-    "pace_ratio": 0.349,
-    "status": "too_slow"
+    "expected_by_now": 15.0,
+    "pace_ratio": 1.224,
+    "status": "too_fast"
   },
   "geo_efficiency": [
     {
@@ -1509,18 +1522,18 @@
     "city": [
       {
         "city": "San Diego, California",
-        "followers": 25468,
-        "gained_today": 0
+        "followers": 25475,
+        "gained_today": 7
       },
       {
         "city": "Denver, Colorado",
-        "followers": 8109,
-        "gained_today": 0
+        "followers": 8106,
+        "gained_today": -3
       },
       {
         "city": "Los Angeles, California",
-        "followers": 3267,
-        "gained_today": 0
+        "followers": 3276,
+        "gained_today": 9
       },
       {
         "city": "Irvine, California",
@@ -1529,43 +1542,43 @@
       },
       {
         "city": "Chula Vista, California",
-        "followers": 1960,
-        "gained_today": 0
+        "followers": 1962,
+        "gained_today": 2
       },
       {
         "city": "Anaheim, California",
-        "followers": 1764,
-        "gained_today": 0
+        "followers": 1765,
+        "gained_today": 1
       },
       {
         "city": "Santa Ana, California",
-        "followers": 1427,
-        "gained_today": 0
+        "followers": 1430,
+        "gained_today": 3
       },
       {
         "city": "Oceanside, California",
-        "followers": 1374,
-        "gained_today": 0
+        "followers": 1376,
+        "gained_today": 2
       },
       {
         "city": "Long Beach, California",
-        "followers": 1241,
-        "gained_today": 0
+        "followers": 1243,
+        "gained_today": 2
       },
       {
         "city": "Carlsbad, California",
-        "followers": 1027,
-        "gained_today": 0
+        "followers": 1026,
+        "gained_today": -1
       },
       {
         "city": "Costa Mesa, California",
-        "followers": 1004,
-        "gained_today": 0
+        "followers": 1007,
+        "gained_today": 3
       },
       {
         "city": "Orange, California",
-        "followers": 977,
-        "gained_today": 0
+        "followers": 976,
+        "gained_today": -1
       },
       {
         "city": "Huntington Beach, California",
@@ -1584,13 +1597,13 @@
       },
       {
         "city": "Encinitas, California",
-        "followers": 774,
-        "gained_today": 0
+        "followers": 775,
+        "gained_today": 1
       },
       {
         "city": "La Mesa, California",
-        "followers": 747,
-        "gained_today": 0
+        "followers": 746,
+        "gained_today": -1
       },
       {
         "city": "Vista, California",
@@ -1599,23 +1612,23 @@
       },
       {
         "city": "Lakewood, Colorado",
-        "followers": 635,
-        "gained_today": 0
+        "followers": 636,
+        "gained_today": 1
       },
       {
         "city": "San Marcos, California",
-        "followers": 628,
-        "gained_today": 0
+        "followers": 629,
+        "gained_today": 1
       },
       {
         "city": "Riverside, California",
-        "followers": 574,
-        "gained_today": 0
+        "followers": 577,
+        "gained_today": 3
       },
       {
         "city": "El Cajon, California",
-        "followers": 522,
-        "gained_today": 0
+        "followers": 521,
+        "gained_today": -1
       },
       {
         "city": "Centennial, Colorado",
@@ -1644,18 +1657,18 @@
       },
       {
         "city": "Santee, California",
-        "followers": 403,
-        "gained_today": 0
+        "followers": 404,
+        "gained_today": 1
       },
       {
         "city": "Phoenix, Arizona",
-        "followers": 380,
-        "gained_today": 0
+        "followers": 381,
+        "gained_today": 1
       },
       {
         "city": "Tustin, California",
-        "followers": 364,
-        "gained_today": 0
+        "followers": 366,
+        "gained_today": 2
       },
       {
         "city": "Temecula, California",
@@ -1664,8 +1677,8 @@
       },
       {
         "city": "Murrieta, California",
-        "followers": 329,
-        "gained_today": 0
+        "followers": 327,
+        "gained_today": -2
       },
       {
         "city": "Mission Viejo, California",
@@ -1674,13 +1687,18 @@
       },
       {
         "city": "La Presa, California",
-        "followers": 321,
-        "gained_today": 0
+        "followers": 320,
+        "gained_today": -1
       },
       {
         "city": "Ontario, California",
-        "followers": 311,
-        "gained_today": 0
+        "followers": 313,
+        "gained_today": 2
+      },
+      {
+        "city": "Chicago, Illinois",
+        "followers": 290,
+        "gained_today": 2
       },
       {
         "city": "Boulder, Colorado",
@@ -1688,14 +1706,9 @@
         "gained_today": 0
       },
       {
-        "city": "Chicago, Illinois",
-        "followers": 288,
-        "gained_today": 0
-      },
-      {
-        "city": "San Antonio, Texas",
-        "followers": 288,
-        "gained_today": 0
+        "city": "Corona, California",
+        "followers": 289,
+        "gained_today": 1
       },
       {
         "city": "Houston, Texas",
@@ -1703,9 +1716,9 @@
         "gained_today": 0
       },
       {
-        "city": "Corona, California",
-        "followers": 288,
-        "gained_today": 0
+        "city": "San Antonio, Texas",
+        "followers": 287,
+        "gained_today": -1
       },
       {
         "city": "Colorado Springs, Colorado",
@@ -1714,17 +1727,17 @@
       },
       {
         "city": "Whittier, California",
-        "followers": 270,
-        "gained_today": 0
+        "followers": 273,
+        "gained_today": 3
+      },
+      {
+        "city": "National City, California",
+        "followers": 267,
+        "gained_today": 1
       },
       {
         "city": "Rancho Cucamonga, California",
         "followers": 267,
-        "gained_today": 0
-      },
-      {
-        "city": "National City, California",
-        "followers": 266,
         "gained_today": 0
       },
       {
@@ -1746,9 +1759,9 @@
     },
     "pacing": {
       "day_target": 60.0,
-      "today_spend": 18.36,
-      "expected_spend_now": 52.54,
-      "pace_ratio": 0.349
+      "today_spend": 0.0,
+      "expected_spend_now": 15.0,
+      "pace_ratio": 0.0
     },
     "geo_efficiency": [
       {
@@ -1841,25 +1854,25 @@
         "campaign": "2",
         "tag": "scale",
         "why": "strong efficiency",
-        "cpc": 0.027,
+        "cpc": 0.117,
         "ctr": 5.618,
-        "spend": 14.1
+        "spend": 60.83
       },
       {
         "campaign": "1",
         "tag": "scale",
         "why": "strong efficiency",
-        "cpc": 0.027,
+        "cpc": 0.105,
         "ctr": 6.016,
-        "spend": 15.1
+        "spend": 58.8
       },
       {
         "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
         "tag": "scale",
         "why": "strong efficiency",
-        "cpc": 0.066,
+        "cpc": 0.097,
         "ctr": 7.952,
-        "spend": 14.17
+        "spend": 20.68
       }
     ],
     "attribution": {
