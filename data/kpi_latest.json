@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-03-13T18:01:00.294191Z",
+  "updated_at": "2026-03-13T18:36:11.830962Z",
   "summary": {
     "ad_account_id": "act_1379452680603809",
-    "total_spend": 208.47,
-    "total_clicks": 1894,
-    "total_impressions": 27718,
+    "total_spend": 210.0,
+    "total_clicks": 1909,
+    "total_impressions": 27929,
     "total_follows": 0,
     "blended_cost_per_follow": null,
     "since": null,
     "until": null,
-    "current_followers_live": 106372,
-    "daily_gain_live": 92,
+    "current_followers_live": 106377,
+    "daily_gain_live": 97,
     "baseline_followers": 106280,
     "total_link_clicks": 0,
     "total_outbound_clicks": 0,
@@ -18,7 +18,8 @@
     "cost_per_landing_page_view": null,
     "lpv_per_outbound_click_rate": null,
     "manual_intraday_spend_override_note": null,
-    "manual_intraday_spend_as_of_local": null
+    "manual_intraday_spend_as_of_local": null,
+    "intraday_spend_estimated": true
   },
   "campaigns": [
     {
@@ -751,7 +752,7 @@
     },
     {
       "date": "2026-03-13",
-      "followers_total": 106372
+      "followers_total": 106377
     }
   ],
   "followers_daily_series": [
@@ -807,8 +808,8 @@
     },
     {
       "date": "2026-03-13",
-      "followers_per_day": 92.0,
-      "followers_total": 106372.0
+      "followers_per_day": 97.0,
+      "followers_total": 106377.0
     }
   ],
   "spend_series": [
@@ -831,6 +832,10 @@
     {
       "date": "2026-03-12",
       "spend": 18.36
+    },
+    {
+      "date": "2026-03-13",
+      "spend": 140.31
     }
   ],
   "insights": [
@@ -848,11 +853,11 @@
     },
     {
       "type": "working",
-      "text": "Latest daily followers: 92. Keep top campaign structure stable while testing one variable at a time."
+      "text": "Latest daily followers: 97. Keep top campaign structure stable while testing one variable at a time."
     },
     {
       "type": "action",
-      "text": "Pacing watch: spend today is $18.36 vs $60/day target."
+      "text": "Pacing watch: spend today is $140.31 vs $60/day target."
     },
     {
       "type": "action",
@@ -903,8 +908,8 @@
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 18.36,
-    "expected_by_now": 27.54,
-    "pace_ratio": 0.667,
+    "expected_by_now": 29.0,
+    "pace_ratio": 0.633,
     "status": "too_slow"
   },
   "geo_efficiency": [
@@ -1760,7 +1765,7 @@
     "pacing": {
       "day_target": 60.0,
       "today_spend": 0.0,
-      "expected_spend_now": 27.54,
+      "expected_spend_now": 29.0,
       "pace_ratio": 0.0
     },
     "geo_efficiency": [
