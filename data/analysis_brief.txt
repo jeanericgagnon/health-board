@@ -1,6 +1,6 @@
 Decision confidence: LOW (core coverage 0.0%)
-Pacing: too_slow | spend today 15.34 vs expected 22.71
+Pacing: on_track | spend today 17.78 vs expected 25.0
 Scale: 1, 2, Tailored web traffic campaign 3/11/2026 Campaign
 Signal split: conversion-proven=0, traffic-only=0
-Do now: Pacing too slow: increase delivery on top efficient campaigns by ~10-15%. | Scale: 1 (Strong CTR + low CPC with acceptable frequency) | Scale: 2 (Strong CTR + low CPC with acceptable frequency)
-Alert: YES (pacing_status_changed, scale_candidates_changed)
+Do now: Scale: 1 (Strong CTR + low CPC with acceptable frequency) | Scale: 2 (Strong CTR + low CPC with acceptable frequency) | Confidence LOW: prioritize tracking/event reliability before major budget shifts.
+Alert: YES (pacing_status_changed)
