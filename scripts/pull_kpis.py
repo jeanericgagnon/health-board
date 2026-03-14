@@ -12,6 +12,7 @@ DB_PATH = WORKSPACE / 'ads-ops' / 'db' / 'kpi.sqlite'
 DATA_DIR = Path(__file__).resolve().parents[1] / 'data'
 OUT = DATA_DIR / 'kpi_latest.json'
 MANUAL_INTRADAY_SPEND_PATH = DATA_DIR / 'manual_intraday_spend.json'
+ADSOPS_LATEST_PATH = WORKSPACE / 'ads-ops' / 'dashboard' / 'data' / 'latest.json'
 
 
 def num(v):
@@ -21,12 +22,20 @@ def num(v):
         return 0.0
 
 
+def read_adsops_latest():
+    if not ADSOPS_LATEST_PATH.exists():
+        return None
+    try:
+        return json.loads(ADSOPS_LATEST_PATH.read_text())
+    except Exception:
+        return None
+
+
 def read_summary():
     # Prefer fresh ads-ops dashboard payload (DB-backed) when available.
-    p_new = WORKSPACE / 'ads-ops' / 'dashboard' / 'data' / 'latest.json'
-    if p_new.exists():
+    d = read_adsops_latest()
+    if d:
         try:
-            d = json.loads(p_new.read_text())
             campaigns = d.get('campaign') or []
             total_spend = round(sum(num(x.get('spend')) for x in campaigns), 2)
             total_clicks = int(sum(num(x.get('clicks')) for x in campaigns))
@@ -90,6 +99,29 @@ def read_manual_intraday_spend_override():
 
 
 def read_insights_rows():
+    # Primary source: latest raw ad-level payload from SQLite (contains date_start/date_stop).
+    if DB_PATH.exists():
+        try:
+            conn = sqlite3.connect(DB_PATH)
+            conn.row_factory = sqlite3.Row
+            row = conn.execute(
+                """
+                SELECT payload_json
+                FROM kpi_snapshots
+                WHERE source='meta_marketing_api' AND level='ad'
+                ORDER BY id DESC
+                LIMIT 1
+                """
+            ).fetchone()
+            conn.close()
+            if row and row['payload_json']:
+                rows = json.loads(row['payload_json'])
+                if isinstance(rows, list) and rows:
+                    return rows
+        except Exception:
+            pass
+
+    # Fallback: legacy CSV export.
     p = ADS_DIR / 'insights_latest.csv'
     if not p.exists():
         return []
@@ -454,6 +486,19 @@ def build_insights(summary, campaigns, followers_daily, spend_series, recommenda
 
 
 def read_csv_rows(name):
+    # Prefer fresh DB-backed breakdowns from ads-ops latest payload.
+    d = read_adsops_latest()
+    if d:
+        b = d.get('breakdowns') or {}
+        if name == 'insights_placement_latest.csv' and (b.get('placement') or []):
+            return b.get('placement') or []
+        if name == 'insights_age_gender_latest.csv' and (b.get('age_gender') or []):
+            return b.get('age_gender') or []
+        if name == 'insights_device_latest.csv' and (b.get('device') or []):
+            return b.get('device') or []
+        if name == 'insights_region_latest.csv' and (b.get('region') or []):
+            return b.get('region') or []
+
     p = ADS_DIR / name
     if not p.exists():
         return []
@@ -1165,10 +1210,22 @@ def main():
     total_landing_page_views = int(sum(num(c.get('landing_page_views')) for c in campaigns))
     total_link_clicks = int(sum(num(c.get('link_clicks')) for c in campaigns))
     total_spend = num(summary.get('total_spend'))
+    today_pt = datetime.now(ZoneInfo('America/Los_Angeles')).date().isoformat()
+
+    # Intraday fallback: if today's spend row is missing, estimate from current campaign rollup.
+    found_today = any(r.get('date') == today_pt for r in spend_series)
+    intraday_estimated = False
+    if not found_today:
+        # Estimate strictly from today's raw rows (avoid multi-day campaign rollup inflation)
+        est_today = round(sum(num(r.get('spend')) for r in rows if (r.get('date_start') or '') == today_pt), 2)
+        if est_today > 0:
+            spend_series.append({'date': today_pt, 'spend': est_today})
+            spend_series.sort(key=lambda x: x.get('date', ''))
+            intraday_estimated = True
+
     if manual_spend_override and manual_spend_override.get('total_spend') is not None:
         total_spend = round(num(manual_spend_override.get('total_spend')), 2)
         # Keep UI 'Daily Spend' aligned by overriding today's spend_series point.
-        today_pt = datetime.now(ZoneInfo('America/Los_Angeles')).date().isoformat()
         found = False
         for r in spend_series:
             if r.get('date') == today_pt:
@@ -1219,6 +1276,7 @@ def main():
             'lpv_per_outbound_click_rate': round((total_landing_page_views / total_outbound_clicks) * 100, 3) if total_outbound_clicks > 0 else None,
             'manual_intraday_spend_override_note': ('intraday spend manually overridden from data/manual_intraday_spend.json' if manual_spend_override else None),
             'manual_intraday_spend_as_of_local': (manual_spend_override.get('as_of_local') if manual_spend_override else None),
+            'intraday_spend_estimated': intraday_estimated,
         },
         'campaigns': campaigns,
         'top_campaigns': campaigns[:10],
