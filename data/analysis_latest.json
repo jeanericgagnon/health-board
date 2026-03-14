@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-03-14T13:00:58.296355Z",
-  "source_updated_at": "2026-03-14T13:00:56.121674Z",
+  "generated_at": "2026-03-14T14:00:57.992124Z",
+  "source_updated_at": "2026-03-14T14:00:55.628204Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 18.36,
-    "expected_by_now": 15.0,
-    "pace_ratio": 1.224,
-    "status": "too_fast"
+    "expected_by_now": 17.5,
+    "pace_ratio": 1.049,
+    "status": "on_track"
   },
   "data_health": {
     "status": "ok",
@@ -17,11 +17,11 @@
     "attribution_confidence": "estimated"
   },
   "summary": {
-    "total_spend": 265.49,
-    "total_clicks": 2383,
-    "total_impressions": 34945,
-    "daily_gain_live": 28,
-    "current_followers_live": 106485
+    "total_spend": 267.75,
+    "total_clicks": 2405,
+    "total_impressions": 35224,
+    "daily_gain_live": 36,
+    "current_followers_live": 106493
   },
   "recommendations": {
     "scale": [
@@ -129,9 +129,9 @@
     }
   ],
   "immediate_actions": [
-    "Pacing too fast: reduce total daily spend velocity by ~10-20% today.",
     "Scale: 2 (Strong CTR + low CPC with acceptable frequency)",
-    "Scale: 1 (Strong CTR + low CPC with acceptable frequency)"
+    "Scale: 1 (Strong CTR + low CPC with acceptable frequency)",
+    "Confidence LOW: prioritize tracking/event reliability before major budget shifts."
   ],
   "alert": {
     "should_alert": true,
