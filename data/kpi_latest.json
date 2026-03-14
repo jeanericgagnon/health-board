@@ -1,17 +1,17 @@
 {
-  "updated_at": "2026-03-14T04:00:56.960335Z",
+  "updated_at": "2026-03-14T13:00:56.121674Z",
   "summary": {
     "ad_account_id": "act_1379452680603809",
-    "total_spend": 244.12,
-    "total_clicks": 2206,
-    "total_impressions": 32327,
+    "total_spend": 265.49,
+    "total_clicks": 2383,
+    "total_impressions": 34945,
     "total_follows": 0,
     "blended_cost_per_follow": null,
     "since": null,
     "until": null,
-    "current_followers_live": 106428,
-    "daily_gain_live": 148,
-    "baseline_followers": 106280,
+    "current_followers_live": 106485,
+    "daily_gain_live": 28,
+    "baseline_followers": 106457,
     "total_link_clicks": 0,
     "total_outbound_clicks": 0,
     "total_landing_page_views": 0,
@@ -752,7 +752,11 @@
     },
     {
       "date": "2026-03-13",
-      "followers_total": 106428
+      "followers_total": 106457
+    },
+    {
+      "date": "2026-03-14",
+      "followers_total": 106485
     }
   ],
   "followers_daily_series": [
@@ -808,8 +812,13 @@
     },
     {
       "date": "2026-03-13",
-      "followers_per_day": 148.0,
-      "followers_total": 106428.0
+      "followers_per_day": 177.0,
+      "followers_total": 106457.0
+    },
+    {
+      "date": "2026-03-14",
+      "followers_per_day": 28.0,
+      "followers_total": 106485.0
     }
   ],
   "spend_series": [
@@ -849,7 +858,7 @@
     },
     {
       "type": "working",
-      "text": "Latest daily followers: 148. Keep top campaign structure stable while testing one variable at a time."
+      "text": "Latest daily followers: 28. Keep top campaign structure stable while testing one variable at a time."
     },
     {
       "type": "action",
@@ -904,9 +913,9 @@
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 18.36,
-    "expected_by_now": 52.5,
-    "pace_ratio": 0.35,
-    "status": "too_slow"
+    "expected_by_now": 15.0,
+    "pace_ratio": 1.224,
+    "status": "too_fast"
   },
   "geo_efficiency": [
     {
@@ -1523,113 +1532,113 @@
     "city": [
       {
         "city": "San Diego, California",
-        "followers": 25475,
-        "gained_today": 7
+        "followers": 25486,
+        "gained_today": 11
       },
       {
         "city": "Denver, Colorado",
-        "followers": 8106,
-        "gained_today": -3
-      },
-      {
-        "city": "Los Angeles, California",
-        "followers": 3276,
-        "gained_today": 9
-      },
-      {
-        "city": "Irvine, California",
-        "followers": 2270,
-        "gained_today": 0
-      },
-      {
-        "city": "Chula Vista, California",
-        "followers": 1962,
+        "followers": 8108,
         "gained_today": 2
       },
       {
-        "city": "Anaheim, California",
-        "followers": 1765,
+        "city": "Los Angeles, California",
+        "followers": 3286,
+        "gained_today": 10
+      },
+      {
+        "city": "Irvine, California",
+        "followers": 2271,
         "gained_today": 1
+      },
+      {
+        "city": "Chula Vista, California",
+        "followers": 1965,
+        "gained_today": 3
+      },
+      {
+        "city": "Anaheim, California",
+        "followers": 1764,
+        "gained_today": -1
       },
       {
         "city": "Santa Ana, California",
         "followers": 1430,
-        "gained_today": 3
+        "gained_today": 0
       },
       {
         "city": "Oceanside, California",
         "followers": 1376,
-        "gained_today": 2
+        "gained_today": 0
       },
       {
         "city": "Long Beach, California",
-        "followers": 1243,
-        "gained_today": 2
+        "followers": 1246,
+        "gained_today": 3
       },
       {
         "city": "Carlsbad, California",
         "followers": 1026,
-        "gained_today": -1
+        "gained_today": 0
       },
       {
         "city": "Costa Mesa, California",
-        "followers": 1007,
-        "gained_today": 3
+        "followers": 1006,
+        "gained_today": -1
       },
       {
         "city": "Orange, California",
         "followers": 976,
-        "gained_today": -1
+        "gained_today": 0
       },
       {
         "city": "Huntington Beach, California",
-        "followers": 935,
-        "gained_today": 0
+        "followers": 936,
+        "gained_today": 1
       },
       {
         "city": "Escondido, California",
-        "followers": 846,
-        "gained_today": 0
+        "followers": 845,
+        "gained_today": -1
       },
       {
         "city": "Fullerton, California",
-        "followers": 842,
-        "gained_today": 0
+        "followers": 844,
+        "gained_today": 2
       },
       {
         "city": "Encinitas, California",
-        "followers": 775,
-        "gained_today": 1
+        "followers": 774,
+        "gained_today": -1
       },
       {
         "city": "La Mesa, California",
         "followers": 746,
-        "gained_today": -1
-      },
-      {
-        "city": "Vista, California",
-        "followers": 659,
         "gained_today": 0
       },
       {
+        "city": "Vista, California",
+        "followers": 660,
+        "gained_today": 1
+      },
+      {
         "city": "Lakewood, Colorado",
-        "followers": 636,
+        "followers": 637,
         "gained_today": 1
       },
       {
         "city": "San Marcos, California",
-        "followers": 629,
+        "followers": 630,
         "gained_today": 1
       },
       {
         "city": "Riverside, California",
-        "followers": 577,
-        "gained_today": 3
+        "followers": 578,
+        "gained_today": 1
       },
       {
         "city": "El Cajon, California",
-        "followers": 521,
-        "gained_today": -1
+        "followers": 524,
+        "gained_today": 3
       },
       {
         "city": "Centennial, Colorado",
@@ -1643,8 +1652,8 @@
       },
       {
         "city": "New York, New York",
-        "followers": 443,
-        "gained_today": 0
+        "followers": 445,
+        "gained_today": 2
       },
       {
         "city": "Garden Grove, California",
@@ -1653,33 +1662,33 @@
       },
       {
         "city": "Newport Beach, California",
-        "followers": 407,
-        "gained_today": 0
+        "followers": 408,
+        "gained_today": 1
       },
       {
         "city": "Santee, California",
-        "followers": 404,
+        "followers": 405,
         "gained_today": 1
       },
       {
         "city": "Phoenix, Arizona",
-        "followers": 381,
-        "gained_today": 1
+        "followers": 380,
+        "gained_today": -1
       },
       {
         "city": "Tustin, California",
         "followers": 366,
-        "gained_today": 2
+        "gained_today": 0
       },
       {
         "city": "Temecula, California",
-        "followers": 361,
-        "gained_today": 0
+        "followers": 362,
+        "gained_today": 1
       },
       {
         "city": "Murrieta, California",
         "followers": 327,
-        "gained_today": -2
+        "gained_today": 0
       },
       {
         "city": "Mission Viejo, California",
@@ -1689,17 +1698,27 @@
       {
         "city": "La Presa, California",
         "followers": 320,
-        "gained_today": -1
+        "gained_today": 0
       },
       {
         "city": "Ontario, California",
-        "followers": 313,
-        "gained_today": 2
+        "followers": 314,
+        "gained_today": 1
+      },
+      {
+        "city": "Houston, Texas",
+        "followers": 291,
+        "gained_today": 3
       },
       {
         "city": "Chicago, Illinois",
         "followers": 290,
-        "gained_today": 2
+        "gained_today": 0
+      },
+      {
+        "city": "Corona, California",
+        "followers": 290,
+        "gained_today": 1
       },
       {
         "city": "Boulder, Colorado",
@@ -1707,19 +1726,9 @@
         "gained_today": 0
       },
       {
-        "city": "Corona, California",
-        "followers": 289,
-        "gained_today": 1
-      },
-      {
-        "city": "Houston, Texas",
-        "followers": 288,
-        "gained_today": 0
-      },
-      {
         "city": "San Antonio, Texas",
         "followers": 287,
-        "gained_today": -1
+        "gained_today": 0
       },
       {
         "city": "Colorado Springs, Colorado",
@@ -1728,23 +1737,23 @@
       },
       {
         "city": "Whittier, California",
-        "followers": 273,
-        "gained_today": 3
-      },
-      {
-        "city": "National City, California",
-        "followers": 267,
-        "gained_today": 1
+        "followers": 275,
+        "gained_today": 2
       },
       {
         "city": "Rancho Cucamonga, California",
+        "followers": 268,
+        "gained_today": 1
+      },
+      {
+        "city": "National City, California",
         "followers": 267,
         "gained_today": 0
       },
       {
         "city": "Poway, California",
-        "followers": 259,
-        "gained_today": 0
+        "followers": 260,
+        "gained_today": 1
       }
     ]
   },
@@ -1761,7 +1770,7 @@
     "pacing": {
       "day_target": 60.0,
       "today_spend": 0.0,
-      "expected_spend_now": 52.5,
+      "expected_spend_now": 15.0,
       "pace_ratio": 0.0
     },
     "geo_efficiency": [
