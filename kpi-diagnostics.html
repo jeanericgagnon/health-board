@@ -38,8 +38,8 @@
     .bar{height:6px;background:#0d1530;border-radius:999px;overflow:hidden}
     .bar>span{display:block;height:100%;background:#60a5fa}
     #regionMap,#followersMap{height:260px;border:1px solid #223157;border-radius:10px}
-    .kpi-select-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:center;width:100%;position:relative;z-index:5}
-    .kpi-select{background:#1a2a54;color:#ffffff;border:1px solid #4b72c7;border-radius:10px;padding:6px 10px;font-size:13px;font-weight:700;min-height:36px;cursor:pointer;pointer-events:auto;position:relative;z-index:6}
+    .kpi-select-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;align-items:center;width:100%;position:relative;z-index:5}
+    .kpi-select{background:#1a2a54;color:#ffffff;border:1px solid #4b72c7;border-radius:10px;padding:6px 8px;font-size:13px;font-weight:700;min-height:36px;cursor:pointer;pointer-events:auto;position:relative;z-index:6;width:100%;min-width:0}
     .kpi-select option{color:#111827;background:#ffffff}
     @media (max-width:1200px){.cards{grid-template-columns:1fr}}
     .back{display:inline-block;margin-top:14px;color:#cfe1ff;text-decoration:none}
@@ -78,13 +78,13 @@
       <article class="panel kpi"><div class="l">Current Followers</div><div class="v" id="kFollows">--</div></article>
       <article class="panel kpi">
         <div class="l kpi-select-row">
-          <select id="kpiMetric" class="kpi-select" title="Metric" style="flex:1;min-width:120px">
+          <select id="kpiMetric" class="kpi-select" title="Metric">
             <option value="cpf" selected>CPF</option>
             <option value="cpc">CPC</option>
             <option value="ctr">CTR</option>
             <option value="cpm">CPM</option>
           </select>
-          <select id="cpfWindow" class="kpi-select" title="Range" style="width:108px">
+          <select id="cpfWindow" class="kpi-select" title="Range">
             <option value="1">1D</option>
             <option value="3">3D</option>
             <option value="7" selected>7D</option>
