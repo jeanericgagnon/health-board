@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-03-14T03:00:57.677784Z",
+  "updated_at": "2026-03-14T04:00:56.960335Z",
   "summary": {
     "ad_account_id": "act_1379452680603809",
-    "total_spend": 238.06,
-    "total_clicks": 2158,
-    "total_impressions": 31606,
+    "total_spend": 244.12,
+    "total_clicks": 2206,
+    "total_impressions": 32327,
     "total_follows": 0,
     "blended_cost_per_follow": null,
     "since": null,
     "until": null,
-    "current_followers_live": 106417,
-    "daily_gain_live": 137,
+    "current_followers_live": 106428,
+    "daily_gain_live": 148,
     "baseline_followers": 106280,
     "total_link_clicks": 0,
     "total_outbound_clicks": 0,
@@ -752,7 +752,7 @@
     },
     {
       "date": "2026-03-13",
-      "followers_total": 106417
+      "followers_total": 106428
     }
   ],
   "followers_daily_series": [
@@ -808,8 +808,8 @@
     },
     {
       "date": "2026-03-13",
-      "followers_per_day": 137.0,
-      "followers_total": 106417.0
+      "followers_per_day": 148.0,
+      "followers_total": 106428.0
     }
   ],
   "spend_series": [
@@ -849,7 +849,7 @@
     },
     {
       "type": "working",
-      "text": "Latest daily followers: 137. Keep top campaign structure stable while testing one variable at a time."
+      "text": "Latest daily followers: 148. Keep top campaign structure stable while testing one variable at a time."
     },
     {
       "type": "action",
@@ -904,8 +904,8 @@
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 18.36,
-    "expected_by_now": 50.0,
-    "pace_ratio": 0.367,
+    "expected_by_now": 52.5,
+    "pace_ratio": 0.35,
     "status": "too_slow"
   },
   "geo_efficiency": [
@@ -1761,7 +1761,7 @@
     "pacing": {
       "day_target": 60.0,
       "today_spend": 0.0,
-      "expected_spend_now": 50.0,
+      "expected_spend_now": 52.5,
       "pace_ratio": 0.0
     },
     "geo_efficiency": [
