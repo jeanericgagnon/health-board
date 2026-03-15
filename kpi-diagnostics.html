@@ -42,6 +42,10 @@
     .kpi-select{background:#1a2a54;color:#ffffff;border:1px solid #4b72c7;border-radius:10px;padding:6px 8px;font-size:13px;font-weight:700;min-height:36px;cursor:pointer;pointer-events:auto;position:relative;z-index:6;width:100%;min-width:0}
     .kpi-select option{color:#111827;background:#ffffff}
     @media (max-width:1200px){.cards{grid-template-columns:1fr}}
+    @media (max-width:640px){
+      .kpi-select-row{grid-template-columns:1fr;gap:6px}
+      .kpi-select{min-height:34px;font-size:12px}
+    }
     .back{display:inline-block;margin-top:14px;color:#cfe1ff;text-decoration:none}
     @media (max-width:1200px){.kpis{grid-template-columns:repeat(3,1fr)}.main,.half{grid-template-columns:1fr}}
   </style>
@@ -362,7 +366,8 @@
         maintainAspectRatio:false
       }
     });
-    const mix = new Chart(document.getElementById('c2'), {type:'doughnut', data:{labels:['Campaign A','Campaign B'], datasets:[{data:[50,50],backgroundColor:['#60a5fa','#34d399']}]}, options:{plugins:{legend:{position:'bottom',labels:{color:'#d7e2ff'}}}, maintainAspectRatio:false}});
+    const creativePalette = ['#60a5fa','#34d399','#f59e0b','#a78bfa','#f472b6','#22d3ee','#fb7185','#84cc16'];
+    const mix = new Chart(document.getElementById('c2'), {type:'doughnut', data:{labels:['Campaign A','Campaign B'], datasets:[{data:[50,50],backgroundColor:creativePalette.slice(0,2)}]}, options:{plugins:{legend:{position:'bottom',labels:{color:'#d7e2ff'}}}, maintainAspectRatio:false}});
 
     const fmtMoney = (n) => '$' + Number(n || 0).toFixed(2);
     const fmtNum = (n) => Number(n || 0).toLocaleString();
@@ -974,19 +979,37 @@
         });
 
         const seriesIndex = { spend: 0, followers: 1, cpf: 2 };
-        document.querySelectorAll('#seriesToggles .btnf').forEach(btn => {
+        const seriesButtons = Array.from(document.querySelectorAll('#seriesToggles .btnf'));
+
+        const ensureAtLeastOneSeriesVisible = () => {
+          const visible = trend.data.datasets.filter(ds => !ds.hidden).length;
+          if (visible === 0) {
+            // Safety default: always keep Spend visible so chart can never appear blank.
+            trend.data.datasets[0].hidden = false;
+            const spendBtn = seriesButtons.find(b => b.dataset.series === 'spend');
+            if (spendBtn) spendBtn.classList.add('active');
+          }
+        };
+
+        seriesButtons.forEach(btn => {
           btn.addEventListener('click', () => {
             const idx = seriesIndex[btn.dataset.series];
             const ds = trend.data.datasets[idx];
             ds.hidden = !ds.hidden;
             btn.classList.toggle('active', !ds.hidden);
+            ensureAtLeastOneSeriesVisible();
             trend.update();
           });
         });
 
+        // Normalize initial state to avoid stale hidden flags from prior interactions.
+        ensureAtLeastOneSeriesVisible();
+
         if (campaigns.length) {
-          mix.data.labels = campaigns.slice(0, 6).map(x => x.campaign);
-          mix.data.datasets[0].data = campaigns.slice(0, 6).map(x => x.spend);
+          const topCampaigns = campaigns.slice(0, 6);
+          mix.data.labels = topCampaigns.map(x => x.campaign);
+          mix.data.datasets[0].data = topCampaigns.map(x => x.spend);
+          mix.data.datasets[0].backgroundColor = topCampaigns.map((_, i) => creativePalette[i % creativePalette.length]);
           mix.update();
         }
 
