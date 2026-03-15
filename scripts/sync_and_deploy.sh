@@ -7,6 +7,12 @@ mkdir -p "$LOG_DIR"
 
 cd "$REPO_DIR"
 
+# Ensure commits/deploy metadata use a Vercel team-authorized identity.
+export GIT_AUTHOR_NAME="Jean Eric Gagnon"
+export GIT_AUTHOR_EMAIL="jean.eric.gagnon619@gmail.com"
+export GIT_COMMITTER_NAME="Jean Eric Gagnon"
+export GIT_COMMITTER_EMAIL="jean.eric.gagnon619@gmail.com"
+
 # Pull full ads + follower stack first (Meta API, follower demographics, follower fallback)
 "$REPO_DIR/../ads-ops/scripts/run_kpi_pull.sh" >> "$LOG_DIR/full-kpi-pull.log" 2>&1 || true
 
