@@ -5,11 +5,6 @@ REPO_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 LOG_DIR="$REPO_DIR/logs"
 mkdir -p "$LOG_DIR"
 
-# Vercel reliability controls
-COOLDOWN_FILE="$LOG_DIR/vercel_cooldown_until_epoch.txt"
-COOLDOWN_REASON_FILE="$LOG_DIR/vercel_cooldown_reason.txt"
-# 26h is intentionally >24h to be safe across reset boundaries.
-VERCEL_CAP_COOLDOWN_SECS="${VERCEL_CAP_COOLDOWN_SECS:-93600}"
 SITE_URL="${HEALTHBOARD_SITE_URL:-https://gaginonricky.com}"
 export HEALTHBOARD_SITE_URL="$SITE_URL"
 
@@ -22,12 +17,12 @@ export GIT_COMMITTER_NAME="Jean Eric Gagnon"
 export GIT_COMMITTER_EMAIL="jean.eric.gagnon619@gmail.com"
 
 # Single-run lock: prevent overlapping cron/manual deploys.
-LOCK_FILE="$LOG_DIR/deploy.lock"
-exec 9>"$LOCK_FILE"
-if ! flock -n 9; then
+LOCK_DIR="$LOG_DIR/deploy.lockdir"
+if ! mkdir "$LOCK_DIR" 2>/dev/null; then
   echo "INFO: deploy lock busy; skipping overlapping run"
   exit 0
 fi
+trap 'rmdir "$LOCK_DIR" >/dev/null 2>&1 || true' EXIT
 
 # Optional pull step (disabled by default to avoid duplicate pull/deploy cycles).
 # Enable explicitly when needed:
@@ -53,44 +48,32 @@ if [ -f "$ADSOPS_LATEST" ]; then
   cp "$ADSOPS_LATEST" "$REPO_DIR/data/adsops_latest.json"
 fi
 
+# Commit only if data changed.
 if ! git diff --quiet -- data/kpi_latest.json data/adsops_latest.json data/analysis_latest.json data/analysis_brief.txt data/analysis_history.jsonl data/creative_metadata_latest.json 2>/dev/null; then
   git add data/kpi_latest.json data/adsops_latest.json data/analysis_latest.json data/analysis_brief.txt data/analysis_history.jsonl data/creative_metadata_latest.json 2>/dev/null || git add data/kpi_latest.json data/analysis_latest.json data/analysis_brief.txt data/analysis_history.jsonl data/creative_metadata_latest.json
   git commit -m "data: refresh KPI snapshot $(date '+%Y-%m-%d %H:%M %Z')" || true
   git push origin main || echo "WARN: git push failed (non-interactive credentials); continuing to deploy"
-
-  # Circuit breaker: after 2 consecutive deploy failures, pause auto-deploy for 2h.
-  STATE_FILE="$LOG_DIR/deploy-state.env"
-  NOW_EPOCH="$(date +%s)"
-  COOLDOWN_SECS=7200
-  FAILURE_THRESHOLD=2
-
-  if [ -f "$STATE_FILE" ]; then
-    # shellcheck disable=SC1090
-    source "$STATE_FILE"
-  fi
-
-  FAILURES="${FAILURES:-0}"
-  LAST_FAIL_EPOCH="${LAST_FAIL_EPOCH:-0}"
-
-  if [ "$FAILURES" -ge "$FAILURE_THRESHOLD" ] && [ $((NOW_EPOCH - LAST_FAIL_EPOCH)) -lt "$COOLDOWN_SECS" ]; then
-    REMAINING=$((COOLDOWN_SECS - (NOW_EPOCH - LAST_FAIL_EPOCH)))
-    echo "WARN: deploy circuit open (${FAILURES} consecutive failures). Cooldown ${REMAINING}s remaining; skipping deploy."
-    exit 0
-  fi
-
-  if vercel --prod --yes --scope eric-gagnons-projects >> "$LOG_DIR/deploy.log" 2>&1; then
-    cat > "$STATE_FILE" <<EOF
-FAILURES=0
-LAST_FAIL_EPOCH=0
-EOF
-  else
-    FAILURES=$((FAILURES + 1))
-    cat > "$STATE_FILE" <<EOF
-FAILURES=${FAILURES}
-LAST_FAIL_EPOCH=${NOW_EPOCH}
-EOF
-    echo "WARN: vercel deploy failed (consecutive failures: ${FAILURES})"
-  fi
 else
-  echo "No data changes; skipping deploy"
+  echo "INFO: no git data diff; publishing current build anyway"
 fi
+
+# Publish every cycle (single attempt).
+vercel --prod --yes --scope eric-gagnons-projects >> "$LOG_DIR/deploy.log" 2>&1 || echo "WARN: vercel deploy failed"
+
+# Post-deploy health ping: verify live endpoint serves a parseable updated_at.
+python3 - <<'PY' >> "$LOG_DIR/deploy.log" 2>&1 || true
+import json,urllib.request,os
+site=os.environ.get('HEALTHBOARD_SITE_URL','https://gaginonricky.com').rstrip('/')
+url=f"{site}/data/kpi_latest.json?ts=healthcheck"
+try:
+    with urllib.request.urlopen(url, timeout=15) as r:
+        body=r.read().decode('utf-8','replace')
+    j=json.loads(body)
+    ua=j.get('updated_at')
+    if ua:
+        print(f"INFO: health ping ok; live updated_at={ua}")
+    else:
+        print("WARN: health ping missing updated_at")
+except Exception as e:
+    print(f"WARN: health ping failed: {e}")
+PY
