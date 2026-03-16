@@ -622,8 +622,8 @@
       const sMap = Object.fromEntries(spendSeriesAll.map(x => [x.date, Number(x.spend || 0)]));
       const fMap = Object.fromEntries(followDailyAll.map(x => [x.date, x.followers_per_day == null ? null : Number(x.followers_per_day)]));
 
-      // Ensure chart advances to today's date using live gain when available.
-      const todayKey = new Date().toISOString().slice(0, 10);
+      // Ensure chart advances to today's PT date using live gain when available.
+      const todayKey = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles' }).format(new Date());
       if (Number.isFinite(Number(window.__liveDailyGain))) {
         fMap[todayKey] = Number(window.__liveDailyGain);
       }
