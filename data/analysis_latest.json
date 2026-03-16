@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-03-16T17:05:06.552376Z",
-  "source_updated_at": "2026-03-16T17:05:04.976456Z",
+  "generated_at": "2026-03-16T18:00:02.826233Z",
+  "source_updated_at": "2026-03-16T18:00:00.902146Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 18.72,
-    "expected_by_now": 25.21,
-    "pace_ratio": 0.743,
-    "status": "on_track"
+    "expected_by_now": 27.5,
+    "pace_ratio": 0.681,
+    "status": "too_slow"
   },
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 0.1,
+    "last_pull_age_min": 55.0,
     "attribution_confidence": "estimated"
   },
   "summary": {
@@ -131,9 +131,9 @@
     }
   ],
   "immediate_actions": [
+    "Pacing too slow: increase delivery on top efficient campaigns by ~10-15%.",
     "Scale: 2 (Strong CTR + low CPC with acceptable frequency)",
-    "Scale: 1 (Strong CTR + low CPC with acceptable frequency)",
-    "Confidence LOW: prioritize tracking/event reliability before major budget shifts."
+    "Scale: 1 (Strong CTR + low CPC with acceptable frequency)"
   ],
   "alert": {
     "should_alert": true,
