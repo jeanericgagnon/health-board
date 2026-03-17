@@ -1,27 +1,27 @@
 {
-  "generated_at": "2026-03-17T21:00:02.974846Z",
-  "source_updated_at": "2026-03-17T21:00:00.548362Z",
+  "generated_at": "2026-03-17T21:02:40.597194Z",
+  "source_updated_at": "2026-03-17T21:02:39.041584Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
-    "today_spend": 23.09,
-    "expected_by_now": 35.0,
-    "pace_ratio": 0.66,
-    "status": "too_slow"
+    "today_spend": 25.36,
+    "expected_by_now": 35.08,
+    "pace_ratio": 0.723,
+    "status": "on_track"
   },
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 57.2,
+    "last_pull_age_min": 0.0,
     "attribution_confidence": "estimated"
   },
   "summary": {
-    "total_spend": 474.4,
-    "total_clicks": 4457,
-    "total_impressions": 65141,
-    "daily_gain_live": 53,
-    "current_followers_live": 107074
+    "total_spend": 476.64,
+    "total_clicks": 4476,
+    "total_impressions": 65520,
+    "daily_gain_live": 59,
+    "current_followers_live": 107080
   },
   "recommendations": {
     "scale": [
@@ -51,7 +51,7 @@
           "anomaly_spend"
         ],
         "expected_impact": "high",
-        "fatigue_score": 1.0
+        "fatigue_score": 1.2
       },
       {
         "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
@@ -78,9 +78,9 @@
       "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
       "ad_id": "6955113574157",
       "ad_name": "Tailored web traffic campaign 3/11/2026 Ad",
-      "ctr": 7.901,
+      "ctr": 7.895,
       "cpc": 0.085,
-      "spend": 122.39,
+      "spend": 122.94,
       "creative_name": "Not your average night out: drinks + ideas + people who actually want to learn something. 2026-03-11-d903cc461832f20f0639f16d24cca0d4",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Not your average night out: drinks + ideas + people who actually want to learn something."
@@ -89,9 +89,9 @@
       "campaign": "1",
       "ad_id": "6951024654157",
       "ad_name": "1",
-      "ctr": 6.206,
+      "ctr": 6.211,
       "cpc": 0.109,
-      "spend": 82.84,
+      "spend": 83.21,
       "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-abc028c632e0436a68507d2aeb3662fe",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so you\u2019re not gonna want to miss a drop! \ud83c\udf9f\ufe0f\n\n#thinkanddrink #sandiego #orangecountyevents #thesocialstudy"
@@ -100,9 +100,9 @@
       "campaign": "2",
       "ad_id": "6953786714557",
       "ad_name": "1",
-      "ctr": 6.921,
+      "ctr": 6.92,
       "cpc": 0.11,
-      "spend": 106.1,
+      "spend": 106.65,
       "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-97c4eb0f10f7736f63148e943baac553",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so you\u2019re not gonna want to miss a drop! \ud83c\udf9f\ufe0f\n\n#thinkanddrink #sandiego #orangecountyevents #thesocialstudy"
@@ -111,9 +111,9 @@
       "campaign": "1",
       "ad_id": "6953785406357",
       "ad_name": "1",
-      "ctr": 6.805,
-      "cpc": 0.11,
-      "spend": 93.56,
+      "ctr": 6.688,
+      "cpc": 0.111,
+      "spend": 93.98,
       "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-97c4eb0f10f7736f63148e943baac553",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so you\u2019re not gonna want to miss a drop! \ud83c\udf9f\ufe0f\n\n#thinkanddrink #sandiego #orangecountyevents #thesocialstudy"
@@ -122,18 +122,18 @@
       "campaign": "2",
       "ad_id": "6953786714357",
       "ad_name": "1",
-      "ctr": 4.647,
+      "ctr": 4.609,
       "cpc": 0.154,
-      "spend": 69.48,
+      "spend": 69.86,
       "creative_name": "Calling all San Diego, Orange County, and Denver intellectuals \ud83e\udde0 This one\u2019s for you. Tickets drop e 2026-03-08-8687ee2e441bfe97bf6ef5e14260fb48",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Calling all San Diego, Orange County, and Denver intellectuals \ud83e\udde0 This one\u2019s for you. Tickets drop every Sunday at 10 AM PST. \n\n#sandiegoevents #orangecountyevents #thinkanddrink #thesocialstudy"
     }
   ],
   "immediate_actions": [
-    "Pacing too slow: increase delivery on top efficient campaigns by ~10-15%.",
     "Scale: 1 (Strong CTR + low CPC with acceptable frequency)",
-    "Scale: 2 (Strong CTR + low CPC with acceptable frequency)"
+    "Scale: 2 (Strong CTR + low CPC with acceptable frequency)",
+    "Confidence LOW: prioritize tracking/event reliability before major budget shifts."
   ],
   "alert": {
     "should_alert": true,
