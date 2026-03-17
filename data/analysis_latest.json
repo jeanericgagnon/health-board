@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-03-17T08:02:38.661099Z",
-  "source_updated_at": "2026-03-17T08:02:36.856377Z",
+  "generated_at": "2026-03-17T09:02:31.292910Z",
+  "source_updated_at": "2026-03-17T09:02:29.880453Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
-    "today_spend": 1.54,
-    "expected_by_now": 2.58,
-    "pace_ratio": 0.596,
-    "status": "too_slow"
+    "today_spend": 3.6,
+    "expected_by_now": 5.08,
+    "pace_ratio": 0.708,
+    "status": "on_track"
   },
   "data_health": {
     "status": "ok",
@@ -17,14 +17,28 @@
     "attribution_confidence": "estimated"
   },
   "summary": {
-    "total_spend": 452.8,
-    "total_clicks": 4232,
-    "total_impressions": 62066,
-    "daily_gain_live": 14,
-    "current_followers_live": 107035
+    "total_spend": 454.86,
+    "total_clicks": 4241,
+    "total_impressions": 62389,
+    "daily_gain_live": 17,
+    "current_followers_live": 107038
   },
   "recommendations": {
     "scale": [
+      {
+        "campaign": "2",
+        "campaign_id": "6953786714157",
+        "tag": "Scale",
+        "reason": "Strong CTR + low CPC with acceptable frequency",
+        "confidence": "high",
+        "priority": "normal",
+        "diagnostic_tags": [
+          "efficiency",
+          "anomaly_spend"
+        ],
+        "expected_impact": "high",
+        "fatigue_score": 1.3
+      },
       {
         "campaign": "1",
         "campaign_id": "6951024653957",
@@ -38,20 +52,6 @@
         ],
         "expected_impact": "high",
         "fatigue_score": 0.0
-      },
-      {
-        "campaign": "2",
-        "campaign_id": "6953786714157",
-        "tag": "Scale",
-        "reason": "Strong CTR + low CPC with acceptable frequency",
-        "confidence": "high",
-        "priority": "normal",
-        "diagnostic_tags": [
-          "efficiency",
-          "anomaly_spend"
-        ],
-        "expected_impact": "high",
-        "fatigue_score": 0.5
       },
       {
         "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
@@ -78,32 +78,32 @@
       "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
       "ad_id": "6955113574157",
       "ad_name": "Tailored web traffic campaign 3/11/2026 Ad",
-      "ctr": 7.883,
-      "cpc": 0.085,
-      "spend": 114.53,
+      "ctr": 7.728,
+      "cpc": 0.086,
+      "spend": 114.7,
       "creative_name": "Not your average night out: drinks + ideas + people who actually want to learn something. 2026-03-11-d903cc461832f20f0639f16d24cca0d4",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Not your average night out: drinks + ideas + people who actually want to learn something."
     },
     {
-      "campaign": "2",
-      "ad_id": "6953786714557",
+      "campaign": "1",
+      "ad_id": "6951024654157",
       "ad_name": "1",
-      "ctr": 7.054,
-      "cpc": 0.109,
-      "spend": 102.8,
-      "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-97c4eb0f10f7736f63148e943baac553",
+      "ctr": 6.056,
+      "cpc": 0.11,
+      "spend": 79.52,
+      "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-abc028c632e0436a68507d2aeb3662fe",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so you\u2019re not gonna want to miss a drop! \ud83c\udf9f\ufe0f\n\n#thinkanddrink #sandiego #orangecountyevents #thesocialstudy"
     },
     {
-      "campaign": "1",
-      "ad_id": "6951024654157",
+      "campaign": "2",
+      "ad_id": "6953786714557",
       "ad_name": "1",
-      "ctr": 6.064,
-      "cpc": 0.11,
-      "spend": 79.4,
-      "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-abc028c632e0436a68507d2aeb3662fe",
+      "ctr": 6.68,
+      "cpc": 0.111,
+      "spend": 104.37,
+      "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-97c4eb0f10f7736f63148e943baac553",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so you\u2019re not gonna want to miss a drop! \ud83c\udf9f\ufe0f\n\n#thinkanddrink #sandiego #orangecountyevents #thesocialstudy"
     },
@@ -111,9 +111,9 @@
       "campaign": "1",
       "ad_id": "6953785406357",
       "ad_name": "1",
-      "ctr": 6.814,
+      "ctr": 6.386,
       "cpc": 0.112,
-      "spend": 90.15,
+      "spend": 90.3,
       "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-97c4eb0f10f7736f63148e943baac553",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so you\u2019re not gonna want to miss a drop! \ud83c\udf9f\ufe0f\n\n#thinkanddrink #sandiego #orangecountyevents #thesocialstudy"
@@ -122,29 +122,31 @@
       "campaign": "2",
       "ad_id": "6953786714357",
       "ad_name": "1",
-      "ctr": 4.453,
-      "cpc": 0.155,
-      "spend": 65.92,
+      "ctr": 4.596,
+      "cpc": 0.154,
+      "spend": 65.97,
       "creative_name": "Calling all San Diego, Orange County, and Denver intellectuals \ud83e\udde0 This one\u2019s for you. Tickets drop e 2026-03-08-8687ee2e441bfe97bf6ef5e14260fb48",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Calling all San Diego, Orange County, and Denver intellectuals \ud83e\udde0 This one\u2019s for you. Tickets drop every Sunday at 10 AM PST. \n\n#sandiegoevents #orangecountyevents #thinkanddrink #thesocialstudy"
     }
   ],
   "immediate_actions": [
-    "Pacing too slow: increase delivery on top efficient campaigns by ~10-15%.",
+    "Scale: 2 (Strong CTR + low CPC with acceptable frequency)",
     "Scale: 1 (Strong CTR + low CPC with acceptable frequency)",
-    "Scale: 2 (Strong CTR + low CPC with acceptable frequency)"
+    "Confidence LOW: prioritize tracking/event reliability before major budget shifts."
   ],
   "alert": {
     "should_alert": true,
     "reasons": [
-      "pacing_status_changed"
+      "pacing_status_changed",
+      "scale_candidates_changed"
     ]
   },
   "change_digest": {
     "has_material_change": true,
     "reasons": [
-      "pacing_status_changed"
+      "pacing_status_changed",
+      "scale_candidates_changed"
     ]
   }
 }
