@@ -1,27 +1,27 @@
 {
-  "generated_at": "2026-03-18T13:00:03.152051Z",
-  "source_updated_at": "2026-03-18T13:00:01.208958Z",
+  "generated_at": "2026-03-18T13:02:39.048238Z",
+  "source_updated_at": "2026-03-18T13:02:37.643911Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
-    "today_spend": 7.25,
-    "expected_by_now": 15.0,
-    "pace_ratio": 0.483,
+    "today_spend": 8.59,
+    "expected_by_now": 15.08,
+    "pace_ratio": 0.57,
     "status": "too_slow"
   },
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 57.3,
+    "last_pull_age_min": 0.0,
     "attribution_confidence": "estimated"
   },
   "summary": {
-    "total_spend": 518.07,
-    "total_clicks": 4891,
-    "total_impressions": 71694,
-    "daily_gain_live": 24,
-    "current_followers_live": 107195
+    "total_spend": 519.41,
+    "total_clicks": 4901,
+    "total_impressions": 71885,
+    "daily_gain_live": 23,
+    "current_followers_live": 107194
   },
   "recommendations": {
     "scale": [
@@ -51,7 +51,7 @@
           "anomaly_spend"
         ],
         "expected_impact": "high",
-        "fatigue_score": 3.0
+        "fatigue_score": 2.9
       },
       {
         "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
@@ -65,7 +65,7 @@
           "anomaly_spend"
         ],
         "expected_impact": "high",
-        "fatigue_score": 0.0
+        "fatigue_score": 0.1
       }
     ],
     "cut": [],
@@ -79,9 +79,9 @@
       "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
       "ad_id": "6955113574157",
       "ad_name": "Tailored web traffic campaign 3/11/2026 Ad",
-      "ctr": 7.884,
+      "ctr": 7.768,
       "cpc": 0.084,
-      "spend": 135.83,
+      "spend": 136.4,
       "creative_name": "Not your average night out: drinks + ideas + people who actually want to learn something. 2026-03-11-d903cc461832f20f0639f16d24cca0d4",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Not your average night out: drinks + ideas + people who actually want to learn something."
@@ -90,9 +90,9 @@
       "campaign": "1",
       "ad_id": "6951024654157",
       "ad_name": "1",
-      "ctr": 6.186,
-      "cpc": 0.109,
-      "spend": 90.31,
+      "ctr": 6.264,
+      "cpc": 0.108,
+      "spend": 90.58,
       "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-abc028c632e0436a68507d2aeb3662fe",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so you\u2019re not gonna want to miss a drop! \ud83c\udf9f\ufe0f\n\n#thinkanddrink #sandiego #orangecountyevents #thesocialstudy"
@@ -101,9 +101,9 @@
       "campaign": "1",
       "ad_id": "6953785406357",
       "ad_name": "1",
-      "ctr": 6.56,
+      "ctr": 6.473,
       "cpc": 0.11,
-      "spend": 101.14,
+      "spend": 101.31,
       "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-97c4eb0f10f7736f63148e943baac553",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so you\u2019re not gonna want to miss a drop! \ud83c\udf9f\ufe0f\n\n#thinkanddrink #sandiego #orangecountyevents #thesocialstudy"
@@ -112,7 +112,7 @@
       "campaign": "2",
       "ad_id": "6953786714557",
       "ad_name": "1",
-      "ctr": 6.776,
+      "ctr": 6.772,
       "cpc": 0.112,
       "spend": 116.24,
       "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-97c4eb0f10f7736f63148e943baac553",
@@ -123,9 +123,9 @@
       "campaign": "2",
       "ad_id": "6953786714357",
       "ad_name": "1",
-      "ctr": 4.273,
+      "ctr": 4.455,
       "cpc": 0.155,
-      "spend": 74.55,
+      "spend": 74.88,
       "creative_name": "Calling all San Diego, Orange County, and Denver intellectuals \ud83e\udde0 This one\u2019s for you. Tickets drop e 2026-03-08-8687ee2e441bfe97bf6ef5e14260fb48",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Calling all San Diego, Orange County, and Denver intellectuals \ud83e\udde0 This one\u2019s for you. Tickets drop every Sunday at 10 AM PST. \n\n#sandiegoevents #orangecountyevents #thinkanddrink #thesocialstudy"
