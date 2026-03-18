@@ -1,18 +1,18 @@
 {
-  "updated_at": "2026-03-18T09:02:34.889607Z",
+  "updated_at": "2026-03-18T10:02:36.200398Z",
   "summary": {
     "ad_account_id": "act_1379452680603809",
-    "total_spend": 516.01,
-    "total_clicks": 4875,
-    "total_impressions": 71433,
+    "total_spend": 516.68,
+    "total_clicks": 4880,
+    "total_impressions": 71517,
     "total_follows": 0,
     "blended_cost_per_follow": null,
     "since": null,
     "until": null,
-    "current_followers_live": 107191,
-    "daily_gain_live": 20,
+    "current_followers_live": 107192,
+    "daily_gain_live": 21,
     "baseline_followers": 107171,
-    "total_link_clicks": 4872,
+    "total_link_clicks": 4878,
     "total_outbound_clicks": 0,
     "total_landing_page_views": 0,
     "cost_per_landing_page_view": null,
@@ -23,23 +23,124 @@
   },
   "campaigns": [
     {
-      "campaign": "2",
-      "campaign_id": "6953786714157",
-      "spend": 190.54,
-      "clicks": 1522,
-      "impressions": 25225,
-      "reach": 24747,
-      "link_clicks": 1524,
+      "campaign": "1",
+      "campaign_id": "6951024653957",
+      "spend": 190.77,
+      "clicks": 1745,
+      "impressions": 26183,
+      "reach": 25821,
+      "link_clicks": 1735,
       "outbound_clicks": 0,
       "landing_page_views": 0,
-      "ctr": 5.558,
-      "cpm": 7.355,
+      "ctr": 6.291,
+      "cpm": 7.228,
+      "cpc": 0.109,
+      "outbound_ctr": 0.0,
+      "lpv_rate": null,
+      "cost_per_lpv": null,
+      "frequency_avg": 1.014,
+      "first_time_impression_ratio": 98.617,
+      "adsets": [
+        {
+          "adset": "Test - New Traffic Ad set with recommended settings",
+          "adset_id": "6953785406157",
+          "spend": 100.85,
+          "clicks": 918,
+          "impressions": 13593,
+          "reach": 13393,
+          "link_clicks": 913,
+          "outbound_clicks": 0,
+          "landing_page_views": 0,
+          "ctr": 6.519,
+          "cpm": 7.401,
+          "cpc": 0.11,
+          "outbound_ctr": 0.0,
+          "lpv_rate": null,
+          "cost_per_lpv": null,
+          "frequency_avg": 1.015,
+          "first_time_impression_ratio": 98.529,
+          "ads": [
+            {
+              "ad": "1",
+              "ad_id": "6953785406357",
+              "spend": 100.85,
+              "clicks": 918,
+              "impressions": 13593,
+              "reach": 13393,
+              "link_clicks": 913,
+              "outbound_clicks": 0,
+              "landing_page_views": 0,
+              "ctr": 6.519,
+              "cpm": 7.401,
+              "cpc": 0.11,
+              "outbound_ctr": 0.0,
+              "lpv_rate": null,
+              "cost_per_lpv": null,
+              "frequency_avg": 1.015,
+              "first_time_impression_ratio": 98.529
+            }
+          ]
+        },
+        {
+          "adset": "New Traffic Ad set with recommended settings",
+          "adset_id": "6951024653757",
+          "spend": 89.92,
+          "clicks": 827,
+          "impressions": 12590,
+          "reach": 12428,
+          "link_clicks": 822,
+          "outbound_clicks": 0,
+          "landing_page_views": 0,
+          "ctr": 6.062,
+          "cpm": 7.055,
+          "cpc": 0.109,
+          "outbound_ctr": 0.0,
+          "lpv_rate": null,
+          "cost_per_lpv": null,
+          "frequency_avg": 1.014,
+          "first_time_impression_ratio": 98.713,
+          "ads": [
+            {
+              "ad": "1",
+              "ad_id": "6951024654157",
+              "spend": 89.92,
+              "clicks": 827,
+              "impressions": 12590,
+              "reach": 12428,
+              "link_clicks": 822,
+              "outbound_clicks": 0,
+              "landing_page_views": 0,
+              "ctr": 6.062,
+              "cpm": 7.055,
+              "cpc": 0.109,
+              "outbound_ctr": 0.0,
+              "lpv_rate": null,
+              "cost_per_lpv": null,
+              "frequency_avg": 1.014,
+              "first_time_impression_ratio": 98.713
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "campaign": "2",
+      "campaign_id": "6953786714157",
+      "spend": 190.56,
+      "clicks": 1522,
+      "impressions": 25229,
+      "reach": 24750,
+      "link_clicks": 1525,
+      "outbound_clicks": 0,
+      "landing_page_views": 0,
+      "ctr": 5.551,
+      "cpm": 7.352,
       "cpc": 0.125,
       "outbound_ctr": 0.0,
       "lpv_rate": null,
       "cost_per_lpv": null,
       "frequency_avg": 1.02,
-      "first_time_impression_ratio": 98.105,
+      "first_time_impression_ratio": 98.101,
       "adsets": [
         {
           "adset": "Test - New Traffic Ad set with recommended settings",
@@ -84,141 +185,40 @@
         {
           "adset": "New Traffic Ad set with recommended settings",
           "adset_id": "6953786714757",
-          "spend": 74.3,
+          "spend": 74.32,
           "clicks": 480,
-          "impressions": 9867,
-          "reach": 9603,
-          "link_clicks": 488,
+          "impressions": 9871,
+          "reach": 9606,
+          "link_clicks": 489,
           "outbound_clicks": 0,
           "landing_page_views": 0,
-          "ctr": 4.34,
-          "cpm": 7.185,
+          "ctr": 4.327,
+          "cpm": 7.179,
           "cpc": 0.155,
           "outbound_ctr": 0.0,
           "lpv_rate": null,
           "cost_per_lpv": null,
           "frequency_avg": 1.028,
-          "first_time_impression_ratio": 97.324,
+          "first_time_impression_ratio": 97.315,
           "ads": [
             {
               "ad": "1",
               "ad_id": "6953786714357",
-              "spend": 74.3,
+              "spend": 74.32,
               "clicks": 480,
-              "impressions": 9867,
-              "reach": 9603,
-              "link_clicks": 488,
+              "impressions": 9871,
+              "reach": 9606,
+              "link_clicks": 489,
               "outbound_clicks": 0,
               "landing_page_views": 0,
-              "ctr": 4.34,
-              "cpm": 7.185,
+              "ctr": 4.327,
+              "cpm": 7.179,
               "cpc": 0.155,
               "outbound_ctr": 0.0,
               "lpv_rate": null,
               "cost_per_lpv": null,
               "frequency_avg": 1.028,
-              "first_time_impression_ratio": 97.324
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "campaign": "1",
-      "campaign_id": "6951024653957",
-      "spend": 190.44,
-      "clicks": 1742,
-      "impressions": 26145,
-      "reach": 25775,
-      "link_clicks": 1733,
-      "outbound_clicks": 0,
-      "landing_page_views": 0,
-      "ctr": 6.244,
-      "cpm": 7.211,
-      "cpc": 0.109,
-      "outbound_ctr": 0.0,
-      "lpv_rate": null,
-      "cost_per_lpv": null,
-      "frequency_avg": 1.015,
-      "first_time_impression_ratio": 98.585,
-      "adsets": [
-        {
-          "adset": "Test - New Traffic Ad set with recommended settings",
-          "adset_id": "6953785406157",
-          "spend": 100.64,
-          "clicks": 915,
-          "impressions": 13570,
-          "reach": 13370,
-          "link_clicks": 911,
-          "outbound_clicks": 0,
-          "landing_page_views": 0,
-          "ctr": 6.363,
-          "cpm": 7.378,
-          "cpc": 0.11,
-          "outbound_ctr": 0.0,
-          "lpv_rate": null,
-          "cost_per_lpv": null,
-          "frequency_avg": 1.015,
-          "first_time_impression_ratio": 98.526,
-          "ads": [
-            {
-              "ad": "1",
-              "ad_id": "6953785406357",
-              "spend": 100.64,
-              "clicks": 915,
-              "impressions": 13570,
-              "reach": 13370,
-              "link_clicks": 911,
-              "outbound_clicks": 0,
-              "landing_page_views": 0,
-              "ctr": 6.363,
-              "cpm": 7.378,
-              "cpc": 0.11,
-              "outbound_ctr": 0.0,
-              "lpv_rate": null,
-              "cost_per_lpv": null,
-              "frequency_avg": 1.015,
-              "first_time_impression_ratio": 98.526
-            }
-          ]
-        },
-        {
-          "adset": "New Traffic Ad set with recommended settings",
-          "adset_id": "6951024653757",
-          "spend": 89.8,
-          "clicks": 827,
-          "impressions": 12575,
-          "reach": 12405,
-          "link_clicks": 822,
-          "outbound_clicks": 0,
-          "landing_page_views": 0,
-          "ctr": 6.126,
-          "cpm": 7.044,
-          "cpc": 0.109,
-          "outbound_ctr": 0.0,
-          "lpv_rate": null,
-          "cost_per_lpv": null,
-          "frequency_avg": 1.014,
-          "first_time_impression_ratio": 98.648,
-          "ads": [
-            {
-              "ad": "1",
-              "ad_id": "6951024654157",
-              "spend": 89.8,
-              "clicks": 827,
-              "impressions": 12575,
-              "reach": 12405,
-              "link_clicks": 822,
-              "outbound_clicks": 0,
-              "landing_page_views": 0,
-              "ctr": 6.126,
-              "cpm": 7.044,
-              "cpc": 0.109,
-              "outbound_ctr": 0.0,
-              "lpv_rate": null,
-              "cost_per_lpv": null,
-              "frequency_avg": 1.014,
-              "first_time_impression_ratio": 98.648
+              "first_time_impression_ratio": 97.315
             }
           ]
         }
@@ -227,59 +227,59 @@
     {
       "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
       "campaign_id": "6955113574357",
-      "spend": 135.08,
-      "clicks": 1611,
-      "impressions": 20069,
-      "reach": 19603,
-      "link_clicks": 1615,
+      "spend": 135.35,
+      "clicks": 1613,
+      "impressions": 20105,
+      "reach": 19648,
+      "link_clicks": 1618,
       "outbound_clicks": 0,
       "landing_page_views": 0,
-      "ctr": 8.033,
-      "cpm": 6.907,
+      "ctr": 7.964,
+      "cpm": 6.9,
       "cpc": 0.084,
       "outbound_ctr": 0.0,
       "lpv_rate": null,
       "cost_per_lpv": null,
       "frequency_avg": 1.024,
-      "first_time_impression_ratio": 97.678,
+      "first_time_impression_ratio": 97.727,
       "adsets": [
         {
           "adset": "Tailored web traffic campaign 3/11/2026 Ad set",
           "adset_id": "6955113574557",
-          "spend": 135.08,
-          "clicks": 1611,
-          "impressions": 20069,
-          "reach": 19603,
-          "link_clicks": 1615,
+          "spend": 135.35,
+          "clicks": 1613,
+          "impressions": 20105,
+          "reach": 19648,
+          "link_clicks": 1618,
           "outbound_clicks": 0,
           "landing_page_views": 0,
-          "ctr": 8.033,
-          "cpm": 6.907,
+          "ctr": 7.964,
+          "cpm": 6.9,
           "cpc": 0.084,
           "outbound_ctr": 0.0,
           "lpv_rate": null,
           "cost_per_lpv": null,
           "frequency_avg": 1.024,
-          "first_time_impression_ratio": 97.678,
+          "first_time_impression_ratio": 97.727,
           "ads": [
             {
               "ad": "Tailored web traffic campaign 3/11/2026 Ad",
               "ad_id": "6955113574157",
-              "spend": 135.08,
-              "clicks": 1611,
-              "impressions": 20069,
-              "reach": 19603,
-              "link_clicks": 1615,
+              "spend": 135.35,
+              "clicks": 1613,
+              "impressions": 20105,
+              "reach": 19648,
+              "link_clicks": 1618,
               "outbound_clicks": 0,
               "landing_page_views": 0,
-              "ctr": 8.033,
-              "cpm": 6.907,
+              "ctr": 7.964,
+              "cpm": 6.9,
               "cpc": 0.084,
               "outbound_ctr": 0.0,
               "lpv_rate": null,
               "cost_per_lpv": null,
               "frequency_avg": 1.024,
-              "first_time_impression_ratio": 97.678
+              "first_time_impression_ratio": 97.727
             }
           ]
         }
@@ -288,23 +288,124 @@
   ],
   "top_campaigns": [
     {
-      "campaign": "2",
-      "campaign_id": "6953786714157",
-      "spend": 190.54,
-      "clicks": 1522,
-      "impressions": 25225,
-      "reach": 24747,
-      "link_clicks": 1524,
+      "campaign": "1",
+      "campaign_id": "6951024653957",
+      "spend": 190.77,
+      "clicks": 1745,
+      "impressions": 26183,
+      "reach": 25821,
+      "link_clicks": 1735,
       "outbound_clicks": 0,
       "landing_page_views": 0,
-      "ctr": 5.558,
-      "cpm": 7.355,
+      "ctr": 6.291,
+      "cpm": 7.228,
+      "cpc": 0.109,
+      "outbound_ctr": 0.0,
+      "lpv_rate": null,
+      "cost_per_lpv": null,
+      "frequency_avg": 1.014,
+      "first_time_impression_ratio": 98.617,
+      "adsets": [
+        {
+          "adset": "Test - New Traffic Ad set with recommended settings",
+          "adset_id": "6953785406157",
+          "spend": 100.85,
+          "clicks": 918,
+          "impressions": 13593,
+          "reach": 13393,
+          "link_clicks": 913,
+          "outbound_clicks": 0,
+          "landing_page_views": 0,
+          "ctr": 6.519,
+          "cpm": 7.401,
+          "cpc": 0.11,
+          "outbound_ctr": 0.0,
+          "lpv_rate": null,
+          "cost_per_lpv": null,
+          "frequency_avg": 1.015,
+          "first_time_impression_ratio": 98.529,
+          "ads": [
+            {
+              "ad": "1",
+              "ad_id": "6953785406357",
+              "spend": 100.85,
+              "clicks": 918,
+              "impressions": 13593,
+              "reach": 13393,
+              "link_clicks": 913,
+              "outbound_clicks": 0,
+              "landing_page_views": 0,
+              "ctr": 6.519,
+              "cpm": 7.401,
+              "cpc": 0.11,
+              "outbound_ctr": 0.0,
+              "lpv_rate": null,
+              "cost_per_lpv": null,
+              "frequency_avg": 1.015,
+              "first_time_impression_ratio": 98.529
+            }
+          ]
+        },
+        {
+          "adset": "New Traffic Ad set with recommended settings",
+          "adset_id": "6951024653757",
+          "spend": 89.92,
+          "clicks": 827,
+          "impressions": 12590,
+          "reach": 12428,
+          "link_clicks": 822,
+          "outbound_clicks": 0,
+          "landing_page_views": 0,
+          "ctr": 6.062,
+          "cpm": 7.055,
+          "cpc": 0.109,
+          "outbound_ctr": 0.0,
+          "lpv_rate": null,
+          "cost_per_lpv": null,
+          "frequency_avg": 1.014,
+          "first_time_impression_ratio": 98.713,
+          "ads": [
+            {
+              "ad": "1",
+              "ad_id": "6951024654157",
+              "spend": 89.92,
+              "clicks": 827,
+              "impressions": 12590,
+              "reach": 12428,
+              "link_clicks": 822,
+              "outbound_clicks": 0,
+              "landing_page_views": 0,
+              "ctr": 6.062,
+              "cpm": 7.055,
+              "cpc": 0.109,
+              "outbound_ctr": 0.0,
+              "lpv_rate": null,
+              "cost_per_lpv": null,
+              "frequency_avg": 1.014,
+              "first_time_impression_ratio": 98.713
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "campaign": "2",
+      "campaign_id": "6953786714157",
+      "spend": 190.56,
+      "clicks": 1522,
+      "impressions": 25229,
+      "reach": 24750,
+      "link_clicks": 1525,
+      "outbound_clicks": 0,
+      "landing_page_views": 0,
+      "ctr": 5.551,
+      "cpm": 7.352,
       "cpc": 0.125,
       "outbound_ctr": 0.0,
       "lpv_rate": null,
       "cost_per_lpv": null,
       "frequency_avg": 1.02,
-      "first_time_impression_ratio": 98.105,
+      "first_time_impression_ratio": 98.101,
       "adsets": [
         {
           "adset": "Test - New Traffic Ad set with recommended settings",
@@ -349,141 +450,40 @@
         {
           "adset": "New Traffic Ad set with recommended settings",
           "adset_id": "6953786714757",
-          "spend": 74.3,
+          "spend": 74.32,
           "clicks": 480,
-          "impressions": 9867,
-          "reach": 9603,
-          "link_clicks": 488,
+          "impressions": 9871,
+          "reach": 9606,
+          "link_clicks": 489,
           "outbound_clicks": 0,
           "landing_page_views": 0,
-          "ctr": 4.34,
-          "cpm": 7.185,
+          "ctr": 4.327,
+          "cpm": 7.179,
           "cpc": 0.155,
           "outbound_ctr": 0.0,
           "lpv_rate": null,
           "cost_per_lpv": null,
           "frequency_avg": 1.028,
-          "first_time_impression_ratio": 97.324,
+          "first_time_impression_ratio": 97.315,
           "ads": [
             {
               "ad": "1",
               "ad_id": "6953786714357",
-              "spend": 74.3,
+              "spend": 74.32,
               "clicks": 480,
-              "impressions": 9867,
-              "reach": 9603,
-              "link_clicks": 488,
+              "impressions": 9871,
+              "reach": 9606,
+              "link_clicks": 489,
               "outbound_clicks": 0,
               "landing_page_views": 0,
-              "ctr": 4.34,
-              "cpm": 7.185,
+              "ctr": 4.327,
+              "cpm": 7.179,
               "cpc": 0.155,
               "outbound_ctr": 0.0,
               "lpv_rate": null,
               "cost_per_lpv": null,
               "frequency_avg": 1.028,
-              "first_time_impression_ratio": 97.324
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "campaign": "1",
-      "campaign_id": "6951024653957",
-      "spend": 190.44,
-      "clicks": 1742,
-      "impressions": 26145,
-      "reach": 25775,
-      "link_clicks": 1733,
-      "outbound_clicks": 0,
-      "landing_page_views": 0,
-      "ctr": 6.244,
-      "cpm": 7.211,
-      "cpc": 0.109,
-      "outbound_ctr": 0.0,
-      "lpv_rate": null,
-      "cost_per_lpv": null,
-      "frequency_avg": 1.015,
-      "first_time_impression_ratio": 98.585,
-      "adsets": [
-        {
-          "adset": "Test - New Traffic Ad set with recommended settings",
-          "adset_id": "6953785406157",
-          "spend": 100.64,
-          "clicks": 915,
-          "impressions": 13570,
-          "reach": 13370,
-          "link_clicks": 911,
-          "outbound_clicks": 0,
-          "landing_page_views": 0,
-          "ctr": 6.363,
-          "cpm": 7.378,
-          "cpc": 0.11,
-          "outbound_ctr": 0.0,
-          "lpv_rate": null,
-          "cost_per_lpv": null,
-          "frequency_avg": 1.015,
-          "first_time_impression_ratio": 98.526,
-          "ads": [
-            {
-              "ad": "1",
-              "ad_id": "6953785406357",
-              "spend": 100.64,
-              "clicks": 915,
-              "impressions": 13570,
-              "reach": 13370,
-              "link_clicks": 911,
-              "outbound_clicks": 0,
-              "landing_page_views": 0,
-              "ctr": 6.363,
-              "cpm": 7.378,
-              "cpc": 0.11,
-              "outbound_ctr": 0.0,
-              "lpv_rate": null,
-              "cost_per_lpv": null,
-              "frequency_avg": 1.015,
-              "first_time_impression_ratio": 98.526
-            }
-          ]
-        },
-        {
-          "adset": "New Traffic Ad set with recommended settings",
-          "adset_id": "6951024653757",
-          "spend": 89.8,
-          "clicks": 827,
-          "impressions": 12575,
-          "reach": 12405,
-          "link_clicks": 822,
-          "outbound_clicks": 0,
-          "landing_page_views": 0,
-          "ctr": 6.126,
-          "cpm": 7.044,
-          "cpc": 0.109,
-          "outbound_ctr": 0.0,
-          "lpv_rate": null,
-          "cost_per_lpv": null,
-          "frequency_avg": 1.014,
-          "first_time_impression_ratio": 98.648,
-          "ads": [
-            {
-              "ad": "1",
-              "ad_id": "6951024654157",
-              "spend": 89.8,
-              "clicks": 827,
-              "impressions": 12575,
-              "reach": 12405,
-              "link_clicks": 822,
-              "outbound_clicks": 0,
-              "landing_page_views": 0,
-              "ctr": 6.126,
-              "cpm": 7.044,
-              "cpc": 0.109,
-              "outbound_ctr": 0.0,
-              "lpv_rate": null,
-              "cost_per_lpv": null,
-              "frequency_avg": 1.014,
-              "first_time_impression_ratio": 98.648
+              "first_time_impression_ratio": 97.315
             }
           ]
         }
@@ -492,59 +492,59 @@
     {
       "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
       "campaign_id": "6955113574357",
-      "spend": 135.08,
-      "clicks": 1611,
-      "impressions": 20069,
-      "reach": 19603,
-      "link_clicks": 1615,
+      "spend": 135.35,
+      "clicks": 1613,
+      "impressions": 20105,
+      "reach": 19648,
+      "link_clicks": 1618,
       "outbound_clicks": 0,
       "landing_page_views": 0,
-      "ctr": 8.033,
-      "cpm": 6.907,
+      "ctr": 7.964,
+      "cpm": 6.9,
       "cpc": 0.084,
       "outbound_ctr": 0.0,
       "lpv_rate": null,
       "cost_per_lpv": null,
       "frequency_avg": 1.024,
-      "first_time_impression_ratio": 97.678,
+      "first_time_impression_ratio": 97.727,
       "adsets": [
         {
           "adset": "Tailored web traffic campaign 3/11/2026 Ad set",
           "adset_id": "6955113574557",
-          "spend": 135.08,
-          "clicks": 1611,
-          "impressions": 20069,
-          "reach": 19603,
-          "link_clicks": 1615,
+          "spend": 135.35,
+          "clicks": 1613,
+          "impressions": 20105,
+          "reach": 19648,
+          "link_clicks": 1618,
           "outbound_clicks": 0,
           "landing_page_views": 0,
-          "ctr": 8.033,
-          "cpm": 6.907,
+          "ctr": 7.964,
+          "cpm": 6.9,
           "cpc": 0.084,
           "outbound_ctr": 0.0,
           "lpv_rate": null,
           "cost_per_lpv": null,
           "frequency_avg": 1.024,
-          "first_time_impression_ratio": 97.678,
+          "first_time_impression_ratio": 97.727,
           "ads": [
             {
               "ad": "Tailored web traffic campaign 3/11/2026 Ad",
               "ad_id": "6955113574157",
-              "spend": 135.08,
-              "clicks": 1611,
-              "impressions": 20069,
-              "reach": 19603,
-              "link_clicks": 1615,
+              "spend": 135.35,
+              "clicks": 1613,
+              "impressions": 20105,
+              "reach": 19648,
+              "link_clicks": 1618,
               "outbound_clicks": 0,
               "landing_page_views": 0,
-              "ctr": 8.033,
-              "cpm": 6.907,
+              "ctr": 7.964,
+              "cpm": 6.9,
               "cpc": 0.084,
               "outbound_ctr": 0.0,
               "lpv_rate": null,
               "cost_per_lpv": null,
               "frequency_avg": 1.024,
-              "first_time_impression_ratio": 97.678
+              "first_time_impression_ratio": 97.727
             }
           ]
         }
@@ -907,40 +907,40 @@
       "date": "2026-03-18",
       "campaign_id": "6951024653957",
       "campaign_name": "1",
-      "spend": 1.5,
-      "clicks": 10,
-      "impressions": 202,
+      "spend": 1.83,
+      "clicks": 13,
+      "impressions": 240,
       "landing_page_views": 0,
-      "ctr": 4.95,
-      "cpc": 0.15,
+      "ctr": 5.417,
+      "cpc": 0.141,
       "cost_per_lpv": null,
-      "frequency_avg": 1.081
+      "frequency_avg": 1.03
     },
     {
       "date": "2026-03-18",
       "campaign_id": "6953786714157",
       "campaign_name": "2",
-      "spend": 2.62,
+      "spend": 2.64,
       "clicks": 17,
-      "impressions": 334,
+      "impressions": 338,
       "landing_page_views": 0,
-      "ctr": 5.09,
-      "cpc": 0.154,
+      "ctr": 5.03,
+      "cpc": 0.155,
       "cost_per_lpv": null,
-      "frequency_avg": 1.018
+      "frequency_avg": 1.021
     },
     {
       "date": "2026-03-18",
       "campaign_id": "6955113574357",
       "campaign_name": "Tailored web traffic campaign 3/11/2026 Campaign",
-      "spend": 1.12,
-      "clicks": 12,
-      "impressions": 144,
+      "spend": 1.39,
+      "clicks": 14,
+      "impressions": 180,
       "landing_page_views": 0,
-      "ctr": 8.333,
-      "cpc": 0.093,
+      "ctr": 7.778,
+      "cpc": 0.099,
       "cost_per_lpv": null,
-      "frequency_avg": 1.152
+      "frequency_avg": 1.059
     }
   ],
   "followers_series": [
@@ -1006,7 +1006,7 @@
     },
     {
       "date": "2026-03-18",
-      "followers_total": 107191
+      "followers_total": 107192
     }
   ],
   "followers_daily_series": [
@@ -1087,8 +1087,8 @@
     },
     {
       "date": "2026-03-18",
-      "followers_per_day": 20.0,
-      "followers_total": 107191.0
+      "followers_per_day": 21.0,
+      "followers_total": 107192.0
     }
   ],
   "spend_series": [
@@ -1134,13 +1134,13 @@
     },
     {
       "date": "2026-03-18",
-      "spend": 5.24
+      "spend": 5.86
     }
   ],
   "insights": [
     {
       "type": "working",
-      "text": "Tailored web traffic campaign 3/11/2026 Campaign is most efficient (CPC $0.08, CTR 8.03%)."
+      "text": "Tailored web traffic campaign 3/11/2026 Campaign is most efficient (CPC $0.08, CTR 7.96%)."
     },
     {
       "type": "not_working",
@@ -1152,32 +1152,18 @@
     },
     {
       "type": "working",
-      "text": "Latest daily followers: 20. Keep top campaign structure stable while testing one variable at a time."
+      "text": "Latest daily followers: 21. Keep top campaign structure stable while testing one variable at a time."
     },
     {
       "type": "action",
-      "text": "Pacing watch: spend today is $5.24 vs $60/day target."
+      "text": "Pacing watch: spend today is $5.86 vs $60/day target."
     },
     {
       "type": "action",
-      "text": "Auto recommendations: 2: Scale, 1: Scale, Tailored web traffic campaign 3/11/2026 Campaign: Scale."
+      "text": "Auto recommendations: 1: Scale, 2: Scale, Tailored web traffic campaign 3/11/2026 Campaign: Scale."
     }
   ],
   "recommendations": [
-    {
-      "campaign": "2",
-      "campaign_id": "6953786714157",
-      "tag": "Scale",
-      "reason": "Strong CTR + low CPC with acceptable frequency",
-      "confidence": "high",
-      "priority": "normal",
-      "diagnostic_tags": [
-        "efficiency",
-        "anomaly_spend"
-      ],
-      "expected_impact": "high",
-      "fatigue_score": 2.7
-    },
     {
       "campaign": "1",
       "campaign_id": "6951024653957",
@@ -1191,6 +1177,20 @@
       ],
       "expected_impact": "high",
       "fatigue_score": 0.0
+    },
+    {
+      "campaign": "2",
+      "campaign_id": "6953786714157",
+      "tag": "Scale",
+      "reason": "Strong CTR + low CPC with acceptable frequency",
+      "confidence": "high",
+      "priority": "normal",
+      "diagnostic_tags": [
+        "efficiency",
+        "anomaly_spend"
+      ],
+      "expected_impact": "high",
+      "fatigue_score": 2.7
     },
     {
       "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
@@ -1209,9 +1209,9 @@
   ],
   "pacing": {
     "target_daily": 60.0,
-    "today_spend": 5.24,
-    "expected_by_now": 5.08,
-    "pace_ratio": 1.031,
+    "today_spend": 5.86,
+    "expected_by_now": 7.58,
+    "pace_ratio": 0.773,
     "status": "on_track"
   },
   "geo_efficiency": [
@@ -1316,13 +1316,13 @@
           "frequency_pressure": 0.0,
           "ctr_decay": 0.078,
           "cpc_decay": 0.001,
-          "recent_ctr": 5.669,
+          "recent_ctr": 5.666,
           "baseline_ctr": 6.146,
           "recent_cpc": 0.126,
           "baseline_cpc": 0.125,
-          "recent_frequency_avg": 1.021,
-          "recent_spend": 43.06,
-          "recent_impressions": 6050,
+          "recent_frequency_avg": 1.022,
+          "recent_spend": 43.08,
+          "recent_impressions": 6054,
           "confidence": "low"
         },
         {
@@ -1332,13 +1332,13 @@
           "frequency_pressure": 0.0,
           "ctr_decay": 0.0,
           "cpc_decay": 0.0,
-          "recent_ctr": 6.915,
+          "recent_ctr": 6.921,
           "baseline_ctr": 6.644,
           "recent_cpc": 0.098,
           "baseline_cpc": 0.112,
-          "recent_frequency_avg": 1.009,
-          "recent_spend": 42.15,
-          "recent_impressions": 6204,
+          "recent_frequency_avg": 1.007,
+          "recent_spend": 42.48,
+          "recent_impressions": 6242,
           "confidence": "low"
         },
         {
@@ -1348,13 +1348,13 @@
           "frequency_pressure": 0.0,
           "ctr_decay": 0.0,
           "cpc_decay": 0.0,
-          "recent_ctr": 8.076,
+          "recent_ctr": 8.063,
           "baseline_ctr": 8.004,
-          "recent_cpc": 0.079,
+          "recent_cpc": 0.08,
           "baseline_cpc": 0.086,
-          "recent_frequency_avg": 1.006,
-          "recent_spend": 41.61,
-          "recent_impressions": 6488,
+          "recent_frequency_avg": 1.005,
+          "recent_spend": 41.88,
+          "recent_impressions": 6524,
           "confidence": "low"
         }
       ],
@@ -1382,13 +1382,13 @@
           "frequency_pressure": 0.0,
           "ctr_decay": 0.0,
           "cpc_decay": 0.0,
-          "recent_ctr": 6.943,
+          "recent_ctr": 6.909,
           "baseline_ctr": 6.542,
-          "recent_cpc": 0.096,
+          "recent_cpc": 0.097,
           "baseline_cpc": 0.112,
-          "recent_frequency_avg": 1.007,
-          "recent_spend": 20.34,
-          "recent_impressions": 3039,
+          "recent_frequency_avg": 1.004,
+          "recent_spend": 20.46,
+          "recent_impressions": 3054,
           "confidence": "low"
         },
         {
@@ -1398,13 +1398,13 @@
           "frequency_pressure": 0.0,
           "ctr_decay": 0.0,
           "cpc_decay": 0.0,
-          "recent_ctr": 6.888,
+          "recent_ctr": 6.932,
           "baseline_ctr": 6.737,
           "recent_cpc": 0.1,
           "baseline_cpc": 0.113,
           "recent_frequency_avg": 1.01,
-          "recent_spend": 21.81,
-          "recent_impressions": 3165,
+          "recent_spend": 22.02,
+          "recent_impressions": 3188,
           "confidence": "low"
         },
         {
@@ -1414,13 +1414,13 @@
           "frequency_pressure": 0.0,
           "ctr_decay": 0.0,
           "cpc_decay": 0.0,
-          "recent_ctr": 5.806,
+          "recent_ctr": 5.795,
           "baseline_ctr": 4.63,
           "recent_cpc": 0.129,
           "baseline_cpc": 0.163,
-          "recent_frequency_avg": 1.005,
-          "recent_spend": 15.61,
-          "recent_impressions": 2084,
+          "recent_frequency_avg": 1.006,
+          "recent_spend": 15.63,
+          "recent_impressions": 2088,
           "confidence": "low"
         },
         {
@@ -1430,13 +1430,13 @@
           "frequency_pressure": 0.0,
           "ctr_decay": 0.0,
           "cpc_decay": 0.0,
-          "recent_ctr": 8.076,
+          "recent_ctr": 8.063,
           "baseline_ctr": 8.004,
-          "recent_cpc": 0.079,
+          "recent_cpc": 0.08,
           "baseline_cpc": 0.086,
-          "recent_frequency_avg": 1.006,
-          "recent_spend": 41.61,
-          "recent_impressions": 6488,
+          "recent_frequency_avg": 1.005,
+          "recent_spend": 41.88,
+          "recent_impressions": 6524,
           "confidence": "low"
         }
       ],
@@ -1490,10 +1490,10 @@
         },
         {
           "bucket": "Wed",
-          "spend": 63.78,
-          "ctr": 6.795,
+          "spend": 64.4,
+          "ctr": 6.792,
           "cpc": 0.11,
-          "efficiency_score": 53.81,
+          "efficiency_score": 53.781,
           "sample_days": 2
         }
       ],
@@ -1534,9 +1534,9 @@
           "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
           "date": "2026-03-18",
           "metric": "spend",
-          "value": 1.12,
+          "value": 1.39,
           "baseline_mean": 19.005,
-          "z_score": -6.69,
+          "z_score": -6.59,
           "direction": "down",
           "severity": "high",
           "confidence": "low"
@@ -1545,9 +1545,9 @@
           "campaign": "1",
           "date": "2026-03-18",
           "metric": "spend",
-          "value": 1.5,
+          "value": 1.83,
           "baseline_mean": 20.864,
-          "z_score": -4.56,
+          "z_score": -4.48,
           "direction": "down",
           "severity": "high",
           "confidence": "low"
@@ -1556,9 +1556,9 @@
           "campaign": "2",
           "date": "2026-03-18",
           "metric": "spend",
-          "value": 2.62,
+          "value": 2.64,
           "baseline_mean": 20.759,
-          "z_score": -4.45,
+          "z_score": -4.44,
           "direction": "down",
           "severity": "high",
           "confidence": "low"
@@ -1591,13 +1591,13 @@
           "frequency_pressure": 0.0,
           "ctr_decay": 0.078,
           "cpc_decay": 0.001,
-          "recent_ctr": 5.669,
+          "recent_ctr": 5.666,
           "baseline_ctr": 6.146,
           "recent_cpc": 0.126,
           "baseline_cpc": 0.125,
-          "recent_frequency_avg": 1.021,
-          "recent_spend": 43.06,
-          "recent_impressions": 6050,
+          "recent_frequency_avg": 1.022,
+          "recent_spend": 43.08,
+          "recent_impressions": 6054,
           "confidence": "low"
         },
         {
@@ -1607,13 +1607,13 @@
           "frequency_pressure": 0.0,
           "ctr_decay": 0.0,
           "cpc_decay": 0.0,
-          "recent_ctr": 6.915,
+          "recent_ctr": 6.921,
           "baseline_ctr": 6.644,
           "recent_cpc": 0.098,
           "baseline_cpc": 0.112,
-          "recent_frequency_avg": 1.009,
-          "recent_spend": 42.15,
-          "recent_impressions": 6204,
+          "recent_frequency_avg": 1.007,
+          "recent_spend": 42.48,
+          "recent_impressions": 6242,
           "confidence": "low"
         },
         {
@@ -1623,13 +1623,13 @@
           "frequency_pressure": 0.0,
           "ctr_decay": 0.0,
           "cpc_decay": 0.0,
-          "recent_ctr": 8.076,
+          "recent_ctr": 8.063,
           "baseline_ctr": 8.004,
-          "recent_cpc": 0.079,
+          "recent_cpc": 0.08,
           "baseline_cpc": 0.086,
-          "recent_frequency_avg": 1.006,
-          "recent_spend": 41.61,
-          "recent_impressions": 6488,
+          "recent_frequency_avg": 1.005,
+          "recent_spend": 41.88,
+          "recent_impressions": 6524,
           "confidence": "low"
         }
       ],
@@ -2149,19 +2149,19 @@
   },
   "optimization": {
     "frequency": {
-      "avg_frequency": 1.019,
+      "avg_frequency": 1.018,
       "first_time_impression_ratio": 0.982
     },
     "traffic_quality": {
       "outbound_clicks": 0,
-      "clicks": 4875,
+      "clicks": 4880,
       "outbound_click_rate": 0.0
     },
     "pacing": {
       "day_target": 60.0,
-      "today_spend": 5.24,
-      "expected_spend_now": 5.08,
-      "pace_ratio": 1.031
+      "today_spend": 5.86,
+      "expected_spend_now": 7.58,
+      "pace_ratio": 0.773
     },
     "geo_efficiency": [
       {
@@ -2251,28 +2251,28 @@
     ],
     "actions": [
       {
-        "campaign": "2",
-        "tag": "scale",
-        "why": "strong efficiency",
-        "cpc": 0.125,
-        "ctr": 5.558,
-        "spend": 190.54
-      },
-      {
         "campaign": "1",
         "tag": "scale",
         "why": "strong efficiency",
         "cpc": 0.109,
-        "ctr": 6.244,
-        "spend": 190.44
+        "ctr": 6.291,
+        "spend": 190.77
+      },
+      {
+        "campaign": "2",
+        "tag": "scale",
+        "why": "strong efficiency",
+        "cpc": 0.125,
+        "ctr": 5.551,
+        "spend": 190.56
       },
       {
         "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
         "tag": "scale",
         "why": "strong efficiency",
         "cpc": 0.084,
-        "ctr": 8.033,
-        "spend": 135.08
+        "ctr": 7.964,
+        "spend": 135.35
       }
     ],
     "attribution": {
@@ -2287,10 +2287,10 @@
       {
         "ad": "Tailored web traffic campaign 3/11/2026 Ad",
         "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
-        "ctr": 8.033,
+        "ctr": 7.964,
         "cpc": 0.084,
-        "spend": 135.08,
-        "hook_score": 80.246
+        "spend": 135.35,
+        "hook_score": 79.556
       },
       {
         "ad": "1",
@@ -2303,26 +2303,26 @@
       {
         "ad": "1",
         "campaign": "1",
-        "ctr": 6.363,
+        "ctr": 6.519,
         "cpc": 0.11,
-        "spend": 100.64,
-        "hook_score": 63.52
+        "spend": 100.85,
+        "hook_score": 65.08
       },
       {
         "ad": "1",
         "campaign": "1",
-        "ctr": 6.126,
+        "ctr": 6.062,
         "cpc": 0.109,
-        "spend": 89.8,
-        "hook_score": 61.151
+        "spend": 89.92,
+        "hook_score": 60.511
       },
       {
         "ad": "1",
         "campaign": "2",
-        "ctr": 4.34,
+        "ctr": 4.327,
         "cpc": 0.155,
-        "spend": 74.3,
-        "hook_score": 43.245
+        "spend": 74.32,
+        "hook_score": 43.115
       }
     ]
   }
