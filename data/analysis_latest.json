@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-03-19T06:03:21.244209Z",
-  "source_updated_at": "2026-03-19T06:03:19.772447Z",
+  "generated_at": "2026-03-19T07:01:38.931498Z",
+  "source_updated_at": "2026-03-19T07:01:37.172515Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
-    "today_spend": 55.03,
-    "expected_by_now": 57.62,
-    "pace_ratio": 0.955,
-    "status": "on_track"
+    "today_spend": 58.21,
+    "expected_by_now": 2.5,
+    "pace_ratio": 23.284,
+    "status": "too_fast"
   },
   "data_health": {
     "status": "ok",
@@ -17,11 +17,11 @@
     "attribution_confidence": "estimated"
   },
   "summary": {
-    "total_spend": 565.89,
-    "total_clicks": 5359,
-    "total_impressions": 78927,
-    "daily_gain_live": 155,
-    "current_followers_live": 107326
+    "total_spend": 569.07,
+    "total_clicks": 5388,
+    "total_impressions": 79375,
+    "daily_gain_live": 7,
+    "current_followers_live": 107333
   },
   "recommendations": {
     "scale": [
@@ -36,7 +36,7 @@
           "efficiency"
         ],
         "expected_impact": "high",
-        "fatigue_score": 0.3
+        "fatigue_score": 0.2
       }
     ],
     "cut": [],
@@ -45,7 +45,7 @@
         "campaign": "1",
         "campaign_id": "6951024653957",
         "tag": "Retest",
-        "reason": "CTR anomaly (-2.41\u03c3) detected; test new creative angle immediately.",
+        "reason": "CTR anomaly (-2.99\u03c3) detected; test new creative angle immediately.",
         "confidence": "high",
         "priority": "high",
         "diagnostic_tags": [
@@ -67,7 +67,7 @@
           "anomaly_ctr"
         ],
         "expected_impact": "high",
-        "fatigue_score": 3.5
+        "fatigue_score": 3.6
       }
     ],
     "hold": [],
@@ -79,9 +79,9 @@
       "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
       "ad_id": "6955113574157",
       "ad_name": "Tailored web traffic campaign 3/11/2026 Ad",
-      "ctr": 7.941,
-      "cpc": 0.084,
-      "spend": 152.31,
+      "ctr": 7.959,
+      "cpc": 0.083,
+      "spend": 153.48,
       "creative_name": "Not your average night out: drinks + ideas + people who actually want to learn something. 2026-03-11-d903cc461832f20f0639f16d24cca0d4",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Not your average night out: drinks + ideas + people who actually want to learn something."
@@ -90,21 +90,10 @@
       "campaign": "1",
       "ad_id": "6951024654157",
       "ad_name": "1",
-      "ctr": 6.198,
+      "ctr": 6.18,
       "cpc": 0.108,
-      "spend": 97.76,
+      "spend": 98.38,
       "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-abc028c632e0436a68507d2aeb3662fe",
-      "cta": "VIEW_INSTAGRAM_PROFILE",
-      "body": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so you\u2019re not gonna want to miss a drop! \ud83c\udf9f\ufe0f\n\n#thinkanddrink #sandiego #orangecountyevents #thesocialstudy"
-    },
-    {
-      "campaign": "1",
-      "ad_id": "6953785406357",
-      "ad_name": "1",
-      "ctr": 6.51,
-      "cpc": 0.11,
-      "spend": 109.43,
-      "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-97c4eb0f10f7736f63148e943baac553",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so you\u2019re not gonna want to miss a drop! \ud83c\udf9f\ufe0f\n\n#thinkanddrink #sandiego #orangecountyevents #thesocialstudy"
     },
@@ -112,9 +101,20 @@
       "campaign": "2",
       "ad_id": "6953786714557",
       "ad_name": "1",
-      "ctr": 6.855,
+      "ctr": 6.854,
       "cpc": 0.111,
-      "spend": 124.51,
+      "spend": 125.22,
+      "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-97c4eb0f10f7736f63148e943baac553",
+      "cta": "VIEW_INSTAGRAM_PROFILE",
+      "body": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so you\u2019re not gonna want to miss a drop! \ud83c\udf9f\ufe0f\n\n#thinkanddrink #sandiego #orangecountyevents #thesocialstudy"
+    },
+    {
+      "campaign": "1",
+      "ad_id": "6953785406357",
+      "ad_name": "1",
+      "ctr": 6.503,
+      "cpc": 0.111,
+      "spend": 109.98,
       "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-97c4eb0f10f7736f63148e943baac553",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so you\u2019re not gonna want to miss a drop! \ud83c\udf9f\ufe0f\n\n#thinkanddrink #sandiego #orangecountyevents #thesocialstudy"
@@ -123,28 +123,29 @@
       "campaign": "2",
       "ad_id": "6953786714357",
       "ad_name": "1",
-      "ctr": 4.503,
-      "cpc": 0.157,
-      "spend": 81.88,
+      "ctr": 4.495,
+      "cpc": 0.158,
+      "spend": 82.01,
       "creative_name": "Calling all San Diego, Orange County, and Denver intellectuals \ud83e\udde0 This one\u2019s for you. Tickets drop e 2026-03-08-8687ee2e441bfe97bf6ef5e14260fb48",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Calling all San Diego, Orange County, and Denver intellectuals \ud83e\udde0 This one\u2019s for you. Tickets drop every Sunday at 10 AM PST. \n\n#sandiegoevents #orangecountyevents #thinkanddrink #thesocialstudy"
     }
   ],
   "immediate_actions": [
+    "Pacing too fast: reduce total daily spend velocity by ~10-20% today.",
     "Scale: Tailored web traffic campaign 3/11/2026 Campaign (Strong CTR + low CPC with acceptable frequency)",
     "Confidence LOW: prioritize tracking/event reliability before major budget shifts."
   ],
   "alert": {
     "should_alert": true,
     "reasons": [
-      "scale_candidates_changed"
+      "pacing_status_changed"
     ]
   },
   "change_digest": {
     "has_material_change": true,
     "reasons": [
-      "scale_candidates_changed"
+      "pacing_status_changed"
     ]
   }
 }
