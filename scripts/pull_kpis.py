@@ -13,6 +13,7 @@ DATA_DIR = Path(__file__).resolve().parents[1] / 'data'
 OUT = DATA_DIR / 'kpi_latest.json'
 MANUAL_INTRADAY_SPEND_PATH = DATA_DIR / 'manual_intraday_spend.json'
 ADSOPS_LATEST_PATH = WORKSPACE / 'ads-ops' / 'dashboard' / 'data' / 'latest.json'
+CAMPAIGN_ANNOTATIONS_PATH = DATA_DIR / 'campaign_annotations.json'
 
 
 def num(v):
@@ -144,6 +145,39 @@ def action_count(row, action_type: str):
         return total
     except Exception:
         return 0.0
+
+
+def apply_market_labels(rows):
+    """Apply human-friendly market labels to known campaigns/adsets/ads.
+    This is intentionally lightweight so next cron pull reflects naming without a manual deploy.
+    """
+    if not rows:
+      return rows
+
+    CAMPAIGN_LABEL_OVERRIDES = {
+        'Tailored web traffic campaign 3/20/2026 Campaign': 'Denver — Tailored web traffic campaign 3/20/2026 Campaign',
+    }
+    ADSET_LABEL_OVERRIDES = {
+        'Tailored web traffic campaign 3/20/2026 Ad set': 'Denver — Tailored web traffic campaign 3/20/2026 Ad set',
+    }
+    AD_LABEL_OVERRIDES = {
+        'Tailored web traffic campaign 3/20/2026 Ad': 'Denver — Tailored web traffic campaign 3/20/2026 Ad',
+    }
+
+    out = []
+    for r in rows:
+        rr = dict(r)
+        cname = (rr.get('campaign_name') or '').strip()
+        sname = (rr.get('adset_name') or '').strip()
+        aname = (rr.get('ad_name') or '').strip()
+        if cname in CAMPAIGN_LABEL_OVERRIDES:
+            rr['campaign_name'] = CAMPAIGN_LABEL_OVERRIDES[cname]
+        if sname in ADSET_LABEL_OVERRIDES:
+            rr['adset_name'] = ADSET_LABEL_OVERRIDES[sname]
+        if aname in AD_LABEL_OVERRIDES:
+            rr['ad_name'] = AD_LABEL_OVERRIDES[aname]
+        out.append(rr)
+    return out
 
 
 def aggregate_hierarchy(rows):
@@ -1171,7 +1205,7 @@ def build_optimization(rows, campaigns, summary, followers_daily):
 def main():
     summary = read_summary()
     meta = read_meta_config()
-    rows = read_insights_rows()
+    rows = apply_market_labels(read_insights_rows())
     campaigns = aggregate_hierarchy(rows)
     manual_spend_override = read_manual_intraday_spend_override()
     if manual_spend_override:
