@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-03-20T19:41:43.453710Z",
-  "source_updated_at": "2026-03-20T19:41:30.156475Z",
+  "generated_at": "2026-03-20T20:00:16.097258Z",
+  "source_updated_at": "2026-03-20T20:00:00.489303Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 19.68,
-    "expected_by_now": 31.71,
-    "pace_ratio": 0.621,
+    "expected_by_now": 32.5,
+    "pace_ratio": 0.606,
     "status": "too_slow"
   },
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 9.5,
+    "last_pull_age_min": 28.0,
     "attribution_confidence": "estimated"
   },
   "summary": {
@@ -72,7 +72,7 @@
     "retest": [],
     "hold": [
       {
-        "campaign": "Tailored web traffic campaign 3/20/2026 Campaign",
+        "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
         "campaign_id": "6960086008957",
         "tag": "Hold",
         "reason": "Insufficient spend for confident action",
@@ -143,9 +143,9 @@
       "body": "Calling all San Diego, Orange County, and Denver intellectuals \ud83e\udde0 This one\u2019s for you. Tickets drop every Sunday at 10 AM PST. \n\n#sandiegoevents #orangecountyevents #thinkanddrink #thesocialstudy"
     },
     {
-      "campaign": "Tailored web traffic campaign 3/20/2026 Campaign",
+      "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
       "ad_id": "6960086009157",
-      "ad_name": "Tailored web traffic campaign 3/20/2026 Ad",
+      "ad_name": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
       "ctr": 0.0,
       "cpc": null,
       "spend": 0.0,

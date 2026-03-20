@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-20T19:41:30.156475Z",
+  "updated_at": "2026-03-20T20:00:00.489303Z",
   "summary": {
     "ad_account_id": "act_1379452680603809",
     "total_spend": 646.4,
@@ -286,7 +286,7 @@
       ]
     },
     {
-      "campaign": "Tailored web traffic campaign 3/20/2026 Campaign",
+      "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
       "campaign_id": "6960086008957",
       "spend": 0.0,
       "clicks": 0,
@@ -305,7 +305,7 @@
       "first_time_impression_ratio": 25.0,
       "adsets": [
         {
-          "adset": "Tailored web traffic campaign 3/20/2026 Ad set",
+          "adset": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad set",
           "adset_id": "6960086009357",
           "spend": 0.0,
           "clicks": 0,
@@ -324,7 +324,7 @@
           "first_time_impression_ratio": 25.0,
           "ads": [
             {
-              "ad": "Tailored web traffic campaign 3/20/2026 Ad",
+              "ad": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
               "ad_id": "6960086009157",
               "spend": 0.0,
               "clicks": 0,
@@ -344,7 +344,10 @@
             }
           ]
         }
-      ]
+      ],
+      "annotation_label": "Denver targeted",
+      "annotation_note": "User flagged this as Denver-targeted on 2026-03-20",
+      "annotation_market": "Denver"
     }
   ],
   "top_campaigns": [
@@ -612,7 +615,7 @@
       ]
     },
     {
-      "campaign": "Tailored web traffic campaign 3/20/2026 Campaign",
+      "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
       "campaign_id": "6960086008957",
       "spend": 0.0,
       "clicks": 0,
@@ -631,7 +634,7 @@
       "first_time_impression_ratio": 25.0,
       "adsets": [
         {
-          "adset": "Tailored web traffic campaign 3/20/2026 Ad set",
+          "adset": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad set",
           "adset_id": "6960086009357",
           "spend": 0.0,
           "clicks": 0,
@@ -650,7 +653,7 @@
           "first_time_impression_ratio": 25.0,
           "ads": [
             {
-              "ad": "Tailored web traffic campaign 3/20/2026 Ad",
+              "ad": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
               "ad_id": "6960086009157",
               "spend": 0.0,
               "clicks": 0,
@@ -670,7 +673,10 @@
             }
           ]
         }
-      ]
+      ],
+      "annotation_label": "Denver targeted",
+      "annotation_note": "User flagged this as Denver-targeted on 2026-03-20",
+      "annotation_market": "Denver"
     }
   ],
   "campaign_daily": [
@@ -1131,6 +1137,19 @@
     },
     {
       "date": "2026-03-20",
+      "campaign_id": "6960086008957",
+      "campaign_name": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
+      "spend": 0.0,
+      "clicks": 0,
+      "impressions": 4,
+      "landing_page_views": 0,
+      "ctr": 0.0,
+      "cpc": null,
+      "cost_per_lpv": null,
+      "frequency_avg": 4.0
+    },
+    {
+      "date": "2026-03-20",
       "campaign_id": "6955113574357",
       "campaign_name": "Tailored web traffic campaign 3/11/2026 Campaign",
       "spend": 6.55,
@@ -1141,19 +1160,6 @@
       "cpc": 0.084,
       "cost_per_lpv": null,
       "frequency_avg": 1.078
-    },
-    {
-      "date": "2026-03-20",
-      "campaign_id": "6960086008957",
-      "campaign_name": "Tailored web traffic campaign 3/20/2026 Campaign",
-      "spend": 0.0,
-      "clicks": 0,
-      "impressions": 4,
-      "landing_page_views": 0,
-      "ctr": 0.0,
-      "cpc": null,
-      "cost_per_lpv": null,
-      "frequency_avg": 4.0
     }
   ],
   "followers_series": [
@@ -1387,7 +1393,7 @@
     },
     {
       "type": "alert",
-      "text": "Fatigue risk: Tailored web traffic campaign 3/20/2026 Campaign frequency is 4.00. Consider creative refresh or audience expansion."
+      "text": "Fatigue risk: Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign frequency is 4.00. Consider creative refresh or audience expansion."
     },
     {
       "type": "data_gap",
@@ -1450,7 +1456,7 @@
       "fatigue_score": 0.0
     },
     {
-      "campaign": "Tailored web traffic campaign 3/20/2026 Campaign",
+      "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
       "campaign_id": "6960086008957",
       "tag": "Hold",
       "reason": "Insufficient spend for confident action",
@@ -1464,8 +1470,8 @@
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 19.68,
-    "expected_by_now": 31.71,
-    "pace_ratio": 0.621,
+    "expected_by_now": 32.5,
+    "pace_ratio": 0.606,
     "status": "too_slow"
   },
   "geo_efficiency": [
@@ -1557,7 +1563,7 @@
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 9.5,
+    "last_pull_age_min": 28.0,
     "attribution_confidence": "estimated"
   },
   "diagnostics": {
@@ -1769,7 +1775,7 @@
         },
         {
           "factor": "Data freshness (minutes)",
-          "value": 9.5,
+          "value": 28.0,
           "penalty": 0.0
         },
         {
@@ -2403,8 +2409,8 @@
     "pacing": {
       "day_target": 60.0,
       "today_spend": 19.68,
-      "expected_spend_now": 31.71,
-      "pace_ratio": 0.621
+      "expected_spend_now": 32.5,
+      "pace_ratio": 0.606
     },
     "geo_efficiency": [
       {
@@ -2518,7 +2524,7 @@
         "spend": 178.94
       },
       {
-        "campaign": "Tailored web traffic campaign 3/20/2026 Campaign",
+        "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
         "tag": "hold",
         "why": "stable",
         "cpc": null,
@@ -2531,7 +2537,7 @@
       "reason": "Using blended model (spend + follower deltas)"
     },
     "data_health": {
-      "stale_minutes": 9,
+      "stale_minutes": 28,
       "status": "ok"
     },
     "creative_leaderboard": [
@@ -2576,8 +2582,8 @@
         "hook_score": 46.164
       },
       {
-        "ad": "Tailored web traffic campaign 3/20/2026 Ad",
-        "campaign": "Tailored web traffic campaign 3/20/2026 Campaign",
+        "ad": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
+        "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
         "ctr": 0,
         "cpc": null,
         "spend": 0,
