@@ -67,8 +67,8 @@ def load_history() -> list:
     return rows
 
 
-def baseline_24h(history_rows: list, username: str, now_utc: datetime):
-    cutoff = now_utc - timedelta(hours=24)
+def baseline_by_days(history_rows: list, username: str, now_utc: datetime, days: int):
+    cutoff = now_utc - timedelta(days=days)
     candidates = [
         r for r in history_rows
         if (r.get("username") == username and r.get("pulled_at_utc"))
@@ -120,9 +120,14 @@ def main():
             followers = None
             err = str(e)
 
-        base = baseline_24h(history, username, now_utc)
-        base_val = int(base["followers"]) if base and base.get("followers") is not None else None
-        delta_24h = (followers - base_val) if (followers is not None and base_val is not None) else None
+        windows = [1, 3, 7, 30]
+        baselines = {}
+        deltas = {}
+        for w in windows:
+            base = baseline_by_days(history, username, now_utc, w)
+            base_val = int(base["followers"]) if base and base.get("followers") is not None else None
+            baselines[str(w)] = base_val
+            deltas[str(w)] = (followers - base_val) if (followers is not None and base_val is not None) else None
 
         row = {
             "label": h.get("label") or username,
@@ -130,8 +135,10 @@ def main():
             "url": h.get("url") or f"https://www.instagram.com/{username}",
             "market": h.get("market"),
             "followers": followers,
-            "baseline_24h": base_val,
-            "delta_24h": delta_24h,
+            "baseline_24h": baselines.get("1"),
+            "delta_24h": deltas.get("1"),
+            "baselines": baselines,
+            "deltas": deltas,
             "pulled_at_utc": now_iso,
             "ok": err is None,
             "error": err,
