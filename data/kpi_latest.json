@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-20T19:31:28.860095Z",
+  "updated_at": "2026-03-20T19:32:11.579203Z",
   "summary": {
     "ad_account_id": "act_1379452680603809",
     "total_spend": 646.4,
@@ -1464,8 +1464,8 @@
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 19.68,
-    "expected_by_now": 31.29,
-    "pace_ratio": 0.629,
+    "expected_by_now": 31.33,
+    "pace_ratio": 0.628,
     "status": "too_slow"
   },
   "geo_efficiency": [
@@ -1557,7 +1557,7 @@
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 0.1,
+    "last_pull_age_min": 0.2,
     "attribution_confidence": "estimated"
   },
   "diagnostics": {
@@ -1769,7 +1769,7 @@
         },
         {
           "factor": "Data freshness (minutes)",
-          "value": 0.1,
+          "value": 0.2,
           "penalty": 0.0
         },
         {
@@ -2403,8 +2403,8 @@
     "pacing": {
       "day_target": 60.0,
       "today_spend": 19.68,
-      "expected_spend_now": 31.29,
-      "pace_ratio": 0.629
+      "expected_spend_now": 31.33,
+      "pace_ratio": 0.628
     },
     "geo_efficiency": [
       {
