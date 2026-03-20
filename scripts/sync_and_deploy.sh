@@ -39,6 +39,9 @@ python3 "$REPO_DIR/scripts/pull_kpis.py"
 # Pull creative metadata for concept-level analysis (best effort)
 python3 "$REPO_DIR/scripts/fetch_creative_metadata.py" >> "$LOG_DIR/creative-meta.log" 2>&1 || true
 
+# Pull competitor follower baselines (best effort)
+python3 "$REPO_DIR/scripts/fetch_competitor_followers_blastup.py" >> "$LOG_DIR/creative-meta.log" 2>&1 || true
+
 # Run analyzer (Phase 1 autopilot foundation)
 python3 "$REPO_DIR/scripts/analyze_kpis.py" >> "$LOG_DIR/analyze-kpis.log" 2>&1 || true
 
@@ -49,8 +52,8 @@ if [ -f "$ADSOPS_LATEST" ]; then
 fi
 
 # Commit only if data changed.
-if ! git diff --quiet -- data/kpi_latest.json data/adsops_latest.json data/analysis_latest.json data/analysis_brief.txt data/analysis_history.jsonl data/creative_metadata_latest.json 2>/dev/null; then
-  git add data/kpi_latest.json data/adsops_latest.json data/analysis_latest.json data/analysis_brief.txt data/analysis_history.jsonl data/creative_metadata_latest.json 2>/dev/null || git add data/kpi_latest.json data/analysis_latest.json data/analysis_brief.txt data/analysis_history.jsonl data/creative_metadata_latest.json
+if ! git diff --quiet -- data/kpi_latest.json data/adsops_latest.json data/analysis_latest.json data/analysis_brief.txt data/analysis_history.jsonl data/creative_metadata_latest.json data/competitor_followers_latest.json data/competitor_followers_history.jsonl 2>/dev/null; then
+  git add data/kpi_latest.json data/adsops_latest.json data/analysis_latest.json data/analysis_brief.txt data/analysis_history.jsonl data/creative_metadata_latest.json data/competitor_followers_latest.json data/competitor_followers_history.jsonl 2>/dev/null || git add data/kpi_latest.json data/analysis_latest.json data/analysis_brief.txt data/analysis_history.jsonl data/creative_metadata_latest.json data/competitor_followers_latest.json data/competitor_followers_history.jsonl
   git commit -m "data: refresh KPI snapshot $(date '+%Y-%m-%d %H:%M %Z')" || true
   git push origin main || echo "WARN: git push failed (non-interactive credentials); continuing to deploy"
 else

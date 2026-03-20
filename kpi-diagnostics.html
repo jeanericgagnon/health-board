@@ -61,6 +61,7 @@
       <button class="tablink active" data-tab="overview" type="button">Overview</button>
       <button class="tablink" data-tab="deepdive" type="button">Deep Dive</button>
       <button class="tablink" data-tab="followers" type="button">Followers Geo</button>
+      <button class="tablink" data-tab="competitors" type="button">Competitor Baseline</button>
           </div>
 
     <div id="overviewPanel" class="tab-panel active">
@@ -341,6 +342,17 @@
       </section>
     </div>
 
+    <div id="competitorsPanel" class="tab-panel" style="display:none">
+      <section class="panel" style="margin-top:14px">
+        <h3>Competitor Follower Baseline</h3>
+        <div class="sub" id="competitorUpdated" style="margin-bottom:8px">Last updated: --</div>
+        <table>
+          <thead><tr><th>Account</th><th>Market</th><th>Followers</th><th>24h Δ</th><th>Status</th></tr></thead>
+          <tbody id="competitorRows"><tr><td colspan="5">Loading…</td></tr></tbody>
+        </table>
+      </section>
+    </div>
+
     <a class="back" href="/">← Back to Health Board</a>
   </div>
 
@@ -597,14 +609,17 @@
       const overview = document.getElementById('overviewPanel');
       const deep = document.getElementById('deepDivePanel');
       const followers = document.getElementById('followersPanel');
+      const competitors = document.getElementById('competitorsPanel');
       const setTab = (name) => {
         tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === name));
         overview.classList.toggle('active', name === 'overview');
         deep.classList.toggle('active', name === 'deepdive');
         if (followers) followers.classList.toggle('active', name === 'followers');
+        if (competitors) competitors.classList.toggle('active', name === 'competitors');
         overview.style.display = name === 'overview' ? 'block' : 'none';
         deep.style.display = name === 'deepdive' ? 'block' : 'none';
         if (followers) followers.style.display = name === 'followers' ? 'block' : 'none';
+        if (competitors) competitors.style.display = name === 'competitors' ? 'block' : 'none';
         if (name === 'deepdive' && regionMap) setTimeout(() => regionMap.invalidateSize(), 50);
         if (name === 'followers' && followersMap) setTimeout(() => followersMap.invalidateSize(), 50);
       };
@@ -1177,6 +1192,31 @@
         toggleBoth && (toggleBoth.onclick = () => setMode('both'));
         toggleInsights && (toggleInsights.onclick = () => setMode('insights'));
         toggleKpiSnap && (toggleKpiSnap.onclick = () => setMode('kpi'));
+
+        fetch('/data/competitor_followers_latest.json?ts=' + Date.now())
+          .then(r => r.json())
+          .then(c => {
+            const rows = c.rows || [];
+            const updatedEl = document.getElementById('competitorUpdated');
+            if (updatedEl) updatedEl.textContent = `Last updated: ${c.updated_at ? new Date(c.updated_at).toLocaleString() : '--'}`;
+            const el = document.getElementById('competitorRows');
+            if (!el) return;
+            if (!rows.length) {
+              el.innerHTML = '<tr><td colspan="5">No competitor accounts configured yet</td></tr>';
+              return;
+            }
+            el.innerHTML = rows.map(r => {
+              const delta = (r.delta_24h == null) ? 'N/A' : `${r.delta_24h >= 0 ? '+' : ''}${fmtNum(r.delta_24h)}`;
+              const status = r.ok ? 'ok' : 'error';
+              const followers = r.followers == null ? 'N/A' : fmtNum(r.followers);
+              const name = `<a href="${r.url || '#'}" target="_blank" rel="noopener" style="color:#9ec5ff">${r.label || r.username}</a><br><span class="sub">@${r.username || ''}</span>`;
+              return `<tr><td>${name}</td><td>${r.market || '—'}</td><td><b>${followers}</b></td><td>${delta}</td><td>${status}</td></tr>`;
+            }).join('');
+          })
+          .catch(() => {
+            const el = document.getElementById('competitorRows');
+            if (el) el.innerHTML = '<tr><td colspan="5">Competitor baseline file not available yet</td></tr>';
+          });
       })
       .catch(() => {
         document.getElementById('campaignRows').innerHTML = '<tr><td colspan="7">Waiting for data pipeline…</td></tr>';
