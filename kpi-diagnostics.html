@@ -347,8 +347,8 @@
         <h3>Competitor Follower Baseline</h3>
         <div class="sub" id="competitorUpdated" style="margin-bottom:8px">Last updated: --</div>
         <table>
-          <thead><tr><th>Account</th><th>Market</th><th>Followers</th><th>24h Δ</th><th>Status</th></tr></thead>
-          <tbody id="competitorRows"><tr><td colspan="5">Loading…</td></tr></tbody>
+          <thead><tr><th>Account</th><th>Market</th><th>Followers</th><th>Their 24h Δ</th><th>Our 24h Δ</th><th>Baseline vs Us</th><th>Status</th></tr></thead>
+          <tbody id="competitorRows"><tr><td colspan="7">Loading…</td></tr></tbody>
         </table>
       </section>
     </div>
@@ -1193,29 +1193,38 @@
         toggleInsights && (toggleInsights.onclick = () => setMode('insights'));
         toggleKpiSnap && (toggleKpiSnap.onclick = () => setMode('kpi'));
 
-        fetch('/data/competitor_followers_latest.json?ts=' + Date.now())
-          .then(r => r.json())
-          .then(c => {
+        Promise.all([
+          fetch('/data/competitor_followers_latest.json?ts=' + Date.now()).then(r => r.json()),
+          fetch('/data/kpi_latest.json?ts=' + Date.now()).then(r => r.json()).catch(() => ({}))
+        ])
+          .then(([c, k]) => {
             const rows = c.rows || [];
+            const ourDeltaRaw = Number((k?.summary || {}).daily_gain_live);
+            const ourDelta = Number.isFinite(ourDeltaRaw) ? ourDeltaRaw : null;
             const updatedEl = document.getElementById('competitorUpdated');
             if (updatedEl) updatedEl.textContent = `Last updated: ${c.updated_at ? new Date(c.updated_at).toLocaleString() : '--'}`;
             const el = document.getElementById('competitorRows');
             if (!el) return;
             if (!rows.length) {
-              el.innerHTML = '<tr><td colspan="5">No competitor accounts configured yet</td></tr>';
+              el.innerHTML = '<tr><td colspan="7">No competitor accounts configured yet</td></tr>';
               return;
             }
             el.innerHTML = rows.map(r => {
-              const delta = (r.delta_24h == null) ? 'N/A' : `${r.delta_24h >= 0 ? '+' : ''}${fmtNum(r.delta_24h)}`;
+              const theirDeltaNum = (r.delta_24h == null) ? null : Number(r.delta_24h);
+              const theirDelta = (theirDeltaNum == null || !Number.isFinite(theirDeltaNum)) ? 'N/A' : `${theirDeltaNum >= 0 ? '+' : ''}${fmtNum(theirDeltaNum)}`;
+              const ourDeltaTxt = (ourDelta == null) ? 'N/A' : `${ourDelta >= 0 ? '+' : ''}${fmtNum(ourDelta)}`;
+              const vsUs = (theirDeltaNum == null || ourDelta == null || theirDeltaNum === 0)
+                ? 'N/A'
+                : `${(ourDelta / theirDeltaNum).toFixed(1)}x`;
               const status = r.ok ? 'ok' : 'error';
               const followers = r.followers == null ? 'N/A' : fmtNum(r.followers);
               const name = `<a href="${r.url || '#'}" target="_blank" rel="noopener" style="color:#9ec5ff">${r.label || r.username}</a><br><span class="sub">@${r.username || ''}</span>`;
-              return `<tr><td>${name}</td><td>${r.market || '—'}</td><td><b>${followers}</b></td><td>${delta}</td><td>${status}</td></tr>`;
+              return `<tr><td>${name}</td><td>${r.market || '—'}</td><td><b>${followers}</b></td><td>${theirDelta}</td><td>${ourDeltaTxt}</td><td>${vsUs}</td><td>${status}</td></tr>`;
             }).join('');
           })
           .catch(() => {
             const el = document.getElementById('competitorRows');
-            if (el) el.innerHTML = '<tr><td colspan="5">Competitor baseline file not available yet</td></tr>';
+            if (el) el.innerHTML = '<tr><td colspan="7">Competitor baseline file not available yet</td></tr>';
           });
       })
       .catch(() => {
