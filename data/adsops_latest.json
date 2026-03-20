@@ -1,32 +1,41 @@
 {
-  "updated_at": "2026-03-20T19:03:02.029428+00:00",
+  "updated_at": "2026-03-20T19:31:23.841893+00:00",
   "campaign": [
     {
       "campaign_id": "6955113574357",
       "campaign_name": "Tailored web traffic campaign 3/11/2026 Campaign",
-      "spend": 178.30999999999997,
-      "impressions": 26933.0,
-      "clicks": 2154.0,
-      "ctr": 7.997623732966992,
-      "cpc": 0.08278087279480036
+      "spend": 178.94,
+      "impressions": 27023.0,
+      "clicks": 2168.0,
+      "ctr": 8.02279539651408,
+      "cpc": 0.08253690036900369
     },
     {
       "campaign_id": "6951024653957",
       "campaign_name": "1",
-      "spend": 233.35,
-      "impressions": 32297.0,
-      "clicks": 2138.0,
-      "ctr": 6.6198098894634185,
-      "cpc": 0.10914405986903648
+      "spend": 233.67,
+      "impressions": 32351.0,
+      "clicks": 2141.0,
+      "ctr": 6.6180334456431025,
+      "cpc": 0.10914058851004203
     },
     {
       "campaign_id": "6953786714157",
       "campaign_name": "2",
-      "spend": 233.35,
-      "impressions": 31100.0,
-      "clicks": 1866.0,
-      "ctr": 6.0,
-      "cpc": 0.12505359056806
+      "spend": 233.79,
+      "impressions": 31156.0,
+      "clicks": 1869.0,
+      "ctr": 5.998844524329182,
+      "cpc": 0.12508828250401283
+    },
+    {
+      "campaign_id": "6960086008957",
+      "campaign_name": "Tailored web traffic campaign 3/20/2026 Campaign",
+      "spend": 0.0,
+      "impressions": 4.0,
+      "clicks": 0.0,
+      "ctr": 0.0,
+      "cpc": null
     }
   ],
   "ad": [
@@ -37,24 +46,11 @@
       "campaign_name": "Tailored web traffic campaign 3/11/2026 Campaign",
       "adset_id": "6955113574557",
       "adset_name": "Tailored web traffic campaign 3/11/2026 Ad set",
-      "spend": 178.30999999999997,
-      "impressions": 26933.0,
-      "clicks": 2154.0,
-      "ctr": 7.997623732966992,
-      "cpc": 0.08278087279480036
-    },
-    {
-      "ad_id": "6951024654157",
-      "ad_name": "1",
-      "campaign_id": "6951024653957",
-      "campaign_name": "1",
-      "adset_id": "6951024653757",
-      "adset_name": "New Traffic Ad set with recommended settings",
-      "spend": 111.41999999999999,
-      "impressions": 15691.0,
-      "clicks": 1021.0,
-      "ctr": 6.506914791918934,
-      "cpc": 0.10912830558276199
+      "spend": 178.94,
+      "impressions": 27023.0,
+      "clicks": 2168.0,
+      "ctr": 8.02279539651408,
+      "cpc": 0.08253690036900369
     },
     {
       "ad_id": "6953785406357",
@@ -63,11 +59,24 @@
       "campaign_name": "1",
       "adset_id": "6953785406157",
       "adset_name": "Test - New Traffic Ad set with recommended settings",
-      "spend": 121.93,
-      "impressions": 16606.0,
-      "clicks": 1117.0,
-      "ctr": 6.726484403227749,
-      "cpc": 0.10915846016114593
+      "spend": 122.08000000000001,
+      "impressions": 16634.0,
+      "clicks": 1119.0,
+      "ctr": 6.727185283154983,
+      "cpc": 0.10909740840035748
+    },
+    {
+      "ad_id": "6951024654157",
+      "ad_name": "1",
+      "campaign_id": "6951024653957",
+      "campaign_name": "1",
+      "adset_id": "6951024653757",
+      "adset_name": "New Traffic Ad set with recommended settings",
+      "spend": 111.58999999999999,
+      "impressions": 15717.0,
+      "clicks": 1022.0,
+      "ctr": 6.502513202265063,
+      "cpc": 0.10918786692759294
     },
     {
       "ad_id": "6953786714557",
@@ -76,11 +85,11 @@
       "campaign_name": "2",
       "adset_id": "6953786714957",
       "adset_name": "Test - New Traffic Ad set with recommended settings",
-      "spend": 140.28,
-      "impressions": 18700.0,
-      "clicks": 1270.0,
-      "ctr": 6.79144385026738,
-      "cpc": 0.11045669291338583
+      "spend": 140.53,
+      "impressions": 18740.0,
+      "clicks": 1273.0,
+      "ctr": 6.792956243329776,
+      "cpc": 0.11039277297721917
     },
     {
       "ad_id": "6953786714357",
@@ -89,11 +98,24 @@
       "campaign_name": "2",
       "adset_id": "6953786714757",
       "adset_name": "New Traffic Ad set with recommended settings",
-      "spend": 93.07,
-      "impressions": 12400.0,
+      "spend": 93.25999999999999,
+      "impressions": 12416.0,
       "clicks": 596.0,
-      "ctr": 4.806451612903226,
-      "cpc": 0.15615771812080537
+      "ctr": 4.800257731958763,
+      "cpc": 0.15647651006711408
+    },
+    {
+      "ad_id": "6960086009157",
+      "ad_name": "Tailored web traffic campaign 3/20/2026 Ad",
+      "campaign_id": "6960086008957",
+      "campaign_name": "Tailored web traffic campaign 3/20/2026 Campaign",
+      "adset_id": "6960086009357",
+      "adset_name": "Tailored web traffic campaign 3/20/2026 Ad set",
+      "spend": 0.0,
+      "impressions": 4.0,
+      "clicks": 0.0,
+      "ctr": 0.0,
+      "cpc": null
     }
   ],
   "breakdowns": {
@@ -82465,12 +82487,12 @@
     ]
   },
   "followers": {
-    "current": 107534,
+    "current": 107538,
     "username": "thesocial.study",
     "source": "instagram_graph",
-    "pulled_at": "2026-03-20T19:03:02.029428+00:00",
-    "updated_at": "2026-03-20T19:03:02.029428+00:00",
-    "delta_24h": 180
+    "pulled_at": "2026-03-20T19:31:23.841893+00:00",
+    "updated_at": "2026-03-20T19:31:23.841893+00:00",
+    "delta_24h": 175
   },
   "followers_city": [
     {
@@ -82969,13 +82991,13 @@
     },
     {
       "day": "2026-03-20",
-      "followers": 107534,
-      "followers_per_day": 138
+      "followers": 107538,
+      "followers_per_day": 142
     }
   ],
   "insights": [
-    "Follower snapshot: 107,534 at 2026-03-20T19:03:02.029428+00:00 UTC.",
-    "24h follower change: +180.",
-    "Meta API loaded: 3 campaign(s). Click a campaign to view ad-level CPC breakdown."
+    "Follower snapshot: 107,538 at 2026-03-20T19:31:23.841893+00:00 UTC.",
+    "24h follower change: +175.",
+    "Meta API loaded: 4 campaign(s). Click a campaign to view ad-level CPC breakdown."
   ]
 }
