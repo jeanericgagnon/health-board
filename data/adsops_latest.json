@@ -1,44 +1,66 @@
 {
-  "updated_at": "2026-03-21T17:02:50.159022+00:00",
+  "updated_at": "2026-03-21T18:03:07.115811+00:00",
   "campaign": [
     {
       "campaign_id": "6955113574357",
       "campaign_name": "Tailored web traffic campaign 3/11/2026 Campaign",
-      "spend": 196.82,
-      "impressions": 29697.0,
-      "clicks": 2381.0,
-      "ctr": 8.017644879954204,
-      "cpc": 0.0826627467450651
+      "spend": 197.7,
+      "impressions": 29822.0,
+      "clicks": 2394.0,
+      "ctr": 8.02763060827577,
+      "cpc": 0.08258145363408521
     },
     {
       "campaign_id": "6951024653957",
       "campaign_name": "1",
-      "spend": 251.55999999999997,
-      "impressions": 34703.0,
-      "clicks": 2303.0,
-      "ctr": 6.636313863354753,
-      "cpc": 0.10923143725575335
+      "spend": 252.38,
+      "impressions": 34811.0,
+      "clicks": 2308.0,
+      "ctr": 6.630088190514492,
+      "cpc": 0.10935008665511264
     },
     {
       "campaign_id": "6953786714157",
       "campaign_name": "2",
-      "spend": 251.57,
-      "impressions": 33596.0,
-      "clicks": 1997.0,
-      "ctr": 5.944160019049887,
-      "cpc": 0.1259739609414121
+      "spend": 252.13,
+      "impressions": 33670.0,
+      "clicks": 1998.0,
+      "ctr": 5.934065934065933,
+      "cpc": 0.12619119119119118
+    },
+    {
+      "campaign_id": "6960435028357",
+      "campaign_name": "TSS Seattle 4-way launch 20260321_095059",
+      "spend": 1.42,
+      "impressions": 192.0,
+      "clicks": 10.0,
+      "ctr": 5.208333333333334,
+      "cpc": 0.142
     },
     {
       "campaign_id": "6960086008957",
       "campaign_name": "Tailored web traffic campaign 3/20/2026 Campaign",
-      "spend": 18.63,
-      "impressions": 2564.0,
-      "clicks": 106.0,
-      "ctr": 4.134165366614664,
-      "cpc": 0.17575471698113207
+      "spend": 19.09,
+      "impressions": 2628.0,
+      "clicks": 110.0,
+      "ctr": 4.185692541856925,
+      "cpc": 0.17354545454545453
     }
   ],
   "ad": [
+    {
+      "ad_id": "6960435771957",
+      "ad_name": "Seattle launch | v98_vo_b",
+      "campaign_id": "6960435028357",
+      "campaign_name": "TSS Seattle 4-way launch 20260321_095059",
+      "adset_id": "6960435749557",
+      "adset_name": "Seattle launch | v98_vo_b | $3/day",
+      "spend": 0.29,
+      "impressions": 40.0,
+      "clicks": 6.0,
+      "ctr": 15.0,
+      "cpc": 0.04833333333333333
+    },
     {
       "ad_id": "6955113574157",
       "ad_name": "Tailored web traffic campaign 3/11/2026 Ad",
@@ -46,11 +68,11 @@
       "campaign_name": "Tailored web traffic campaign 3/11/2026 Campaign",
       "adset_id": "6955113574557",
       "adset_name": "Tailored web traffic campaign 3/11/2026 Ad set",
-      "spend": 196.82,
-      "impressions": 29697.0,
-      "clicks": 2381.0,
-      "ctr": 8.017644879954204,
-      "cpc": 0.0826627467450651
+      "spend": 197.67999999999998,
+      "impressions": 29819.0,
+      "clicks": 2394.0,
+      "ctr": 8.028438244072571,
+      "cpc": 0.08257309941520467
     },
     {
       "ad_id": "6953785406357",
@@ -59,11 +81,11 @@
       "campaign_name": "1",
       "adset_id": "6953785406157",
       "adset_name": "Test - New Traffic Ad set with recommended settings",
-      "spend": 130.76000000000002,
-      "impressions": 17753.0,
-      "clicks": 1199.0,
-      "ctr": 6.753788092153439,
-      "cpc": 0.10905754795663054
+      "spend": 131.09,
+      "impressions": 17792.0,
+      "clicks": 1202.0,
+      "ctr": 6.755845323741007,
+      "cpc": 0.10905990016638935
     },
     {
       "ad_id": "6951024654157",
@@ -72,11 +94,11 @@
       "campaign_name": "1",
       "adset_id": "6951024653757",
       "adset_name": "New Traffic Ad set with recommended settings",
-      "spend": 120.79999999999998,
-      "impressions": 16950.0,
-      "clicks": 1104.0,
-      "ctr": 6.513274336283185,
-      "cpc": 0.10942028985507245
+      "spend": 121.28999999999999,
+      "impressions": 17019.0,
+      "clicks": 1106.0,
+      "ctr": 6.498619190316705,
+      "cpc": 0.10966546112115731
     },
     {
       "ad_id": "6953786714557",
@@ -85,11 +107,24 @@
       "campaign_name": "2",
       "adset_id": "6953786714957",
       "adset_name": "Test - New Traffic Ad set with recommended settings",
-      "spend": 151.19,
-      "impressions": 20258.0,
+      "spend": 151.51999999999998,
+      "impressions": 20299.0,
       "clicks": 1357.0,
-      "ctr": 6.69858821206437,
-      "cpc": 0.11141488577745026
+      "ctr": 6.685058377259964,
+      "cpc": 0.11165806927044951
+    },
+    {
+      "ad_id": "6960435854157",
+      "ad_name": "Seattle launch | v104b_vo_c",
+      "campaign_id": "6960435028357",
+      "campaign_name": "TSS Seattle 4-way launch 20260321_095059",
+      "adset_id": "6960435841557",
+      "adset_name": "Seattle launch | v104b_vo_c | $3/day",
+      "spend": 0.39,
+      "impressions": 54.0,
+      "clicks": 3.0,
+      "ctr": 5.555555555555555,
+      "cpc": 0.13
     },
     {
       "ad_id": "6953786714357",
@@ -98,11 +133,11 @@
       "campaign_name": "2",
       "adset_id": "6953786714757",
       "adset_name": "New Traffic Ad set with recommended settings",
-      "spend": 100.38,
-      "impressions": 13338.0,
-      "clicks": 640.0,
-      "ctr": 4.798320587794272,
-      "cpc": 0.15684375
+      "spend": 100.61,
+      "impressions": 13372.0,
+      "clicks": 641.0,
+      "ctr": 4.793598564163925,
+      "cpc": 0.1569578783151326
     },
     {
       "ad_id": "6960086009157",
@@ -111,11 +146,37 @@
       "campaign_name": "Tailored web traffic campaign 3/20/2026 Campaign",
       "adset_id": "6960086009357",
       "adset_name": "Tailored web traffic campaign 3/20/2026 Ad set",
-      "spend": 18.63,
-      "impressions": 2564.0,
-      "clicks": 106.0,
-      "ctr": 4.134165366614664,
-      "cpc": 0.17575471698113207
+      "spend": 19.09,
+      "impressions": 2628.0,
+      "clicks": 110.0,
+      "ctr": 4.185692541856925,
+      "cpc": 0.17354545454545453
+    },
+    {
+      "ad_id": "6960435894757",
+      "ad_name": "Seattle launch | v113_vo_a",
+      "campaign_id": "6960435028357",
+      "campaign_name": "TSS Seattle 4-way launch 20260321_095059",
+      "adset_id": "6960435878157",
+      "adset_name": "Seattle launch | v113_vo_a | $3/day",
+      "spend": 0.46,
+      "impressions": 55.0,
+      "clicks": 1.0,
+      "ctr": 1.8181818181818181,
+      "cpc": 0.46
+    },
+    {
+      "ad_id": "6960435711757",
+      "ad_name": "Seattle launch | v94_vo_d",
+      "campaign_id": "6960435028357",
+      "campaign_name": "TSS Seattle 4-way launch 20260321_095059",
+      "adset_id": "6960435699357",
+      "adset_name": "Seattle launch | v94_vo_d | $3/day",
+      "spend": 0.28,
+      "impressions": 43.0,
+      "clicks": 0.0,
+      "ctr": 0.0,
+      "cpc": null
     }
   ],
   "breakdowns": {
@@ -82487,12 +82548,12 @@
     ]
   },
   "followers": {
-    "current": 107687,
+    "current": 107695,
     "username": "thesocial.study",
     "source": "instagram_graph",
-    "pulled_at": "2026-03-21T17:02:50.159022+00:00",
-    "updated_at": "2026-03-21T17:02:50.159022+00:00",
-    "delta_24h": 161
+    "pulled_at": "2026-03-21T18:03:07.115811+00:00",
+    "updated_at": "2026-03-21T18:03:07.115811+00:00",
+    "delta_24h": 163
   },
   "followers_city": [
     {
@@ -82996,13 +83057,13 @@
     },
     {
       "day": "2026-03-21",
-      "followers": 107687,
-      "followers_per_day": 123
+      "followers": 107695,
+      "followers_per_day": 131
     }
   ],
   "insights": [
-    "Follower snapshot: 107,687 at 2026-03-21T17:02:50.159022+00:00 UTC.",
-    "24h follower change: +161.",
-    "Meta API loaded: 4 campaign(s). Click a campaign to view ad-level CPC breakdown."
+    "Follower snapshot: 107,695 at 2026-03-21T18:03:07.115811+00:00 UTC.",
+    "24h follower change: +163.",
+    "Meta API loaded: 5 campaign(s). Click a campaign to view ad-level CPC breakdown."
   ]
 }
