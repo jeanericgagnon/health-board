@@ -1,27 +1,27 @@
 {
-  "generated_at": "2026-03-22T21:00:16.664709Z",
-  "source_updated_at": "2026-03-22T21:00:01.178798Z",
+  "generated_at": "2026-03-22T21:03:22.584728Z",
+  "source_updated_at": "2026-03-22T21:03:07.767093Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
-    "today_spend": 42.22,
-    "expected_by_now": 35.0,
-    "pace_ratio": 1.206,
+    "today_spend": 46.0,
+    "expected_by_now": 35.12,
+    "pace_ratio": 1.31,
     "status": "too_fast"
   },
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 56.8,
+    "last_pull_age_min": 0.1,
     "attribution_confidence": "direct"
   },
   "summary": {
-    "total_spend": 822.62,
-    "total_clicks": 7619,
-    "total_impressions": 114147,
-    "daily_gain_live": 76,
-    "current_followers_live": 107874
+    "total_spend": 826.4,
+    "total_clicks": 7653,
+    "total_impressions": 114724,
+    "daily_gain_live": 77,
+    "current_followers_live": 107875
   },
   "recommendations": {
     "scale": [
@@ -37,7 +37,7 @@
           "anomaly_spend"
         ],
         "expected_impact": "high",
-        "fatigue_score": 3.0
+        "fatigue_score": 2.9
       },
       {
         "campaign": "2",
@@ -65,7 +65,7 @@
           "anomaly_spend"
         ],
         "expected_impact": "high",
-        "fatigue_score": 2.8
+        "fatigue_score": 2.6
       }
     ],
     "cut": [],
@@ -91,9 +91,9 @@
       "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
       "ad_id": "6955113574157",
       "ad_name": "Tailored web traffic campaign 3/11/2026 Ad",
-      "ctr": 7.945,
+      "ctr": 7.955,
       "cpc": 0.083,
-      "spend": 221.39,
+      "spend": 222.28,
       "creative_name": "Not your average night out: drinks + ideas + people who actually want to learn something. 2026-03-11-d903cc461832f20f0639f16d24cca0d4",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Not your average night out: drinks + ideas + people who actually want to learn something."
@@ -102,9 +102,9 @@
       "campaign": "1",
       "ad_id": "6951024654157",
       "ad_name": "1",
-      "ctr": 6.336,
+      "ctr": 6.327,
       "cpc": 0.11,
-      "spend": 132.26,
+      "spend": 132.84,
       "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-abc028c632e0436a68507d2aeb3662fe",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so you\u2019re not gonna want to miss a drop! \ud83c\udf9f\ufe0f\n\n#thinkanddrink #sandiego #orangecountyevents #thesocialstudy"
@@ -113,9 +113,9 @@
       "campaign": "1",
       "ad_id": "6953785406357",
       "ad_name": "1",
-      "ctr": 6.547,
+      "ctr": 6.557,
       "cpc": 0.111,
-      "spend": 142.44,
+      "spend": 142.79,
       "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-97c4eb0f10f7736f63148e943baac553",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so you\u2019re not gonna want to miss a drop! \ud83c\udf9f\ufe0f\n\n#thinkanddrink #sandiego #orangecountyevents #thesocialstudy"
@@ -124,9 +124,9 @@
       "campaign": "2",
       "ad_id": "6953786714557",
       "ad_name": "1",
-      "ctr": 6.641,
-      "cpc": 0.113,
-      "spend": 164.44,
+      "ctr": 6.63,
+      "cpc": 0.114,
+      "spend": 164.94,
       "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-97c4eb0f10f7736f63148e943baac553",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so you\u2019re not gonna want to miss a drop! \ud83c\udf9f\ufe0f\n\n#thinkanddrink #sandiego #orangecountyevents #thesocialstudy"
@@ -135,9 +135,9 @@
       "campaign": "TSS Seattle 4-way launch 20260321_095059",
       "ad_id": "6960435854157",
       "ad_name": "Seattle launch | v104b_vo_c",
-      "ctr": 6.478,
+      "ctr": 6.432,
       "cpc": 0.126,
-      "spend": 2.77,
+      "spend": 2.78,
       "creative_name": "Seattle_v104b_vo_c_creative 2026-03-21-2cef9627eece0157edddc1653614b310",
       "cta": "LEARN_MORE",
       "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
@@ -146,42 +146,42 @@
       "campaign": "TSS Seattle 4-way launch 20260321_095059",
       "ad_id": "6960435771957",
       "ad_name": "Seattle launch | v98_vo_b",
-      "ctr": 6.872,
-      "cpc": 0.134,
-      "spend": 2.82,
+      "ctr": 7.234,
+      "cpc": 0.127,
+      "spend": 2.91,
       "creative_name": "Seattle_v98_vo_b_creative 2026-03-21-99137ee9bf51b7e9ca0e5cbe9a2cb53d",
       "cta": "LEARN_MORE",
-      "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
-    },
-    {
-      "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
-      "ad_id": "6960086009157",
-      "ad_name": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
-      "ctr": 4.647,
-      "cpc": 0.159,
-      "spend": 40.73,
-      "creative_name": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link 2026-03-20-1cf64a246dbc22003bfc846333d2c282",
-      "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
     },
     {
       "campaign": "2",
       "ad_id": "6953786714357",
       "ad_name": "1",
-      "ctr": 4.536,
+      "ctr": 4.549,
       "cpc": 0.16,
-      "spend": 110.01,
+      "spend": 110.33,
       "creative_name": "Calling all San Diego, Orange County, and Denver intellectuals \ud83e\udde0 This one\u2019s for you. Tickets drop e 2026-03-08-8687ee2e441bfe97bf6ef5e14260fb48",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Calling all San Diego, Orange County, and Denver intellectuals \ud83e\udde0 This one\u2019s for you. Tickets drop every Sunday at 10 AM PST. \n\n#sandiegoevents #orangecountyevents #thinkanddrink #thesocialstudy"
     },
     {
+      "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
+      "ad_id": "6960086009157",
+      "ad_name": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
+      "ctr": 4.568,
+      "cpc": 0.161,
+      "spend": 41.57,
+      "creative_name": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link 2026-03-20-1cf64a246dbc22003bfc846333d2c282",
+      "cta": "VIEW_INSTAGRAM_PROFILE",
+      "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
+    },
+    {
       "campaign": "TSS Seattle 4-way launch 20260321_095059",
       "ad_id": "6960435711757",
       "ad_name": "Seattle launch | v94_vo_d",
-      "ctr": 4.46,
-      "cpc": 0.209,
-      "spend": 3.13,
+      "ctr": 4.407,
+      "cpc": 0.212,
+      "spend": 3.18,
       "creative_name": "Seattle_v94_vo_d_creative 2026-03-21-55eccad43b49d6bd3852e9932daa6562",
       "cta": "LEARN_MORE",
       "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
@@ -190,9 +190,9 @@
       "campaign": "TSS Seattle 4-way launch 20260321_095059",
       "ad_id": "6960435894757",
       "ad_name": "Seattle launch | v113_vo_a",
-      "ctr": 3.713,
-      "cpc": 0.219,
-      "spend": 2.63,
+      "ctr": 3.565,
+      "cpc": 0.232,
+      "spend": 2.78,
       "creative_name": "Seattle_v113_vo_a_creative 2026-03-21-82e723bf68e3cbe70ca145c7239aa024",
       "cta": "LEARN_MORE",
       "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
