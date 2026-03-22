@@ -17,6 +17,8 @@
     .top-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
     .tablink{display:inline-block;padding:8px 12px;border-radius:8px;border:1px solid #2b4f92;background:#1a2a54;color:#dbeafe;text-decoration:none;font-size:12px;font-weight:600;cursor:pointer}
     .tablink.active{background:#275ec2}
+    .tablink.tab-swim{background:#F2EAE2;color:#6d2b53;border-color:#d6bfb3}
+    .tablink.tab-swim.active{background:#ff5ca8;color:#fff;border-color:#ff5ca8}
     .tab-panel{display:none}.tab-panel.active{display:block}
     .grid{display:grid;gap:14px}.kpis{grid-template-columns:repeat(6,minmax(0,1fr));margin-bottom:14px}
     .panel{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--border);border-radius:14px;padding:12px;overflow:hidden}
@@ -69,6 +71,7 @@
     </div>
 
     <div class="top-tabs" id="topTabs">
+      <button class="tablink tab-swim" data-tab="deepdive" type="button">KPI Deep Dive</button>
       <button class="tablink active" data-tab="overview" type="button">Overview</button>
       <button class="tablink" data-tab="followers" type="button">Followers Geo</button>
       <button class="tablink" data-tab="competitors" type="button">Competitor Baseline</button>
