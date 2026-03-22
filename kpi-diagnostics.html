@@ -134,7 +134,7 @@
 
     <section class="grid half">
       <article class="panel">
-        <h3>Campaign Ranking</h3>
+        <h3>Ad-Level Ranking (with campaign breakers)</h3>
         <div class="controls" id="campaignRangeControls" style="margin-bottom:8px">
           <button class="btnf active" data-days="1">1D</button>
           <button class="btnf" data-days="2">2D</button>
@@ -145,7 +145,7 @@
           <button class="btnf" data-days="14">14D</button>
         </div>
         <table>
-          <thead><tr><th>Campaign</th><th>Spend</th><th>Clicks</th><th>LPV</th><th>CPLPV</th><th>Freq</th><th>Status</th></tr></thead>
+          <thead><tr><th>Ad (Campaign / Ad Set)</th><th>Spend</th><th>Clicks</th><th>LPV</th><th>CPLPV</th><th>Freq</th><th>Status</th></tr></thead>
           <tbody id="campaignRows">
             <tr><td colspan="7">Loading…</td></tr>
           </tbody>
@@ -906,49 +906,33 @@
         const campaigns = d.campaigns || d.top_campaigns || [];
         const campaignDaily = d.campaign_daily || [];
 
-        const renderCampaignRanking = (days = 1) => {
-          let view = campaigns;
-          if (campaignDaily.length) {
-            const dates = [...new Set(campaignDaily.map(r => r.date))].sort();
-            const keep = new Set(dates.slice(-days));
-            const agg = new Map();
-            for (const r of campaignDaily) {
-              if (!keep.has(r.date)) continue;
-              const key = r.campaign_id || r.campaign_name;
-              const cur = agg.get(key) || { campaign: r.campaign_name, campaign_id: r.campaign_id, spend: 0, clicks: 0, impressions: 0, landing_page_views: 0, freq_num: 0, freq_den: 0 };
-              const impr = Number(r.impressions || 0);
-              const freq = Number(r.frequency_avg || 0);
-              cur.spend += Number(r.spend || 0);
-              cur.clicks += Number(r.clicks || 0);
-              cur.impressions += impr;
-              cur.landing_page_views += Number(r.landing_page_views || 0);
-              if (Number.isFinite(freq) && freq > 0 && impr > 0) {
-                cur.freq_num += (freq * impr);
-                cur.freq_den += impr;
-              }
-              agg.set(key, cur);
-            }
-            view = [...agg.values()].map(c => ({
-              ...c,
-              cpc: c.clicks > 0 ? c.spend / c.clicks : null,
-              ctr: c.impressions > 0 ? (c.clicks / c.impressions) * 100 : 0,
-              cost_per_lpv: c.landing_page_views > 0 ? c.spend / c.landing_page_views : null,
-              frequency_avg: c.freq_den > 0 ? (c.freq_num / c.freq_den) : null
-            })).sort((a,b)=>(a.cpc??999)-(b.cpc??999));
-          }
+        const renderCampaignRanking = (_days = 1) => {
+          const sortedCampaigns = [...campaigns].sort((a, b) => Number(b.spend || 0) - Number(a.spend || 0));
+          const rows = [];
 
-          const rows = view.map((c, i) => {
-            const status = (c.cpc != null && c.cpc < 0.5) ? '<span class="pill good">Efficient</span>' : '<span class="pill warn">Watch</span>';
-            const openUrl = adsUrl(s.ad_account_id, c.campaign_id);
-            const campaignCell = openUrl
-              ? `${c.campaign} <a href="${openUrl}" target="_blank" rel="noopener" style="color:#9ec5ff;font-size:11px;margin-left:8px">open ads ↗</a>`
-              : c.campaign;
-            return `<tr class="clickable" data-cid="${c.campaign_id || ''}"><td>${campaignCell}</td><td>${fmtMoney(c.spend)}</td><td>${fmtNum(c.clicks)}</td><td>${fmtNum(c.landing_page_views || 0)}</td><td>${c.cost_per_lpv == null ? 'N/A' : fmtMoney(c.cost_per_lpv)}</td><td>${c.frequency_avg == null ? 'N/A' : Number(c.frequency_avg).toFixed(2)}</td><td>${status}</td></tr>`;
-          }).join('');
-          document.getElementById('campaignRows').innerHTML = rows || '<tr><td colspan="7">No campaign data yet</td></tr>';
+          sortedCampaigns.forEach((c) => {
+            const campOpenUrl = adsUrl(s.ad_account_id, c.campaign_id);
+            const annLabel = c.annotation_label ? `<span class="pill warn" style="margin-left:8px">${c.annotation_label}</span>` : '';
+            const campLabel = campOpenUrl
+              ? `<b>${c.campaign}</b>${annLabel} <a href="${campOpenUrl}" target="_blank" rel="noopener" style="color:#9ec5ff;font-size:11px;margin-left:8px">open ads ↗</a>`
+              : `<b>${c.campaign}</b>${annLabel}`;
 
-          // re-bind drill to canonical campaigns index when possible
-          document.querySelectorAll('#campaignRows tr.clickable').forEach(tr => {
+            rows.push(`<tr class="breaker clickable" data-cid="${c.campaign_id || ''}" style="background:#101a2b"><td>${campLabel}</td><td>${fmtMoney(c.spend)}</td><td>${fmtNum(c.clicks)}</td><td>${fmtNum(c.landing_page_views || 0)}</td><td>${c.cost_per_lpv == null ? 'N/A' : fmtMoney(c.cost_per_lpv)}</td><td>${c.frequency_avg == null ? 'N/A' : Number(c.frequency_avg).toFixed(2)}</td><td><span class="pill">Campaign</span></td></tr>`);
+
+            (c.adsets || []).forEach(as => {
+              (as.ads || []).forEach(a => {
+                const status = (a.cpc != null && a.cpc < 0.5) ? '<span class="pill good">Efficient</span>' : '<span class="pill warn">Watch</span>';
+                const lpv = Number(a.landing_page_views || 0);
+                const cplpv = lpv > 0 ? Number(a.spend || 0) / lpv : null;
+                const freq = (a.frequency_avg != null) ? Number(a.frequency_avg) : (a.frequency != null ? Number(a.frequency) : null);
+                rows.push(`<tr><td style="padding-left:22px">↳ ${a.ad}<br><span class="sub">${as.adset}</span></td><td>${fmtMoney(a.spend)}</td><td>${fmtNum(a.clicks)}</td><td>${fmtNum(lpv)}</td><td>${cplpv == null ? 'N/A' : fmtMoney(cplpv)}</td><td>${freq == null ? 'N/A' : freq.toFixed(2)}</td><td>${status}</td></tr>`);
+              });
+            });
+          });
+
+          document.getElementById('campaignRows').innerHTML = rows.join('') || '<tr><td colspan="7">No ad data yet</td></tr>';
+
+          document.querySelectorAll('#campaignRows tr.breaker.clickable').forEach(tr => {
             tr.addEventListener('click', () => {
               const cid = tr.dataset.cid || '';
               const idx = campaigns.findIndex(c => (c.campaign_id || '') === cid);
