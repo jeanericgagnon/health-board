@@ -1,27 +1,27 @@
 {
-  "generated_at": "2026-03-22T04:00:15.508522Z",
-  "source_updated_at": "2026-03-22T04:00:00.478101Z",
+  "generated_at": "2026-03-22T04:03:21.719773Z",
+  "source_updated_at": "2026-03-22T04:03:06.020868Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
-    "today_spend": 62.85,
-    "expected_by_now": 52.5,
-    "pace_ratio": 1.197,
-    "status": "on_track"
+    "today_spend": 70.33,
+    "expected_by_now": 52.62,
+    "pace_ratio": 1.336,
+    "status": "too_fast"
   },
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 57.2,
+    "last_pull_age_min": 0.2,
     "attribution_confidence": "direct"
   },
   "summary": {
-    "total_spend": 761.56,
-    "total_clicks": 7150,
-    "total_impressions": 106264,
-    "daily_gain_live": 135,
-    "current_followers_live": 107774
+    "total_spend": 769.04,
+    "total_clicks": 7206,
+    "total_impressions": 107211,
+    "daily_gain_live": 149,
+    "current_followers_live": 107788
   },
   "recommendations": {
     "scale": [
@@ -59,8 +59,7 @@
         "confidence": "high",
         "priority": "normal",
         "diagnostic_tags": [
-          "efficiency",
-          "anomaly_spend"
+          "efficiency"
         ],
         "expected_impact": "high",
         "fatigue_score": 0.0
@@ -89,9 +88,9 @@
       "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
       "ad_id": "6955113574157",
       "ad_name": "Tailored web traffic campaign 3/11/2026 Ad",
-      "ctr": 8.044,
+      "ctr": 8.014,
       "cpc": 0.082,
-      "spend": 206.0,
+      "spend": 207.59,
       "creative_name": "Not your average night out: drinks + ideas + people who actually want to learn something. 2026-03-11-d903cc461832f20f0639f16d24cca0d4",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Not your average night out: drinks + ideas + people who actually want to learn something."
@@ -101,8 +100,8 @@
       "ad_id": "6953785406357",
       "ad_name": "1",
       "ctr": 6.633,
-      "cpc": 0.11,
-      "spend": 135.57,
+      "cpc": 0.109,
+      "spend": 136.2,
       "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-97c4eb0f10f7736f63148e943baac553",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so you\u2019re not gonna want to miss a drop! \ud83c\udf9f\ufe0f\n\n#thinkanddrink #sandiego #orangecountyevents #thesocialstudy"
@@ -111,9 +110,9 @@
       "campaign": "1",
       "ad_id": "6951024654157",
       "ad_name": "1",
-      "ctr": 6.185,
+      "ctr": 6.19,
       "cpc": 0.11,
-      "spend": 126.22,
+      "spend": 126.83,
       "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-abc028c632e0436a68507d2aeb3662fe",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so you\u2019re not gonna want to miss a drop! \ud83c\udf9f\ufe0f\n\n#thinkanddrink #sandiego #orangecountyevents #thesocialstudy"
@@ -122,32 +121,32 @@
       "campaign": "2",
       "ad_id": "6953786714557",
       "ad_name": "1",
-      "ctr": 6.728,
+      "ctr": 6.734,
       "cpc": 0.112,
-      "spend": 156.89,
+      "spend": 157.66,
       "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-97c4eb0f10f7736f63148e943baac553",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so you\u2019re not gonna want to miss a drop! \ud83c\udf9f\ufe0f\n\n#thinkanddrink #sandiego #orangecountyevents #thesocialstudy"
     },
     {
       "campaign": "TSS Seattle 4-way launch 20260321_095059",
-      "ad_id": "6960435771957",
-      "ad_name": "Seattle launch | v98_vo_b",
-      "ctr": 7.246,
-      "cpc": 0.116,
-      "spend": 1.16,
-      "creative_name": "Seattle_v98_vo_b_creative 2026-03-21-99137ee9bf51b7e9ca0e5cbe9a2cb53d",
+      "ad_id": "6960435854157",
+      "ad_name": "Seattle launch | v104b_vo_c",
+      "ctr": 6.548,
+      "cpc": 0.125,
+      "spend": 1.37,
+      "creative_name": "Seattle_v104b_vo_c_creative 2026-03-21-2cef9627eece0157edddc1653614b310",
       "cta": "LEARN_MORE",
       "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
     },
     {
       "campaign": "TSS Seattle 4-way launch 20260321_095059",
-      "ad_id": "6960435854157",
-      "ad_name": "Seattle launch | v104b_vo_c",
-      "ctr": 5.303,
-      "cpc": 0.156,
-      "spend": 1.09,
-      "creative_name": "Seattle_v104b_vo_c_creative 2026-03-21-2cef9627eece0157edddc1653614b310",
+      "ad_id": "6960435771957",
+      "ad_name": "Seattle launch | v98_vo_b",
+      "ctr": 6.79,
+      "cpc": 0.13,
+      "spend": 1.43,
+      "creative_name": "Seattle_v98_vo_b_creative 2026-03-21-99137ee9bf51b7e9ca0e5cbe9a2cb53d",
       "cta": "LEARN_MORE",
       "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
     },
@@ -157,7 +156,7 @@
       "ad_name": "1",
       "ctr": 4.586,
       "cpc": 0.158,
-      "spend": 104.68,
+      "spend": 105.14,
       "creative_name": "Calling all San Diego, Orange County, and Denver intellectuals \ud83e\udde0 This one\u2019s for you. Tickets drop e 2026-03-08-8687ee2e441bfe97bf6ef5e14260fb48",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Calling all San Diego, Orange County, and Denver intellectuals \ud83e\udde0 This one\u2019s for you. Tickets drop every Sunday at 10 AM PST. \n\n#sandiegoevents #orangecountyevents #thinkanddrink #thesocialstudy"
@@ -166,9 +165,9 @@
       "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
       "ad_id": "6960086009157",
       "ad_name": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
-      "ctr": 4.529,
-      "cpc": 0.163,
-      "spend": 27.49,
+      "ctr": 4.576,
+      "cpc": 0.161,
+      "spend": 29.91,
       "creative_name": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link 2026-03-20-1cf64a246dbc22003bfc846333d2c282",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
@@ -177,9 +176,9 @@
       "campaign": "TSS Seattle 4-way launch 20260321_095059",
       "ad_id": "6960435894757",
       "ad_name": "Seattle launch | v113_vo_a",
-      "ctr": 4.478,
-      "cpc": 0.202,
-      "spend": 1.21,
+      "ctr": 4.969,
+      "cpc": 0.185,
+      "spend": 1.48,
       "creative_name": "Seattle_v113_vo_a_creative 2026-03-21-82e723bf68e3cbe70ca145c7239aa024",
       "cta": "LEARN_MORE",
       "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
@@ -188,18 +187,18 @@
       "campaign": "TSS Seattle 4-way launch 20260321_095059",
       "ad_id": "6960435711757",
       "ad_name": "Seattle launch | v94_vo_d",
-      "ctr": 2.564,
-      "cpc": 0.312,
-      "spend": 1.25,
+      "ctr": 2.326,
+      "cpc": 0.357,
+      "spend": 1.43,
       "creative_name": "Seattle_v94_vo_d_creative 2026-03-21-55eccad43b49d6bd3852e9932daa6562",
       "cta": "LEARN_MORE",
       "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
     }
   ],
   "immediate_actions": [
+    "Pacing too fast: reduce total daily spend velocity by ~10-20% today.",
     "Scale: 1 (Strong CTR + low CPC with acceptable frequency)",
-    "Scale: 2 (Strong CTR + low CPC with acceptable frequency)",
-    "Confidence LOW: prioritize tracking/event reliability before major budget shifts."
+    "Scale: 2 (Strong CTR + low CPC with acceptable frequency)"
   ],
   "alert": {
     "should_alert": true,
