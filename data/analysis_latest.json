@@ -1,27 +1,27 @@
 {
-  "generated_at": "2026-03-23T10:03:27.930419Z",
-  "source_updated_at": "2026-03-23T10:03:13.709590Z",
+  "generated_at": "2026-03-23T11:03:25.259775Z",
+  "source_updated_at": "2026-03-23T11:03:10.378805Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
-    "today_spend": 1.92,
-    "expected_by_now": 7.62,
-    "pace_ratio": 0.252,
+    "today_spend": 2.73,
+    "expected_by_now": 10.12,
+    "pace_ratio": 0.27,
     "status": "too_slow"
   },
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 0.2,
+    "last_pull_age_min": 0.1,
     "attribution_confidence": "direct"
   },
   "summary": {
-    "total_spend": 882.11,
-    "total_clicks": 8095,
-    "total_impressions": 121907,
-    "daily_gain_live": 3,
-    "current_followers_live": 107960
+    "total_spend": 882.93,
+    "total_clicks": 8103,
+    "total_impressions": 121995,
+    "daily_gain_live": 5,
+    "current_followers_live": 107962
   },
   "recommendations": {
     "scale": [
@@ -64,7 +64,7 @@
           "anomaly_spend"
         ],
         "expected_impact": "high",
-        "fatigue_score": 1.1
+        "fatigue_score": 0.9
       }
     ],
     "cut": [],
@@ -78,9 +78,9 @@
       "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
       "ad_id": "6955113574157",
       "ad_name": "Tailored web traffic campaign 3/11/2026 Ad",
-      "ctr": 8.069,
+      "ctr": 8.186,
       "cpc": 0.082,
-      "spend": 237.25,
+      "spend": 237.42,
       "creative_name": "Not your average night out: drinks + ideas + people who actually want to learn something. 2026-03-11-d903cc461832f20f0639f16d24cca0d4",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Not your average night out: drinks + ideas + people who actually want to learn something."
@@ -122,9 +122,9 @@
       "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
       "ad_id": "6960086009157",
       "ad_name": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
-      "ctr": 6.604,
+      "ctr": 6.527,
       "cpc": 0.154,
-      "spend": 52.67,
+      "spend": 52.74,
       "creative_name": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link 2026-03-20-1cf64a246dbc22003bfc846333d2c282",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
@@ -144,9 +144,9 @@
       "campaign": "TSS Seattle 4-way launch 20260321_095059",
       "ad_id": "6960435771957",
       "ad_name": "Seattle launch | v98_vo_b",
-      "ctr": 3.899,
+      "ctr": 5.089,
       "cpc": 0.173,
-      "spend": 8.84,
+      "spend": 9.01,
       "creative_name": "Seattle_v98_vo_b_creative 2026-03-21-99137ee9bf51b7e9ca0e5cbe9a2cb53d",
       "cta": "LEARN_MORE",
       "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
@@ -155,9 +155,9 @@
       "campaign": "TSS Seattle 4-way launch 20260321_095059",
       "ad_id": "6960435894757",
       "ad_name": "Seattle launch | v113_vo_a",
-      "ctr": 4.857,
-      "cpc": 0.189,
-      "spend": 8.87,
+      "ctr": 4.394,
+      "cpc": 0.191,
+      "spend": 8.97,
       "creative_name": "Seattle_v113_vo_a_creative 2026-03-21-82e723bf68e3cbe70ca145c7239aa024",
       "cta": "LEARN_MORE",
       "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
@@ -166,9 +166,9 @@
       "campaign": "TSS Seattle 4-way launch 20260321_095059",
       "ad_id": "6960435854157",
       "ad_name": "Seattle launch | v104b_vo_c",
-      "ctr": 5.814,
-      "cpc": 0.201,
-      "spend": 11.04,
+      "ctr": 6.131,
+      "cpc": 0.199,
+      "spend": 11.35,
       "creative_name": "Seattle_v104b_vo_c_creative 2026-03-21-2cef9627eece0157edddc1653614b310",
       "cta": "LEARN_MORE",
       "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
