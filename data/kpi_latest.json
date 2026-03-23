@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-23T03:03:23.655622Z",
+  "updated_at": "2026-03-23T04:00:00.403999Z",
   "summary": {
     "ad_account_id": "act_1379452680603809",
     "total_spend": 858.06,
@@ -1997,8 +1997,8 @@
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 77.66,
-    "expected_by_now": 50.12,
-    "pace_ratio": 1.549,
+    "expected_by_now": 52.5,
+    "pace_ratio": 1.479,
     "status": "too_fast"
   },
   "geo_efficiency": [
@@ -2090,7 +2090,7 @@
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 0.1,
+    "last_pull_age_min": 56.7,
     "attribution_confidence": "direct"
   },
   "diagnostics": {
@@ -2302,7 +2302,7 @@
         },
         {
           "factor": "Data freshness (minutes)",
-          "value": 0.1,
+          "value": 56.7,
           "penalty": 0.0
         },
         {
@@ -2914,8 +2914,8 @@
     "pacing": {
       "day_target": 60.0,
       "today_spend": 77.66,
-      "expected_spend_now": 50.12,
-      "pace_ratio": 1.549
+      "expected_spend_now": 52.5,
+      "pace_ratio": 1.479
     },
     "geo_efficiency": [
       {
@@ -3050,7 +3050,7 @@
       "reason": "Using blended model (spend + follower deltas)"
     },
     "data_health": {
-      "stale_minutes": 0,
+      "stale_minutes": 56,
       "status": "ok"
     },
     "creative_leaderboard": [
