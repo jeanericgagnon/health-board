@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-23T01:00:00.877519Z",
+  "updated_at": "2026-03-23T02:00:00.910445Z",
   "summary": {
     "ad_account_id": "act_1379452680603809",
     "total_spend": 839.93,
@@ -1998,8 +1998,8 @@
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 59.53,
-    "expected_by_now": 45.0,
-    "pace_ratio": 1.323,
+    "expected_by_now": 47.5,
+    "pace_ratio": 1.253,
     "status": "too_fast"
   },
   "geo_efficiency": [
@@ -2091,7 +2091,7 @@
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 57.1,
+    "last_pull_age_min": 117.1,
     "attribution_confidence": "direct"
   },
   "diagnostics": {
@@ -2288,7 +2288,7 @@
       "notes": "Hourly data unavailable; fallback uses day-of-week efficiency."
     },
     "attribution_confidence": {
-      "score": 72.0,
+      "score": 62.0,
       "band": "med",
       "factors": [
         {
@@ -2303,8 +2303,8 @@
         },
         {
           "factor": "Data freshness (minutes)",
-          "value": 57.1,
-          "penalty": 0.0
+          "value": 117.1,
+          "penalty": 10.0
         },
         {
           "factor": "Attribution sample size (outbound clicks)",
@@ -2312,8 +2312,8 @@
           "penalty": 10.0
         }
       ],
-      "penalty_total": 28.0,
-      "summary": "Attribution confidence MED (72.0/100)."
+      "penalty_total": 38.0,
+      "summary": "Attribution confidence MED (62.0/100)."
     },
     "anomalies": {
       "count": 2,
@@ -2926,8 +2926,8 @@
     "pacing": {
       "day_target": 60.0,
       "today_spend": 59.53,
-      "expected_spend_now": 45.0,
-      "pace_ratio": 1.323
+      "expected_spend_now": 47.5,
+      "pace_ratio": 1.253
     },
     "geo_efficiency": [
       {
@@ -3062,7 +3062,7 @@
       "reason": "Using blended model (spend + follower deltas)"
     },
     "data_health": {
-      "stale_minutes": 57,
+      "stale_minutes": 117,
       "status": "ok"
     },
     "creative_leaderboard": [
