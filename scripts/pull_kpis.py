@@ -2107,14 +2107,56 @@ def build_winner_durability(rows):
 
 
 def build_budget_movement_audit(rows):
-    # No native budget action log is currently available in this workspace.
-    # Keep strict "N/A" semantics and avoid fabricating action effects.
+    """Infer pause/scale events from latest two days of ad-level daily rows.
+    This is conservative and explicit about inference quality.
+    """
+    by_ad = _collect_entity_daily(rows, 'ad')
+    events = []
+    for key, by_date_rows in by_ad.items():
+        if len(by_date_rows) < 2:
+            continue
+        sorted_rows = sorted(by_date_rows, key=lambda x: x.get('date', ''))
+        prev = sorted_rows[-2]
+        cur = sorted_rows[-1]
+        prev_spend = num(prev.get('spend'))
+        cur_spend = num(cur.get('spend'))
+        movement = None
+        if cur_spend <= 0.2:
+            movement = 'pause'
+        elif prev_spend > 0:
+            if cur_spend >= prev_spend * 1.35:
+                movement = 'scale_up'
+            elif cur_spend <= prev_spend * 0.65:
+                movement = 'scale_down'
+        if movement is None:
+            continue
+        prev_cpc = prev.get('cpc')
+        cur_cpc = cur.get('cpc')
+        cpc_after_24h_delta = None
+        if prev_cpc is not None and cur_cpc is not None and prev_cpc != 0:
+            cpc_after_24h_delta = round(((num(cur_cpc) - num(prev_cpc)) / num(prev_cpc)) * 100, 2)
+
+        aid, name, sid, cid = key
+        events.append({
+            'level': 'ad',
+            'entity_id': aid,
+            'campaign_id': cid,
+            'adset_id': sid,
+            'entity_name': name,
+            'movement': movement,
+            'date': cur.get('date'),
+            'spend_prev_day': round(prev_spend, 3),
+            'spend_current_day': round(cur_spend, 3),
+            'cpc_after_24h_delta_pct': cpc_after_24h_delta,
+        })
+
+    events.sort(key=lambda x: (x.get('date') or '', x.get('entity_name') or ''), reverse=True)
     out = {
         'generated_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
-        'source': 'unavailable',
-        'audit_rows': [],
-        'notes': 'No explicit pause/scale/reallocation log table/file detected in connected data sources.',
-        'after_effects_24h_available': False,
+        'source': 'inferred_from_ad_daily_rows',
+        'audit_rows': events,
+        'notes': 'Events inferred from latest ad-level daily row deltas (not control-plane logs).',
+        'after_effects_24h_available': len(events) > 0,
     }
     BUDGET_MOVEMENT_OUT.write_text(json.dumps(out, indent=2))
     return out

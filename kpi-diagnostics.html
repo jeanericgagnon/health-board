@@ -987,8 +987,9 @@
             ? decisionItems.slice(0, 20).map(x => {
                 const g5 = (x.gate_progress || {}).gate_5 || {};
                 const g10 = (x.gate_progress || {}).gate_10 || {};
-                const dur = x.winner_durability || {};
-                return `<tr><td><b>${x.ad || '—'}</b><br><span class="sub">${x.campaign || ''} / ${x.adset_id || ''}</span></td><td>${statePill(x.state || 'HOLD')}</td><td>${g5.passed ? '✅' : '⏳'} ${Number(g5.current_pct || 0).toFixed(0)}%</td><td>${g10.passed ? '✅' : '⏳'} ${g10.current_pct == null ? '—' : `${Number(g10.current_pct).toFixed(0)}%`}</td><td>— / —</td><td>${dur.status || (dur.stable_3d ? 'stable_3d' : (dur.good_today ? 'good_today' : '—'))} (${Number(dur.score || 0).toFixed(0)})</td><td>${x.action_timestamp ? new Date(x.action_timestamp).toLocaleTimeString() : '—'}</td></tr>`;
+                const dur = winnerLookup[x.ad_id || x.ad || ''] || {};
+                const durLabel = dur.stable_3d ? 'stable_3d' : (dur.good_today ? 'good_today' : 'unstable');
+                return `<tr><td><b>${x.ad || '—'}</b><br><span class="sub">${x.campaign || ''} / ${x.adset_id || ''}</span></td><td>${statePill(x.state || 'HOLD')}</td><td>${g5.passed ? '✅' : '⏳'} ${Number(g5.current_pct || 0).toFixed(0)}%</td><td>${g10.passed ? '✅' : '⏳'} ${g10.current_pct == null ? '—' : `${Number(g10.current_pct).toFixed(0)}%`}</td><td>— / —</td><td>${durLabel} (${Number(dur.score || 0).toFixed(0)})</td><td>${x.action_timestamp ? new Date(x.action_timestamp).toLocaleTimeString() : '—'}</td></tr>`;
               }).join('')
             : '<tr><td colspan="7">No ad decision states yet</td></tr>';
         }
