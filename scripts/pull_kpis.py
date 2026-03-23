@@ -15,6 +15,22 @@ MANUAL_INTRADAY_SPEND_PATH = DATA_DIR / 'manual_intraday_spend.json'
 ADSOPS_LATEST_PATH = WORKSPACE / 'ads-ops' / 'dashboard' / 'data' / 'latest.json'
 CAMPAIGN_ANNOTATIONS_PATH = DATA_DIR / 'campaign_annotations.json'
 
+# Configurable intelligence thresholds (safe defaults; tune as needed)
+TREND_MIN_SPEND_PER_DAY = 1.0
+FATIGUE_CTR_DECAY_ALERT = 0.18
+FATIGUE_CPC_INCREASE_ALERT = 0.22
+FATIGUE_FREQ_ALERT = 1.8
+FATIGUE_COMBINED_SIGNAL_ALERT = 0.65
+AD_GATE_SPEND_1 = 5.0
+AD_GATE_SPEND_2 = 10.0
+AD_SCALE_CPC_MAX = 0.45
+AD_SCALE_CTR_MIN = 1.2
+AD_KILL_CPC_MIN = 1.0
+AD_KILL_CTR_MAX = 0.8
+WINNER_DURABILITY_DAYS = 3
+WINNER_DURABILITY_CPC_MAX = 0.55
+FORECAST_TARGET_DAILY_SPEND = 60.0
+
 
 def num(v):
     try:
@@ -69,6 +85,17 @@ def read_meta_config():
     try:
         cfg = json.loads(p.read_text())
         return {'ad_account_id': cfg.get('ad_account_id')}
+    except Exception:
+        return {}
+
+
+def read_campaign_annotations():
+    if not CAMPAIGN_ANNOTATIONS_PATH.exists():
+        return {}
+    try:
+        raw = json.loads(CAMPAIGN_ANNOTATIONS_PATH.read_text())
+        by_id = raw.get('by_campaign_id') if isinstance(raw, dict) else None
+        return by_id if isinstance(by_id, dict) else {}
     except Exception:
         return {}
 
@@ -429,6 +456,283 @@ def build_campaign_daily(rows, limit_days=30):
         })
     out.sort(key=lambda x: (x['date'], x['campaign_name']))
     return out[-(limit_days * 10):]
+
+
+def build_entity_daily(rows, level='campaign', limit_days=30):
+    key_fields = {
+        'campaign': ('campaign_id', 'campaign_name', 'campaign'),
+        'adset': ('adset_id', 'adset_name', 'adset'),
+        'ad': ('ad_id', 'ad_name', 'ad'),
+    }
+    id_field, name_field, out_name = key_fields[level]
+    by_key = {}
+    for r in rows:
+        d = (r.get('date_start') or '').strip()
+        eid = (r.get(id_field) or '').strip()
+        name = (r.get(name_field) or f'Unknown {level.title()}').strip() or f'Unknown {level.title()}'
+        if not d or not eid:
+            continue
+        key = (d, eid, name)
+        m = by_key.setdefault(key, {
+            'date': d, f'{level}_id': eid, out_name: name,
+            'spend': 0.0, 'clicks': 0.0, 'impressions': 0.0,
+            'freq_num': 0.0, 'freq_den': 0.0,
+        })
+        impr = num(r.get('impressions'))
+        freq_raw = r.get('frequency')
+        freq = num(freq_raw) if freq_raw not in (None, '') else None
+        m['spend'] += num(r.get('spend'))
+        m['clicks'] += num(r.get('clicks'))
+        m['impressions'] += impr
+        if freq is not None:
+            m['freq_num'] += (freq * impr)
+            m['freq_den'] += impr
+
+    out = []
+    for m in by_key.values():
+        impr = m['impressions']
+        clk = m['clicks']
+        freq_avg = (m['freq_num'] / m['freq_den']) if m['freq_den'] > 0 else None
+        out.append({
+            'date': m['date'],
+            f'{level}_id': m[f'{level}_id'],
+            out_name: m[out_name],
+            'spend': round(m['spend'], 2),
+            'clicks': int(clk),
+            'impressions': int(impr),
+            'ctr': round((clk / impr) * 100, 3) if impr > 0 else 0.0,
+            'cpc': round(m['spend'] / clk, 3) if clk > 0 else None,
+            'frequency_avg': None if freq_avg is None else round(freq_avg, 3),
+        })
+    out.sort(key=lambda x: (x['date'], x.get(out_name) or ''))
+    return out[-(limit_days * 200):]
+
+
+def _trend_from_daily(points, window_days):
+    vals = [p for p in points if p.get('cpc') is not None and num(p.get('spend')) >= TREND_MIN_SPEND_PER_DAY]
+    if len(vals) < max(4, window_days):
+        return {'window_days': window_days, 'direction': 'flat', 'delta_pct': 0.0, 'recent_avg_cpc': None, 'prior_avg_cpc': None}
+    recent = vals[-window_days:]
+    prior = vals[-(window_days * 2):-window_days]
+    if not prior:
+        return {'window_days': window_days, 'direction': 'flat', 'delta_pct': 0.0, 'recent_avg_cpc': None, 'prior_avg_cpc': None}
+    r_avg = sum(num(x.get('cpc')) for x in recent) / len(recent)
+    p_avg = sum(num(x.get('cpc')) for x in prior) / len(prior)
+    if p_avg <= 0:
+        delta = 0.0
+    else:
+        delta = (r_avg - p_avg) / p_avg
+    direction = 'up' if delta > 0.03 else ('down' if delta < -0.03 else 'flat')
+    return {
+        'window_days': window_days,
+        'direction': direction,
+        'delta_pct': round(delta * 100, 2),
+        'recent_avg_cpc': round(r_avg, 3),
+        'prior_avg_cpc': round(p_avg, 3),
+    }
+
+
+def build_intelligence_layers(rows):
+    ad_daily = build_entity_daily(rows, level='ad', limit_days=45)
+    adset_daily = build_entity_daily(rows, level='adset', limit_days=45)
+    campaign_daily = build_entity_daily(rows, level='campaign', limit_days=45)
+
+    def group_by_id(daily_rows, id_field):
+        out = {}
+        for r in daily_rows:
+            out.setdefault(str(r.get(id_field) or ''), []).append(r)
+        for k in out:
+            out[k].sort(key=lambda x: x.get('date') or '')
+        return out
+
+    grouped = {
+        'campaign': group_by_id(campaign_daily, 'campaign_id'),
+        'adset': group_by_id(adset_daily, 'adset_id'),
+        'ad': group_by_id(ad_daily, 'ad_id'),
+    }
+
+    trend_intel = {'campaign': {}, 'adset': {}, 'ad': {}}
+    fatigue_radar = {'campaign': {}, 'adset': {}, 'ad': {}}
+    decision_state = {'ad': {}}
+    winner_durability = {'ad': {}}
+    budget_moves = []
+
+    for level in ('campaign', 'adset', 'ad'):
+        id_field = f'{level}_id'
+        name_field = level
+        for entity_id, points in grouped[level].items():
+            if not entity_id or not points:
+                continue
+            t3 = _trend_from_daily(points, 3)
+            t7 = _trend_from_daily(points, 7)
+            recent3 = points[-3:]
+            prior3 = points[-6:-3] if len(points) >= 6 else points[:-3]
+            ctr_recent = (sum(num(x.get('ctr')) for x in recent3) / len(recent3)) if recent3 else 0.0
+            ctr_prior = (sum(num(x.get('ctr')) for x in prior3) / len(prior3)) if prior3 else ctr_recent
+            cpc_recent = (sum(num(x.get('cpc')) for x in recent3 if x.get('cpc') is not None) / max(1, len([x for x in recent3 if x.get('cpc') is not None]))) if recent3 else 0.0
+            cpc_prior = (sum(num(x.get('cpc')) for x in prior3 if x.get('cpc') is not None) / max(1, len([x for x in prior3 if x.get('cpc') is not None]))) if prior3 else cpc_recent
+            freq_recent = (sum(num(x.get('frequency_avg')) for x in recent3 if x.get('frequency_avg') is not None) / max(1, len([x for x in recent3 if x.get('frequency_avg') is not None]))) if recent3 else 0.0
+            freq_prior = (sum(num(x.get('frequency_avg')) for x in prior3 if x.get('frequency_avg') is not None) / max(1, len([x for x in prior3 if x.get('frequency_avg') is not None]))) if prior3 else freq_recent
+
+            ctr_decay = ((ctr_prior - ctr_recent) / ctr_prior) if ctr_prior > 0 else 0.0
+            cpc_delta = ((cpc_recent - cpc_prior) / cpc_prior) if cpc_prior > 0 else 0.0
+            freq_delta = ((freq_recent - freq_prior) / freq_prior) if freq_prior > 0 else 0.0
+            combined_signal = max(0.0, min(1.0, (max(0.0, ctr_decay) * 0.52) + (max(0.0, cpc_delta) * 0.48)))
+            pre_collapse_alert = bool(
+                (freq_recent >= FATIGUE_FREQ_ALERT and ctr_decay >= FATIGUE_CTR_DECAY_ALERT * 0.7) or
+                (combined_signal >= FATIGUE_COMBINED_SIGNAL_ALERT)
+            )
+
+            trend_intel[level][entity_id] = {
+                id_field: entity_id,
+                name_field: points[-1].get(name_field),
+                'cpc_trend_3d': t3,
+                'cpc_trend_7d': t7,
+                'fatigue_signal': {
+                    'combined_ctr_cpc_signal': round(combined_signal, 3),
+                    'status': 'high' if combined_signal >= FATIGUE_COMBINED_SIGNAL_ALERT else ('med' if combined_signal >= 0.4 else 'low'),
+                    'ctr_decay_pct': round(ctr_decay * 100, 2),
+                    'cpc_delta_pct': round(cpc_delta * 100, 2),
+                },
+            }
+            fatigue_radar[level][entity_id] = {
+                id_field: entity_id,
+                name_field: points[-1].get(name_field),
+                'frequency_trend_pct': round(freq_delta * 100, 2),
+                'ctr_decay_pct': round(ctr_decay * 100, 2),
+                'cpc_delta_pct': round(cpc_delta * 100, 2),
+                'pre_collapse_alert': pre_collapse_alert,
+            }
+
+            if len(points) >= 2:
+                prev = points[-2]
+                cur = points[-1]
+                spend_prev, spend_cur = num(prev.get('spend')), num(cur.get('spend'))
+                if spend_prev > 0:
+                    move = None
+                    if spend_cur <= 0.2:
+                        move = 'pause'
+                    elif spend_cur >= spend_prev * 1.35:
+                        move = 'scale_up'
+                    elif spend_cur <= spend_prev * 0.65:
+                        move = 'scale_down'
+                    if move:
+                        prev_cpc = prev.get('cpc')
+                        cur_cpc = cur.get('cpc')
+                        after = None
+                        if prev_cpc and cur_cpc:
+                            after = round(((num(cur_cpc) - num(prev_cpc)) / num(prev_cpc)) * 100, 2)
+                        budget_moves.append({
+                            'level': level,
+                            'entity_id': entity_id,
+                            'entity_name': points[-1].get(name_field),
+                            'movement': move,
+                            'date': cur.get('date'),
+                            'spend_prev_day': round(spend_prev, 2),
+                            'spend_current_day': round(spend_cur, 2),
+                            'cpc_after_24h_delta_pct': after,
+                        })
+
+    # Ad-only decision state and durability
+    for ad_id, points in grouped['ad'].items():
+        if not ad_id or not points:
+            continue
+        cur = points[-1]
+        spend = num(cur.get('spend'))
+        ctr = num(cur.get('ctr'))
+        cpc = cur.get('cpc')
+        ad_fatigue = fatigue_radar['ad'].get(ad_id, {})
+        state = 'WATCH'
+        if spend < AD_GATE_SPEND_1:
+            state = 'WATCH'
+        elif spend >= AD_GATE_SPEND_2 and cpc is not None and ctr >= AD_SCALE_CTR_MIN and num(cpc) <= AD_SCALE_CPC_MAX:
+            state = 'SCALE'
+        elif spend >= AD_GATE_SPEND_2 and (cpc is None or num(cpc) >= AD_KILL_CPC_MIN or ctr <= AD_KILL_CTR_MAX):
+            state = 'KILL'
+        else:
+            state = 'HOLD'
+        if ad_fatigue.get('pre_collapse_alert') and state == 'HOLD':
+            state = 'WATCH'
+
+        now_stamp = datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
+        decision_state['ad'][ad_id] = {
+            'ad_id': ad_id,
+            'ad': cur.get('ad'),
+            'state': state,
+            'gate_progress': {
+                'gate_5': {'threshold': AD_GATE_SPEND_1, 'passed': spend >= AD_GATE_SPEND_1, 'progress_pct': round(min(100.0, (spend / AD_GATE_SPEND_1) * 100), 1)},
+                'gate_10': {'threshold': AD_GATE_SPEND_2, 'passed': spend >= AD_GATE_SPEND_2, 'progress_pct': round(min(100.0, (spend / AD_GATE_SPEND_2) * 100), 1)},
+            },
+            'action_timestamp': now_stamp,
+            'inputs': {'spend': round(spend, 2), 'ctr': round(ctr, 3), 'cpc': None if cpc is None else round(num(cpc), 3)},
+        }
+
+        recent = [p for p in points[-WINNER_DURABILITY_DAYS:] if p.get('cpc') is not None]
+        stable_days = sum(1 for p in recent if num(p.get('cpc')) <= WINNER_DURABILITY_CPC_MAX)
+        winner_durability['ad'][ad_id] = {
+            'ad_id': ad_id,
+            'ad': cur.get('ad'),
+            'stable_days_under_cpc_threshold': stable_days,
+            'threshold_cpc': WINNER_DURABILITY_CPC_MAX,
+            'durability_score': round((stable_days / max(1, WINNER_DURABILITY_DAYS)) * 100, 1),
+            'classification': 'stable_3d' if stable_days >= WINNER_DURABILITY_DAYS else ('good_today' if cpc is not None and num(cpc) <= WINNER_DURABILITY_CPC_MAX else 'unstable'),
+        }
+
+    budget_moves.sort(key=lambda x: (x.get('date') or '', x.get('movement') or ''), reverse=True)
+
+    return {
+        'trend_intelligence': trend_intel,
+        'decision_state': decision_state,
+        'budget_movement_audit': {'events': budget_moves[:120]},
+        'fatigue_radar': fatigue_radar,
+        'winner_durability': winner_durability,
+    }
+
+
+def build_forecasting(spend_series, rows):
+    now_pt = datetime.now(ZoneInfo('America/Los_Angeles'))
+    today = now_pt.date().isoformat()
+    elapsed = max(0.03, (now_pt.hour + now_pt.minute / 60) / 24)
+    today_spend = sum(num(r.get('spend')) for r in spend_series if (r.get('date') or '') == today)
+    projected_spend = today_spend / elapsed if elapsed > 0 else today_spend
+
+    today_clicks = sum(num(r.get('clicks')) for r in rows if (r.get('date_start') or '') == today)
+    projected_clicks = today_clicks / elapsed if elapsed > 0 else today_clicks
+    projected_cpc = (projected_spend / projected_clicks) if projected_clicks > 0 else None
+
+    return {
+        'today_spend_so_far': round(today_spend, 2),
+        'projected_eod_spend': round(projected_spend, 2),
+        'projected_eod_cpc': None if projected_cpc is None else round(projected_cpc, 3),
+        'pace_elapsed_pct': round(elapsed * 100, 2),
+        'target_daily_spend': FORECAST_TARGET_DAILY_SPEND,
+    }
+
+
+def enrich_hierarchy_with_intelligence(campaigns, intelligence):
+    trend = (intelligence or {}).get('trend_intelligence', {})
+    fatigue = (intelligence or {}).get('fatigue_radar', {})
+    decision = ((intelligence or {}).get('decision_state', {}) or {}).get('ad', {})
+    durability = ((intelligence or {}).get('winner_durability', {}) or {}).get('ad', {})
+
+    for c in campaigns:
+        cid = str(c.get('campaign_id') or '')
+        if cid:
+            c['trend_intelligence'] = (trend.get('campaign') or {}).get(cid)
+            c['fatigue_radar'] = (fatigue.get('campaign') or {}).get(cid)
+        for s in c.get('adsets', []):
+            sid = str(s.get('adset_id') or '')
+            if sid:
+                s['trend_intelligence'] = (trend.get('adset') or {}).get(sid)
+                s['fatigue_radar'] = (fatigue.get('adset') or {}).get(sid)
+            for a in s.get('ads', []):
+                aid = str(a.get('ad_id') or '')
+                if aid:
+                    a['trend_intelligence'] = (trend.get('ad') or {}).get(aid)
+                    a['fatigue_radar'] = (fatigue.get('ad') or {}).get(aid)
+                    a['decision_state'] = decision.get(aid)
+                    a['winner_durability'] = durability.get(aid)
+
 
 
 def read_live_followers_stats():
@@ -1202,11 +1506,646 @@ def build_optimization(rows, campaigns, summary, followers_daily):
     }
 
 
+
+
+# =========================
+# Additional diagnostics/artifacts for KPI upgrades
+# =========================
+TREND_INTELLIGENCE_OUT = DATA_DIR / 'trend_intelligence_latest.json'
+DECISION_STATE_OUT = DATA_DIR / 'decision_state_latest.json'
+CREATIVE_ATTRIBUTION_OUT = DATA_DIR / 'creative_attribution_latest.json'
+BUDGET_MOVEMENT_OUT = DATA_DIR / 'budget_movement_audit.json'
+FORECASTING_TILES_OUT = DATA_DIR / 'forecasting_tiles_latest.json'
+FATIGUE_RADAR_OUT = DATA_DIR / 'fatigue_radar_latest.json'
+WINNER_DURABILITY_OUT = DATA_DIR / 'winner_durability_latest.json'
+
+
+def _safe_round(v, ndigits=3):
+    try:
+        f = float(v)
+    except Exception:
+        return None
+    if f != f:
+        return None
+    return round(f, ndigits)
+
+
+def _trend_delta(curr, prev):
+    if curr is None or prev is None:
+        return None
+    try:
+        prev_f = float(prev)
+        curr_f = float(curr)
+    except Exception:
+        return None
+    if prev_f <= 0:
+        return None
+    return round((curr_f - prev_f) / prev_f, 4)
+
+
+def _to_float(v):
+    try:
+        return float(v)
+    except Exception:
+        return None
+
+
+def _read_json(path: Path):
+    if not path.exists():
+        return None
+    try:
+        return json.loads(path.read_text())
+    except Exception:
+        return None
+
+
+def _load_previous_decision_state():
+    data = _read_json(DECISION_STATE_OUT)
+    entries = data.get('rows') if isinstance(data, dict) else None
+    if not isinstance(entries, list):
+        return {}
+    out = {}
+    for row in entries:
+        if not isinstance(row, dict):
+            continue
+        aid = str(row.get('ad_id') or '').strip()
+        if aid:
+            out[aid] = row
+    return out
+
+
+def _load_creative_metadata_by_ad_id():
+    data = _read_json(DATA_DIR / 'creative_metadata_latest.json') or {}
+    rows = data.get('rows') or []
+    by_ad = {}
+    for r in rows:
+        if not isinstance(r, dict):
+            continue
+        aid = str(r.get('ad_id') or '').strip()
+        if not aid:
+            continue
+        by_ad[aid] = r
+    return by_ad
+
+
+def _collect_entity_daily(rows, level):
+    buckets = {}
+    for r in rows:
+        ds = (r.get('date_start') or '').strip()
+        if not ds:
+            continue
+        cid = str(r.get('campaign_id') or '').strip()
+        sid = str(r.get('adset_id') or '').strip()
+        aid = str(r.get('ad_id') or '').strip()
+
+        if level == 'campaign':
+            if not cid:
+                continue
+            key = (cid, (r.get('campaign_name') or 'Unknown Campaign').strip() or 'Unknown Campaign')
+        elif level == 'adset':
+            if not sid:
+                continue
+            key = (sid, (r.get('adset_name') or 'Unknown Ad Set').strip() or 'Unknown Ad Set', cid)
+        elif level == 'ad':
+            if not aid:
+                continue
+            key = (aid, (r.get('ad_name') or 'Unknown Ad').strip() or 'Unknown Ad', sid, cid)
+        else:
+            continue
+
+        lst = buckets.setdefault(key, {})
+        entry = lst.setdefault(ds, {'date': ds, 'spend': 0.0, 'clicks': 0.0, 'impressions': 0.0, 'frequency_avg': 0.0, 'freq_count': 0.0})
+        entry['spend'] += num(r.get('spend'))
+        entry['clicks'] += num(r.get('clicks'))
+        entry['impressions'] += num(r.get('impressions'))
+
+        freq_raw = r.get('frequency')
+        try:
+            freq_v = float(freq_raw)
+        except Exception:
+            freq_v = None
+        if freq_v is not None:
+            entry['frequency_avg'] += freq_v
+            entry['freq_count'] += 1
+
+    out = {}
+    for key, by_date in buckets.items():
+        rows_out = []
+        for d, m in sorted(by_date.items(), key=lambda x: x[0]):
+            impr = m.get('impressions', 0.0)
+            clicks = m.get('clicks', 0.0)
+            spend = m.get('spend', 0.0)
+            cnt = m.get('freq_count', 0.0)
+            rows_out.append({
+                'date': d,
+                'spend': round(spend, 2),
+                'clicks': int(clicks),
+                'impressions': int(impr),
+                'ctr': round((clicks / impr) * 100, 3) if impr > 0 else None,
+                'cpc': round(spend / clicks, 3) if clicks > 0 else None,
+                'frequency_avg': None if cnt <= 0 else round((m.get('frequency_avg', 0.0) / cnt), 3),
+            })
+        out[key] = rows_out
+    return out
+
+
+def _window_stats(rows_for_entity, window_days):
+    if not rows_for_entity:
+        return None
+    # sort ascending date already
+    if len(rows_for_entity) < 1:
+        return None
+
+    sorted_rows = sorted(rows_for_entity, key=lambda x: x.get('date', ''))
+    use = sorted_rows[-(window_days * 2):]
+    if len(use) < window_days * 2:
+        return {
+            'status': 'na',
+            'current_spend': None,
+            'prior_spend': None,
+            'ctr_current': None,
+            'ctr_prior': None,
+            'cpc_current': None,
+            'cpc_prior': None,
+            'freq_current': None,
+            'freq_prior': None,
+            'ctr_trend_pct': None,
+            'cpc_trend_pct': None,
+            'freq_trend_pct': None,
+        }
+
+    recent = use[-window_days:]
+    prev = use[-(window_days * 2):-window_days]
+    def agg(rows, field):
+        vals = [r.get(field) for r in rows]
+        vals = [v for v in vals if v is not None and isinstance(v, (int, float))]
+        if not vals:
+            return None
+        return sum(vals) / len(vals)
+
+    curr_spend = sum(num(r.get('spend')) for r in recent)
+    prev_spend = sum(num(r.get('spend')) for r in prev)
+    curr_ctr = agg(recent, 'ctr')
+    prev_ctr = agg(prev, 'ctr')
+    curr_cpc = agg(recent, 'cpc')
+    prev_cpc = agg(prev, 'cpc')
+    curr_freq = agg(recent, 'frequency_avg')
+    prev_freq = agg(prev, 'frequency_avg')
+
+    return {
+        'status': 'ok',
+        'current_spend': round(curr_spend, 3),
+        'prior_spend': round(prev_spend, 3),
+        'ctr_current': _safe_round(curr_ctr, 3),
+        'ctr_prior': _safe_round(prev_ctr, 3),
+        'cpc_current': _safe_round(curr_cpc, 3),
+        'cpc_prior': _safe_round(prev_cpc, 3),
+        'freq_current': _safe_round(curr_freq, 3),
+        'freq_prior': _safe_round(prev_freq, 3),
+        'ctr_trend_pct': _trend_delta(curr_ctr, prev_ctr),
+        'cpc_trend_pct': _trend_delta(curr_cpc, prev_cpc),
+        'freq_trend_pct': _trend_delta(curr_freq, prev_freq),
+    }
+
+
+def build_trend_intelligence(rows):
+    entity_levels = {
+        'campaign': _collect_entity_daily(rows, 'campaign'),
+        'adset': _collect_entity_daily(rows, 'adset'),
+        'ad': _collect_entity_daily(rows, 'ad'),
+    }
+
+    out = {}
+    now_iso = datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
+    for level, by_key in entity_levels.items():
+        level_rows = []
+        for key, by_date_rows in by_key.items():
+            if not by_date_rows:
+                continue
+            current3 = _window_stats(by_date_rows, 3)
+            current7 = _window_stats(by_date_rows, 7)
+
+            if level == 'campaign':
+                eid, name = key
+                row_ctx = {'campaign_id': eid, 'campaign': name}
+            elif level == 'adset':
+                eid, name, cid = key
+                row_ctx = {'adset_id': eid, 'adset': name, 'campaign_id': cid}
+            else:
+                eid, name, sid, cid = key
+                row_ctx = {'ad_id': eid, 'ad': name, 'adset_id': sid, 'campaign_id': cid}
+
+            ctr_decay = None
+            cpc_delta = None
+            if current3:
+                ctr_decay = current3.get('ctr_trend_pct')
+                cpc_delta = current3.get('cpc_trend_pct')
+            fatigue_score = 0.0
+            if ctr_decay is not None:
+                fatigue_score += max(0.0, -float(ctr_decay) * 40)
+            if cpc_delta is not None:
+                fatigue_score += max(0.0, float(cpc_delta) * 40)
+            if current3 and current3.get('freq_trend_pct') is not None:
+                fatigue_score += max(0.0, float(current3.get('freq_trend_pct')) * 20)
+            fatigue_signal = 'stable'
+            if fatigue_score >= 60:
+                fatigue_signal = 'critical'
+            elif fatigue_score >= 35:
+                fatigue_signal = 'watch'
+
+            latest_row = sorted(by_date_rows, key=lambda x: x.get('date', ''))[-1] if by_date_rows else {}
+            row = {
+                **row_ctx,
+                'entity_type': level,
+                'trends': {
+                    'd3': current3,
+                    'd7': current7,
+                },
+                'ctr': latest_row.get('ctr'),
+                'cpc': latest_row.get('cpc'),
+                'frequency': latest_row.get('frequency_avg'),
+                'spend': latest_row.get('spend'),
+                'fatigue_signal': fatigue_signal,
+                'fatigue_score': round(fatigue_score, 3),
+            }
+            level_rows.append(row)
+
+        level_rows.sort(key=lambda x: (x.get('fatigue_score') or 0), reverse=True)
+        out[level] = level_rows
+
+    payload = {
+        'generated_at': now_iso,
+        'source': 'trend_intelligence_from_kpi_rows',
+        'campaigns': out.get('campaign', [])[:50],
+        'adsets': out.get('adset', [])[:120],
+        'ads': out.get('ad', [])[:120],
+        'notes': 'Data source: kpi snapshot rows + daily aggregation. Trend is recent_window vs prior_window.',
+        'refresh_note': 'fallback if insufficient daily history',
+    }
+    TREND_INTELLIGENCE_OUT.write_text(json.dumps(payload, indent=2))
+    return payload
+
+
+def build_decision_state(campaigns):
+    previous = _load_previous_decision_state()
+    now_iso = datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
+    rows = []
+
+    for c in campaigns:
+        cname = c.get('campaign')
+        cid = str(c.get('campaign_id') or '').strip()
+        for s in c.get('adsets', []):
+            sid = str(s.get('adset_id') or '').strip()
+            for a in s.get('ads', []):
+                aid = str(a.get('ad_id') or '').strip()
+                ad_name = a.get('ad')
+                spend = num(a.get('spend'))
+                cpc = a.get('cpc')
+                ctr = a.get('ctr')
+                if spend < AD_GATE_SPEND_1:
+                    state = 'HOLD'
+                    next_gate = '$5'
+                    action_ready = 'insufficient_spend'
+                elif spend >= AD_GATE_SPEND_2 and cpc is not None and cpc <= AD_SCALE_CPC_MAX and (ctr or 0) >= AD_SCALE_CTR_MIN:
+                    state = 'SCALE'
+                    next_gate = 'none'
+                    action_ready = 'scalable'
+                elif spend >= AD_GATE_SPEND_2 and cpc is not None and (cpc >= AD_KILL_CPC_MIN or (ctr is not None and ctr <= AD_KILL_CTR_MAX)):
+                    state = 'KILL'
+                    next_gate = 'pause'
+                    action_ready = 'immediate_review'
+                else:
+                    state = 'WATCH'
+                    next_gate = '$10' if spend < AD_GATE_SPEND_2 else 'review'
+                    action_ready = 'monitor'
+
+                gate_5_pct = min(100.0, (spend / AD_GATE_SPEND_1) * 100.0) if AD_GATE_SPEND_1 else 100.0
+                gate_10_pct = None
+                if spend >= AD_GATE_SPEND_1:
+                    gate_10_pct = min(100.0, ((spend - AD_GATE_SPEND_1) / (AD_GATE_SPEND_2 - AD_GATE_SPEND_1)) * 100.0)
+
+                prev = previous.get(aid, {}) if aid else {}
+                prev_state = prev.get('state') if isinstance(prev, dict) else None
+                action_timestamp = prev.get('action_timestamp') if isinstance(prev, dict) else None
+                if state in {'SCALE', 'KILL', 'WATCH'} and prev_state != state:
+                    action_timestamp = now_iso
+                elif state == 'HOLD':
+                    action_timestamp = None
+
+                row = {
+                    'campaign_id': cid,
+                    'campaign': cname,
+                    'adset_id': sid,
+                    'ad_id': aid,
+                    'ad': ad_name,
+                    'state': state,
+                    'action_ready': action_ready,
+                    'next_gate': next_gate,
+                    'gate_progress': {
+                        'spend': round(spend, 3),
+                        'gate_5': {'required': AD_GATE_SPEND_1, 'passed': spend >= AD_GATE_SPEND_1, 'current_pct': round(gate_5_pct, 1)},
+                        'gate_10': {'required': AD_GATE_SPEND_2, 'passed': spend >= AD_GATE_SPEND_2, 'current_pct': None if gate_10_pct is None else round(gate_10_pct, 1)},
+                    },
+                    'action_timestamp': action_timestamp,
+                    'updated_at': now_iso,
+                }
+                rows.append(row)
+
+    out = {
+        'generated_at': now_iso,
+        'rows': rows,
+        'counts': {
+            'hold': sum(1 for r in rows if r.get('state') == 'HOLD'),
+            'watch': sum(1 for r in rows if r.get('state') == 'WATCH'),
+            'scale': sum(1 for r in rows if r.get('state') == 'SCALE'),
+            'kill': sum(1 for r in rows if r.get('state') == 'KILL'),
+        },
+    }
+    DECISION_STATE_OUT.write_text(json.dumps(out, indent=2))
+    return out
+
+
+def build_creative_attribution(campaigns):
+    metadata = _load_creative_metadata_by_ad_id()
+    rows = []
+    for c in campaigns:
+        cid = str(c.get('campaign_id') or '').strip()
+        cname = c.get('campaign')
+        for s in c.get('adsets', []):
+            sid = str(s.get('adset_id') or '').strip()
+            sname = s.get('adset')
+            for a in s.get('ads', []):
+                aid = str(a.get('ad_id') or '').strip()
+                meta = metadata.get(aid, {}) if aid else {}
+                row = {
+                    'campaign_id': cid,
+                    'campaign': cname,
+                    'adset_id': sid,
+                    'adset': sname,
+                    'ad_id': aid,
+                    'ad': a.get('ad'),
+                    'voice_id': str(meta.get('voice_id') or 'N/A'),
+                    'hook_bucket': str(meta.get('hook_bucket') or 'N/A'),
+                    'script_id': str(meta.get('script_id') or 'N/A'),
+                    'format': str(meta.get('object_type') or meta.get('format') or 'N/A'),
+                    'creative_id': str(meta.get('creative_id') or 'N/A'),
+                    'creative_name': str(meta.get('creative_name') or 'N/A'),
+                    'spend': _safe_round(a.get('spend'), 2),
+                    'ctr': a.get('ctr'),
+                    'cpc': a.get('cpc'),
+                }
+                rows.append(row)
+
+    out = {
+        'generated_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
+        'rows': rows,
+        'mandatory_fields': ['voice_id', 'hook_bucket', 'script_id', 'format'],
+        'missing_counts': {
+            'voice_id': sum(1 for r in rows if r.get('voice_id') == 'N/A'),
+            'hook_bucket': sum(1 for r in rows if r.get('hook_bucket') == 'N/A'),
+            'script_id': sum(1 for r in rows if r.get('script_id') == 'N/A'),
+            'format': sum(1 for r in rows if r.get('format') == 'N/A'),
+        }
+    }
+    CREATIVE_ATTRIBUTION_OUT.write_text(json.dumps(out, indent=2))
+    return out
+
+
+def build_forecasting_tiles(rows, spend_series):
+    now_pt = datetime.now(ZoneInfo('America/Los_Angeles'))
+    today_key = now_pt.date().isoformat()
+    hour_progress = max(1e-6, (now_pt.hour + (now_pt.minute / 60.0) + (now_pt.second / 3600.0)) / 24.0)
+
+    today_spend = 0.0
+    today_clicks = 0.0
+    for r in rows:
+        if (r.get('date_start') or '') == today_key:
+            today_spend += num(r.get('spend'))
+            today_clicks += num(r.get('clicks'))
+
+    if today_spend == 0 and spend_series:
+        today_spend = num((spend_series[-1]).get('spend')) if (spend_series[-1]).get('date') == today_key else 0.0
+
+    projected_eod_spend = None
+    projected_eod_cpc = None
+    pace_type = 'realtime' if hour_progress < 1 and today_spend > 0 else 'estimated'
+    spend_source = 'live_intraday' if today_spend > 0 else 'N/A'
+
+    if today_spend > 0 and today_clicks > 0 and hour_progress > 0:
+        projected_eod_spend = round(today_spend / hour_progress, 2)
+        projected_clicks = today_clicks / hour_progress
+        if projected_clicks > 0:
+            projected_eod_cpc = round(projected_eod_spend / projected_clicks, 3)
+    elif spend_series:
+        # Fallback to yesterday trend if today data missing.
+        recent = [x for x in spend_series[-30:] if x.get('date')]
+        if recent:
+            avg_daily = sum(num(x.get('spend')) for x in recent) / len(recent)
+            if avg_daily > 0:
+                projected_eod_spend = round(avg_daily, 2)
+                projected_eod_cpc = None
+                pace_type = 'estimated'
+
+    out = {
+        'generated_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
+        'projected_eod_spend': projected_eod_spend,
+        'projected_eod_cpc': projected_eod_cpc,
+        'spend_progress_pct': round((today_spend / max(1e-6, projected_eod_spend)) * 100, 3) if projected_eod_spend else None,
+        'hour_progress': round(hour_progress * 100, 2),
+        'today_spend': round(today_spend, 3),
+        'today_clicks': int(today_clicks),
+        'data_source': spend_source,
+        'estimation_type': pace_type,
+        'notes': 'Projected EOD CPC = projected EOD spend ÷ projected EOD clicks. Requires today clicks for CPC.',
+    }
+    FORECASTING_TILES_OUT.write_text(json.dumps(out, indent=2))
+    return out
+
+
+def build_fatigue_radar(rows):
+    # Frequency trend + CTR decay + CPC delta, then rank alert candidates.
+    entity_rows = _collect_entity_daily(rows, 'ad')
+    candidates = []
+    for key, daily in entity_rows.items():
+        stat3 = _window_stats(daily, 3)
+        if not daily:
+            continue
+        latest = sorted(daily, key=lambda x: x.get('date', ''))[-1]
+        ctr_decay = stat3.get('ctr_trend_pct') if stat3 else None
+        cpc_delta = stat3.get('cpc_trend_pct') if stat3 else None
+        freq_delta = stat3.get('freq_trend_pct') if stat3 else None
+
+        danger = 0.0
+        if freq_delta is not None:
+            danger += max(0.0, float(freq_delta) * 100)
+        if ctr_decay is not None:
+            danger += max(0.0, -float(ctr_decay) * 100)
+        if cpc_delta is not None:
+            danger += max(0.0, float(cpc_delta) * 120)
+
+        alert = 'none'
+        if danger >= 80:
+            alert = 'before_collapse'
+        elif danger >= 45:
+            alert = 'watch'
+
+        aid, adname, sid, cid = key
+        candidates.append({
+            'ad_id': aid,
+            'ad': adname,
+            'campaign_id': cid,
+            'adset_id': sid,
+            'frequency_trend_pct_3d': stat3.get('freq_trend_pct') if stat3 else None,
+            'frequency_current_3d': stat3.get('freq_current') if stat3 else None,
+            'frequency_prior_3d': stat3.get('freq_prior') if stat3 else None,
+            'ctr_decay_pct_3d': ctr_decay,
+            'cpc_delta_pct_3d': cpc_delta,
+            'latest_ctr': latest.get('ctr'),
+            'latest_cpc': latest.get('cpc'),
+            'fatigue_score': round(min(100.0, danger), 3),
+            'alert': alert,
+            'signal': 'collapse_risk' if alert != 'none' else 'stable',
+        })
+    candidates.sort(key=lambda x: x.get('fatigue_score', 0), reverse=True)
+    out = {
+        'generated_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
+        'rows': candidates[:60],
+        'notes': 'Frequency trend and CPC/CTR delta combined. "before_collapse" indicates likely alert tier.',
+        'alert_count': sum(1 for x in candidates if x.get('alert') == 'before_collapse'),
+    }
+    FATIGUE_RADAR_OUT.write_text(json.dumps(out, indent=2))
+    return out
+
+
+def build_winner_durability(rows):
+    # Build per-campaign and per-ad durability score.
+    out_entities = []
+    by_campaign = _collect_entity_daily(rows, 'campaign')
+    by_ad = _collect_entity_daily(rows, 'ad')
+
+    def _durability_stats(daily_rows):
+        sorted_rows = sorted(daily_rows, key=lambda x: x.get('date', ''))
+        if not sorted_rows:
+            return {
+                'good_today': False,
+                'stable_3d': False,
+                'score': 0,
+                'days_under_threshold': 0,
+                'latest_cpc': None,
+                'latest_ctr': None,
+                'spend_today': 0,
+                'latest_frequency': None,
+            }
+
+        latest = sorted_rows[-1]
+        latest_cpc = latest.get('cpc')
+        latest_ctr = latest.get('ctr')
+        latest_spend = latest.get('spend') or 0
+        latest_freq = latest.get('frequency_avg')
+
+        good_today = latest_cpc is not None and latest_cpc <= WINNER_DURABILITY_CPC_MAX and latest_spend >= 5
+
+        streak = 0
+        for row in reversed(sorted_rows):
+            cpc = row.get('cpc')
+            if cpc is None or cpc > WINNER_DURABILITY_CPC_MAX:
+                break
+            streak += 1
+        stable_3d = streak >= WINNER_DURABILITY_DAYS
+
+        score = 0
+        if good_today:
+            score += 50
+        if stable_3d:
+            score += 50
+        score += min(20, streak * 6)
+        score = min(100, score)
+
+        return {
+            'good_today': good_today,
+            'stable_3d': stable_3d,
+            'score': score,
+            'days_under_threshold': streak,
+            'latest_cpc': latest_cpc,
+            'latest_ctr': latest_ctr,
+            'latest_frequency': latest_freq,
+            'spend_today': latest_spend,
+        }
+
+    for (cid, name), daily in by_campaign.items():
+        st = _durability_stats(daily)
+        out_entities.append({
+            'entity_type': 'campaign',
+            'campaign_id': cid,
+            'campaign': name,
+            'threshold_cpc': WINNER_DURABILITY_CPC_MAX,
+            'durable_3d_min_days': WINNER_DURABILITY_DAYS,
+            **st,
+        })
+
+    for (aid, adname, sid, cid), daily in by_ad.items():
+        st = _durability_stats(daily)
+        out_entities.append({
+            'entity_type': 'ad',
+            'ad_id': aid,
+            'ad': adname,
+            'campaign_id': cid,
+            'adset_id': sid,
+            'threshold_cpc': WINNER_DURABILITY_CPC_MAX,
+            'durable_3d_min_days': WINNER_DURABILITY_DAYS,
+            **st,
+        })
+
+    out_entities.sort(key=lambda x: x.get('score', 0), reverse=True)
+    out = {
+        'generated_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
+        'rows': out_entities,
+        'note': 'Durability distinguishes Good today vs stable 3+ days where CPC <= threshold and spend exists.',
+    }
+    WINNER_DURABILITY_OUT.write_text(json.dumps(out, indent=2))
+    return out
+
+
+def build_budget_movement_audit(rows):
+    # No native budget action log is currently available in this workspace.
+    # Keep strict "N/A" semantics and avoid fabricating action effects.
+    out = {
+        'generated_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
+        'source': 'unavailable',
+        'audit_rows': [],
+        'notes': 'No explicit pause/scale/reallocation log table/file detected in connected data sources.',
+        'after_effects_24h_available': False,
+    }
+    BUDGET_MOVEMENT_OUT.write_text(json.dumps(out, indent=2))
+    return out
+
+
+def add_upgraded_artifacts(rows, campaigns, spend_series):
+    trend_intelligence = build_trend_intelligence(rows)
+    decision_state = build_decision_state(campaigns)
+    creative_attribution = build_creative_attribution(campaigns)
+    budget_movement = build_budget_movement_audit(rows)
+    forecasting = build_forecasting_tiles(rows, spend_series)
+    fatigue_radar = build_fatigue_radar(rows)
+    winner_durability = build_winner_durability(rows)
+    return trend_intelligence, decision_state, creative_attribution, budget_movement, forecasting, fatigue_radar, winner_durability
+
 def main():
     summary = read_summary()
     meta = read_meta_config()
     rows = apply_market_labels(read_insights_rows())
     campaigns = aggregate_hierarchy(rows)
+
+    # Optional manual campaign annotations (e.g., Denver-targeted label)
+    campaign_annotations = read_campaign_annotations()
+    for c in campaigns:
+        cid = str(c.get('campaign_id') or '').strip()
+        ann = campaign_annotations.get(cid) if cid else None
+        if isinstance(ann, dict):
+            c['annotation_label'] = ann.get('label')
+            c['annotation_note'] = ann.get('note')
+            c['annotation_market'] = ann.get('market')
+
     manual_spend_override = read_manual_intraday_spend_override()
     if manual_spend_override:
         today_pt = datetime.now(ZoneInfo('America/Los_Angeles')).date().isoformat()
@@ -1239,6 +2178,10 @@ def main():
     # have a different coverage window.
     followers_daily = follower_daily_series(followers)
     pacing = build_pacing(spend_series, target_daily=60.0)
+    intelligence = build_intelligence_layers(rows)
+    forecasting = build_forecasting(spend_series, rows)
+    # Generate new KPI upgrade artifacts as separate outputs for direct UI binding.
+    trend_intelligence, decision_state, creative_attribution, budget_movement, upgraded_forecast, fatigue_radar, winner_durability = add_upgraded_artifacts(rows, campaigns, spend_series)
 
     total_outbound_clicks = int(sum(num(c.get('outbound_clicks')) for c in campaigns))
     total_landing_page_views = int(sum(num(c.get('landing_page_views')) for c in campaigns))
@@ -1289,6 +2232,8 @@ def main():
         attribution=attribution_confidence,
     )
 
+    enrich_hierarchy_with_intelligence(campaigns, intelligence)
+
     payload = {
         'updated_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
         'summary': {
@@ -1321,6 +2266,15 @@ def main():
         'insights': build_insights(summary, campaigns, followers_daily, spend_series, action_recommendations, data_health),
         'recommendations': action_recommendations,
         'pacing': pacing,
+        'forecasting': forecasting,
+        'forecasting_tiles': upgraded_forecast,
+        'intelligence': intelligence,
+        'trend_intelligence': trend_intelligence,
+        'decision_state': decision_state,
+        'creative_attribution': creative_attribution,
+        'budget_movement': budget_movement,
+        'fatigue_radar': fatigue_radar,
+        'winner_durability': winner_durability,
         'geo_efficiency': geo_efficiency,
         'data_health': data_health,
         'diagnostics': {
