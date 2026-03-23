@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-23T23:00:01.126191Z",
+  "generated_at": "2026-03-23T23:03:24.608387Z",
   "rows": [
     {
       "campaign_id": "6951024653957",
@@ -24,7 +24,7 @@
         }
       },
       "action_timestamp": "2026-03-23T22:24:29.331593Z",
-      "updated_at": "2026-03-23T23:00:01.126191Z"
+      "updated_at": "2026-03-23T23:03:24.608387Z"
     },
     {
       "campaign_id": "6951024653957",
@@ -49,7 +49,7 @@
         }
       },
       "action_timestamp": "2026-03-23T22:24:29.331593Z",
-      "updated_at": "2026-03-23T23:00:01.126191Z"
+      "updated_at": "2026-03-23T23:03:24.608387Z"
     },
     {
       "campaign_id": "6953786714157",
@@ -74,7 +74,7 @@
         }
       },
       "action_timestamp": "2026-03-23T22:24:29.331593Z",
-      "updated_at": "2026-03-23T23:00:01.126191Z"
+      "updated_at": "2026-03-23T23:03:24.608387Z"
     },
     {
       "campaign_id": "6953786714157",
@@ -99,7 +99,7 @@
         }
       },
       "action_timestamp": "2026-03-23T22:24:29.331593Z",
-      "updated_at": "2026-03-23T23:00:01.126191Z"
+      "updated_at": "2026-03-23T23:03:24.608387Z"
     },
     {
       "campaign_id": "6955113574357",
@@ -111,7 +111,7 @@
       "action_ready": "scalable",
       "next_gate": "none",
       "gate_progress": {
-        "spend": 251.01,
+        "spend": 254.16,
         "gate_5": {
           "required": 5.0,
           "passed": true,
@@ -124,7 +124,7 @@
         }
       },
       "action_timestamp": "2026-03-23T22:24:29.331593Z",
-      "updated_at": "2026-03-23T23:00:01.126191Z"
+      "updated_at": "2026-03-23T23:03:24.608387Z"
     },
     {
       "campaign_id": "6960086008957",
@@ -136,7 +136,7 @@
       "action_ready": "scalable",
       "next_gate": "none",
       "gate_progress": {
-        "spend": 60.29,
+        "spend": 61.82,
         "gate_5": {
           "required": 5.0,
           "passed": true,
@@ -149,32 +149,7 @@
         }
       },
       "action_timestamp": "2026-03-23T22:24:29.331593Z",
-      "updated_at": "2026-03-23T23:00:01.126191Z"
-    },
-    {
-      "campaign_id": "6960435028357",
-      "campaign": "TSS Seattle 4-way launch 20260321_095059",
-      "adset_id": "6960435841557",
-      "ad_id": "6960435854157",
-      "ad": "Seattle launch | v104b_vo_c",
-      "state": "SCALE",
-      "action_ready": "scalable",
-      "next_gate": "none",
-      "gate_progress": {
-        "spend": 15.76,
-        "gate_5": {
-          "required": 5.0,
-          "passed": true,
-          "current_pct": 100.0
-        },
-        "gate_10": {
-          "required": 10.0,
-          "passed": true,
-          "current_pct": 100.0
-        }
-      },
-      "action_timestamp": "2026-03-23T22:24:29.331593Z",
-      "updated_at": "2026-03-23T23:00:01.126191Z"
+      "updated_at": "2026-03-23T23:03:24.608387Z"
     },
     {
       "campaign_id": "6960435028357",
@@ -186,7 +161,7 @@
       "action_ready": "scalable",
       "next_gate": "none",
       "gate_progress": {
-        "spend": 15.17,
+        "spend": 16.26,
         "gate_5": {
           "required": 5.0,
           "passed": true,
@@ -199,7 +174,32 @@
         }
       },
       "action_timestamp": "2026-03-23T22:24:29.331593Z",
-      "updated_at": "2026-03-23T23:00:01.126191Z"
+      "updated_at": "2026-03-23T23:03:24.608387Z"
+    },
+    {
+      "campaign_id": "6960435028357",
+      "campaign": "TSS Seattle 4-way launch 20260321_095059",
+      "adset_id": "6960435841557",
+      "ad_id": "6960435854157",
+      "ad": "Seattle launch | v104b_vo_c",
+      "state": "SCALE",
+      "action_ready": "scalable",
+      "next_gate": "none",
+      "gate_progress": {
+        "spend": 15.77,
+        "gate_5": {
+          "required": 5.0,
+          "passed": true,
+          "current_pct": 100.0
+        },
+        "gate_10": {
+          "required": 10.0,
+          "passed": true,
+          "current_pct": 100.0
+        }
+      },
+      "action_timestamp": "2026-03-23T22:24:29.331593Z",
+      "updated_at": "2026-03-23T23:03:24.608387Z"
     },
     {
       "campaign_id": "6960435028357",
@@ -224,7 +224,7 @@
         }
       },
       "action_timestamp": "2026-03-23T22:24:29.331593Z",
-      "updated_at": "2026-03-23T23:00:01.126191Z"
+      "updated_at": "2026-03-23T23:03:24.608387Z"
     },
     {
       "campaign_id": "6960435028357",
@@ -236,7 +236,7 @@
       "action_ready": "monitor",
       "next_gate": "$10",
       "gate_progress": {
-        "spend": 6.44,
+        "spend": 6.45,
         "gate_5": {
           "required": 5.0,
           "passed": true,
@@ -245,11 +245,11 @@
         "gate_10": {
           "required": 10.0,
           "passed": false,
-          "current_pct": 28.8
+          "current_pct": 29.0
         }
       },
       "action_timestamp": "2026-03-23T22:24:29.331593Z",
-      "updated_at": "2026-03-23T23:00:01.126191Z"
+      "updated_at": "2026-03-23T23:03:24.608387Z"
     }
   ],
   "counts": {
