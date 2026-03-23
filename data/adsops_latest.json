@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-03-23T03:03:19.994070+00:00",
+  "updated_at": "2026-03-23T04:02:54.342526+00:00",
   "campaign": [
     {
       "campaign_id": "6955113574357",
       "campaign_name": "Tailored web traffic campaign 3/11/2026 Campaign",
-      "spend": 230.35999999999999,
-      "impressions": 34878.0,
-      "clicks": 2814.0,
-      "ctr": 8.068123172200242,
-      "cpc": 0.08186211798152096
+      "spend": 232.91999999999996,
+      "impressions": 35264.0,
+      "clicks": 2845.0,
+      "ctr": 8.06771778584392,
+      "cpc": 0.08186994727592266
     },
     {
       "campaign_id": "6951024653957",
@@ -31,20 +31,20 @@
     {
       "campaign_id": "6960086008957",
       "campaign_name": "Tailored web traffic campaign 3/20/2026 Campaign",
-      "spend": 47.7,
-      "impressions": 6561.0,
-      "clicks": 308.0,
-      "ctr": 4.694406340496875,
-      "cpc": 0.15487012987012988
+      "spend": 49.77,
+      "impressions": 6868.0,
+      "clicks": 323.0,
+      "ctr": 4.702970297029703,
+      "cpc": 0.15408668730650155
     },
     {
       "campaign_id": "6960435028357",
       "campaign_name": "TSS Seattle 4-way launch 20260321_095059",
-      "spend": 22.990000000000002,
-      "impressions": 2483.0,
-      "clicks": 124.0,
-      "ctr": 4.993958920660491,
-      "cpc": 0.18540322580645163
+      "spend": 25.88,
+      "impressions": 2754.0,
+      "clicks": 141.0,
+      "ctr": 5.119825708061002,
+      "cpc": 0.18354609929078014
     }
   ],
   "ad": [
@@ -55,11 +55,11 @@
       "campaign_name": "Tailored web traffic campaign 3/11/2026 Campaign",
       "adset_id": "6955113574557",
       "adset_name": "Tailored web traffic campaign 3/11/2026 Ad set",
-      "spend": 230.35999999999999,
-      "impressions": 34878.0,
-      "clicks": 2814.0,
-      "ctr": 8.068123172200242,
-      "cpc": 0.08186211798152096
+      "spend": 232.91999999999996,
+      "impressions": 35264.0,
+      "clicks": 2845.0,
+      "ctr": 8.06771778584392,
+      "cpc": 0.08186994727592266
     },
     {
       "ad_id": "6951024654157",
@@ -107,11 +107,24 @@
       "campaign_name": "Tailored web traffic campaign 3/20/2026 Campaign",
       "adset_id": "6960086009357",
       "adset_name": "Tailored web traffic campaign 3/20/2026 Ad set",
-      "spend": 47.7,
-      "impressions": 6561.0,
-      "clicks": 308.0,
-      "ctr": 4.694406340496875,
-      "cpc": 0.15487012987012988
+      "spend": 49.77,
+      "impressions": 6868.0,
+      "clicks": 323.0,
+      "ctr": 4.702970297029703,
+      "cpc": 0.15408668730650155
+    },
+    {
+      "ad_id": "6960435854157",
+      "ad_name": "Seattle launch | v104b_vo_c",
+      "campaign_id": "6960435028357",
+      "campaign_name": "TSS Seattle 4-way launch 20260321_095059",
+      "adset_id": "6960435841557",
+      "adset_name": "Seattle launch | v104b_vo_c | $20/day",
+      "spend": 6.56,
+      "impressions": 712.0,
+      "clicks": 42.0,
+      "ctr": 5.8988764044943816,
+      "cpc": 0.15619047619047619
     },
     {
       "ad_id": "6953786714357",
@@ -127,17 +140,17 @@
       "cpc": 0.1596248196248196
     },
     {
-      "ad_id": "6960435854157",
-      "ad_name": "Seattle launch | v104b_vo_c",
+      "ad_id": "6960435894757",
+      "ad_name": "Seattle launch | v113_vo_a",
       "campaign_id": "6960435028357",
       "campaign_name": "TSS Seattle 4-way launch 20260321_095059",
-      "adset_id": "6960435841557",
-      "adset_name": "Seattle launch | v104b_vo_c | $3/day",
-      "spend": 5.63,
-      "impressions": 623.0,
+      "adset_id": "6960435878157",
+      "adset_name": "Seattle launch | v113_vo_a | $10/day",
+      "spend": 6.390000000000001,
+      "impressions": 669.0,
       "clicks": 35.0,
-      "ctr": 5.617977528089887,
-      "cpc": 0.16085714285714287
+      "ctr": 5.23168908819133,
+      "cpc": 0.18257142857142858
     },
     {
       "ad_id": "6960435771957",
@@ -145,25 +158,12 @@
       "campaign_id": "6960435028357",
       "campaign_name": "TSS Seattle 4-way launch 20260321_095059",
       "adset_id": "6960435749557",
-      "adset_name": "Seattle launch | v98_vo_b | $3/day",
-      "spend": 5.79,
-      "impressions": 633.0,
-      "clicks": 32.0,
-      "ctr": 5.055292259083728,
-      "cpc": 0.1809375
-    },
-    {
-      "ad_id": "6960435894757",
-      "ad_name": "Seattle launch | v113_vo_a",
-      "campaign_id": "6960435028357",
-      "campaign_name": "TSS Seattle 4-way launch 20260321_095059",
-      "adset_id": "6960435878157",
-      "adset_name": "Seattle launch | v113_vo_a | $3/day",
-      "spend": 5.59,
-      "impressions": 603.0,
-      "clicks": 29.0,
-      "ctr": 4.809286898839138,
-      "cpc": 0.19275862068965516
+      "adset_name": "Seattle launch | v98_vo_b | $10/day",
+      "spend": 6.54,
+      "impressions": 714.0,
+      "clicks": 35.0,
+      "ctr": 4.901960784313726,
+      "cpc": 0.18685714285714286
     },
     {
       "ad_id": "6960435711757",
@@ -171,12 +171,12 @@
       "campaign_id": "6960435028357",
       "campaign_name": "TSS Seattle 4-way launch 20260321_095059",
       "adset_id": "6960435699357",
-      "adset_name": "Seattle launch | v94_vo_d | $3/day",
-      "spend": 5.9799999999999995,
-      "impressions": 624.0,
-      "clicks": 28.0,
-      "ctr": 4.487179487179487,
-      "cpc": 0.21357142857142855
+      "adset_name": "Seattle launch | v94_vo_d | $10/day",
+      "spend": 6.39,
+      "impressions": 659.0,
+      "clicks": 29.0,
+      "ctr": 4.400606980273141,
+      "cpc": 0.22034482758620688
     }
   ],
   "breakdowns": {
@@ -82548,113 +82548,113 @@
     ]
   },
   "followers": {
-    "current": 107930,
+    "current": 107949,
     "username": "thesocial.study",
     "source": "instagram_graph",
-    "pulled_at": "2026-03-23T03:03:19.994070+00:00",
-    "updated_at": "2026-03-23T03:03:19.994070+00:00",
-    "delta_24h": 156
+    "pulled_at": "2026-03-23T04:02:54.342526+00:00",
+    "updated_at": "2026-03-23T04:02:54.342526+00:00",
+    "delta_24h": 175
   },
   "followers_city": [
     {
       "city": "San Diego, California",
-      "followers": 25405
+      "followers": 25423
     },
     {
       "city": "Denver, Colorado",
-      "followers": 8053
+      "followers": 8046
     },
     {
       "city": "Los Angeles, California",
-      "followers": 3394
+      "followers": 3412
     },
     {
       "city": "Irvine, California",
-      "followers": 2260
+      "followers": 2251
     },
     {
       "city": "Chula Vista, California",
-      "followers": 1987
+      "followers": 1992
     },
     {
       "city": "Anaheim, California",
-      "followers": 1755
+      "followers": 1766
     },
     {
       "city": "Santa Ana, California",
-      "followers": 1453
+      "followers": 1449
     },
     {
       "city": "Oceanside, California",
-      "followers": 1378
+      "followers": 1388
     },
     {
       "city": "Long Beach, California",
-      "followers": 1250
+      "followers": 1243
     },
     {
       "city": "Carlsbad, California",
-      "followers": 1038
+      "followers": 1026
     },
     {
       "city": "Costa Mesa, California",
-      "followers": 1005
+      "followers": 1009
     },
     {
       "city": "Orange, California",
-      "followers": 985
+      "followers": 983
     },
     {
       "city": "Huntington Beach, California",
-      "followers": 954
-    },
-    {
-      "city": "Fullerton, California",
-      "followers": 866
+      "followers": 950
     },
     {
       "city": "Escondido, California",
-      "followers": 856
+      "followers": 865
+    },
+    {
+      "city": "Fullerton, California",
+      "followers": 862
     },
     {
       "city": "Encinitas, California",
-      "followers": 792
+      "followers": 784
     },
     {
       "city": "La Mesa, California",
-      "followers": 748
+      "followers": 755
     },
     {
       "city": "Vista, California",
-      "followers": 658
+      "followers": 660
     },
     {
       "city": "Lakewood, Colorado",
-      "followers": 647
+      "followers": 653
     },
     {
       "city": "San Marcos, California",
-      "followers": 628
+      "followers": 624
     },
     {
       "city": "Riverside, California",
-      "followers": 595
+      "followers": 600
     },
     {
       "city": "El Cajon, California",
-      "followers": 543
+      "followers": 544
     },
     {
       "city": "Centennial, Colorado",
-      "followers": 504
+      "followers": 498
     },
     {
       "city": "Arvada, Colorado",
-      "followers": 478
+      "followers": 476
     },
     {
       "city": "New York, New York",
-      "followers": 439
+      "followers": 441
     },
     {
       "city": "Newport Beach, California",
@@ -82662,206 +82662,206 @@
     },
     {
       "city": "Santee, California",
-      "followers": 409
+      "followers": 408
     },
     {
       "city": "Garden Grove, California",
-      "followers": 403
+      "followers": 406
     },
     {
       "city": "Phoenix, Arizona",
-      "followers": 394
+      "followers": 401
     },
     {
       "city": "Tustin, California",
-      "followers": 377
+      "followers": 375
     },
     {
       "city": "Temecula, California",
-      "followers": 374
-    },
-    {
-      "city": "Murrieta, California",
-      "followers": 331
+      "followers": 373
     },
     {
       "city": "Mission Viejo, California",
-      "followers": 326
+      "followers": 330
+    },
+    {
+      "city": "Murrieta, California",
+      "followers": 329
     },
     {
       "city": "Ontario, California",
-      "followers": 319
+      "followers": 316
     },
     {
       "city": "La Presa, California",
-      "followers": 309
+      "followers": 307
     },
     {
       "city": "Chicago, Illinois",
-      "followers": 308
+      "followers": 302
     },
     {
       "city": "Houston, Texas",
-      "followers": 300
-    },
-    {
-      "city": "Colorado Springs, Colorado",
-      "followers": 289
+      "followers": 302
     },
     {
       "city": "Corona, California",
-      "followers": 287
+      "followers": 291
+    },
+    {
+      "city": "Colorado Springs, Colorado",
+      "followers": 290
     },
     {
       "city": "Boulder, Colorado",
-      "followers": 284
+      "followers": 285
     },
     {
       "city": "San Antonio, Texas",
-      "followers": 282
+      "followers": 284
     },
     {
       "city": "Whittier, California",
-      "followers": 274
+      "followers": 275
     },
     {
       "city": "Rancho Cucamonga, California",
-      "followers": 269
+      "followers": 273
     },
     {
       "city": "Moreno Valley, California",
-      "followers": 265
+      "followers": 259
     },
     {
       "city": "National City, California",
-      "followers": 263
+      "followers": 257
     }
   ],
   "followers_city_delta": [
     {
       "city": "San Diego, California",
-      "followers": 25405,
-      "delta_since_last_pull": 0
+      "followers": 25423,
+      "delta_since_last_pull": 18
     },
     {
       "city": "Denver, Colorado",
-      "followers": 8053,
-      "delta_since_last_pull": 0
+      "followers": 8046,
+      "delta_since_last_pull": -7
     },
     {
       "city": "Los Angeles, California",
-      "followers": 3394,
-      "delta_since_last_pull": 0
+      "followers": 3412,
+      "delta_since_last_pull": 18
     },
     {
       "city": "Irvine, California",
-      "followers": 2260,
-      "delta_since_last_pull": 0
+      "followers": 2251,
+      "delta_since_last_pull": -9
     },
     {
       "city": "Chula Vista, California",
-      "followers": 1987,
-      "delta_since_last_pull": 0
+      "followers": 1992,
+      "delta_since_last_pull": 5
     },
     {
       "city": "Anaheim, California",
-      "followers": 1755,
-      "delta_since_last_pull": 0
+      "followers": 1766,
+      "delta_since_last_pull": 11
     },
     {
       "city": "Santa Ana, California",
-      "followers": 1453,
-      "delta_since_last_pull": 0
+      "followers": 1449,
+      "delta_since_last_pull": -4
     },
     {
       "city": "Oceanside, California",
-      "followers": 1378,
-      "delta_since_last_pull": 0
+      "followers": 1388,
+      "delta_since_last_pull": 10
     },
     {
       "city": "Long Beach, California",
-      "followers": 1250,
-      "delta_since_last_pull": 0
+      "followers": 1243,
+      "delta_since_last_pull": -7
     },
     {
       "city": "Carlsbad, California",
-      "followers": 1038,
-      "delta_since_last_pull": 0
+      "followers": 1026,
+      "delta_since_last_pull": -12
     },
     {
       "city": "Costa Mesa, California",
-      "followers": 1005,
-      "delta_since_last_pull": 0
+      "followers": 1009,
+      "delta_since_last_pull": 4
     },
     {
       "city": "Orange, California",
-      "followers": 985,
-      "delta_since_last_pull": 0
+      "followers": 983,
+      "delta_since_last_pull": -2
     },
     {
       "city": "Huntington Beach, California",
-      "followers": 954,
-      "delta_since_last_pull": 0
-    },
-    {
-      "city": "Fullerton, California",
-      "followers": 866,
-      "delta_since_last_pull": 0
+      "followers": 950,
+      "delta_since_last_pull": -4
     },
     {
       "city": "Escondido, California",
-      "followers": 856,
-      "delta_since_last_pull": 0
+      "followers": 865,
+      "delta_since_last_pull": 9
+    },
+    {
+      "city": "Fullerton, California",
+      "followers": 862,
+      "delta_since_last_pull": -4
     },
     {
       "city": "Encinitas, California",
-      "followers": 792,
-      "delta_since_last_pull": 0
+      "followers": 784,
+      "delta_since_last_pull": -8
     },
     {
       "city": "La Mesa, California",
-      "followers": 748,
-      "delta_since_last_pull": 0
+      "followers": 755,
+      "delta_since_last_pull": 7
     },
     {
       "city": "Vista, California",
-      "followers": 658,
-      "delta_since_last_pull": 0
+      "followers": 660,
+      "delta_since_last_pull": 2
     },
     {
       "city": "Lakewood, Colorado",
-      "followers": 647,
-      "delta_since_last_pull": 0
+      "followers": 653,
+      "delta_since_last_pull": 6
     },
     {
       "city": "San Marcos, California",
-      "followers": 628,
-      "delta_since_last_pull": 0
+      "followers": 624,
+      "delta_since_last_pull": -4
     },
     {
       "city": "Riverside, California",
-      "followers": 595,
-      "delta_since_last_pull": 0
+      "followers": 600,
+      "delta_since_last_pull": 5
     },
     {
       "city": "El Cajon, California",
-      "followers": 543,
-      "delta_since_last_pull": 0
+      "followers": 544,
+      "delta_since_last_pull": 1
     },
     {
       "city": "Centennial, Colorado",
-      "followers": 504,
-      "delta_since_last_pull": 0
+      "followers": 498,
+      "delta_since_last_pull": -6
     },
     {
       "city": "Arvada, Colorado",
-      "followers": 478,
-      "delta_since_last_pull": 0
+      "followers": 476,
+      "delta_since_last_pull": -2
     },
     {
       "city": "New York, New York",
-      "followers": 439,
-      "delta_since_last_pull": 0
+      "followers": 441,
+      "delta_since_last_pull": 2
     },
     {
       "city": "Newport Beach, California",
@@ -82870,98 +82870,98 @@
     },
     {
       "city": "Santee, California",
-      "followers": 409,
-      "delta_since_last_pull": 0
+      "followers": 408,
+      "delta_since_last_pull": -1
     },
     {
       "city": "Garden Grove, California",
-      "followers": 403,
-      "delta_since_last_pull": 0
+      "followers": 406,
+      "delta_since_last_pull": 3
     },
     {
       "city": "Phoenix, Arizona",
-      "followers": 394,
-      "delta_since_last_pull": 0
+      "followers": 401,
+      "delta_since_last_pull": 7
     },
     {
       "city": "Tustin, California",
-      "followers": 377,
-      "delta_since_last_pull": 0
+      "followers": 375,
+      "delta_since_last_pull": -2
     },
     {
       "city": "Temecula, California",
-      "followers": 374,
-      "delta_since_last_pull": 0
-    },
-    {
-      "city": "Murrieta, California",
-      "followers": 331,
-      "delta_since_last_pull": 0
+      "followers": 373,
+      "delta_since_last_pull": -1
     },
     {
       "city": "Mission Viejo, California",
-      "followers": 326,
-      "delta_since_last_pull": 0
+      "followers": 330,
+      "delta_since_last_pull": 4
+    },
+    {
+      "city": "Murrieta, California",
+      "followers": 329,
+      "delta_since_last_pull": -2
     },
     {
       "city": "Ontario, California",
-      "followers": 319,
-      "delta_since_last_pull": 0
+      "followers": 316,
+      "delta_since_last_pull": -3
     },
     {
       "city": "La Presa, California",
-      "followers": 309,
-      "delta_since_last_pull": 0
+      "followers": 307,
+      "delta_since_last_pull": -2
     },
     {
       "city": "Chicago, Illinois",
-      "followers": 308,
-      "delta_since_last_pull": 0
+      "followers": 302,
+      "delta_since_last_pull": -6
     },
     {
       "city": "Houston, Texas",
-      "followers": 300,
-      "delta_since_last_pull": 0
-    },
-    {
-      "city": "Colorado Springs, Colorado",
-      "followers": 289,
-      "delta_since_last_pull": 0
+      "followers": 302,
+      "delta_since_last_pull": 2
     },
     {
       "city": "Corona, California",
-      "followers": 287,
-      "delta_since_last_pull": 0
+      "followers": 291,
+      "delta_since_last_pull": 4
+    },
+    {
+      "city": "Colorado Springs, Colorado",
+      "followers": 290,
+      "delta_since_last_pull": 1
     },
     {
       "city": "Boulder, Colorado",
-      "followers": 284,
-      "delta_since_last_pull": 0
+      "followers": 285,
+      "delta_since_last_pull": 1
     },
     {
       "city": "San Antonio, Texas",
-      "followers": 282,
-      "delta_since_last_pull": 0
+      "followers": 284,
+      "delta_since_last_pull": 2
     },
     {
       "city": "Whittier, California",
-      "followers": 274,
-      "delta_since_last_pull": 0
+      "followers": 275,
+      "delta_since_last_pull": 1
     },
     {
       "city": "Rancho Cucamonga, California",
-      "followers": 269,
-      "delta_since_last_pull": 0
+      "followers": 273,
+      "delta_since_last_pull": 4
     },
     {
       "city": "Moreno Valley, California",
-      "followers": 265,
-      "delta_since_last_pull": 0
+      "followers": 259,
+      "delta_since_last_pull": -6
     },
     {
       "city": "National City, California",
-      "followers": 263,
-      "delta_since_last_pull": 0
+      "followers": 257,
+      "delta_since_last_pull": -6
     }
   ],
   "followers_history": [
@@ -83067,13 +83067,13 @@
     },
     {
       "day": "2026-03-23",
-      "followers": 107930,
-      "followers_per_day": 51
+      "followers": 107949,
+      "followers_per_day": 70
     }
   ],
   "insights": [
-    "Follower snapshot: 107,930 at 2026-03-23T03:03:19.994070+00:00 UTC.",
-    "24h follower change: +156.",
+    "Follower snapshot: 107,949 at 2026-03-23T04:02:54.342526+00:00 UTC.",
+    "24h follower change: +175.",
     "Meta API loaded: 5 campaign(s). Click a campaign to view ad-level CPC breakdown."
   ]
 }
