@@ -1,27 +1,27 @@
 {
-  "generated_at": "2026-03-23T00:00:20.830465Z",
-  "source_updated_at": "2026-03-23T00:00:01.030125Z",
+  "generated_at": "2026-03-23T00:03:15.352293Z",
+  "source_updated_at": "2026-03-23T00:02:59.471194Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
-    "today_spend": 53.23,
-    "expected_by_now": 42.5,
-    "pace_ratio": 1.252,
+    "today_spend": 59.53,
+    "expected_by_now": 42.58,
+    "pace_ratio": 1.398,
     "status": "too_fast"
   },
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 57.1,
+    "last_pull_age_min": 0.1,
     "attribution_confidence": "direct"
   },
   "summary": {
-    "total_spend": 833.63,
-    "total_clicks": 7722,
-    "total_impressions": 115731,
-    "daily_gain_live": 81,
-    "current_followers_live": 107879
+    "total_spend": 839.93,
+    "total_clicks": 7777,
+    "total_impressions": 116576,
+    "daily_gain_live": 95,
+    "current_followers_live": 107893
   },
   "recommendations": {
     "scale": [
@@ -33,8 +33,7 @@
         "confidence": "high",
         "priority": "normal",
         "diagnostic_tags": [
-          "efficiency",
-          "anomaly_spend"
+          "efficiency"
         ],
         "expected_impact": "high",
         "fatigue_score": 3.7
@@ -51,7 +50,7 @@
           "anomaly_spend"
         ],
         "expected_impact": "high",
-        "fatigue_score": 6.3
+        "fatigue_score": 6.1
       },
       {
         "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
@@ -65,24 +64,12 @@
           "anomaly_spend"
         ],
         "expected_impact": "high",
-        "fatigue_score": 1.5
+        "fatigue_score": 1.0
       }
     ],
     "cut": [],
     "retest": [],
-    "hold": [
-      {
-        "campaign": "TSS Seattle 4-way launch 20260321_095059",
-        "campaign_id": "6960435028357",
-        "tag": "Hold",
-        "reason": "Baseline monitoring",
-        "confidence": "low",
-        "priority": "normal",
-        "diagnostic_tags": [],
-        "expected_impact": "low",
-        "fatigue_score": null
-      }
-    ],
+    "hold": [],
     "conversion_proven": [],
     "traffic_only": []
   },
@@ -91,9 +78,9 @@
       "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
       "ad_id": "6955113574157",
       "ad_name": "Tailored web traffic campaign 3/11/2026 Ad",
-      "ctr": 8.003,
-      "cpc": 0.083,
-      "spend": 223.95,
+      "ctr": 8.018,
+      "cpc": 0.082,
+      "spend": 225.48,
       "creative_name": "Not your average night out: drinks + ideas + people who actually want to learn something. 2026-03-11-d903cc461832f20f0639f16d24cca0d4",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Not your average night out: drinks + ideas + people who actually want to learn something."
@@ -102,9 +89,9 @@
       "campaign": "1",
       "ad_id": "6951024654157",
       "ad_name": "1",
-      "ctr": 6.279,
+      "ctr": 6.287,
       "cpc": 0.11,
-      "spend": 133.47,
+      "spend": 134.13,
       "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-abc028c632e0436a68507d2aeb3662fe",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so you\u2019re not gonna want to miss a drop! \ud83c\udf9f\ufe0f\n\n#thinkanddrink #sandiego #orangecountyevents #thesocialstudy"
@@ -113,9 +100,9 @@
       "campaign": "1",
       "ad_id": "6953785406357",
       "ad_name": "1",
-      "ctr": 6.544,
+      "ctr": 6.533,
       "cpc": 0.111,
-      "spend": 143.54,
+      "spend": 144.32,
       "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-97c4eb0f10f7736f63148e943baac553",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so you\u2019re not gonna want to miss a drop! \ud83c\udf9f\ufe0f\n\n#thinkanddrink #sandiego #orangecountyevents #thesocialstudy"
@@ -124,9 +111,9 @@
       "campaign": "2",
       "ad_id": "6953786714557",
       "ad_name": "1",
-      "ctr": 6.65,
+      "ctr": 6.658,
       "cpc": 0.113,
-      "spend": 165.72,
+      "spend": 165.98,
       "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-97c4eb0f10f7736f63148e943baac553",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so you\u2019re not gonna want to miss a drop! \ud83c\udf9f\ufe0f\n\n#thinkanddrink #sandiego #orangecountyevents #thesocialstudy"
@@ -135,21 +122,10 @@
       "campaign": "TSS Seattle 4-way launch 20260321_095059",
       "ad_id": "6960435854157",
       "ad_name": "Seattle launch | v104b_vo_c",
-      "ctr": 7.418,
-      "cpc": 0.118,
-      "spend": 3.19,
+      "ctr": 6.943,
+      "cpc": 0.125,
+      "spend": 3.76,
       "creative_name": "Seattle_v104b_vo_c_creative 2026-03-21-2cef9627eece0157edddc1653614b310",
-      "cta": "LEARN_MORE",
-      "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
-    },
-    {
-      "campaign": "TSS Seattle 4-way launch 20260321_095059",
-      "ad_id": "6960435771957",
-      "ad_name": "Seattle launch | v98_vo_b",
-      "ctr": 6.175,
-      "cpc": 0.144,
-      "spend": 3.46,
-      "creative_name": "Seattle_v98_vo_b_creative 2026-03-21-99137ee9bf51b7e9ca0e5cbe9a2cb53d",
       "cta": "LEARN_MORE",
       "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
     },
@@ -157,9 +133,9 @@
       "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
       "ad_id": "6960086009157",
       "ad_name": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
-      "ctr": 4.612,
-      "cpc": 0.159,
-      "spend": 42.84,
+      "ctr": 4.635,
+      "cpc": 0.158,
+      "spend": 43.56,
       "creative_name": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link 2026-03-20-1cf64a246dbc22003bfc846333d2c282",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
@@ -168,20 +144,31 @@
       "campaign": "2",
       "ad_id": "6953786714357",
       "ad_name": "1",
-      "ctr": 4.554,
+      "ctr": 4.553,
       "cpc": 0.16,
-      "spend": 110.61,
+      "spend": 110.62,
       "creative_name": "Calling all San Diego, Orange County, and Denver intellectuals \ud83e\udde0 This one\u2019s for you. Tickets drop e 2026-03-08-8687ee2e441bfe97bf6ef5e14260fb48",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Calling all San Diego, Orange County, and Denver intellectuals \ud83e\udde0 This one\u2019s for you. Tickets drop every Sunday at 10 AM PST. \n\n#sandiegoevents #orangecountyevents #thinkanddrink #thesocialstudy"
     },
     {
       "campaign": "TSS Seattle 4-way launch 20260321_095059",
+      "ad_id": "6960435771957",
+      "ad_name": "Seattle launch | v98_vo_b",
+      "ctr": 5.376,
+      "cpc": 0.17,
+      "spend": 4.07,
+      "creative_name": "Seattle_v98_vo_b_creative 2026-03-21-99137ee9bf51b7e9ca0e5cbe9a2cb53d",
+      "cta": "LEARN_MORE",
+      "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
+    },
+    {
+      "campaign": "TSS Seattle 4-way launch 20260321_095059",
       "ad_id": "6960435711757",
       "ad_name": "Seattle launch | v94_vo_d",
-      "ctr": 4.004,
-      "cpc": 0.229,
-      "spend": 3.66,
+      "ctr": 4.116,
+      "cpc": 0.22,
+      "spend": 4.18,
       "creative_name": "Seattle_v94_vo_d_creative 2026-03-21-55eccad43b49d6bd3852e9932daa6562",
       "cta": "LEARN_MORE",
       "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
@@ -190,9 +177,9 @@
       "campaign": "TSS Seattle 4-way launch 20260321_095059",
       "ad_id": "6960435894757",
       "ad_name": "Seattle launch | v113_vo_a",
-      "ctr": 3.623,
-      "cpc": 0.245,
-      "spend": 3.19,
+      "ctr": 4.024,
+      "cpc": 0.239,
+      "spend": 3.83,
       "creative_name": "Seattle_v113_vo_a_creative 2026-03-21-82e723bf68e3cbe70ca145c7239aa024",
       "cta": "LEARN_MORE",
       "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
