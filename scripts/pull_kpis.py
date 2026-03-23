@@ -1899,7 +1899,9 @@ def build_creative_attribution(campaigns):
     out = {
         'generated_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
         'rows': rows,
-        'mandatory_fields': ['voice_id', 'hook_bucket', 'script_id', 'format'],
+        # Scope update: these fields are now optional metadata, not required gates.
+        'mandatory_fields': [],
+        'optional_fields': ['voice_id', 'hook_bucket', 'script_id', 'format'],
         'missing_counts': {
             'voice_id': sum(1 for r in rows if r.get('voice_id') == 'N/A'),
             'hook_bucket': sum(1 for r in rows if r.get('hook_bucket') == 'N/A'),
