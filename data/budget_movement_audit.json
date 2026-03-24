@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-24T03:00:01.752568Z",
+  "generated_at": "2026-03-24T03:03:16.612111Z",
   "source": "inferred_from_ad_daily_rows",
   "audit_rows": [
     {
@@ -11,8 +11,8 @@
       "movement": "scale_up",
       "date": "2026-03-23",
       "spend_prev_day": 7.02,
-      "spend_current_day": 14.23,
-      "cpc_after_24h_delta_pct": 0.0
+      "spend_current_day": 17.16,
+      "cpc_after_24h_delta_pct": -5.41
     },
     {
       "level": "ad",
@@ -37,18 +37,6 @@
       "spend_prev_day": 8.94,
       "spend_current_day": 5.07,
       "cpc_after_24h_delta_pct": 10.33
-    },
-    {
-      "level": "ad",
-      "entity_id": "6960086009157",
-      "campaign_id": "6960086008957",
-      "adset_id": "6960086009357",
-      "entity_name": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
-      "movement": "scale_down",
-      "date": "2026-03-23",
-      "spend_prev_day": 21.47,
-      "spend_current_day": 13.9,
-      "cpc_after_24h_delta_pct": -12.24
     },
     {
       "level": "ad",
