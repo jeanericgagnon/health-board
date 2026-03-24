@@ -1,7 +1,19 @@
 {
-  "generated_at": "2026-03-24T01:00:01.088531Z",
+  "generated_at": "2026-03-24T01:03:13.831312Z",
   "source": "inferred_from_ad_daily_rows",
   "audit_rows": [
+    {
+      "level": "ad",
+      "entity_id": "6960435771957",
+      "campaign_id": "6960435028357",
+      "adset_id": "6960435749557",
+      "entity_name": "Seattle launch | v98_vo_b",
+      "movement": "scale_up",
+      "date": "2026-03-23",
+      "spend_prev_day": 7.02,
+      "spend_current_day": 11.79,
+      "cpc_after_24h_delta_pct": 5.95
+    },
     {
       "level": "ad",
       "entity_id": "6960435894757",
@@ -35,8 +47,8 @@
       "movement": "scale_down",
       "date": "2026-03-23",
       "spend_prev_day": 21.47,
-      "spend_current_day": 10.99,
-      "cpc_after_24h_delta_pct": -10.88
+      "spend_current_day": 12.24,
+      "cpc_after_24h_delta_pct": -11.56
     },
     {
       "level": "ad",
