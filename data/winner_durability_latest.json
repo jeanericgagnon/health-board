@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-24T08:03:09.931751Z",
+  "generated_at": "2026-03-24T09:03:03.781115Z",
   "rows": [
     {
       "entity_type": "campaign",
@@ -109,10 +109,10 @@
       "stable_3d": true,
       "score": 70,
       "days_under_threshold": 14,
-      "latest_cpc": 0.116,
-      "latest_ctr": 6.796,
-      "latest_frequency": 1.108,
-      "spend_today": 0.81
+      "latest_cpc": 0.102,
+      "latest_ctr": 7.471,
+      "latest_frequency": 1.094,
+      "spend_today": 1.32
     },
     {
       "entity_type": "campaign",
@@ -124,10 +124,25 @@
       "stable_3d": true,
       "score": 70,
       "days_under_threshold": 5,
-      "latest_cpc": 0.11,
-      "latest_ctr": 7.692,
-      "latest_frequency": 1.393,
-      "spend_today": 0.33
+      "latest_cpc": 0.173,
+      "latest_ctr": 4.762,
+      "latest_frequency": 1.05,
+      "spend_today": 0.52
+    },
+    {
+      "entity_type": "campaign",
+      "campaign_id": "6960435028357",
+      "campaign": "TSS Seattle 4-way launch 20260321_095059",
+      "threshold_cpc": 0.55,
+      "durable_3d_min_days": 3,
+      "good_today": false,
+      "stable_3d": true,
+      "score": 70,
+      "days_under_threshold": 4,
+      "latest_cpc": 0.305,
+      "latest_ctr": 3.175,
+      "latest_frequency": 1.041,
+      "spend_today": 1.22
     },
     {
       "entity_type": "ad",
@@ -158,10 +173,10 @@
       "stable_3d": true,
       "score": 70,
       "days_under_threshold": 14,
-      "latest_cpc": 0.116,
-      "latest_ctr": 6.796,
-      "latest_frequency": 1.108,
-      "spend_today": 0.81
+      "latest_cpc": 0.102,
+      "latest_ctr": 7.471,
+      "latest_frequency": 1.094,
+      "spend_today": 1.32
     },
     {
       "entity_type": "ad",
@@ -175,10 +190,27 @@
       "stable_3d": true,
       "score": 70,
       "days_under_threshold": 5,
-      "latest_cpc": 0.11,
-      "latest_ctr": 7.692,
-      "latest_frequency": 1.393,
-      "spend_today": 0.33
+      "latest_cpc": 0.173,
+      "latest_ctr": 4.762,
+      "latest_frequency": 1.05,
+      "spend_today": 0.52
+    },
+    {
+      "entity_type": "ad",
+      "ad_id": "6960435771957",
+      "ad": "Seattle launch | v98_vo_b",
+      "campaign_id": "6960435028357",
+      "adset_id": "6960435749557",
+      "threshold_cpc": 0.55,
+      "durable_3d_min_days": 3,
+      "good_today": false,
+      "stable_3d": true,
+      "score": 70,
+      "days_under_threshold": 4,
+      "latest_cpc": 0.305,
+      "latest_ctr": 3.175,
+      "latest_frequency": 1.041,
+      "spend_today": 1.22
     },
     {
       "entity_type": "ad",
@@ -213,38 +245,6 @@
       "latest_ctr": 4.595,
       "latest_frequency": 1.036,
       "spend_today": 4.69
-    },
-    {
-      "entity_type": "campaign",
-      "campaign_id": "6960435028357",
-      "campaign": "TSS Seattle 4-way launch 20260321_095059",
-      "threshold_cpc": 0.55,
-      "durable_3d_min_days": 3,
-      "good_today": false,
-      "stable_3d": false,
-      "score": 0,
-      "days_under_threshold": 0,
-      "latest_cpc": 0.58,
-      "latest_ctr": 1.724,
-      "latest_frequency": 1.318,
-      "spend_today": 0.58
-    },
-    {
-      "entity_type": "ad",
-      "ad_id": "6960435771957",
-      "ad": "Seattle launch | v98_vo_b",
-      "campaign_id": "6960435028357",
-      "adset_id": "6960435749557",
-      "threshold_cpc": 0.55,
-      "durable_3d_min_days": 3,
-      "good_today": false,
-      "stable_3d": false,
-      "score": 0,
-      "days_under_threshold": 0,
-      "latest_cpc": 0.58,
-      "latest_ctr": 1.724,
-      "latest_frequency": 1.318,
-      "spend_today": 0.58
     }
   ],
   "note": "Durability distinguishes Good today vs stable 3+ days where CPC <= threshold and spend exists."
