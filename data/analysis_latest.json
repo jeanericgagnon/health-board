@@ -1,43 +1,30 @@
 {
-  "generated_at": "2026-03-24T13:00:19.476752Z",
-  "source_updated_at": "2026-03-24T13:00:01.355331Z",
+  "generated_at": "2026-03-24T13:05:03.903572Z",
+  "source_updated_at": "2026-03-24T13:04:50.978256Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
-    "today_spend": 5.0,
-    "expected_by_now": 15.0,
-    "pace_ratio": 0.333,
+    "today_spend": 8.48,
+    "expected_by_now": 15.17,
+    "pace_ratio": 0.559,
     "status": "too_slow"
   },
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 57.6,
+    "last_pull_age_min": 0.1,
     "attribution_confidence": "direct"
   },
   "summary": {
-    "total_spend": 981.89,
-    "total_clicks": 9008,
-    "total_impressions": 134870,
-    "daily_gain_live": 12,
-    "current_followers_live": 108129
+    "total_spend": 984.06,
+    "total_clicks": 9035,
+    "total_impressions": 135116,
+    "daily_gain_live": 20,
+    "current_followers_live": 108137
   },
   "recommendations": {
     "scale": [
-      {
-        "campaign": "1",
-        "campaign_id": "6951024653957",
-        "tag": "Scale",
-        "reason": "Strong CTR + low CPC with acceptable frequency",
-        "confidence": "high",
-        "priority": "normal",
-        "diagnostic_tags": [
-          "efficiency"
-        ],
-        "expected_impact": "high",
-        "fatigue_score": 4.7
-      },
       {
         "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
         "campaign_id": "6955113574357",
@@ -51,6 +38,19 @@
         ],
         "expected_impact": "high",
         "fatigue_score": 0.0
+      },
+      {
+        "campaign": "1",
+        "campaign_id": "6951024653957",
+        "tag": "Scale",
+        "reason": "Strong CTR + low CPC with acceptable frequency",
+        "confidence": "high",
+        "priority": "normal",
+        "diagnostic_tags": [
+          "efficiency"
+        ],
+        "expected_impact": "high",
+        "fatigue_score": 4.7
       },
       {
         "campaign": "2",
@@ -78,9 +78,9 @@
       "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
       "ad_id": "6955113574157",
       "ad_name": "Tailored web traffic campaign 3/11/2026 Ad",
-      "ctr": 8.02,
+      "ctr": 8.165,
       "cpc": 0.081,
-      "spend": 280.1,
+      "spend": 281.75,
       "creative_name": "Not your average night out: drinks + ideas + people who actually want to learn something. 2026-03-11-d903cc461832f20f0639f16d24cca0d4",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Not your average night out: drinks + ideas + people who actually want to learn something."
@@ -122,9 +122,9 @@
       "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
       "ad_id": "6960086009157",
       "ad_name": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
-      "ctr": 4.753,
-      "cpc": 0.15,
-      "spend": 74.06,
+      "ctr": 5.062,
+      "cpc": 0.149,
+      "spend": 74.92,
       "creative_name": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link 2026-03-20-1cf64a246dbc22003bfc846333d2c282",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
@@ -144,9 +144,9 @@
       "campaign": "TSS Seattle 4-way launch 20260321_095059",
       "ad_id": "6960435771957",
       "ad_name": "Seattle launch | v98_vo_b",
-      "ctr": 5.603,
-      "cpc": 0.179,
-      "spend": 35.88,
+      "ctr": 5.451,
+      "cpc": 0.182,
+      "spend": 36.87,
       "creative_name": "Seattle_v98_vo_b_creative 2026-03-21-99137ee9bf51b7e9ca0e5cbe9a2cb53d",
       "cta": "LEARN_MORE",
       "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
@@ -187,15 +187,19 @@
   ],
   "immediate_actions": [
     "Pacing too slow: increase delivery on top efficient campaigns by ~10-15%.",
-    "Scale: 1 (Strong CTR + low CPC with acceptable frequency)",
-    "Scale: Tailored web traffic campaign 3/11/2026 Campaign (Strong CTR + low CPC with acceptable frequency)"
+    "Scale: Tailored web traffic campaign 3/11/2026 Campaign (Strong CTR + low CPC with acceptable frequency)",
+    "Scale: 1 (Strong CTR + low CPC with acceptable frequency)"
   ],
   "alert": {
-    "should_alert": false,
-    "reasons": []
+    "should_alert": true,
+    "reasons": [
+      "scale_candidates_changed"
+    ]
   },
   "change_digest": {
-    "has_material_change": false,
-    "reasons": []
+    "has_material_change": true,
+    "reasons": [
+      "scale_candidates_changed"
+    ]
   }
 }

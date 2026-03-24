@@ -1,6 +1,31 @@
 {
-  "generated_at": "2026-03-24T13:00:01.346754Z",
+  "generated_at": "2026-03-24T13:04:50.975918Z",
   "rows": [
+    {
+      "campaign_id": "6955113574357",
+      "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
+      "adset_id": "6955113574557",
+      "ad_id": "6955113574157",
+      "ad": "Tailored web traffic campaign 3/11/2026 Ad",
+      "state": "SCALE",
+      "action_ready": "scalable",
+      "next_gate": "none",
+      "gate_progress": {
+        "spend": 281.75,
+        "gate_5": {
+          "required": 5.0,
+          "passed": true,
+          "current_pct": 100.0
+        },
+        "gate_10": {
+          "required": 10.0,
+          "passed": true,
+          "current_pct": 100.0
+        }
+      },
+      "action_timestamp": "2026-03-23T22:24:29.331593Z",
+      "updated_at": "2026-03-24T13:04:50.975918Z"
+    },
     {
       "campaign_id": "6951024653957",
       "campaign": "1",
@@ -24,7 +49,7 @@
         }
       },
       "action_timestamp": "2026-03-23T22:24:29.331593Z",
-      "updated_at": "2026-03-24T13:00:01.346754Z"
+      "updated_at": "2026-03-24T13:04:50.975918Z"
     },
     {
       "campaign_id": "6951024653957",
@@ -49,32 +74,7 @@
         }
       },
       "action_timestamp": "2026-03-23T22:24:29.331593Z",
-      "updated_at": "2026-03-24T13:00:01.346754Z"
-    },
-    {
-      "campaign_id": "6955113574357",
-      "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
-      "adset_id": "6955113574557",
-      "ad_id": "6955113574157",
-      "ad": "Tailored web traffic campaign 3/11/2026 Ad",
-      "state": "SCALE",
-      "action_ready": "scalable",
-      "next_gate": "none",
-      "gate_progress": {
-        "spend": 280.1,
-        "gate_5": {
-          "required": 5.0,
-          "passed": true,
-          "current_pct": 100.0
-        },
-        "gate_10": {
-          "required": 10.0,
-          "passed": true,
-          "current_pct": 100.0
-        }
-      },
-      "action_timestamp": "2026-03-23T22:24:29.331593Z",
-      "updated_at": "2026-03-24T13:00:01.346754Z"
+      "updated_at": "2026-03-24T13:04:50.975918Z"
     },
     {
       "campaign_id": "6953786714157",
@@ -99,7 +99,7 @@
         }
       },
       "action_timestamp": "2026-03-23T22:24:29.331593Z",
-      "updated_at": "2026-03-24T13:00:01.346754Z"
+      "updated_at": "2026-03-24T13:04:50.975918Z"
     },
     {
       "campaign_id": "6953786714157",
@@ -124,7 +124,7 @@
         }
       },
       "action_timestamp": "2026-03-23T22:24:29.331593Z",
-      "updated_at": "2026-03-24T13:00:01.346754Z"
+      "updated_at": "2026-03-24T13:04:50.975918Z"
     },
     {
       "campaign_id": "6960086008957",
@@ -136,7 +136,7 @@
       "action_ready": "scalable",
       "next_gate": "none",
       "gate_progress": {
-        "spend": 74.06,
+        "spend": 74.92,
         "gate_5": {
           "required": 5.0,
           "passed": true,
@@ -149,7 +149,7 @@
         }
       },
       "action_timestamp": "2026-03-23T22:24:29.331593Z",
-      "updated_at": "2026-03-24T13:00:01.346754Z"
+      "updated_at": "2026-03-24T13:04:50.975918Z"
     },
     {
       "campaign_id": "6960435028357",
@@ -161,7 +161,7 @@
       "action_ready": "scalable",
       "next_gate": "none",
       "gate_progress": {
-        "spend": 35.88,
+        "spend": 36.87,
         "gate_5": {
           "required": 5.0,
           "passed": true,
@@ -174,7 +174,7 @@
         }
       },
       "action_timestamp": "2026-03-23T22:24:29.331593Z",
-      "updated_at": "2026-03-24T13:00:01.346754Z"
+      "updated_at": "2026-03-24T13:04:50.975918Z"
     },
     {
       "campaign_id": "6960435028357",
@@ -199,7 +199,7 @@
         }
       },
       "action_timestamp": "2026-03-23T22:24:29.331593Z",
-      "updated_at": "2026-03-24T13:00:01.346754Z"
+      "updated_at": "2026-03-24T13:04:50.975918Z"
     },
     {
       "campaign_id": "6960435028357",
@@ -224,7 +224,7 @@
         }
       },
       "action_timestamp": "2026-03-23T22:24:29.331593Z",
-      "updated_at": "2026-03-24T13:00:01.346754Z"
+      "updated_at": "2026-03-24T13:04:50.975918Z"
     },
     {
       "campaign_id": "6960435028357",
@@ -249,7 +249,7 @@
         }
       },
       "action_timestamp": "2026-03-23T22:24:29.331593Z",
-      "updated_at": "2026-03-24T13:00:01.346754Z"
+      "updated_at": "2026-03-24T13:04:50.975918Z"
     }
   ],
   "counts": {
