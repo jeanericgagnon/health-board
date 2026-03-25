@@ -1,27 +1,27 @@
 {
-  "generated_at": "2026-03-25T01:00:20.247232Z",
-  "source_updated_at": "2026-03-25T01:00:01.632084Z",
+  "generated_at": "2026-03-25T01:02:51.243841Z",
+  "source_updated_at": "2026-03-25T01:02:36.750240Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
-    "today_spend": 53.58,
-    "expected_by_now": 45.0,
-    "pace_ratio": 1.191,
-    "status": "on_track"
+    "today_spend": 59.09,
+    "expected_by_now": 45.08,
+    "pace_ratio": 1.311,
+    "status": "too_fast"
   },
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 56.9,
+    "last_pull_age_min": 0.0,
     "attribution_confidence": "direct"
   },
   "summary": {
-    "total_spend": 1029.2,
-    "total_clicks": 9409,
-    "total_impressions": 141073,
-    "daily_gain_live": 97,
-    "current_followers_live": 108214
+    "total_spend": 1034.71,
+    "total_clicks": 9453,
+    "total_impressions": 141823,
+    "daily_gain_live": 110,
+    "current_followers_live": 108227
   },
   "recommendations": {
     "scale": [
@@ -78,9 +78,9 @@
       "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
       "ad_id": "6955113574157",
       "ad_name": "Tailored web traffic campaign 3/11/2026 Ad",
-      "ctr": 8.035,
+      "ctr": 8.033,
       "cpc": 0.082,
-      "spend": 306.54,
+      "spend": 309.65,
       "creative_name": "Not your average night out: drinks + ideas + people who actually want to learn something. 2026-03-11-d903cc461832f20f0639f16d24cca0d4",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Not your average night out: drinks + ideas + people who actually want to learn something."
@@ -122,9 +122,9 @@
       "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
       "ad_id": "6960086009157",
       "ad_name": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
-      "ctr": 4.655,
+      "ctr": 4.688,
       "cpc": 0.155,
-      "spend": 85.57,
+      "spend": 86.8,
       "creative_name": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link 2026-03-20-1cf64a246dbc22003bfc846333d2c282",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
@@ -144,9 +144,9 @@
       "campaign": "TSS Seattle 4-way launch 20260321_095059",
       "ad_id": "6960435771957",
       "ad_name": "Seattle launch | v98_vo_b",
-      "ctr": 5.78,
-      "cpc": 0.176,
-      "spend": 46.57,
+      "ctr": 5.684,
+      "cpc": 0.179,
+      "spend": 47.74,
       "creative_name": "Seattle_v98_vo_b_creative 2026-03-21-99137ee9bf51b7e9ca0e5cbe9a2cb53d",
       "cta": "LEARN_MORE",
       "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
@@ -186,9 +186,9 @@
     }
   ],
   "immediate_actions": [
+    "Pacing too fast: reduce total daily spend velocity by ~10-20% today.",
     "Scale: Tailored web traffic campaign 3/11/2026 Campaign (Strong CTR + low CPC with acceptable frequency)",
-    "Scale: 1 (Strong CTR + low CPC with acceptable frequency)",
-    "Confidence LOW: prioritize tracking/event reliability before major budget shifts."
+    "Scale: 1 (Strong CTR + low CPC with acceptable frequency)"
   ],
   "alert": {
     "should_alert": true,
