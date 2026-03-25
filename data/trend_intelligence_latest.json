@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-25T08:03:02.279969Z",
+  "generated_at": "2026-03-25T09:03:24.505203Z",
   "source": "trend_intelligence_from_kpi_rows",
   "campaigns": [
     {
@@ -91,39 +91,39 @@
       "trends": {
         "d3": {
           "status": "ok",
-          "current_spend": 87.17,
+          "current_spend": 87.65,
           "prior_spend": 64.0,
-          "ctr_current": 8.134,
+          "ctr_current": 7.975,
           "ctr_prior": 7.946,
-          "cpc_current": 0.091,
+          "cpc_current": 0.089,
           "cpc_prior": 0.082,
-          "freq_current": 1.065,
+          "freq_current": 1.036,
           "freq_prior": 1.037,
-          "ctr_trend_pct": 0.0236,
-          "cpc_trend_pct": 0.1012,
-          "freq_trend_pct": 0.027
+          "ctr_trend_pct": 0.0037,
+          "cpc_trend_pct": 0.085,
+          "freq_trend_pct": -0.001
         },
         "d7": {
           "status": "ok",
-          "current_spend": 170.03,
+          "current_spend": 170.51,
           "prior_spend": 139.36,
-          "ctr_current": 8.119,
+          "ctr_current": 8.051,
           "ctr_prior": 8.026,
-          "cpc_current": 0.085,
+          "cpc_current": 0.084,
           "cpc_prior": 0.083,
-          "freq_current": 1.044,
+          "freq_current": 1.032,
           "freq_prior": 1.028,
-          "ctr_trend_pct": 0.0115,
-          "cpc_trend_pct": 0.0241,
-          "freq_trend_pct": 0.0153
+          "ctr_trend_pct": 0.0031,
+          "cpc_trend_pct": 0.0172,
+          "freq_trend_pct": 0.0032
         }
       },
-      "ctr": 7.937,
-      "cpc": 0.107,
-      "frequency": 1.145,
-      "spend": 1.07,
+      "ctr": 7.463,
+      "cpc": 0.103,
+      "frequency": 1.058,
+      "spend": 1.55,
       "fatigue_signal": "stable",
-      "fatigue_score": 4.588
+      "fatigue_score": 3.4
     },
     {
       "campaign_id": "6960086008957",
@@ -132,17 +132,17 @@
       "trends": {
         "d3": {
           "status": "ok",
-          "current_spend": 40.69,
+          "current_spend": 40.82,
           "prior_spend": 52.32,
           "ctr_current": 6.255,
           "ctr_prior": 4.637,
-          "cpc_current": 0.143,
+          "cpc_current": 0.146,
           "cpc_prior": 0.157,
-          "freq_current": 1.107,
+          "freq_current": 1.066,
           "freq_prior": 1.023,
           "ctr_trend_pct": 0.349,
-          "cpc_trend_pct": -0.0932,
-          "freq_trend_pct": 0.0821
+          "cpc_trend_pct": -0.072,
+          "freq_trend_pct": 0.0424
         },
         "d7": {
           "status": "na",
@@ -160,11 +160,11 @@
         }
       },
       "ctr": 9.091,
-      "cpc": 0.11,
-      "frequency": 1.222,
-      "spend": 0.11,
+      "cpc": 0.12,
+      "frequency": 1.1,
+      "spend": 0.24,
       "fatigue_signal": "stable",
-      "fatigue_score": 1.642
+      "fatigue_score": 0.848
     },
     {
       "campaign_id": "6960435028357",
@@ -200,10 +200,10 @@
           "freq_trend_pct": null
         }
       },
-      "ctr": 10.256,
-      "cpc": 0.07,
-      "frequency": 1.258,
-      "spend": 0.28,
+      "ctr": 6.667,
+      "cpc": 0.105,
+      "frequency": 1.053,
+      "spend": 0.42,
       "fatigue_signal": "stable",
       "fatigue_score": 0.0
     }
@@ -294,48 +294,6 @@
       "fatigue_score": 10.164
     },
     {
-      "adset_id": "6955113574557",
-      "adset": "Tailored web traffic campaign 3/11/2026 Ad set",
-      "campaign_id": "6955113574357",
-      "entity_type": "adset",
-      "trends": {
-        "d3": {
-          "status": "ok",
-          "current_spend": 87.17,
-          "prior_spend": 64.0,
-          "ctr_current": 8.134,
-          "ctr_prior": 7.946,
-          "cpc_current": 0.091,
-          "cpc_prior": 0.082,
-          "freq_current": 1.065,
-          "freq_prior": 1.037,
-          "ctr_trend_pct": 0.0236,
-          "cpc_trend_pct": 0.1012,
-          "freq_trend_pct": 0.027
-        },
-        "d7": {
-          "status": "ok",
-          "current_spend": 170.03,
-          "prior_spend": 139.36,
-          "ctr_current": 8.119,
-          "ctr_prior": 8.026,
-          "cpc_current": 0.085,
-          "cpc_prior": 0.083,
-          "freq_current": 1.044,
-          "freq_prior": 1.028,
-          "ctr_trend_pct": 0.0115,
-          "cpc_trend_pct": 0.0241,
-          "freq_trend_pct": 0.0153
-        }
-      },
-      "ctr": 7.937,
-      "cpc": 0.107,
-      "frequency": 1.145,
-      "spend": 1.07,
-      "fatigue_signal": "stable",
-      "fatigue_score": 4.588
-    },
-    {
       "adset_id": "6951024653757",
       "adset": "New Traffic Ad set with recommended settings",
       "campaign_id": "6951024653957",
@@ -376,6 +334,48 @@
       "spend": 7.22,
       "fatigue_signal": "stable",
       "fatigue_score": 4.444
+    },
+    {
+      "adset_id": "6955113574557",
+      "adset": "Tailored web traffic campaign 3/11/2026 Ad set",
+      "campaign_id": "6955113574357",
+      "entity_type": "adset",
+      "trends": {
+        "d3": {
+          "status": "ok",
+          "current_spend": 87.65,
+          "prior_spend": 64.0,
+          "ctr_current": 7.975,
+          "ctr_prior": 7.946,
+          "cpc_current": 0.089,
+          "cpc_prior": 0.082,
+          "freq_current": 1.036,
+          "freq_prior": 1.037,
+          "ctr_trend_pct": 0.0037,
+          "cpc_trend_pct": 0.085,
+          "freq_trend_pct": -0.001
+        },
+        "d7": {
+          "status": "ok",
+          "current_spend": 170.51,
+          "prior_spend": 139.36,
+          "ctr_current": 8.051,
+          "ctr_prior": 8.026,
+          "cpc_current": 0.084,
+          "cpc_prior": 0.083,
+          "freq_current": 1.032,
+          "freq_prior": 1.028,
+          "ctr_trend_pct": 0.0031,
+          "cpc_trend_pct": 0.0172,
+          "freq_trend_pct": 0.0032
+        }
+      },
+      "ctr": 7.463,
+      "cpc": 0.103,
+      "frequency": 1.058,
+      "spend": 1.55,
+      "fatigue_signal": "stable",
+      "fatigue_score": 3.4
     },
     {
       "adset_id": "6953786714757",
@@ -427,17 +427,17 @@
       "trends": {
         "d3": {
           "status": "ok",
-          "current_spend": 40.69,
+          "current_spend": 40.82,
           "prior_spend": 52.32,
           "ctr_current": 6.255,
           "ctr_prior": 4.637,
-          "cpc_current": 0.143,
+          "cpc_current": 0.146,
           "cpc_prior": 0.157,
-          "freq_current": 1.107,
+          "freq_current": 1.066,
           "freq_prior": 1.023,
           "ctr_trend_pct": 0.349,
-          "cpc_trend_pct": -0.0932,
-          "freq_trend_pct": 0.0821
+          "cpc_trend_pct": -0.072,
+          "freq_trend_pct": 0.0424
         },
         "d7": {
           "status": "na",
@@ -455,11 +455,11 @@
         }
       },
       "ctr": 9.091,
-      "cpc": 0.11,
-      "frequency": 1.222,
-      "spend": 0.11,
+      "cpc": 0.12,
+      "frequency": 1.1,
+      "spend": 0.24,
       "fatigue_signal": "stable",
-      "fatigue_score": 1.642
+      "fatigue_score": 0.848
     },
     {
       "adset_id": "6960435699357",
@@ -538,10 +538,10 @@
           "freq_trend_pct": null
         }
       },
-      "ctr": 10.256,
-      "cpc": 0.07,
-      "frequency": 1.258,
-      "spend": 0.28,
+      "ctr": 6.667,
+      "cpc": 0.105,
+      "frequency": 1.053,
+      "spend": 0.42,
       "fatigue_signal": "stable",
       "fatigue_score": 0.0
     },
@@ -718,49 +718,6 @@
       "fatigue_score": 10.164
     },
     {
-      "ad_id": "6955113574157",
-      "ad": "Tailored web traffic campaign 3/11/2026 Ad",
-      "adset_id": "6955113574557",
-      "campaign_id": "6955113574357",
-      "entity_type": "ad",
-      "trends": {
-        "d3": {
-          "status": "ok",
-          "current_spend": 87.17,
-          "prior_spend": 64.0,
-          "ctr_current": 8.134,
-          "ctr_prior": 7.946,
-          "cpc_current": 0.091,
-          "cpc_prior": 0.082,
-          "freq_current": 1.065,
-          "freq_prior": 1.037,
-          "ctr_trend_pct": 0.0236,
-          "cpc_trend_pct": 0.1012,
-          "freq_trend_pct": 0.027
-        },
-        "d7": {
-          "status": "ok",
-          "current_spend": 170.03,
-          "prior_spend": 139.36,
-          "ctr_current": 8.119,
-          "ctr_prior": 8.026,
-          "cpc_current": 0.085,
-          "cpc_prior": 0.083,
-          "freq_current": 1.044,
-          "freq_prior": 1.028,
-          "ctr_trend_pct": 0.0115,
-          "cpc_trend_pct": 0.0241,
-          "freq_trend_pct": 0.0153
-        }
-      },
-      "ctr": 7.937,
-      "cpc": 0.107,
-      "frequency": 1.145,
-      "spend": 1.07,
-      "fatigue_signal": "stable",
-      "fatigue_score": 4.588
-    },
-    {
       "ad_id": "6951024654157",
       "ad": "1",
       "adset_id": "6951024653757",
@@ -802,6 +759,49 @@
       "spend": 7.22,
       "fatigue_signal": "stable",
       "fatigue_score": 4.444
+    },
+    {
+      "ad_id": "6955113574157",
+      "ad": "Tailored web traffic campaign 3/11/2026 Ad",
+      "adset_id": "6955113574557",
+      "campaign_id": "6955113574357",
+      "entity_type": "ad",
+      "trends": {
+        "d3": {
+          "status": "ok",
+          "current_spend": 87.65,
+          "prior_spend": 64.0,
+          "ctr_current": 7.975,
+          "ctr_prior": 7.946,
+          "cpc_current": 0.089,
+          "cpc_prior": 0.082,
+          "freq_current": 1.036,
+          "freq_prior": 1.037,
+          "ctr_trend_pct": 0.0037,
+          "cpc_trend_pct": 0.085,
+          "freq_trend_pct": -0.001
+        },
+        "d7": {
+          "status": "ok",
+          "current_spend": 170.51,
+          "prior_spend": 139.36,
+          "ctr_current": 8.051,
+          "ctr_prior": 8.026,
+          "cpc_current": 0.084,
+          "cpc_prior": 0.083,
+          "freq_current": 1.032,
+          "freq_prior": 1.028,
+          "ctr_trend_pct": 0.0031,
+          "cpc_trend_pct": 0.0172,
+          "freq_trend_pct": 0.0032
+        }
+      },
+      "ctr": 7.463,
+      "cpc": 0.103,
+      "frequency": 1.058,
+      "spend": 1.55,
+      "fatigue_signal": "stable",
+      "fatigue_score": 3.4
     },
     {
       "ad_id": "6953786714357",
@@ -855,17 +855,17 @@
       "trends": {
         "d3": {
           "status": "ok",
-          "current_spend": 40.69,
+          "current_spend": 40.82,
           "prior_spend": 52.32,
           "ctr_current": 6.255,
           "ctr_prior": 4.637,
-          "cpc_current": 0.143,
+          "cpc_current": 0.146,
           "cpc_prior": 0.157,
-          "freq_current": 1.107,
+          "freq_current": 1.066,
           "freq_prior": 1.023,
           "ctr_trend_pct": 0.349,
-          "cpc_trend_pct": -0.0932,
-          "freq_trend_pct": 0.0821
+          "cpc_trend_pct": -0.072,
+          "freq_trend_pct": 0.0424
         },
         "d7": {
           "status": "na",
@@ -883,11 +883,11 @@
         }
       },
       "ctr": 9.091,
-      "cpc": 0.11,
-      "frequency": 1.222,
-      "spend": 0.11,
+      "cpc": 0.12,
+      "frequency": 1.1,
+      "spend": 0.24,
       "fatigue_signal": "stable",
-      "fatigue_score": 1.642
+      "fatigue_score": 0.848
     },
     {
       "ad_id": "6960435711757",
@@ -968,10 +968,10 @@
           "freq_trend_pct": null
         }
       },
-      "ctr": 10.256,
-      "cpc": 0.07,
-      "frequency": 1.258,
-      "spend": 0.28,
+      "ctr": 6.667,
+      "cpc": 0.105,
+      "frequency": 1.053,
+      "spend": 0.42,
       "fatigue_signal": "stable",
       "fatigue_score": 0.0
     },
