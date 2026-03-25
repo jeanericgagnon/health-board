@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-25T10:03:22.100189Z",
+  "generated_at": "2026-03-25T11:03:33.481377Z",
   "source": "trend_intelligence_from_kpi_rows",
   "campaigns": [
     {
@@ -42,6 +42,47 @@
       "spend": 14.55,
       "fatigue_signal": "stable",
       "fatigue_score": 9.548
+    },
+    {
+      "campaign_id": "6960086008957",
+      "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
+      "entity_type": "campaign",
+      "trends": {
+        "d3": {
+          "status": "ok",
+          "current_spend": 41.04,
+          "prior_spend": 52.32,
+          "ctr_current": 4.532,
+          "ctr_prior": 4.637,
+          "cpc_current": 0.183,
+          "cpc_prior": 0.157,
+          "freq_current": 1.047,
+          "freq_prior": 1.023,
+          "ctr_trend_pct": -0.0226,
+          "cpc_trend_pct": 0.161,
+          "freq_trend_pct": 0.0231
+        },
+        "d7": {
+          "status": "na",
+          "current_spend": null,
+          "prior_spend": null,
+          "ctr_current": null,
+          "ctr_prior": null,
+          "cpc_current": null,
+          "cpc_prior": null,
+          "freq_current": null,
+          "freq_prior": null,
+          "ctr_trend_pct": null,
+          "cpc_trend_pct": null,
+          "freq_trend_pct": null
+        }
+      },
+      "ctr": 3.922,
+      "cpc": 0.23,
+      "frequency": 1.041,
+      "spend": 0.46,
+      "fatigue_signal": "stable",
+      "fatigue_score": 7.806
     },
     {
       "campaign_id": "6953786714157",
@@ -91,80 +132,39 @@
       "trends": {
         "d3": {
           "status": "ok",
-          "current_spend": 88.01,
+          "current_spend": 88.42,
           "prior_spend": 64.0,
-          "ctr_current": 7.829,
+          "ctr_current": 8.025,
           "ctr_prior": 7.946,
-          "cpc_current": 0.092,
+          "cpc_current": 0.09,
           "cpc_prior": 0.082,
-          "freq_current": 1.033,
-          "freq_prior": 1.037,
-          "ctr_trend_pct": -0.0147,
-          "cpc_trend_pct": 0.1215,
-          "freq_trend_pct": -0.0042
-        },
-        "d7": {
-          "status": "ok",
-          "current_spend": 170.87,
-          "prior_spend": 139.36,
-          "ctr_current": 7.988,
-          "ctr_prior": 8.026,
-          "cpc_current": 0.086,
-          "cpc_prior": 0.083,
           "freq_current": 1.03,
-          "freq_prior": 1.028,
-          "ctr_trend_pct": -0.0047,
-          "cpc_trend_pct": 0.0328,
-          "freq_trend_pct": 0.0018
-        }
-      },
-      "ctr": 7.025,
-      "cpc": 0.112,
-      "frequency": 1.048,
-      "spend": 1.91,
-      "fatigue_signal": "stable",
-      "fatigue_score": 5.448
-    },
-    {
-      "campaign_id": "6960086008957",
-      "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
-      "entity_type": "campaign",
-      "trends": {
-        "d3": {
-          "status": "ok",
-          "current_spend": 40.85,
-          "prior_spend": 52.32,
-          "ctr_current": 5.523,
-          "ctr_prior": 4.637,
-          "cpc_current": 0.151,
-          "cpc_prior": 0.157,
-          "freq_current": 1.045,
-          "freq_prior": 1.023,
-          "ctr_trend_pct": 0.1912,
-          "cpc_trend_pct": -0.0403,
-          "freq_trend_pct": 0.0215
+          "freq_prior": 1.037,
+          "ctr_trend_pct": 0.0099,
+          "cpc_trend_pct": 0.0931,
+          "freq_trend_pct": -0.0068
         },
         "d7": {
-          "status": "na",
-          "current_spend": null,
-          "prior_spend": null,
-          "ctr_current": null,
-          "ctr_prior": null,
-          "cpc_current": null,
-          "cpc_prior": null,
-          "freq_current": null,
-          "freq_prior": null,
-          "ctr_trend_pct": null,
-          "cpc_trend_pct": null,
-          "freq_trend_pct": null
+          "status": "ok",
+          "current_spend": 171.28,
+          "prior_spend": 139.36,
+          "ctr_current": 8.072,
+          "ctr_prior": 8.026,
+          "cpc_current": 0.085,
+          "cpc_prior": 0.083,
+          "freq_current": 1.029,
+          "freq_prior": 1.028,
+          "ctr_trend_pct": 0.0057,
+          "cpc_trend_pct": 0.0207,
+          "freq_trend_pct": 0.0007
         }
       },
-      "ctr": 6.897,
-      "cpc": 0.135,
-      "frequency": 1.036,
-      "spend": 0.27,
+      "ctr": 7.612,
+      "cpc": 0.105,
+      "frequency": 1.04,
+      "spend": 2.32,
       "fatigue_signal": "stable",
-      "fatigue_score": 0.43
+      "fatigue_score": 3.724
     },
     {
       "campaign_id": "6960435028357",
@@ -200,10 +200,10 @@
           "freq_trend_pct": null
         }
       },
-      "ctr": 5.195,
-      "cpc": 0.168,
-      "frequency": 1.041,
-      "spend": 0.67,
+      "ctr": 4.444,
+      "cpc": 0.198,
+      "frequency": 1.034,
+      "spend": 0.79,
       "fatigue_signal": "stable",
       "fatigue_score": 0.0
     }
@@ -294,46 +294,46 @@
       "fatigue_score": 10.164
     },
     {
-      "adset_id": "6955113574557",
-      "adset": "Tailored web traffic campaign 3/11/2026 Ad set",
-      "campaign_id": "6955113574357",
+      "adset_id": "6960086009357",
+      "adset": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad set",
+      "campaign_id": "6960086008957",
       "entity_type": "adset",
       "trends": {
         "d3": {
           "status": "ok",
-          "current_spend": 88.01,
-          "prior_spend": 64.0,
-          "ctr_current": 7.829,
-          "ctr_prior": 7.946,
-          "cpc_current": 0.092,
-          "cpc_prior": 0.082,
-          "freq_current": 1.033,
-          "freq_prior": 1.037,
-          "ctr_trend_pct": -0.0147,
-          "cpc_trend_pct": 0.1215,
-          "freq_trend_pct": -0.0042
+          "current_spend": 41.04,
+          "prior_spend": 52.32,
+          "ctr_current": 4.532,
+          "ctr_prior": 4.637,
+          "cpc_current": 0.183,
+          "cpc_prior": 0.157,
+          "freq_current": 1.047,
+          "freq_prior": 1.023,
+          "ctr_trend_pct": -0.0226,
+          "cpc_trend_pct": 0.161,
+          "freq_trend_pct": 0.0231
         },
         "d7": {
-          "status": "ok",
-          "current_spend": 170.87,
-          "prior_spend": 139.36,
-          "ctr_current": 7.988,
-          "ctr_prior": 8.026,
-          "cpc_current": 0.086,
-          "cpc_prior": 0.083,
-          "freq_current": 1.03,
-          "freq_prior": 1.028,
-          "ctr_trend_pct": -0.0047,
-          "cpc_trend_pct": 0.0328,
-          "freq_trend_pct": 0.0018
+          "status": "na",
+          "current_spend": null,
+          "prior_spend": null,
+          "ctr_current": null,
+          "ctr_prior": null,
+          "cpc_current": null,
+          "cpc_prior": null,
+          "freq_current": null,
+          "freq_prior": null,
+          "ctr_trend_pct": null,
+          "cpc_trend_pct": null,
+          "freq_trend_pct": null
         }
       },
-      "ctr": 7.025,
-      "cpc": 0.112,
-      "frequency": 1.048,
-      "spend": 1.91,
+      "ctr": 3.922,
+      "cpc": 0.23,
+      "frequency": 1.041,
+      "spend": 0.46,
       "fatigue_signal": "stable",
-      "fatigue_score": 5.448
+      "fatigue_score": 7.806
     },
     {
       "adset_id": "6951024653757",
@@ -378,6 +378,48 @@
       "fatigue_score": 4.444
     },
     {
+      "adset_id": "6955113574557",
+      "adset": "Tailored web traffic campaign 3/11/2026 Ad set",
+      "campaign_id": "6955113574357",
+      "entity_type": "adset",
+      "trends": {
+        "d3": {
+          "status": "ok",
+          "current_spend": 88.42,
+          "prior_spend": 64.0,
+          "ctr_current": 8.025,
+          "ctr_prior": 7.946,
+          "cpc_current": 0.09,
+          "cpc_prior": 0.082,
+          "freq_current": 1.03,
+          "freq_prior": 1.037,
+          "ctr_trend_pct": 0.0099,
+          "cpc_trend_pct": 0.0931,
+          "freq_trend_pct": -0.0068
+        },
+        "d7": {
+          "status": "ok",
+          "current_spend": 171.28,
+          "prior_spend": 139.36,
+          "ctr_current": 8.072,
+          "ctr_prior": 8.026,
+          "cpc_current": 0.085,
+          "cpc_prior": 0.083,
+          "freq_current": 1.029,
+          "freq_prior": 1.028,
+          "ctr_trend_pct": 0.0057,
+          "cpc_trend_pct": 0.0207,
+          "freq_trend_pct": 0.0007
+        }
+      },
+      "ctr": 7.612,
+      "cpc": 0.105,
+      "frequency": 1.04,
+      "spend": 2.32,
+      "fatigue_signal": "stable",
+      "fatigue_score": 3.724
+    },
+    {
       "adset_id": "6953786714757",
       "adset": "New Traffic Ad set with recommended settings",
       "campaign_id": "6953786714157",
@@ -418,48 +460,6 @@
       "spend": 4.5,
       "fatigue_signal": "stable",
       "fatigue_score": 2.996
-    },
-    {
-      "adset_id": "6960086009357",
-      "adset": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad set",
-      "campaign_id": "6960086008957",
-      "entity_type": "adset",
-      "trends": {
-        "d3": {
-          "status": "ok",
-          "current_spend": 40.85,
-          "prior_spend": 52.32,
-          "ctr_current": 5.523,
-          "ctr_prior": 4.637,
-          "cpc_current": 0.151,
-          "cpc_prior": 0.157,
-          "freq_current": 1.045,
-          "freq_prior": 1.023,
-          "ctr_trend_pct": 0.1912,
-          "cpc_trend_pct": -0.0403,
-          "freq_trend_pct": 0.0215
-        },
-        "d7": {
-          "status": "na",
-          "current_spend": null,
-          "prior_spend": null,
-          "ctr_current": null,
-          "ctr_prior": null,
-          "cpc_current": null,
-          "cpc_prior": null,
-          "freq_current": null,
-          "freq_prior": null,
-          "ctr_trend_pct": null,
-          "cpc_trend_pct": null,
-          "freq_trend_pct": null
-        }
-      },
-      "ctr": 6.897,
-      "cpc": 0.135,
-      "frequency": 1.036,
-      "spend": 0.27,
-      "fatigue_signal": "stable",
-      "fatigue_score": 0.43
     },
     {
       "adset_id": "6960435699357",
@@ -538,10 +538,10 @@
           "freq_trend_pct": null
         }
       },
-      "ctr": 5.195,
-      "cpc": 0.168,
-      "frequency": 1.041,
-      "spend": 0.67,
+      "ctr": 4.444,
+      "cpc": 0.198,
+      "frequency": 1.034,
+      "spend": 0.79,
       "fatigue_signal": "stable",
       "fatigue_score": 0.0
     },
@@ -718,47 +718,47 @@
       "fatigue_score": 10.164
     },
     {
-      "ad_id": "6955113574157",
-      "ad": "Tailored web traffic campaign 3/11/2026 Ad",
-      "adset_id": "6955113574557",
-      "campaign_id": "6955113574357",
+      "ad_id": "6960086009157",
+      "ad": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
+      "adset_id": "6960086009357",
+      "campaign_id": "6960086008957",
       "entity_type": "ad",
       "trends": {
         "d3": {
           "status": "ok",
-          "current_spend": 88.01,
-          "prior_spend": 64.0,
-          "ctr_current": 7.829,
-          "ctr_prior": 7.946,
-          "cpc_current": 0.092,
-          "cpc_prior": 0.082,
-          "freq_current": 1.033,
-          "freq_prior": 1.037,
-          "ctr_trend_pct": -0.0147,
-          "cpc_trend_pct": 0.1215,
-          "freq_trend_pct": -0.0042
+          "current_spend": 41.04,
+          "prior_spend": 52.32,
+          "ctr_current": 4.532,
+          "ctr_prior": 4.637,
+          "cpc_current": 0.183,
+          "cpc_prior": 0.157,
+          "freq_current": 1.047,
+          "freq_prior": 1.023,
+          "ctr_trend_pct": -0.0226,
+          "cpc_trend_pct": 0.161,
+          "freq_trend_pct": 0.0231
         },
         "d7": {
-          "status": "ok",
-          "current_spend": 170.87,
-          "prior_spend": 139.36,
-          "ctr_current": 7.988,
-          "ctr_prior": 8.026,
-          "cpc_current": 0.086,
-          "cpc_prior": 0.083,
-          "freq_current": 1.03,
-          "freq_prior": 1.028,
-          "ctr_trend_pct": -0.0047,
-          "cpc_trend_pct": 0.0328,
-          "freq_trend_pct": 0.0018
+          "status": "na",
+          "current_spend": null,
+          "prior_spend": null,
+          "ctr_current": null,
+          "ctr_prior": null,
+          "cpc_current": null,
+          "cpc_prior": null,
+          "freq_current": null,
+          "freq_prior": null,
+          "ctr_trend_pct": null,
+          "cpc_trend_pct": null,
+          "freq_trend_pct": null
         }
       },
-      "ctr": 7.025,
-      "cpc": 0.112,
-      "frequency": 1.048,
-      "spend": 1.91,
+      "ctr": 3.922,
+      "cpc": 0.23,
+      "frequency": 1.041,
+      "spend": 0.46,
       "fatigue_signal": "stable",
-      "fatigue_score": 5.448
+      "fatigue_score": 7.806
     },
     {
       "ad_id": "6951024654157",
@@ -804,6 +804,49 @@
       "fatigue_score": 4.444
     },
     {
+      "ad_id": "6955113574157",
+      "ad": "Tailored web traffic campaign 3/11/2026 Ad",
+      "adset_id": "6955113574557",
+      "campaign_id": "6955113574357",
+      "entity_type": "ad",
+      "trends": {
+        "d3": {
+          "status": "ok",
+          "current_spend": 88.42,
+          "prior_spend": 64.0,
+          "ctr_current": 8.025,
+          "ctr_prior": 7.946,
+          "cpc_current": 0.09,
+          "cpc_prior": 0.082,
+          "freq_current": 1.03,
+          "freq_prior": 1.037,
+          "ctr_trend_pct": 0.0099,
+          "cpc_trend_pct": 0.0931,
+          "freq_trend_pct": -0.0068
+        },
+        "d7": {
+          "status": "ok",
+          "current_spend": 171.28,
+          "prior_spend": 139.36,
+          "ctr_current": 8.072,
+          "ctr_prior": 8.026,
+          "cpc_current": 0.085,
+          "cpc_prior": 0.083,
+          "freq_current": 1.029,
+          "freq_prior": 1.028,
+          "ctr_trend_pct": 0.0057,
+          "cpc_trend_pct": 0.0207,
+          "freq_trend_pct": 0.0007
+        }
+      },
+      "ctr": 7.612,
+      "cpc": 0.105,
+      "frequency": 1.04,
+      "spend": 2.32,
+      "fatigue_signal": "stable",
+      "fatigue_score": 3.724
+    },
+    {
       "ad_id": "6953786714357",
       "ad": "1",
       "adset_id": "6953786714757",
@@ -845,49 +888,6 @@
       "spend": 4.5,
       "fatigue_signal": "stable",
       "fatigue_score": 2.996
-    },
-    {
-      "ad_id": "6960086009157",
-      "ad": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
-      "adset_id": "6960086009357",
-      "campaign_id": "6960086008957",
-      "entity_type": "ad",
-      "trends": {
-        "d3": {
-          "status": "ok",
-          "current_spend": 40.85,
-          "prior_spend": 52.32,
-          "ctr_current": 5.523,
-          "ctr_prior": 4.637,
-          "cpc_current": 0.151,
-          "cpc_prior": 0.157,
-          "freq_current": 1.045,
-          "freq_prior": 1.023,
-          "ctr_trend_pct": 0.1912,
-          "cpc_trend_pct": -0.0403,
-          "freq_trend_pct": 0.0215
-        },
-        "d7": {
-          "status": "na",
-          "current_spend": null,
-          "prior_spend": null,
-          "ctr_current": null,
-          "ctr_prior": null,
-          "cpc_current": null,
-          "cpc_prior": null,
-          "freq_current": null,
-          "freq_prior": null,
-          "ctr_trend_pct": null,
-          "cpc_trend_pct": null,
-          "freq_trend_pct": null
-        }
-      },
-      "ctr": 6.897,
-      "cpc": 0.135,
-      "frequency": 1.036,
-      "spend": 0.27,
-      "fatigue_signal": "stable",
-      "fatigue_score": 0.43
     },
     {
       "ad_id": "6960435711757",
@@ -968,10 +968,10 @@
           "freq_trend_pct": null
         }
       },
-      "ctr": 5.195,
-      "cpc": 0.168,
-      "frequency": 1.041,
-      "spend": 0.67,
+      "ctr": 4.444,
+      "cpc": 0.198,
+      "frequency": 1.034,
+      "spend": 0.79,
       "fatigue_signal": "stable",
       "fatigue_score": 0.0
     },
