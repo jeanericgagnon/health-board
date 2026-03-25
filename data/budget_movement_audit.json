@@ -1,7 +1,43 @@
 {
-  "generated_at": "2026-03-25T07:04:36.728746Z",
+  "generated_at": "2026-03-25T08:03:02.281435Z",
   "source": "inferred_from_ad_daily_rows",
   "audit_rows": [
+    {
+      "level": "ad",
+      "entity_id": "6955113574157",
+      "campaign_id": "6955113574357",
+      "adset_id": "6955113574557",
+      "entity_name": "Tailored web traffic campaign 3/11/2026 Ad",
+      "movement": "scale_down",
+      "date": "2026-03-25",
+      "spend_prev_day": 44.41,
+      "spend_current_day": 1.07,
+      "cpc_after_24h_delta_pct": 17.58
+    },
+    {
+      "level": "ad",
+      "entity_id": "6960435771957",
+      "campaign_id": "6960435028357",
+      "adset_id": "6960435749557",
+      "entity_name": "Seattle launch | v98_vo_b",
+      "movement": "scale_down",
+      "date": "2026-03-25",
+      "spend_prev_day": 23.93,
+      "spend_current_day": 0.28,
+      "cpc_after_24h_delta_pct": -59.06
+    },
+    {
+      "level": "ad",
+      "entity_id": "6960086009157",
+      "campaign_id": "6960086008957",
+      "adset_id": "6960086009357",
+      "entity_name": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
+      "movement": "pause",
+      "date": "2026-03-25",
+      "spend_prev_day": 19.74,
+      "spend_current_day": 0.11,
+      "cpc_after_24h_delta_pct": -39.23
+    },
     {
       "level": "ad",
       "entity_id": "6960435894757",
