@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-03-25T16:03:59.574402Z",
-  "source_updated_at": "2026-03-25T16:03:44.506500Z",
+  "generated_at": "2026-03-25T17:00:15.832160Z",
+  "source_updated_at": "2026-03-25T17:00:00.752937Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 17.04,
-    "expected_by_now": 22.63,
-    "pace_ratio": 0.753,
-    "status": "on_track"
+    "expected_by_now": 25.0,
+    "pace_ratio": 0.682,
+    "status": "too_slow"
   },
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 0.1,
+    "last_pull_age_min": 56.4,
     "attribution_confidence": "direct"
   },
   "summary": {
@@ -186,9 +186,9 @@
     }
   ],
   "immediate_actions": [
+    "Pacing too slow: increase delivery on top efficient campaigns by ~10-15%.",
     "Scale: Tailored web traffic campaign 3/11/2026 Campaign (Strong CTR + low CPC with acceptable frequency)",
-    "Scale: 1 (Strong CTR + low CPC with acceptable frequency)",
-    "Confidence LOW: prioritize tracking/event reliability before major budget shifts."
+    "Scale: 1 (Strong CTR + low CPC with acceptable frequency)"
   ],
   "alert": {
     "should_alert": true,
