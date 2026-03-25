@@ -1,21 +1,21 @@
 {
-  "updated_at": "2026-03-25T04:00:00.923084Z",
+  "updated_at": "2026-03-25T04:02:43.523606Z",
   "summary": {
     "ad_account_id": "act_1379452680603809",
-    "total_spend": 1039.22,
-    "total_clicks": 9496,
-    "total_impressions": 142441,
+    "total_spend": 1049.8,
+    "total_clicks": 9587,
+    "total_impressions": 143787,
     "total_follows": 0,
     "blended_cost_per_follow": null,
     "since": null,
     "until": null,
-    "current_followers_live": 108246,
-    "daily_gain_live": 129,
+    "current_followers_live": 108259,
+    "daily_gain_live": 142,
     "baseline_followers": 108117,
-    "total_link_clicks": 9395,
+    "total_link_clicks": 9487,
     "total_outbound_clicks": 0,
-    "total_landing_page_views": 54,
-    "cost_per_landing_page_view": 19.245,
+    "total_landing_page_views": 56,
+    "cost_per_landing_page_view": 18.746,
     "lpv_per_outbound_click_rate": null,
     "manual_intraday_spend_override_note": null,
     "manual_intraday_spend_as_of_local": null,
@@ -25,89 +25,89 @@
     {
       "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
       "campaign_id": "6955113574357",
-      "spend": 311.6,
-      "clicks": 3816,
-      "impressions": 47059,
-      "reach": 45762,
-      "link_clicks": 3828,
+      "spend": 315.88,
+      "clicks": 3868,
+      "impressions": 47706,
+      "reach": 46363,
+      "link_clicks": 3885,
       "outbound_clicks": 0,
       "landing_page_views": 0,
-      "ctr": 8.046,
-      "cpm": 6.658,
+      "ctr": 8.049,
+      "cpm": 6.655,
       "cpc": 0.082,
       "outbound_ctr": 0.0,
       "lpv_rate": null,
       "cost_per_lpv": null,
       "frequency_avg": 1.029,
-      "first_time_impression_ratio": 97.244,
+      "first_time_impression_ratio": 97.185,
       "adsets": [
         {
           "adset": "Tailored web traffic campaign 3/11/2026 Ad set",
           "adset_id": "6955113574557",
-          "spend": 311.6,
-          "clicks": 3816,
-          "impressions": 47059,
-          "reach": 45762,
-          "link_clicks": 3828,
+          "spend": 315.88,
+          "clicks": 3868,
+          "impressions": 47706,
+          "reach": 46363,
+          "link_clicks": 3885,
           "outbound_clicks": 0,
           "landing_page_views": 0,
-          "ctr": 8.046,
-          "cpm": 6.658,
+          "ctr": 8.049,
+          "cpm": 6.655,
           "cpc": 0.082,
           "outbound_ctr": 0.0,
           "lpv_rate": null,
           "cost_per_lpv": null,
           "frequency_avg": 1.029,
-          "first_time_impression_ratio": 97.244,
+          "first_time_impression_ratio": 97.185,
           "ads": [
             {
               "ad": "Tailored web traffic campaign 3/11/2026 Ad",
               "ad_id": "6955113574157",
-              "spend": 311.6,
-              "clicks": 3816,
-              "impressions": 47059,
-              "reach": 45762,
-              "link_clicks": 3828,
+              "spend": 315.88,
+              "clicks": 3868,
+              "impressions": 47706,
+              "reach": 46363,
+              "link_clicks": 3885,
               "outbound_clicks": 0,
               "landing_page_views": 0,
-              "ctr": 8.046,
-              "cpm": 6.658,
+              "ctr": 8.049,
+              "cpm": 6.655,
               "cpc": 0.082,
               "outbound_ctr": 0.0,
               "lpv_rate": null,
               "cost_per_lpv": null,
               "frequency_avg": 1.029,
-              "first_time_impression_ratio": 97.244,
+              "first_time_impression_ratio": 97.185,
               "trend_intelligence": {
                 "ad_id": "6955113574157",
                 "ad": "Tailored web traffic campaign 3/11/2026 Ad",
                 "cpc_trend_3d": {
                   "window_days": 3,
                   "direction": "flat",
-                  "delta_pct": -1.63,
+                  "delta_pct": -2.04,
                   "recent_avg_cpc": 0.08,
                   "prior_avg_cpc": 0.082
                 },
                 "cpc_trend_7d": {
                   "window_days": 7,
                   "direction": "down",
-                  "delta_pct": -5.03,
+                  "delta_pct": -5.19,
                   "recent_avg_cpc": 0.081,
                   "prior_avg_cpc": 0.085
                 },
                 "fatigue_signal": {
                   "combined_ctr_cpc_signal": 0.0,
                   "status": "low",
-                  "ctr_decay_pct": -2.43,
-                  "cpc_delta_pct": -1.63
+                  "ctr_decay_pct": -2.61,
+                  "cpc_delta_pct": -2.04
                 }
               },
               "fatigue_radar": {
                 "ad_id": "6955113574157",
                 "ad": "Tailored web traffic campaign 3/11/2026 Ad",
-                "frequency_trend_pct": 1.76,
-                "ctr_decay_pct": -2.43,
-                "cpc_delta_pct": -1.63,
+                "frequency_trend_pct": 1.9,
+                "ctr_decay_pct": -2.61,
+                "cpc_delta_pct": -2.04,
                 "pre_collapse_alert": false
               },
               "decision_state": {
@@ -126,11 +126,11 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-03-25T04:00:00.910199Z",
+                "action_timestamp": "2026-03-25T04:02:43.520338Z",
                 "inputs": {
-                  "spend": 33.52,
-                  "ctr": 7.673,
-                  "cpc": 0.09
+                  "spend": 37.8,
+                  "ctr": 7.716,
+                  "cpc": 0.089
                 }
               },
               "winner_durability": {
@@ -149,30 +149,30 @@
             "cpc_trend_3d": {
               "window_days": 3,
               "direction": "flat",
-              "delta_pct": -1.63,
+              "delta_pct": -2.04,
               "recent_avg_cpc": 0.08,
               "prior_avg_cpc": 0.082
             },
             "cpc_trend_7d": {
               "window_days": 7,
               "direction": "down",
-              "delta_pct": -5.03,
+              "delta_pct": -5.19,
               "recent_avg_cpc": 0.081,
               "prior_avg_cpc": 0.085
             },
             "fatigue_signal": {
               "combined_ctr_cpc_signal": 0.0,
               "status": "low",
-              "ctr_decay_pct": -2.43,
-              "cpc_delta_pct": -1.63
+              "ctr_decay_pct": -2.61,
+              "cpc_delta_pct": -2.04
             }
           },
           "fatigue_radar": {
             "adset_id": "6955113574557",
             "adset": "Tailored web traffic campaign 3/11/2026 Ad set",
-            "frequency_trend_pct": 1.76,
-            "ctr_decay_pct": -2.43,
-            "cpc_delta_pct": -1.63,
+            "frequency_trend_pct": 1.9,
+            "ctr_decay_pct": -2.61,
+            "cpc_delta_pct": -2.04,
             "pre_collapse_alert": false
           }
         }
@@ -183,30 +183,30 @@
         "cpc_trend_3d": {
           "window_days": 3,
           "direction": "flat",
-          "delta_pct": -1.63,
+          "delta_pct": -2.04,
           "recent_avg_cpc": 0.08,
           "prior_avg_cpc": 0.082
         },
         "cpc_trend_7d": {
           "window_days": 7,
           "direction": "down",
-          "delta_pct": -5.03,
+          "delta_pct": -5.19,
           "recent_avg_cpc": 0.081,
           "prior_avg_cpc": 0.085
         },
         "fatigue_signal": {
           "combined_ctr_cpc_signal": 0.0,
           "status": "low",
-          "ctr_decay_pct": -2.43,
-          "cpc_delta_pct": -1.63
+          "ctr_decay_pct": -2.61,
+          "cpc_delta_pct": -2.04
         }
       },
       "fatigue_radar": {
         "campaign_id": "6955113574357",
         "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
-        "frequency_trend_pct": 1.76,
-        "ctr_decay_pct": -2.43,
-        "cpc_delta_pct": -1.63,
+        "frequency_trend_pct": 1.9,
+        "ctr_decay_pct": -2.61,
+        "cpc_delta_pct": -2.04,
         "pre_collapse_alert": false
       }
     },
@@ -314,7 +314,7 @@
                     "progress_pct": 73.3
                   }
                 },
-                "action_timestamp": "2026-03-25T04:00:00.910169Z",
+                "action_timestamp": "2026-03-25T04:02:43.520326Z",
                 "inputs": {
                   "spend": 7.33,
                   "ctr": 5.349,
@@ -449,7 +449,7 @@
                     "progress_pct": 72.2
                   }
                 },
-                "action_timestamp": "2026-03-25T04:00:00.910149Z",
+                "action_timestamp": "2026-03-25T04:02:43.520317Z",
                 "inputs": {
                   "spend": 7.22,
                   "ctr": 6.781,
@@ -637,7 +637,7 @@
                     "progress_pct": 67.5
                   }
                 },
-                "action_timestamp": "2026-03-25T04:00:00.910190Z",
+                "action_timestamp": "2026-03-25T04:02:43.520334Z",
                 "inputs": {
                   "spend": 6.75,
                   "ctr": 5.771,
@@ -772,7 +772,7 @@
                     "progress_pct": 45.0
                   }
                 },
-                "action_timestamp": "2026-03-25T04:00:00.910180Z",
+                "action_timestamp": "2026-03-25T04:02:43.520331Z",
                 "inputs": {
                   "spend": 4.5,
                   "ctr": 4.478,
@@ -859,67 +859,67 @@
     {
       "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
       "campaign_id": "6960086008957",
-      "spend": 87.98,
-      "clicks": 565,
-      "impressions": 11944,
-      "reach": 11537,
-      "link_clicks": 567,
+      "spend": 90.6,
+      "clicks": 585,
+      "impressions": 12294,
+      "reach": 11834,
+      "link_clicks": 587,
       "outbound_clicks": 0,
       "landing_page_views": 0,
-      "ctr": 4.655,
-      "cpm": 7.402,
-      "cpc": 0.156,
+      "ctr": 4.706,
+      "cpm": 7.386,
+      "cpc": 0.155,
       "outbound_ctr": 0.0,
       "lpv_rate": null,
       "cost_per_lpv": null,
-      "frequency_avg": 1.036,
-      "first_time_impression_ratio": 96.592,
+      "frequency_avg": 1.039,
+      "first_time_impression_ratio": 96.258,
       "adsets": [
         {
           "adset": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad set",
           "adset_id": "6960086009357",
-          "spend": 87.98,
-          "clicks": 565,
-          "impressions": 11944,
-          "reach": 11537,
-          "link_clicks": 567,
+          "spend": 90.6,
+          "clicks": 585,
+          "impressions": 12294,
+          "reach": 11834,
+          "link_clicks": 587,
           "outbound_clicks": 0,
           "landing_page_views": 0,
-          "ctr": 4.655,
-          "cpm": 7.402,
-          "cpc": 0.156,
+          "ctr": 4.706,
+          "cpm": 7.386,
+          "cpc": 0.155,
           "outbound_ctr": 0.0,
           "lpv_rate": null,
           "cost_per_lpv": null,
-          "frequency_avg": 1.036,
-          "first_time_impression_ratio": 96.592,
+          "frequency_avg": 1.039,
+          "first_time_impression_ratio": 96.258,
           "ads": [
             {
               "ad": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
               "ad_id": "6960086009157",
-              "spend": 87.98,
-              "clicks": 565,
-              "impressions": 11944,
-              "reach": 11537,
-              "link_clicks": 567,
+              "spend": 90.6,
+              "clicks": 585,
+              "impressions": 12294,
+              "reach": 11834,
+              "link_clicks": 587,
               "outbound_clicks": 0,
               "landing_page_views": 0,
-              "ctr": 4.655,
-              "cpm": 7.402,
-              "cpc": 0.156,
+              "ctr": 4.706,
+              "cpm": 7.386,
+              "cpc": 0.155,
               "outbound_ctr": 0.0,
               "lpv_rate": null,
               "cost_per_lpv": null,
-              "frequency_avg": 1.036,
-              "first_time_impression_ratio": 96.592,
+              "frequency_avg": 1.039,
+              "first_time_impression_ratio": 96.258,
               "trend_intelligence": {
                 "ad_id": "6960086009157",
                 "ad": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
                 "cpc_trend_3d": {
                   "window_days": 3,
-                  "direction": "flat",
-                  "delta_pct": -1.74,
-                  "recent_avg_cpc": 0.16,
+                  "direction": "down",
+                  "delta_pct": -4.41,
+                  "recent_avg_cpc": 0.155,
                   "prior_avg_cpc": 0.163
                 },
                 "cpc_trend_7d": {
@@ -932,16 +932,16 @@
                 "fatigue_signal": {
                   "combined_ctr_cpc_signal": 0.0,
                   "status": "low",
-                  "ctr_decay_pct": -4.12,
-                  "cpc_delta_pct": -1.74
+                  "ctr_decay_pct": -6.01,
+                  "cpc_delta_pct": -4.41
                 }
               },
               "fatigue_radar": {
                 "ad_id": "6960086009157",
                 "ad": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
-                "frequency_trend_pct": 1.63,
-                "ctr_decay_pct": -4.12,
-                "cpc_delta_pct": -1.74,
+                "frequency_trend_pct": 2.28,
+                "ctr_decay_pct": -6.01,
+                "cpc_delta_pct": -4.41,
                 "pre_collapse_alert": false
               },
               "decision_state": {
@@ -960,11 +960,11 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-03-25T04:00:00.910207Z",
+                "action_timestamp": "2026-03-25T04:02:43.520341Z",
                 "inputs": {
-                  "spend": 14.82,
-                  "ctr": 4.099,
-                  "cpc": 0.195
+                  "spend": 17.44,
+                  "ctr": 4.356,
+                  "cpc": 0.182
                 }
               },
               "winner_durability": {
@@ -982,9 +982,9 @@
             "adset": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad set",
             "cpc_trend_3d": {
               "window_days": 3,
-              "direction": "flat",
-              "delta_pct": -1.74,
-              "recent_avg_cpc": 0.16,
+              "direction": "down",
+              "delta_pct": -4.41,
+              "recent_avg_cpc": 0.155,
               "prior_avg_cpc": 0.163
             },
             "cpc_trend_7d": {
@@ -997,16 +997,16 @@
             "fatigue_signal": {
               "combined_ctr_cpc_signal": 0.0,
               "status": "low",
-              "ctr_decay_pct": -4.12,
-              "cpc_delta_pct": -1.74
+              "ctr_decay_pct": -6.01,
+              "cpc_delta_pct": -4.41
             }
           },
           "fatigue_radar": {
             "adset_id": "6960086009357",
             "adset": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad set",
-            "frequency_trend_pct": 1.63,
-            "ctr_decay_pct": -4.12,
-            "cpc_delta_pct": -1.74,
+            "frequency_trend_pct": 2.28,
+            "ctr_decay_pct": -6.01,
+            "cpc_delta_pct": -4.41,
             "pre_collapse_alert": false
           }
         }
@@ -1016,9 +1016,9 @@
         "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
         "cpc_trend_3d": {
           "window_days": 3,
-          "direction": "flat",
-          "delta_pct": -1.74,
-          "recent_avg_cpc": 0.16,
+          "direction": "down",
+          "delta_pct": -4.41,
+          "recent_avg_cpc": 0.155,
           "prior_avg_cpc": 0.163
         },
         "cpc_trend_7d": {
@@ -1031,83 +1031,83 @@
         "fatigue_signal": {
           "combined_ctr_cpc_signal": 0.0,
           "status": "low",
-          "ctr_decay_pct": -4.12,
-          "cpc_delta_pct": -1.74
+          "ctr_decay_pct": -6.01,
+          "cpc_delta_pct": -4.41
         }
       },
       "fatigue_radar": {
         "campaign_id": "6960086008957",
         "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
-        "frequency_trend_pct": 1.63,
-        "ctr_decay_pct": -4.12,
-        "cpc_delta_pct": -1.74,
+        "frequency_trend_pct": 2.28,
+        "ctr_decay_pct": -6.01,
+        "cpc_delta_pct": -4.41,
         "pre_collapse_alert": false
       }
     },
     {
       "campaign": "TSS Seattle 4-way launch 20260321_095059",
       "campaign_id": "6960435028357",
-      "spend": 82.63,
-      "clicks": 432,
-      "impressions": 8377,
-      "reach": 7999,
-      "link_clicks": 321,
+      "spend": 86.31,
+      "clicks": 451,
+      "impressions": 8726,
+      "reach": 8323,
+      "link_clicks": 336,
       "outbound_clicks": 0,
-      "landing_page_views": 54,
-      "ctr": 5.082,
-      "cpm": 9.551,
+      "landing_page_views": 56,
+      "ctr": 5.086,
+      "cpm": 9.566,
       "cpc": 0.191,
       "outbound_ctr": 0.0,
       "lpv_rate": null,
-      "cost_per_lpv": 1.53,
-      "frequency_avg": 1.048,
-      "first_time_impression_ratio": 95.488,
+      "cost_per_lpv": 1.541,
+      "frequency_avg": 1.049,
+      "first_time_impression_ratio": 95.382,
       "adsets": [
         {
           "adset": "Seattle launch | v98_vo_b | $10/day",
           "adset_id": "6960435749557",
-          "spend": 49.12,
-          "clicks": 275,
-          "impressions": 4927,
-          "reach": 4669,
-          "link_clicks": 208,
+          "spend": 52.8,
+          "clicks": 294,
+          "impressions": 5276,
+          "reach": 4993,
+          "link_clicks": 223,
           "outbound_clicks": 0,
-          "landing_page_views": 44,
-          "ctr": 5.685,
-          "cpm": 9.578,
-          "cpc": 0.179,
+          "landing_page_views": 46,
+          "ctr": 5.697,
+          "cpm": 9.624,
+          "cpc": 0.18,
           "outbound_ctr": 0.0,
           "lpv_rate": null,
-          "cost_per_lpv": 1.116,
-          "frequency_avg": 1.056,
-          "first_time_impression_ratio": 94.764,
+          "cost_per_lpv": 1.148,
+          "frequency_avg": 1.057,
+          "first_time_impression_ratio": 94.636,
           "ads": [
             {
               "ad": "Seattle launch | v98_vo_b",
               "ad_id": "6960435771957",
-              "spend": 49.12,
-              "clicks": 275,
-              "impressions": 4927,
-              "reach": 4669,
-              "link_clicks": 208,
+              "spend": 52.8,
+              "clicks": 294,
+              "impressions": 5276,
+              "reach": 4993,
+              "link_clicks": 223,
               "outbound_clicks": 0,
-              "landing_page_views": 44,
-              "ctr": 5.685,
-              "cpm": 9.578,
-              "cpc": 0.179,
+              "landing_page_views": 46,
+              "ctr": 5.697,
+              "cpm": 9.624,
+              "cpc": 0.18,
               "outbound_ctr": 0.0,
               "lpv_rate": null,
-              "cost_per_lpv": 1.116,
-              "frequency_avg": 1.056,
-              "first_time_impression_ratio": 94.764,
+              "cost_per_lpv": 1.148,
+              "frequency_avg": 1.057,
+              "first_time_impression_ratio": 94.636,
               "trend_intelligence": {
                 "ad_id": "6960435771957",
                 "ad": "Seattle launch | v98_vo_b",
                 "cpc_trend_3d": {
                   "window_days": 3,
                   "direction": "up",
-                  "delta_pct": 36.07,
-                  "recent_avg_cpc": 0.182,
+                  "delta_pct": 36.57,
+                  "recent_avg_cpc": 0.183,
                   "prior_avg_cpc": 0.134
                 },
                 "cpc_trend_7d": {
@@ -1118,18 +1118,18 @@
                   "prior_avg_cpc": null
                 },
                 "fatigue_signal": {
-                  "combined_ctr_cpc_signal": 0.251,
+                  "combined_ctr_cpc_signal": 0.252,
                   "status": "low",
-                  "ctr_decay_pct": 14.96,
-                  "cpc_delta_pct": 36.07
+                  "ctr_decay_pct": 14.71,
+                  "cpc_delta_pct": 36.57
                 }
               },
               "fatigue_radar": {
                 "ad_id": "6960435771957",
                 "ad": "Seattle launch | v98_vo_b",
-                "frequency_trend_pct": 2.72,
-                "ctr_decay_pct": 14.96,
-                "cpc_delta_pct": 36.07,
+                "frequency_trend_pct": 2.59,
+                "ctr_decay_pct": 14.71,
+                "cpc_delta_pct": 36.57,
                 "pre_collapse_alert": false
               },
               "decision_state": {
@@ -1148,11 +1148,11 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-03-25T04:00:00.910239Z",
+                "action_timestamp": "2026-03-25T04:02:43.520353Z",
                 "inputs": {
-                  "spend": 15.26,
-                  "ctr": 5.178,
-                  "cpc": 0.184
+                  "spend": 18.94,
+                  "ctr": 5.225,
+                  "cpc": 0.186
                 }
               },
               "winner_durability": {
@@ -1171,8 +1171,8 @@
             "cpc_trend_3d": {
               "window_days": 3,
               "direction": "up",
-              "delta_pct": 36.07,
-              "recent_avg_cpc": 0.182,
+              "delta_pct": 36.57,
+              "recent_avg_cpc": 0.183,
               "prior_avg_cpc": 0.134
             },
             "cpc_trend_7d": {
@@ -1183,18 +1183,18 @@
               "prior_avg_cpc": null
             },
             "fatigue_signal": {
-              "combined_ctr_cpc_signal": 0.251,
+              "combined_ctr_cpc_signal": 0.252,
               "status": "low",
-              "ctr_decay_pct": 14.96,
-              "cpc_delta_pct": 36.07
+              "ctr_decay_pct": 14.71,
+              "cpc_delta_pct": 36.57
             }
           },
           "fatigue_radar": {
             "adset_id": "6960435749557",
             "adset": "Seattle launch | v98_vo_b | $10/day",
-            "frequency_trend_pct": 2.72,
-            "ctr_decay_pct": 14.96,
-            "cpc_delta_pct": 36.07,
+            "frequency_trend_pct": 2.59,
+            "ctr_decay_pct": 14.71,
+            "cpc_delta_pct": 36.57,
             "pre_collapse_alert": false
           }
         },
@@ -1283,7 +1283,7 @@
                     "progress_pct": 50.7
                   }
                 },
-                "action_timestamp": "2026-03-25T04:00:00.910215Z",
+                "action_timestamp": "2026-03-25T04:02:43.520344Z",
                 "inputs": {
                   "spend": 5.07,
                   "ctr": 3.909,
@@ -1418,7 +1418,7 @@
                     "progress_pct": 26.5
                   }
                 },
-                "action_timestamp": "2026-03-25T04:00:00.910223Z",
+                "action_timestamp": "2026-03-25T04:02:43.520347Z",
                 "inputs": {
                   "spend": 2.65,
                   "ctr": 3.731,
@@ -1553,7 +1553,7 @@
                     "progress_pct": 46.9
                   }
                 },
-                "action_timestamp": "2026-03-25T04:00:00.910230Z",
+                "action_timestamp": "2026-03-25T04:02:43.520350Z",
                 "inputs": {
                   "spend": 4.69,
                   "ctr": 4.595,
@@ -1610,8 +1610,8 @@
         "cpc_trend_3d": {
           "window_days": 3,
           "direction": "up",
-          "delta_pct": 31.1,
-          "recent_avg_cpc": 0.195,
+          "delta_pct": 31.54,
+          "recent_avg_cpc": 0.196,
           "prior_avg_cpc": 0.149
         },
         "cpc_trend_7d": {
@@ -1622,18 +1622,18 @@
           "prior_avg_cpc": null
         },
         "fatigue_signal": {
-          "combined_ctr_cpc_signal": 0.218,
+          "combined_ctr_cpc_signal": 0.219,
           "status": "low",
-          "ctr_decay_pct": 13.24,
-          "cpc_delta_pct": 31.1
+          "ctr_decay_pct": 12.97,
+          "cpc_delta_pct": 31.54
         }
       },
       "fatigue_radar": {
         "campaign_id": "6960435028357",
         "campaign": "TSS Seattle 4-way launch 20260321_095059",
-        "frequency_trend_pct": 3.09,
-        "ctr_decay_pct": 13.24,
-        "cpc_delta_pct": 31.1,
+        "frequency_trend_pct": 2.96,
+        "ctr_decay_pct": 12.97,
+        "cpc_delta_pct": 31.54,
         "pre_collapse_alert": false
       }
     }
@@ -1642,89 +1642,89 @@
     {
       "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
       "campaign_id": "6955113574357",
-      "spend": 311.6,
-      "clicks": 3816,
-      "impressions": 47059,
-      "reach": 45762,
-      "link_clicks": 3828,
+      "spend": 315.88,
+      "clicks": 3868,
+      "impressions": 47706,
+      "reach": 46363,
+      "link_clicks": 3885,
       "outbound_clicks": 0,
       "landing_page_views": 0,
-      "ctr": 8.046,
-      "cpm": 6.658,
+      "ctr": 8.049,
+      "cpm": 6.655,
       "cpc": 0.082,
       "outbound_ctr": 0.0,
       "lpv_rate": null,
       "cost_per_lpv": null,
       "frequency_avg": 1.029,
-      "first_time_impression_ratio": 97.244,
+      "first_time_impression_ratio": 97.185,
       "adsets": [
         {
           "adset": "Tailored web traffic campaign 3/11/2026 Ad set",
           "adset_id": "6955113574557",
-          "spend": 311.6,
-          "clicks": 3816,
-          "impressions": 47059,
-          "reach": 45762,
-          "link_clicks": 3828,
+          "spend": 315.88,
+          "clicks": 3868,
+          "impressions": 47706,
+          "reach": 46363,
+          "link_clicks": 3885,
           "outbound_clicks": 0,
           "landing_page_views": 0,
-          "ctr": 8.046,
-          "cpm": 6.658,
+          "ctr": 8.049,
+          "cpm": 6.655,
           "cpc": 0.082,
           "outbound_ctr": 0.0,
           "lpv_rate": null,
           "cost_per_lpv": null,
           "frequency_avg": 1.029,
-          "first_time_impression_ratio": 97.244,
+          "first_time_impression_ratio": 97.185,
           "ads": [
             {
               "ad": "Tailored web traffic campaign 3/11/2026 Ad",
               "ad_id": "6955113574157",
-              "spend": 311.6,
-              "clicks": 3816,
-              "impressions": 47059,
-              "reach": 45762,
-              "link_clicks": 3828,
+              "spend": 315.88,
+              "clicks": 3868,
+              "impressions": 47706,
+              "reach": 46363,
+              "link_clicks": 3885,
               "outbound_clicks": 0,
               "landing_page_views": 0,
-              "ctr": 8.046,
-              "cpm": 6.658,
+              "ctr": 8.049,
+              "cpm": 6.655,
               "cpc": 0.082,
               "outbound_ctr": 0.0,
               "lpv_rate": null,
               "cost_per_lpv": null,
               "frequency_avg": 1.029,
-              "first_time_impression_ratio": 97.244,
+              "first_time_impression_ratio": 97.185,
               "trend_intelligence": {
                 "ad_id": "6955113574157",
                 "ad": "Tailored web traffic campaign 3/11/2026 Ad",
                 "cpc_trend_3d": {
                   "window_days": 3,
                   "direction": "flat",
-                  "delta_pct": -1.63,
+                  "delta_pct": -2.04,
                   "recent_avg_cpc": 0.08,
                   "prior_avg_cpc": 0.082
                 },
                 "cpc_trend_7d": {
                   "window_days": 7,
                   "direction": "down",
-                  "delta_pct": -5.03,
+                  "delta_pct": -5.19,
                   "recent_avg_cpc": 0.081,
                   "prior_avg_cpc": 0.085
                 },
                 "fatigue_signal": {
                   "combined_ctr_cpc_signal": 0.0,
                   "status": "low",
-                  "ctr_decay_pct": -2.43,
-                  "cpc_delta_pct": -1.63
+                  "ctr_decay_pct": -2.61,
+                  "cpc_delta_pct": -2.04
                 }
               },
               "fatigue_radar": {
                 "ad_id": "6955113574157",
                 "ad": "Tailored web traffic campaign 3/11/2026 Ad",
-                "frequency_trend_pct": 1.76,
-                "ctr_decay_pct": -2.43,
-                "cpc_delta_pct": -1.63,
+                "frequency_trend_pct": 1.9,
+                "ctr_decay_pct": -2.61,
+                "cpc_delta_pct": -2.04,
                 "pre_collapse_alert": false
               },
               "decision_state": {
@@ -1743,11 +1743,11 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-03-25T04:00:00.910199Z",
+                "action_timestamp": "2026-03-25T04:02:43.520338Z",
                 "inputs": {
-                  "spend": 33.52,
-                  "ctr": 7.673,
-                  "cpc": 0.09
+                  "spend": 37.8,
+                  "ctr": 7.716,
+                  "cpc": 0.089
                 }
               },
               "winner_durability": {
@@ -1766,30 +1766,30 @@
             "cpc_trend_3d": {
               "window_days": 3,
               "direction": "flat",
-              "delta_pct": -1.63,
+              "delta_pct": -2.04,
               "recent_avg_cpc": 0.08,
               "prior_avg_cpc": 0.082
             },
             "cpc_trend_7d": {
               "window_days": 7,
               "direction": "down",
-              "delta_pct": -5.03,
+              "delta_pct": -5.19,
               "recent_avg_cpc": 0.081,
               "prior_avg_cpc": 0.085
             },
             "fatigue_signal": {
               "combined_ctr_cpc_signal": 0.0,
               "status": "low",
-              "ctr_decay_pct": -2.43,
-              "cpc_delta_pct": -1.63
+              "ctr_decay_pct": -2.61,
+              "cpc_delta_pct": -2.04
             }
           },
           "fatigue_radar": {
             "adset_id": "6955113574557",
             "adset": "Tailored web traffic campaign 3/11/2026 Ad set",
-            "frequency_trend_pct": 1.76,
-            "ctr_decay_pct": -2.43,
-            "cpc_delta_pct": -1.63,
+            "frequency_trend_pct": 1.9,
+            "ctr_decay_pct": -2.61,
+            "cpc_delta_pct": -2.04,
             "pre_collapse_alert": false
           }
         }
@@ -1800,30 +1800,30 @@
         "cpc_trend_3d": {
           "window_days": 3,
           "direction": "flat",
-          "delta_pct": -1.63,
+          "delta_pct": -2.04,
           "recent_avg_cpc": 0.08,
           "prior_avg_cpc": 0.082
         },
         "cpc_trend_7d": {
           "window_days": 7,
           "direction": "down",
-          "delta_pct": -5.03,
+          "delta_pct": -5.19,
           "recent_avg_cpc": 0.081,
           "prior_avg_cpc": 0.085
         },
         "fatigue_signal": {
           "combined_ctr_cpc_signal": 0.0,
           "status": "low",
-          "ctr_decay_pct": -2.43,
-          "cpc_delta_pct": -1.63
+          "ctr_decay_pct": -2.61,
+          "cpc_delta_pct": -2.04
         }
       },
       "fatigue_radar": {
         "campaign_id": "6955113574357",
         "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
-        "frequency_trend_pct": 1.76,
-        "ctr_decay_pct": -2.43,
-        "cpc_delta_pct": -1.63,
+        "frequency_trend_pct": 1.9,
+        "ctr_decay_pct": -2.61,
+        "cpc_delta_pct": -2.04,
         "pre_collapse_alert": false
       }
     },
@@ -1931,7 +1931,7 @@
                     "progress_pct": 73.3
                   }
                 },
-                "action_timestamp": "2026-03-25T04:00:00.910169Z",
+                "action_timestamp": "2026-03-25T04:02:43.520326Z",
                 "inputs": {
                   "spend": 7.33,
                   "ctr": 5.349,
@@ -2066,7 +2066,7 @@
                     "progress_pct": 72.2
                   }
                 },
-                "action_timestamp": "2026-03-25T04:00:00.910149Z",
+                "action_timestamp": "2026-03-25T04:02:43.520317Z",
                 "inputs": {
                   "spend": 7.22,
                   "ctr": 6.781,
@@ -2254,7 +2254,7 @@
                     "progress_pct": 67.5
                   }
                 },
-                "action_timestamp": "2026-03-25T04:00:00.910190Z",
+                "action_timestamp": "2026-03-25T04:02:43.520334Z",
                 "inputs": {
                   "spend": 6.75,
                   "ctr": 5.771,
@@ -2389,7 +2389,7 @@
                     "progress_pct": 45.0
                   }
                 },
-                "action_timestamp": "2026-03-25T04:00:00.910180Z",
+                "action_timestamp": "2026-03-25T04:02:43.520331Z",
                 "inputs": {
                   "spend": 4.5,
                   "ctr": 4.478,
@@ -2476,67 +2476,67 @@
     {
       "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
       "campaign_id": "6960086008957",
-      "spend": 87.98,
-      "clicks": 565,
-      "impressions": 11944,
-      "reach": 11537,
-      "link_clicks": 567,
+      "spend": 90.6,
+      "clicks": 585,
+      "impressions": 12294,
+      "reach": 11834,
+      "link_clicks": 587,
       "outbound_clicks": 0,
       "landing_page_views": 0,
-      "ctr": 4.655,
-      "cpm": 7.402,
-      "cpc": 0.156,
+      "ctr": 4.706,
+      "cpm": 7.386,
+      "cpc": 0.155,
       "outbound_ctr": 0.0,
       "lpv_rate": null,
       "cost_per_lpv": null,
-      "frequency_avg": 1.036,
-      "first_time_impression_ratio": 96.592,
+      "frequency_avg": 1.039,
+      "first_time_impression_ratio": 96.258,
       "adsets": [
         {
           "adset": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad set",
           "adset_id": "6960086009357",
-          "spend": 87.98,
-          "clicks": 565,
-          "impressions": 11944,
-          "reach": 11537,
-          "link_clicks": 567,
+          "spend": 90.6,
+          "clicks": 585,
+          "impressions": 12294,
+          "reach": 11834,
+          "link_clicks": 587,
           "outbound_clicks": 0,
           "landing_page_views": 0,
-          "ctr": 4.655,
-          "cpm": 7.402,
-          "cpc": 0.156,
+          "ctr": 4.706,
+          "cpm": 7.386,
+          "cpc": 0.155,
           "outbound_ctr": 0.0,
           "lpv_rate": null,
           "cost_per_lpv": null,
-          "frequency_avg": 1.036,
-          "first_time_impression_ratio": 96.592,
+          "frequency_avg": 1.039,
+          "first_time_impression_ratio": 96.258,
           "ads": [
             {
               "ad": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
               "ad_id": "6960086009157",
-              "spend": 87.98,
-              "clicks": 565,
-              "impressions": 11944,
-              "reach": 11537,
-              "link_clicks": 567,
+              "spend": 90.6,
+              "clicks": 585,
+              "impressions": 12294,
+              "reach": 11834,
+              "link_clicks": 587,
               "outbound_clicks": 0,
               "landing_page_views": 0,
-              "ctr": 4.655,
-              "cpm": 7.402,
-              "cpc": 0.156,
+              "ctr": 4.706,
+              "cpm": 7.386,
+              "cpc": 0.155,
               "outbound_ctr": 0.0,
               "lpv_rate": null,
               "cost_per_lpv": null,
-              "frequency_avg": 1.036,
-              "first_time_impression_ratio": 96.592,
+              "frequency_avg": 1.039,
+              "first_time_impression_ratio": 96.258,
               "trend_intelligence": {
                 "ad_id": "6960086009157",
                 "ad": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
                 "cpc_trend_3d": {
                   "window_days": 3,
-                  "direction": "flat",
-                  "delta_pct": -1.74,
-                  "recent_avg_cpc": 0.16,
+                  "direction": "down",
+                  "delta_pct": -4.41,
+                  "recent_avg_cpc": 0.155,
                   "prior_avg_cpc": 0.163
                 },
                 "cpc_trend_7d": {
@@ -2549,16 +2549,16 @@
                 "fatigue_signal": {
                   "combined_ctr_cpc_signal": 0.0,
                   "status": "low",
-                  "ctr_decay_pct": -4.12,
-                  "cpc_delta_pct": -1.74
+                  "ctr_decay_pct": -6.01,
+                  "cpc_delta_pct": -4.41
                 }
               },
               "fatigue_radar": {
                 "ad_id": "6960086009157",
                 "ad": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
-                "frequency_trend_pct": 1.63,
-                "ctr_decay_pct": -4.12,
-                "cpc_delta_pct": -1.74,
+                "frequency_trend_pct": 2.28,
+                "ctr_decay_pct": -6.01,
+                "cpc_delta_pct": -4.41,
                 "pre_collapse_alert": false
               },
               "decision_state": {
@@ -2577,11 +2577,11 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-03-25T04:00:00.910207Z",
+                "action_timestamp": "2026-03-25T04:02:43.520341Z",
                 "inputs": {
-                  "spend": 14.82,
-                  "ctr": 4.099,
-                  "cpc": 0.195
+                  "spend": 17.44,
+                  "ctr": 4.356,
+                  "cpc": 0.182
                 }
               },
               "winner_durability": {
@@ -2599,9 +2599,9 @@
             "adset": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad set",
             "cpc_trend_3d": {
               "window_days": 3,
-              "direction": "flat",
-              "delta_pct": -1.74,
-              "recent_avg_cpc": 0.16,
+              "direction": "down",
+              "delta_pct": -4.41,
+              "recent_avg_cpc": 0.155,
               "prior_avg_cpc": 0.163
             },
             "cpc_trend_7d": {
@@ -2614,16 +2614,16 @@
             "fatigue_signal": {
               "combined_ctr_cpc_signal": 0.0,
               "status": "low",
-              "ctr_decay_pct": -4.12,
-              "cpc_delta_pct": -1.74
+              "ctr_decay_pct": -6.01,
+              "cpc_delta_pct": -4.41
             }
           },
           "fatigue_radar": {
             "adset_id": "6960086009357",
             "adset": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad set",
-            "frequency_trend_pct": 1.63,
-            "ctr_decay_pct": -4.12,
-            "cpc_delta_pct": -1.74,
+            "frequency_trend_pct": 2.28,
+            "ctr_decay_pct": -6.01,
+            "cpc_delta_pct": -4.41,
             "pre_collapse_alert": false
           }
         }
@@ -2633,9 +2633,9 @@
         "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
         "cpc_trend_3d": {
           "window_days": 3,
-          "direction": "flat",
-          "delta_pct": -1.74,
-          "recent_avg_cpc": 0.16,
+          "direction": "down",
+          "delta_pct": -4.41,
+          "recent_avg_cpc": 0.155,
           "prior_avg_cpc": 0.163
         },
         "cpc_trend_7d": {
@@ -2648,83 +2648,83 @@
         "fatigue_signal": {
           "combined_ctr_cpc_signal": 0.0,
           "status": "low",
-          "ctr_decay_pct": -4.12,
-          "cpc_delta_pct": -1.74
+          "ctr_decay_pct": -6.01,
+          "cpc_delta_pct": -4.41
         }
       },
       "fatigue_radar": {
         "campaign_id": "6960086008957",
         "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
-        "frequency_trend_pct": 1.63,
-        "ctr_decay_pct": -4.12,
-        "cpc_delta_pct": -1.74,
+        "frequency_trend_pct": 2.28,
+        "ctr_decay_pct": -6.01,
+        "cpc_delta_pct": -4.41,
         "pre_collapse_alert": false
       }
     },
     {
       "campaign": "TSS Seattle 4-way launch 20260321_095059",
       "campaign_id": "6960435028357",
-      "spend": 82.63,
-      "clicks": 432,
-      "impressions": 8377,
-      "reach": 7999,
-      "link_clicks": 321,
+      "spend": 86.31,
+      "clicks": 451,
+      "impressions": 8726,
+      "reach": 8323,
+      "link_clicks": 336,
       "outbound_clicks": 0,
-      "landing_page_views": 54,
-      "ctr": 5.082,
-      "cpm": 9.551,
+      "landing_page_views": 56,
+      "ctr": 5.086,
+      "cpm": 9.566,
       "cpc": 0.191,
       "outbound_ctr": 0.0,
       "lpv_rate": null,
-      "cost_per_lpv": 1.53,
-      "frequency_avg": 1.048,
-      "first_time_impression_ratio": 95.488,
+      "cost_per_lpv": 1.541,
+      "frequency_avg": 1.049,
+      "first_time_impression_ratio": 95.382,
       "adsets": [
         {
           "adset": "Seattle launch | v98_vo_b | $10/day",
           "adset_id": "6960435749557",
-          "spend": 49.12,
-          "clicks": 275,
-          "impressions": 4927,
-          "reach": 4669,
-          "link_clicks": 208,
+          "spend": 52.8,
+          "clicks": 294,
+          "impressions": 5276,
+          "reach": 4993,
+          "link_clicks": 223,
           "outbound_clicks": 0,
-          "landing_page_views": 44,
-          "ctr": 5.685,
-          "cpm": 9.578,
-          "cpc": 0.179,
+          "landing_page_views": 46,
+          "ctr": 5.697,
+          "cpm": 9.624,
+          "cpc": 0.18,
           "outbound_ctr": 0.0,
           "lpv_rate": null,
-          "cost_per_lpv": 1.116,
-          "frequency_avg": 1.056,
-          "first_time_impression_ratio": 94.764,
+          "cost_per_lpv": 1.148,
+          "frequency_avg": 1.057,
+          "first_time_impression_ratio": 94.636,
           "ads": [
             {
               "ad": "Seattle launch | v98_vo_b",
               "ad_id": "6960435771957",
-              "spend": 49.12,
-              "clicks": 275,
-              "impressions": 4927,
-              "reach": 4669,
-              "link_clicks": 208,
+              "spend": 52.8,
+              "clicks": 294,
+              "impressions": 5276,
+              "reach": 4993,
+              "link_clicks": 223,
               "outbound_clicks": 0,
-              "landing_page_views": 44,
-              "ctr": 5.685,
-              "cpm": 9.578,
-              "cpc": 0.179,
+              "landing_page_views": 46,
+              "ctr": 5.697,
+              "cpm": 9.624,
+              "cpc": 0.18,
               "outbound_ctr": 0.0,
               "lpv_rate": null,
-              "cost_per_lpv": 1.116,
-              "frequency_avg": 1.056,
-              "first_time_impression_ratio": 94.764,
+              "cost_per_lpv": 1.148,
+              "frequency_avg": 1.057,
+              "first_time_impression_ratio": 94.636,
               "trend_intelligence": {
                 "ad_id": "6960435771957",
                 "ad": "Seattle launch | v98_vo_b",
                 "cpc_trend_3d": {
                   "window_days": 3,
                   "direction": "up",
-                  "delta_pct": 36.07,
-                  "recent_avg_cpc": 0.182,
+                  "delta_pct": 36.57,
+                  "recent_avg_cpc": 0.183,
                   "prior_avg_cpc": 0.134
                 },
                 "cpc_trend_7d": {
@@ -2735,18 +2735,18 @@
                   "prior_avg_cpc": null
                 },
                 "fatigue_signal": {
-                  "combined_ctr_cpc_signal": 0.251,
+                  "combined_ctr_cpc_signal": 0.252,
                   "status": "low",
-                  "ctr_decay_pct": 14.96,
-                  "cpc_delta_pct": 36.07
+                  "ctr_decay_pct": 14.71,
+                  "cpc_delta_pct": 36.57
                 }
               },
               "fatigue_radar": {
                 "ad_id": "6960435771957",
                 "ad": "Seattle launch | v98_vo_b",
-                "frequency_trend_pct": 2.72,
-                "ctr_decay_pct": 14.96,
-                "cpc_delta_pct": 36.07,
+                "frequency_trend_pct": 2.59,
+                "ctr_decay_pct": 14.71,
+                "cpc_delta_pct": 36.57,
                 "pre_collapse_alert": false
               },
               "decision_state": {
@@ -2765,11 +2765,11 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-03-25T04:00:00.910239Z",
+                "action_timestamp": "2026-03-25T04:02:43.520353Z",
                 "inputs": {
-                  "spend": 15.26,
-                  "ctr": 5.178,
-                  "cpc": 0.184
+                  "spend": 18.94,
+                  "ctr": 5.225,
+                  "cpc": 0.186
                 }
               },
               "winner_durability": {
@@ -2788,8 +2788,8 @@
             "cpc_trend_3d": {
               "window_days": 3,
               "direction": "up",
-              "delta_pct": 36.07,
-              "recent_avg_cpc": 0.182,
+              "delta_pct": 36.57,
+              "recent_avg_cpc": 0.183,
               "prior_avg_cpc": 0.134
             },
             "cpc_trend_7d": {
@@ -2800,18 +2800,18 @@
               "prior_avg_cpc": null
             },
             "fatigue_signal": {
-              "combined_ctr_cpc_signal": 0.251,
+              "combined_ctr_cpc_signal": 0.252,
               "status": "low",
-              "ctr_decay_pct": 14.96,
-              "cpc_delta_pct": 36.07
+              "ctr_decay_pct": 14.71,
+              "cpc_delta_pct": 36.57
             }
           },
           "fatigue_radar": {
             "adset_id": "6960435749557",
             "adset": "Seattle launch | v98_vo_b | $10/day",
-            "frequency_trend_pct": 2.72,
-            "ctr_decay_pct": 14.96,
-            "cpc_delta_pct": 36.07,
+            "frequency_trend_pct": 2.59,
+            "ctr_decay_pct": 14.71,
+            "cpc_delta_pct": 36.57,
             "pre_collapse_alert": false
           }
         },
@@ -2900,7 +2900,7 @@
                     "progress_pct": 50.7
                   }
                 },
-                "action_timestamp": "2026-03-25T04:00:00.910215Z",
+                "action_timestamp": "2026-03-25T04:02:43.520344Z",
                 "inputs": {
                   "spend": 5.07,
                   "ctr": 3.909,
@@ -3035,7 +3035,7 @@
                     "progress_pct": 26.5
                   }
                 },
-                "action_timestamp": "2026-03-25T04:00:00.910223Z",
+                "action_timestamp": "2026-03-25T04:02:43.520347Z",
                 "inputs": {
                   "spend": 2.65,
                   "ctr": 3.731,
@@ -3170,7 +3170,7 @@
                     "progress_pct": 46.9
                   }
                 },
-                "action_timestamp": "2026-03-25T04:00:00.910230Z",
+                "action_timestamp": "2026-03-25T04:02:43.520350Z",
                 "inputs": {
                   "spend": 4.69,
                   "ctr": 4.595,
@@ -3227,8 +3227,8 @@
         "cpc_trend_3d": {
           "window_days": 3,
           "direction": "up",
-          "delta_pct": 31.1,
-          "recent_avg_cpc": 0.195,
+          "delta_pct": 31.54,
+          "recent_avg_cpc": 0.196,
           "prior_avg_cpc": 0.149
         },
         "cpc_trend_7d": {
@@ -3239,18 +3239,18 @@
           "prior_avg_cpc": null
         },
         "fatigue_signal": {
-          "combined_ctr_cpc_signal": 0.218,
+          "combined_ctr_cpc_signal": 0.219,
           "status": "low",
-          "ctr_decay_pct": 13.24,
-          "cpc_delta_pct": 31.1
+          "ctr_decay_pct": 12.97,
+          "cpc_delta_pct": 31.54
         }
       },
       "fatigue_radar": {
         "campaign_id": "6960435028357",
         "campaign": "TSS Seattle 4-way launch 20260321_095059",
-        "frequency_trend_pct": 3.09,
-        "ctr_decay_pct": 13.24,
-        "cpc_delta_pct": 31.1,
+        "frequency_trend_pct": 2.96,
+        "ctr_decay_pct": 12.97,
+        "cpc_delta_pct": 31.54,
         "pre_collapse_alert": false
       }
     }
@@ -3910,40 +3910,40 @@
       "date": "2026-03-24",
       "campaign_id": "6960086008957",
       "campaign_name": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
-      "spend": 14.82,
-      "clicks": 76,
-      "impressions": 1854,
+      "spend": 17.44,
+      "clicks": 96,
+      "impressions": 2204,
       "landing_page_views": 0,
-      "ctr": 4.099,
-      "cpc": 0.195,
+      "ctr": 4.356,
+      "cpc": 0.182,
       "cost_per_lpv": null,
-      "frequency_avg": 1.042
+      "frequency_avg": 1.062
     },
     {
       "date": "2026-03-24",
       "campaign_id": "6960435028357",
       "campaign_name": "TSS Seattle 4-way launch 20260321_095059",
-      "spend": 15.26,
-      "clicks": 83,
-      "impressions": 1603,
-      "landing_page_views": 10,
-      "ctr": 5.178,
-      "cpc": 0.184,
-      "cost_per_lpv": 1.526,
-      "frequency_avg": 1.098
+      "spend": 18.94,
+      "clicks": 102,
+      "impressions": 1952,
+      "landing_page_views": 12,
+      "ctr": 5.225,
+      "cpc": 0.186,
+      "cost_per_lpv": 1.578,
+      "frequency_avg": 1.094
     },
     {
       "date": "2026-03-24",
       "campaign_id": "6955113574357",
       "campaign_name": "Tailored web traffic campaign 3/11/2026 Campaign",
-      "spend": 33.52,
-      "clicks": 372,
-      "impressions": 4848,
+      "spend": 37.8,
+      "clicks": 424,
+      "impressions": 5495,
       "landing_page_views": 0,
-      "ctr": 7.673,
-      "cpc": 0.09,
+      "ctr": 7.716,
+      "cpc": 0.089,
       "cost_per_lpv": null,
-      "frequency_avg": 1.041
+      "frequency_avg": 1.045
     }
   ],
   "followers_series": [
@@ -4033,7 +4033,7 @@
     },
     {
       "date": "2026-03-24",
-      "followers_total": 108246
+      "followers_total": 108259
     }
   ],
   "followers_daily_series": [
@@ -4144,8 +4144,8 @@
     },
     {
       "date": "2026-03-24",
-      "followers_per_day": 129.0,
-      "followers_total": 108246.0
+      "followers_per_day": 142.0,
+      "followers_total": 108259.0
     }
   ],
   "spend_series": [
@@ -4215,7 +4215,7 @@
     },
     {
       "date": "2026-03-24",
-      "spend": 63.6
+      "spend": 74.18
     }
   ],
   "insights": [
@@ -4233,11 +4233,11 @@
     },
     {
       "type": "working",
-      "text": "Latest daily followers: 129. Keep top campaign structure stable while testing one variable at a time."
+      "text": "Latest daily followers: 142. Keep top campaign structure stable while testing one variable at a time."
     },
     {
       "type": "action",
-      "text": "Pacing watch: spend today is $63.60 vs $60/day target."
+      "text": "Pacing watch: spend today is $74.18 vs $60/day target."
     },
     {
       "type": "action",
@@ -4310,31 +4310,31 @@
         "efficiency"
       ],
       "expected_impact": "high",
-      "fatigue_score": 12.2
+      "fatigue_score": 12.1
     }
   ],
   "pacing": {
     "target_daily": 60.0,
-    "today_spend": 63.6,
-    "expected_by_now": 52.5,
-    "pace_ratio": 1.211,
+    "today_spend": 74.18,
+    "expected_by_now": 52.58,
+    "pace_ratio": 1.411,
     "status": "too_fast"
   },
   "forecasting": {
-    "today_spend_so_far": 63.6,
-    "projected_eod_spend": 72.69,
-    "projected_eod_cpc": 0.12,
-    "pace_elapsed_pct": 87.5,
+    "today_spend_so_far": 74.18,
+    "projected_eod_spend": 84.64,
+    "projected_eod_cpc": 0.119,
+    "pace_elapsed_pct": 87.64,
     "target_daily_spend": 60.0
   },
   "forecasting_tiles": {
-    "generated_at": "2026-03-25T04:00:00.916375Z",
-    "projected_eod_spend": 72.69,
-    "projected_eod_cpc": 0.12,
-    "spend_progress_pct": 87.495,
-    "hour_progress": 87.5,
-    "today_spend": 63.6,
-    "today_clicks": 531,
+    "generated_at": "2026-03-25T04:02:43.521785Z",
+    "projected_eod_spend": 84.59,
+    "projected_eod_cpc": 0.119,
+    "spend_progress_pct": 87.694,
+    "hour_progress": 87.69,
+    "today_spend": 74.18,
+    "today_clicks": 622,
     "data_source": "live_intraday",
     "estimation_type": "realtime",
     "notes": "Projected EOD CPC = projected EOD spend \u00f7 projected EOD clicks. Requires today clicks for CPC."
@@ -4396,22 +4396,22 @@
           "cpc_trend_3d": {
             "window_days": 3,
             "direction": "flat",
-            "delta_pct": -1.63,
+            "delta_pct": -2.04,
             "recent_avg_cpc": 0.08,
             "prior_avg_cpc": 0.082
           },
           "cpc_trend_7d": {
             "window_days": 7,
             "direction": "down",
-            "delta_pct": -5.03,
+            "delta_pct": -5.19,
             "recent_avg_cpc": 0.081,
             "prior_avg_cpc": 0.085
           },
           "fatigue_signal": {
             "combined_ctr_cpc_signal": 0.0,
             "status": "low",
-            "ctr_decay_pct": -2.43,
-            "cpc_delta_pct": -1.63
+            "ctr_decay_pct": -2.61,
+            "cpc_delta_pct": -2.04
           }
         },
         "6960086008957": {
@@ -4419,9 +4419,9 @@
           "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
           "cpc_trend_3d": {
             "window_days": 3,
-            "direction": "flat",
-            "delta_pct": -1.74,
-            "recent_avg_cpc": 0.16,
+            "direction": "down",
+            "delta_pct": -4.41,
+            "recent_avg_cpc": 0.155,
             "prior_avg_cpc": 0.163
           },
           "cpc_trend_7d": {
@@ -4434,8 +4434,8 @@
           "fatigue_signal": {
             "combined_ctr_cpc_signal": 0.0,
             "status": "low",
-            "ctr_decay_pct": -4.12,
-            "cpc_delta_pct": -1.74
+            "ctr_decay_pct": -6.01,
+            "cpc_delta_pct": -4.41
           }
         },
         "6960435028357": {
@@ -4444,8 +4444,8 @@
           "cpc_trend_3d": {
             "window_days": 3,
             "direction": "up",
-            "delta_pct": 31.1,
-            "recent_avg_cpc": 0.195,
+            "delta_pct": 31.54,
+            "recent_avg_cpc": 0.196,
             "prior_avg_cpc": 0.149
           },
           "cpc_trend_7d": {
@@ -4456,10 +4456,10 @@
             "prior_avg_cpc": null
           },
           "fatigue_signal": {
-            "combined_ctr_cpc_signal": 0.218,
+            "combined_ctr_cpc_signal": 0.219,
             "status": "low",
-            "ctr_decay_pct": 13.24,
-            "cpc_delta_pct": 31.1
+            "ctr_decay_pct": 12.97,
+            "cpc_delta_pct": 31.54
           }
         }
       },
@@ -4566,22 +4566,22 @@
           "cpc_trend_3d": {
             "window_days": 3,
             "direction": "flat",
-            "delta_pct": -1.63,
+            "delta_pct": -2.04,
             "recent_avg_cpc": 0.08,
             "prior_avg_cpc": 0.082
           },
           "cpc_trend_7d": {
             "window_days": 7,
             "direction": "down",
-            "delta_pct": -5.03,
+            "delta_pct": -5.19,
             "recent_avg_cpc": 0.081,
             "prior_avg_cpc": 0.085
           },
           "fatigue_signal": {
             "combined_ctr_cpc_signal": 0.0,
             "status": "low",
-            "ctr_decay_pct": -2.43,
-            "cpc_delta_pct": -1.63
+            "ctr_decay_pct": -2.61,
+            "cpc_delta_pct": -2.04
           }
         },
         "6960086009357": {
@@ -4589,9 +4589,9 @@
           "adset": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad set",
           "cpc_trend_3d": {
             "window_days": 3,
-            "direction": "flat",
-            "delta_pct": -1.74,
-            "recent_avg_cpc": 0.16,
+            "direction": "down",
+            "delta_pct": -4.41,
+            "recent_avg_cpc": 0.155,
             "prior_avg_cpc": 0.163
           },
           "cpc_trend_7d": {
@@ -4604,8 +4604,8 @@
           "fatigue_signal": {
             "combined_ctr_cpc_signal": 0.0,
             "status": "low",
-            "ctr_decay_pct": -4.12,
-            "cpc_delta_pct": -1.74
+            "ctr_decay_pct": -6.01,
+            "cpc_delta_pct": -4.41
           }
         },
         "6960435841557": {
@@ -4686,8 +4686,8 @@
           "cpc_trend_3d": {
             "window_days": 3,
             "direction": "up",
-            "delta_pct": 36.07,
-            "recent_avg_cpc": 0.182,
+            "delta_pct": 36.57,
+            "recent_avg_cpc": 0.183,
             "prior_avg_cpc": 0.134
           },
           "cpc_trend_7d": {
@@ -4698,10 +4698,10 @@
             "prior_avg_cpc": null
           },
           "fatigue_signal": {
-            "combined_ctr_cpc_signal": 0.251,
+            "combined_ctr_cpc_signal": 0.252,
             "status": "low",
-            "ctr_decay_pct": 14.96,
-            "cpc_delta_pct": 36.07
+            "ctr_decay_pct": 14.71,
+            "cpc_delta_pct": 36.57
           }
         }
       },
@@ -4808,22 +4808,22 @@
           "cpc_trend_3d": {
             "window_days": 3,
             "direction": "flat",
-            "delta_pct": -1.63,
+            "delta_pct": -2.04,
             "recent_avg_cpc": 0.08,
             "prior_avg_cpc": 0.082
           },
           "cpc_trend_7d": {
             "window_days": 7,
             "direction": "down",
-            "delta_pct": -5.03,
+            "delta_pct": -5.19,
             "recent_avg_cpc": 0.081,
             "prior_avg_cpc": 0.085
           },
           "fatigue_signal": {
             "combined_ctr_cpc_signal": 0.0,
             "status": "low",
-            "ctr_decay_pct": -2.43,
-            "cpc_delta_pct": -1.63
+            "ctr_decay_pct": -2.61,
+            "cpc_delta_pct": -2.04
           }
         },
         "6960086009157": {
@@ -4831,9 +4831,9 @@
           "ad": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
           "cpc_trend_3d": {
             "window_days": 3,
-            "direction": "flat",
-            "delta_pct": -1.74,
-            "recent_avg_cpc": 0.16,
+            "direction": "down",
+            "delta_pct": -4.41,
+            "recent_avg_cpc": 0.155,
             "prior_avg_cpc": 0.163
           },
           "cpc_trend_7d": {
@@ -4846,8 +4846,8 @@
           "fatigue_signal": {
             "combined_ctr_cpc_signal": 0.0,
             "status": "low",
-            "ctr_decay_pct": -4.12,
-            "cpc_delta_pct": -1.74
+            "ctr_decay_pct": -6.01,
+            "cpc_delta_pct": -4.41
           }
         },
         "6960435854157": {
@@ -4928,8 +4928,8 @@
           "cpc_trend_3d": {
             "window_days": 3,
             "direction": "up",
-            "delta_pct": 36.07,
-            "recent_avg_cpc": 0.182,
+            "delta_pct": 36.57,
+            "recent_avg_cpc": 0.183,
             "prior_avg_cpc": 0.134
           },
           "cpc_trend_7d": {
@@ -4940,10 +4940,10 @@
             "prior_avg_cpc": null
           },
           "fatigue_signal": {
-            "combined_ctr_cpc_signal": 0.251,
+            "combined_ctr_cpc_signal": 0.252,
             "status": "low",
-            "ctr_decay_pct": 14.96,
-            "cpc_delta_pct": 36.07
+            "ctr_decay_pct": 14.71,
+            "cpc_delta_pct": 36.57
           }
         }
       }
@@ -4966,7 +4966,7 @@
               "progress_pct": 72.2
             }
           },
-          "action_timestamp": "2026-03-25T04:00:00.910149Z",
+          "action_timestamp": "2026-03-25T04:02:43.520317Z",
           "inputs": {
             "spend": 7.22,
             "ctr": 6.781,
@@ -4989,7 +4989,7 @@
               "progress_pct": 73.3
             }
           },
-          "action_timestamp": "2026-03-25T04:00:00.910169Z",
+          "action_timestamp": "2026-03-25T04:02:43.520326Z",
           "inputs": {
             "spend": 7.33,
             "ctr": 5.349,
@@ -5012,7 +5012,7 @@
               "progress_pct": 45.0
             }
           },
-          "action_timestamp": "2026-03-25T04:00:00.910180Z",
+          "action_timestamp": "2026-03-25T04:02:43.520331Z",
           "inputs": {
             "spend": 4.5,
             "ctr": 4.478,
@@ -5035,7 +5035,7 @@
               "progress_pct": 67.5
             }
           },
-          "action_timestamp": "2026-03-25T04:00:00.910190Z",
+          "action_timestamp": "2026-03-25T04:02:43.520334Z",
           "inputs": {
             "spend": 6.75,
             "ctr": 5.771,
@@ -5058,11 +5058,11 @@
               "progress_pct": 100.0
             }
           },
-          "action_timestamp": "2026-03-25T04:00:00.910199Z",
+          "action_timestamp": "2026-03-25T04:02:43.520338Z",
           "inputs": {
-            "spend": 33.52,
-            "ctr": 7.673,
-            "cpc": 0.09
+            "spend": 37.8,
+            "ctr": 7.716,
+            "cpc": 0.089
           }
         },
         "6960086009157": {
@@ -5081,11 +5081,11 @@
               "progress_pct": 100.0
             }
           },
-          "action_timestamp": "2026-03-25T04:00:00.910207Z",
+          "action_timestamp": "2026-03-25T04:02:43.520341Z",
           "inputs": {
-            "spend": 14.82,
-            "ctr": 4.099,
-            "cpc": 0.195
+            "spend": 17.44,
+            "ctr": 4.356,
+            "cpc": 0.182
           }
         },
         "6960435854157": {
@@ -5104,7 +5104,7 @@
               "progress_pct": 50.7
             }
           },
-          "action_timestamp": "2026-03-25T04:00:00.910215Z",
+          "action_timestamp": "2026-03-25T04:02:43.520344Z",
           "inputs": {
             "spend": 5.07,
             "ctr": 3.909,
@@ -5127,7 +5127,7 @@
               "progress_pct": 26.5
             }
           },
-          "action_timestamp": "2026-03-25T04:00:00.910223Z",
+          "action_timestamp": "2026-03-25T04:02:43.520347Z",
           "inputs": {
             "spend": 2.65,
             "ctr": 3.731,
@@ -5150,7 +5150,7 @@
               "progress_pct": 46.9
             }
           },
-          "action_timestamp": "2026-03-25T04:00:00.910230Z",
+          "action_timestamp": "2026-03-25T04:02:43.520350Z",
           "inputs": {
             "spend": 4.69,
             "ctr": 4.595,
@@ -5173,11 +5173,11 @@
               "progress_pct": 100.0
             }
           },
-          "action_timestamp": "2026-03-25T04:00:00.910239Z",
+          "action_timestamp": "2026-03-25T04:02:43.520353Z",
           "inputs": {
-            "spend": 15.26,
-            "ctr": 5.178,
-            "cpc": 0.184
+            "spend": 18.94,
+            "ctr": 5.225,
+            "cpc": 0.186
           }
         }
       }
@@ -5191,28 +5191,8 @@
           "movement": "scale_down",
           "date": "2026-03-24",
           "spend_prev_day": 32.82,
-          "spend_current_day": 15.26,
-          "cpc_after_24h_delta_pct": -4.66
-        },
-        {
-          "level": "adset",
-          "entity_id": "6960435749557",
-          "entity_name": "Seattle launch | v98_vo_b | $10/day",
-          "movement": "scale_down",
-          "date": "2026-03-24",
-          "spend_prev_day": 25.1,
-          "spend_current_day": 15.26,
-          "cpc_after_24h_delta_pct": 3.37
-        },
-        {
-          "level": "ad",
-          "entity_id": "6960435771957",
-          "entity_name": "Seattle launch | v98_vo_b",
-          "movement": "scale_down",
-          "date": "2026-03-24",
-          "spend_prev_day": 25.1,
-          "spend_current_day": 15.26,
-          "cpc_after_24h_delta_pct": 3.37
+          "spend_current_day": 18.94,
+          "cpc_after_24h_delta_pct": -3.63
         },
         {
           "level": "adset",
@@ -5347,25 +5327,25 @@
         "6955113574357": {
           "campaign_id": "6955113574357",
           "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
-          "frequency_trend_pct": 1.76,
-          "ctr_decay_pct": -2.43,
-          "cpc_delta_pct": -1.63,
+          "frequency_trend_pct": 1.9,
+          "ctr_decay_pct": -2.61,
+          "cpc_delta_pct": -2.04,
           "pre_collapse_alert": false
         },
         "6960086008957": {
           "campaign_id": "6960086008957",
           "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
-          "frequency_trend_pct": 1.63,
-          "ctr_decay_pct": -4.12,
-          "cpc_delta_pct": -1.74,
+          "frequency_trend_pct": 2.28,
+          "ctr_decay_pct": -6.01,
+          "cpc_delta_pct": -4.41,
           "pre_collapse_alert": false
         },
         "6960435028357": {
           "campaign_id": "6960435028357",
           "campaign": "TSS Seattle 4-way launch 20260321_095059",
-          "frequency_trend_pct": 3.09,
-          "ctr_decay_pct": 13.24,
-          "cpc_delta_pct": 31.1,
+          "frequency_trend_pct": 2.96,
+          "ctr_decay_pct": 12.97,
+          "cpc_delta_pct": 31.54,
           "pre_collapse_alert": false
         }
       },
@@ -5405,17 +5385,17 @@
         "6955113574557": {
           "adset_id": "6955113574557",
           "adset": "Tailored web traffic campaign 3/11/2026 Ad set",
-          "frequency_trend_pct": 1.76,
-          "ctr_decay_pct": -2.43,
-          "cpc_delta_pct": -1.63,
+          "frequency_trend_pct": 1.9,
+          "ctr_decay_pct": -2.61,
+          "cpc_delta_pct": -2.04,
           "pre_collapse_alert": false
         },
         "6960086009357": {
           "adset_id": "6960086009357",
           "adset": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad set",
-          "frequency_trend_pct": 1.63,
-          "ctr_decay_pct": -4.12,
-          "cpc_delta_pct": -1.74,
+          "frequency_trend_pct": 2.28,
+          "ctr_decay_pct": -6.01,
+          "cpc_delta_pct": -4.41,
           "pre_collapse_alert": false
         },
         "6960435841557": {
@@ -5445,9 +5425,9 @@
         "6960435749557": {
           "adset_id": "6960435749557",
           "adset": "Seattle launch | v98_vo_b | $10/day",
-          "frequency_trend_pct": 2.72,
-          "ctr_decay_pct": 14.96,
-          "cpc_delta_pct": 36.07,
+          "frequency_trend_pct": 2.59,
+          "ctr_decay_pct": 14.71,
+          "cpc_delta_pct": 36.57,
           "pre_collapse_alert": false
         }
       },
@@ -5487,17 +5467,17 @@
         "6955113574157": {
           "ad_id": "6955113574157",
           "ad": "Tailored web traffic campaign 3/11/2026 Ad",
-          "frequency_trend_pct": 1.76,
-          "ctr_decay_pct": -2.43,
-          "cpc_delta_pct": -1.63,
+          "frequency_trend_pct": 1.9,
+          "ctr_decay_pct": -2.61,
+          "cpc_delta_pct": -2.04,
           "pre_collapse_alert": false
         },
         "6960086009157": {
           "ad_id": "6960086009157",
           "ad": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
-          "frequency_trend_pct": 1.63,
-          "ctr_decay_pct": -4.12,
-          "cpc_delta_pct": -1.74,
+          "frequency_trend_pct": 2.28,
+          "ctr_decay_pct": -6.01,
+          "cpc_delta_pct": -4.41,
           "pre_collapse_alert": false
         },
         "6960435854157": {
@@ -5527,9 +5507,9 @@
         "6960435771957": {
           "ad_id": "6960435771957",
           "ad": "Seattle launch | v98_vo_b",
-          "frequency_trend_pct": 2.72,
-          "ctr_decay_pct": 14.96,
-          "cpc_delta_pct": 36.07,
+          "frequency_trend_pct": 2.59,
+          "ctr_decay_pct": 14.71,
+          "cpc_delta_pct": 36.57,
           "pre_collapse_alert": false
         }
       }
@@ -5620,7 +5600,7 @@
     }
   },
   "trend_intelligence": {
-    "generated_at": "2026-03-25T04:00:00.911471Z",
+    "generated_at": "2026-03-25T04:02:43.520793Z",
     "source": "trend_intelligence_from_kpi_rows",
     "campaigns": [
       {
@@ -5712,39 +5692,39 @@
         "trends": {
           "d3": {
             "status": "ok",
-            "current_spend": 100.26,
+            "current_spend": 104.54,
             "prior_spend": 57.81,
-            "ctr_current": 8.255,
+            "ctr_current": 8.27,
             "ctr_prior": 8.059,
             "cpc_current": 0.08,
             "cpc_prior": 0.082,
-            "freq_current": 1.038,
+            "freq_current": 1.039,
             "freq_prior": 1.02,
-            "ctr_trend_pct": 0.0243,
-            "cpc_trend_pct": -0.0163,
-            "freq_trend_pct": 0.0176
+            "ctr_trend_pct": 0.0261,
+            "cpc_trend_pct": -0.0204,
+            "freq_trend_pct": 0.019
           },
           "d7": {
             "status": "ok",
-            "current_spend": 177.64,
+            "current_spend": 181.92,
             "prior_spend": 133.96,
-            "ctr_current": 8.101,
+            "ctr_current": 8.107,
             "ctr_prior": 7.99,
             "cpc_current": 0.081,
             "cpc_prior": 0.085,
             "freq_current": 1.033,
             "freq_prior": 1.023,
-            "ctr_trend_pct": 0.0139,
-            "cpc_trend_pct": -0.0503,
-            "freq_trend_pct": 0.0094
+            "ctr_trend_pct": 0.0146,
+            "cpc_trend_pct": -0.0519,
+            "freq_trend_pct": 0.0099
           }
         },
-        "ctr": 7.673,
-        "cpc": 0.09,
-        "frequency": 1.041,
-        "spend": 33.52,
+        "ctr": 7.716,
+        "cpc": 0.089,
+        "frequency": 1.045,
+        "spend": 37.8,
         "fatigue_signal": "stable",
-        "fatigue_score": 0.352
+        "fatigue_score": 0.38
       },
       {
         "campaign_id": "6960086008957",
@@ -5780,10 +5760,10 @@
             "freq_trend_pct": null
           }
         },
-        "ctr": 4.099,
-        "cpc": 0.195,
-        "frequency": 1.042,
-        "spend": 14.82,
+        "ctr": 4.356,
+        "cpc": 0.182,
+        "frequency": 1.062,
+        "spend": 17.44,
         "fatigue_signal": "stable",
         "fatigue_score": 0.0
       },
@@ -5821,10 +5801,10 @@
             "freq_trend_pct": null
           }
         },
-        "ctr": 5.178,
-        "cpc": 0.184,
-        "frequency": 1.098,
-        "spend": 15.26,
+        "ctr": 5.225,
+        "cpc": 0.186,
+        "frequency": 1.094,
+        "spend": 18.94,
         "fatigue_signal": "stable",
         "fatigue_score": 0.0
       }
@@ -6006,39 +5986,39 @@
         "trends": {
           "d3": {
             "status": "ok",
-            "current_spend": 100.26,
+            "current_spend": 104.54,
             "prior_spend": 57.81,
-            "ctr_current": 8.255,
+            "ctr_current": 8.27,
             "ctr_prior": 8.059,
             "cpc_current": 0.08,
             "cpc_prior": 0.082,
-            "freq_current": 1.038,
+            "freq_current": 1.039,
             "freq_prior": 1.02,
-            "ctr_trend_pct": 0.0243,
-            "cpc_trend_pct": -0.0163,
-            "freq_trend_pct": 0.0176
+            "ctr_trend_pct": 0.0261,
+            "cpc_trend_pct": -0.0204,
+            "freq_trend_pct": 0.019
           },
           "d7": {
             "status": "ok",
-            "current_spend": 177.64,
+            "current_spend": 181.92,
             "prior_spend": 133.96,
-            "ctr_current": 8.101,
+            "ctr_current": 8.107,
             "ctr_prior": 7.99,
             "cpc_current": 0.081,
             "cpc_prior": 0.085,
             "freq_current": 1.033,
             "freq_prior": 1.023,
-            "ctr_trend_pct": 0.0139,
-            "cpc_trend_pct": -0.0503,
-            "freq_trend_pct": 0.0094
+            "ctr_trend_pct": 0.0146,
+            "cpc_trend_pct": -0.0519,
+            "freq_trend_pct": 0.0099
           }
         },
-        "ctr": 7.673,
-        "cpc": 0.09,
-        "frequency": 1.041,
-        "spend": 33.52,
+        "ctr": 7.716,
+        "cpc": 0.089,
+        "frequency": 1.045,
+        "spend": 37.8,
         "fatigue_signal": "stable",
-        "fatigue_score": 0.352
+        "fatigue_score": 0.38
       },
       {
         "adset_id": "6960086009357",
@@ -6075,10 +6055,10 @@
             "freq_trend_pct": null
           }
         },
-        "ctr": 4.099,
-        "cpc": 0.195,
-        "frequency": 1.042,
-        "spend": 14.82,
+        "ctr": 4.356,
+        "cpc": 0.182,
+        "frequency": 1.062,
+        "spend": 17.44,
         "fatigue_signal": "stable",
         "fatigue_score": 0.0
       },
@@ -6159,10 +6139,10 @@
             "freq_trend_pct": null
           }
         },
-        "ctr": 5.178,
-        "cpc": 0.184,
-        "frequency": 1.098,
-        "spend": 15.26,
+        "ctr": 5.225,
+        "cpc": 0.186,
+        "frequency": 1.094,
+        "spend": 18.94,
         "fatigue_signal": "stable",
         "fatigue_score": 0.0
       },
@@ -6433,39 +6413,39 @@
         "trends": {
           "d3": {
             "status": "ok",
-            "current_spend": 100.26,
+            "current_spend": 104.54,
             "prior_spend": 57.81,
-            "ctr_current": 8.255,
+            "ctr_current": 8.27,
             "ctr_prior": 8.059,
             "cpc_current": 0.08,
             "cpc_prior": 0.082,
-            "freq_current": 1.038,
+            "freq_current": 1.039,
             "freq_prior": 1.02,
-            "ctr_trend_pct": 0.0243,
-            "cpc_trend_pct": -0.0163,
-            "freq_trend_pct": 0.0176
+            "ctr_trend_pct": 0.0261,
+            "cpc_trend_pct": -0.0204,
+            "freq_trend_pct": 0.019
           },
           "d7": {
             "status": "ok",
-            "current_spend": 177.64,
+            "current_spend": 181.92,
             "prior_spend": 133.96,
-            "ctr_current": 8.101,
+            "ctr_current": 8.107,
             "ctr_prior": 7.99,
             "cpc_current": 0.081,
             "cpc_prior": 0.085,
             "freq_current": 1.033,
             "freq_prior": 1.023,
-            "ctr_trend_pct": 0.0139,
-            "cpc_trend_pct": -0.0503,
-            "freq_trend_pct": 0.0094
+            "ctr_trend_pct": 0.0146,
+            "cpc_trend_pct": -0.0519,
+            "freq_trend_pct": 0.0099
           }
         },
-        "ctr": 7.673,
-        "cpc": 0.09,
-        "frequency": 1.041,
-        "spend": 33.52,
+        "ctr": 7.716,
+        "cpc": 0.089,
+        "frequency": 1.045,
+        "spend": 37.8,
         "fatigue_signal": "stable",
-        "fatigue_score": 0.352
+        "fatigue_score": 0.38
       },
       {
         "ad_id": "6960086009157",
@@ -6503,10 +6483,10 @@
             "freq_trend_pct": null
           }
         },
-        "ctr": 4.099,
-        "cpc": 0.195,
-        "frequency": 1.042,
-        "spend": 14.82,
+        "ctr": 4.356,
+        "cpc": 0.182,
+        "frequency": 1.062,
+        "spend": 17.44,
         "fatigue_signal": "stable",
         "fatigue_score": 0.0
       },
@@ -6589,10 +6569,10 @@
             "freq_trend_pct": null
           }
         },
-        "ctr": 5.178,
-        "cpc": 0.184,
-        "frequency": 1.098,
-        "spend": 15.26,
+        "ctr": 5.225,
+        "cpc": 0.186,
+        "frequency": 1.094,
+        "spend": 18.94,
         "fatigue_signal": "stable",
         "fatigue_score": 0.0
       },
@@ -6687,7 +6667,7 @@
     "refresh_note": "fallback if insufficient daily history"
   },
   "decision_state": {
-    "generated_at": "2026-03-25T04:00:00.914524Z",
+    "generated_at": "2026-03-25T04:02:43.521313Z",
     "rows": [
       {
         "campaign_id": "6955113574357",
@@ -6699,7 +6679,7 @@
         "action_ready": "scalable",
         "next_gate": "none",
         "gate_progress": {
-          "spend": 311.6,
+          "spend": 315.88,
           "gate_5": {
             "required": 5.0,
             "passed": true,
@@ -6712,7 +6692,7 @@
           }
         },
         "action_timestamp": "2026-03-23T22:24:29.331593Z",
-        "updated_at": "2026-03-25T04:00:00.914524Z"
+        "updated_at": "2026-03-25T04:02:43.521313Z"
       },
       {
         "campaign_id": "6951024653957",
@@ -6737,7 +6717,7 @@
           }
         },
         "action_timestamp": "2026-03-23T22:24:29.331593Z",
-        "updated_at": "2026-03-25T04:00:00.914524Z"
+        "updated_at": "2026-03-25T04:02:43.521313Z"
       },
       {
         "campaign_id": "6951024653957",
@@ -6762,7 +6742,7 @@
           }
         },
         "action_timestamp": "2026-03-23T22:24:29.331593Z",
-        "updated_at": "2026-03-25T04:00:00.914524Z"
+        "updated_at": "2026-03-25T04:02:43.521313Z"
       },
       {
         "campaign_id": "6953786714157",
@@ -6787,7 +6767,7 @@
           }
         },
         "action_timestamp": "2026-03-23T22:24:29.331593Z",
-        "updated_at": "2026-03-25T04:00:00.914524Z"
+        "updated_at": "2026-03-25T04:02:43.521313Z"
       },
       {
         "campaign_id": "6953786714157",
@@ -6812,7 +6792,7 @@
           }
         },
         "action_timestamp": "2026-03-23T22:24:29.331593Z",
-        "updated_at": "2026-03-25T04:00:00.914524Z"
+        "updated_at": "2026-03-25T04:02:43.521313Z"
       },
       {
         "campaign_id": "6960086008957",
@@ -6824,7 +6804,7 @@
         "action_ready": "scalable",
         "next_gate": "none",
         "gate_progress": {
-          "spend": 87.98,
+          "spend": 90.6,
           "gate_5": {
             "required": 5.0,
             "passed": true,
@@ -6837,7 +6817,7 @@
           }
         },
         "action_timestamp": "2026-03-23T22:24:29.331593Z",
-        "updated_at": "2026-03-25T04:00:00.914524Z"
+        "updated_at": "2026-03-25T04:02:43.521313Z"
       },
       {
         "campaign_id": "6960435028357",
@@ -6849,7 +6829,7 @@
         "action_ready": "scalable",
         "next_gate": "none",
         "gate_progress": {
-          "spend": 49.12,
+          "spend": 52.8,
           "gate_5": {
             "required": 5.0,
             "passed": true,
@@ -6862,7 +6842,7 @@
           }
         },
         "action_timestamp": "2026-03-23T22:24:29.331593Z",
-        "updated_at": "2026-03-25T04:00:00.914524Z"
+        "updated_at": "2026-03-25T04:02:43.521313Z"
       },
       {
         "campaign_id": "6960435028357",
@@ -6887,7 +6867,7 @@
           }
         },
         "action_timestamp": "2026-03-23T22:24:29.331593Z",
-        "updated_at": "2026-03-25T04:00:00.914524Z"
+        "updated_at": "2026-03-25T04:02:43.521313Z"
       },
       {
         "campaign_id": "6960435028357",
@@ -6912,7 +6892,7 @@
           }
         },
         "action_timestamp": "2026-03-23T22:24:29.331593Z",
-        "updated_at": "2026-03-25T04:00:00.914524Z"
+        "updated_at": "2026-03-25T04:02:43.521313Z"
       },
       {
         "campaign_id": "6960435028357",
@@ -6937,7 +6917,7 @@
           }
         },
         "action_timestamp": "2026-03-23T22:24:29.331593Z",
-        "updated_at": "2026-03-25T04:00:00.914524Z"
+        "updated_at": "2026-03-25T04:02:43.521313Z"
       }
     ],
     "counts": {
@@ -6948,7 +6928,7 @@
     }
   },
   "creative_attribution": {
-    "generated_at": "2026-03-25T04:00:00.915249Z",
+    "generated_at": "2026-03-25T04:02:43.521467Z",
     "rows": [
       {
         "campaign_id": "6955113574357",
@@ -6963,8 +6943,8 @@
         "format": "VIDEO",
         "creative_id": "1598889647989602",
         "creative_name": "Not your average night out: drinks + ideas + people who actually want to learn something. 2026-03-11-d903cc461832f20f0639f16d24cca0d4",
-        "spend": 311.6,
-        "ctr": 8.046,
+        "spend": 315.88,
+        "ctr": 8.049,
         "cpc": 0.082
       },
       {
@@ -7048,9 +7028,9 @@
         "format": "VIDEO",
         "creative_id": "2089966221853094",
         "creative_name": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link 2026-03-20-1cf64a246dbc22003bfc846333d2c282",
-        "spend": 87.98,
-        "ctr": 4.655,
-        "cpc": 0.156
+        "spend": 90.6,
+        "ctr": 4.706,
+        "cpc": 0.155
       },
       {
         "campaign_id": "6960435028357",
@@ -7065,9 +7045,9 @@
         "format": "VIDEO",
         "creative_id": "1194881589203157",
         "creative_name": "Seattle_v98_vo_b_creative 2026-03-21-99137ee9bf51b7e9ca0e5cbe9a2cb53d",
-        "spend": 49.12,
-        "ctr": 5.685,
-        "cpc": 0.179
+        "spend": 52.8,
+        "ctr": 5.697,
+        "cpc": 0.18
       },
       {
         "campaign_id": "6960435028357",
@@ -7136,21 +7116,9 @@
     }
   },
   "budget_movement": {
-    "generated_at": "2026-03-25T04:00:00.916109Z",
+    "generated_at": "2026-03-25T04:02:43.521708Z",
     "source": "inferred_from_ad_daily_rows",
     "audit_rows": [
-      {
-        "level": "ad",
-        "entity_id": "6960435771957",
-        "campaign_id": "6960435028357",
-        "adset_id": "6960435749557",
-        "entity_name": "Seattle launch | v98_vo_b",
-        "movement": "scale_down",
-        "date": "2026-03-24",
-        "spend_prev_day": 25.1,
-        "spend_current_day": 15.26,
-        "cpc_after_24h_delta_pct": 3.37
-      },
       {
         "level": "ad",
         "entity_id": "6960435894757",
@@ -7216,7 +7184,7 @@
     "after_effects_24h_available": true
   },
   "fatigue_radar": {
-    "generated_at": "2026-03-25T04:00:00.917123Z",
+    "generated_at": "2026-03-25T04:02:43.522051Z",
     "rows": [
       {
         "ad_id": "6953785406357",
@@ -7287,14 +7255,14 @@
         "ad": "Tailored web traffic campaign 3/11/2026 Ad",
         "campaign_id": "6955113574357",
         "adset_id": "6955113574557",
-        "frequency_trend_pct_3d": 0.0176,
-        "frequency_current_3d": 1.038,
+        "frequency_trend_pct_3d": 0.019,
+        "frequency_current_3d": 1.039,
         "frequency_prior_3d": 1.02,
-        "ctr_decay_pct_3d": 0.0243,
-        "cpc_delta_pct_3d": -0.0163,
-        "latest_ctr": 7.673,
-        "latest_cpc": 0.09,
-        "fatigue_score": 1.76,
+        "ctr_decay_pct_3d": 0.0261,
+        "cpc_delta_pct_3d": -0.0204,
+        "latest_ctr": 7.716,
+        "latest_cpc": 0.089,
+        "fatigue_score": 1.9,
         "alert": "none",
         "signal": "stable"
       },
@@ -7308,8 +7276,8 @@
         "frequency_prior_3d": null,
         "ctr_decay_pct_3d": null,
         "cpc_delta_pct_3d": null,
-        "latest_ctr": 4.099,
-        "latest_cpc": 0.195,
+        "latest_ctr": 4.356,
+        "latest_cpc": 0.182,
         "fatigue_score": 0.0,
         "alert": "none",
         "signal": "stable"
@@ -7340,8 +7308,8 @@
         "frequency_prior_3d": null,
         "ctr_decay_pct_3d": null,
         "cpc_delta_pct_3d": null,
-        "latest_ctr": 5.178,
-        "latest_cpc": 0.184,
+        "latest_ctr": 5.225,
+        "latest_cpc": 0.186,
         "fatigue_score": 0.0,
         "alert": "none",
         "signal": "stable"
@@ -7383,7 +7351,7 @@
     "alert_count": 0
   },
   "winner_durability": {
-    "generated_at": "2026-03-25T04:00:00.918271Z",
+    "generated_at": "2026-03-25T04:02:43.522411Z",
     "rows": [
       {
         "entity_type": "campaign",
@@ -7425,10 +7393,10 @@
         "stable_3d": true,
         "score": 100,
         "days_under_threshold": 14,
-        "latest_cpc": 0.09,
-        "latest_ctr": 7.673,
-        "latest_frequency": 1.041,
-        "spend_today": 33.52
+        "latest_cpc": 0.089,
+        "latest_ctr": 7.716,
+        "latest_frequency": 1.045,
+        "spend_today": 37.8
       },
       {
         "entity_type": "campaign",
@@ -7440,10 +7408,10 @@
         "stable_3d": true,
         "score": 100,
         "days_under_threshold": 5,
-        "latest_cpc": 0.195,
-        "latest_ctr": 4.099,
-        "latest_frequency": 1.042,
-        "spend_today": 14.82
+        "latest_cpc": 0.182,
+        "latest_ctr": 4.356,
+        "latest_frequency": 1.062,
+        "spend_today": 17.44
       },
       {
         "entity_type": "campaign",
@@ -7455,10 +7423,10 @@
         "stable_3d": true,
         "score": 100,
         "days_under_threshold": 4,
-        "latest_cpc": 0.184,
-        "latest_ctr": 5.178,
-        "latest_frequency": 1.098,
-        "spend_today": 15.26
+        "latest_cpc": 0.186,
+        "latest_ctr": 5.225,
+        "latest_frequency": 1.094,
+        "spend_today": 18.94
       },
       {
         "entity_type": "ad",
@@ -7523,10 +7491,10 @@
         "stable_3d": true,
         "score": 100,
         "days_under_threshold": 14,
-        "latest_cpc": 0.09,
-        "latest_ctr": 7.673,
-        "latest_frequency": 1.041,
-        "spend_today": 33.52
+        "latest_cpc": 0.089,
+        "latest_ctr": 7.716,
+        "latest_frequency": 1.045,
+        "spend_today": 37.8
       },
       {
         "entity_type": "ad",
@@ -7540,10 +7508,10 @@
         "stable_3d": true,
         "score": 100,
         "days_under_threshold": 5,
-        "latest_cpc": 0.195,
-        "latest_ctr": 4.099,
-        "latest_frequency": 1.042,
-        "spend_today": 14.82
+        "latest_cpc": 0.182,
+        "latest_ctr": 4.356,
+        "latest_frequency": 1.062,
+        "spend_today": 17.44
       },
       {
         "entity_type": "ad",
@@ -7557,10 +7525,10 @@
         "stable_3d": true,
         "score": 100,
         "days_under_threshold": 4,
-        "latest_cpc": 0.184,
-        "latest_ctr": 5.178,
-        "latest_frequency": 1.098,
-        "spend_today": 15.26
+        "latest_cpc": 0.186,
+        "latest_ctr": 5.225,
+        "latest_frequency": 1.094,
+        "spend_today": 18.94
       },
       {
         "entity_type": "ad",
@@ -7722,7 +7690,7 @@
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 57.9,
+    "last_pull_age_min": 0.1,
     "attribution_confidence": "direct"
   },
   "diagnostics": {
@@ -7731,17 +7699,17 @@
         {
           "campaign_id": "6960435028357",
           "campaign": "TSS Seattle 4-way launch 20260321_095059",
-          "fatigue_score": 12.2,
+          "fatigue_score": 12.1,
           "frequency_pressure": 0.0,
-          "ctr_decay": 0.133,
-          "cpc_decay": 0.319,
-          "recent_ctr": 5.083,
+          "ctr_decay": 0.13,
+          "cpc_decay": 0.318,
+          "recent_ctr": 5.098,
           "baseline_ctr": 5.86,
           "recent_cpc": 0.196,
           "baseline_cpc": 0.149,
-          "recent_frequency_avg": 1.05,
-          "recent_spend": 75.63,
-          "recent_impressions": 7575,
+          "recent_frequency_avg": 1.051,
+          "recent_spend": 79.31,
+          "recent_impressions": 7924,
           "confidence": "low"
         },
         {
@@ -7783,13 +7751,13 @@
           "frequency_pressure": 0.0,
           "ctr_decay": 0.0,
           "cpc_decay": 0.0,
-          "recent_ctr": 8.315,
+          "recent_ctr": 8.304,
           "baseline_ctr": 8.069,
           "recent_cpc": 0.079,
           "baseline_cpc": 0.08,
-          "recent_frequency_avg": 1.035,
-          "recent_spend": 100.26,
-          "recent_impressions": 15201,
+          "recent_frequency_avg": 1.037,
+          "recent_spend": 104.54,
+          "recent_impressions": 15848,
           "confidence": "med"
         },
         {
@@ -7799,13 +7767,13 @@
           "frequency_pressure": 0.0,
           "ctr_decay": 0.0,
           "cpc_decay": 0.0,
-          "recent_ctr": 4.815,
+          "recent_ctr": 4.854,
           "baseline_ctr": 4.573,
-          "recent_cpc": 0.153,
+          "recent_cpc": 0.152,
           "baseline_cpc": 0.162,
-          "recent_frequency_avg": 1.041,
-          "recent_spend": 57.13,
-          "recent_impressions": 7767,
+          "recent_frequency_avg": 1.046,
+          "recent_spend": 59.75,
+          "recent_impressions": 8117,
           "confidence": "low"
         }
       ],
@@ -7813,17 +7781,17 @@
         {
           "ad_id": "6960435771957",
           "ad": "Seattle launch | v98_vo_b",
-          "fatigue_score": 13.0,
+          "fatigue_score": 13.2,
           "frequency_pressure": 0.0,
-          "ctr_decay": 0.134,
-          "cpc_decay": 0.351,
-          "recent_ctr": 5.546,
+          "ctr_decay": 0.135,
+          "cpc_decay": 0.358,
+          "recent_ctr": 5.539,
           "baseline_ctr": 6.404,
-          "recent_cpc": 0.181,
+          "recent_cpc": 0.182,
           "baseline_cpc": 0.134,
-          "recent_frequency_avg": 1.057,
-          "recent_spend": 47.38,
-          "recent_impressions": 4724,
+          "recent_frequency_avg": 1.059,
+          "recent_spend": 51.06,
+          "recent_impressions": 5073,
           "confidence": "low"
         },
         {
@@ -7897,13 +7865,13 @@
           "frequency_pressure": 0.0,
           "ctr_decay": 0.0,
           "cpc_decay": 0.0,
-          "recent_ctr": 8.315,
+          "recent_ctr": 8.304,
           "baseline_ctr": 8.069,
           "recent_cpc": 0.079,
           "baseline_cpc": 0.08,
-          "recent_frequency_avg": 1.035,
-          "recent_spend": 100.26,
-          "recent_impressions": 15201,
+          "recent_frequency_avg": 1.037,
+          "recent_spend": 104.54,
+          "recent_impressions": 15848,
           "confidence": "med"
         },
         {
@@ -7913,13 +7881,13 @@
           "frequency_pressure": 0.0,
           "ctr_decay": 0.0,
           "cpc_decay": 0.0,
-          "recent_ctr": 4.815,
+          "recent_ctr": 4.854,
           "baseline_ctr": 4.573,
-          "recent_cpc": 0.153,
+          "recent_cpc": 0.152,
           "baseline_cpc": 0.162,
-          "recent_frequency_avg": 1.041,
-          "recent_spend": 57.13,
-          "recent_impressions": 7767,
+          "recent_frequency_avg": 1.046,
+          "recent_spend": 59.75,
+          "recent_impressions": 8117,
           "confidence": "low"
         }
       ],
@@ -7947,10 +7915,10 @@
         },
         {
           "bucket": "Tue",
-          "spend": 157.42,
-          "ctr": 6.666,
-          "cpc": 0.106,
-          "efficiency_score": 52.796,
+          "spend": 168.0,
+          "ctr": 6.671,
+          "cpc": 0.107,
+          "efficiency_score": 52.836,
           "sample_days": 3
         }
       ],
@@ -7998,7 +7966,7 @@
         },
         {
           "factor": "Data freshness (minutes)",
-          "value": 57.9,
+          "value": 0.1,
           "penalty": 0.0
         },
         {
@@ -8028,9 +7996,9 @@
           "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
           "date": "2026-03-24",
           "metric": "spend",
-          "value": 33.52,
+          "value": 37.8,
           "baseline_mean": 19.699,
-          "z_score": 5.55,
+          "z_score": 7.27,
           "direction": "up",
           "severity": "high",
           "confidence": "low"
@@ -8059,17 +8027,17 @@
         {
           "campaign_id": "6960435028357",
           "campaign": "TSS Seattle 4-way launch 20260321_095059",
-          "fatigue_score": 12.2,
+          "fatigue_score": 12.1,
           "frequency_pressure": 0.0,
-          "ctr_decay": 0.133,
-          "cpc_decay": 0.319,
-          "recent_ctr": 5.083,
+          "ctr_decay": 0.13,
+          "cpc_decay": 0.318,
+          "recent_ctr": 5.098,
           "baseline_ctr": 5.86,
           "recent_cpc": 0.196,
           "baseline_cpc": 0.149,
-          "recent_frequency_avg": 1.05,
-          "recent_spend": 75.63,
-          "recent_impressions": 7575,
+          "recent_frequency_avg": 1.051,
+          "recent_spend": 79.31,
+          "recent_impressions": 7924,
           "confidence": "low"
         },
         {
@@ -8621,19 +8589,19 @@
   },
   "optimization": {
     "frequency": {
-      "avg_frequency": 1.023,
-      "first_time_impression_ratio": 0.978
+      "avg_frequency": 1.024,
+      "first_time_impression_ratio": 0.977
     },
     "traffic_quality": {
       "outbound_clicks": 0,
-      "clicks": 9496,
+      "clicks": 9587,
       "outbound_click_rate": 0.0
     },
     "pacing": {
       "day_target": 60.0,
-      "today_spend": 63.6,
-      "expected_spend_now": 52.5,
-      "pace_ratio": 1.211
+      "today_spend": 74.18,
+      "expected_spend_now": 52.58,
+      "pace_ratio": 1.411
     },
     "geo_efficiency": [
       {
@@ -8727,8 +8695,8 @@
         "tag": "scale",
         "why": "strong efficiency",
         "cpc": 0.082,
-        "ctr": 8.046,
-        "spend": 311.6
+        "ctr": 8.049,
+        "spend": 315.88
       },
       {
         "campaign": "1",
@@ -8750,17 +8718,17 @@
         "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
         "tag": "scale",
         "why": "strong efficiency",
-        "cpc": 0.156,
-        "ctr": 4.655,
-        "spend": 87.98
+        "cpc": 0.155,
+        "ctr": 4.706,
+        "spend": 90.6
       },
       {
         "campaign": "TSS Seattle 4-way launch 20260321_095059",
         "tag": "scale",
         "why": "strong efficiency",
         "cpc": 0.191,
-        "ctr": 5.082,
-        "spend": 82.63
+        "ctr": 5.086,
+        "spend": 86.31
       }
     ],
     "attribution": {
@@ -8768,17 +8736,17 @@
       "reason": "Using blended model (spend + follower deltas)"
     },
     "data_health": {
-      "stale_minutes": 57,
+      "stale_minutes": 0,
       "status": "ok"
     },
     "creative_leaderboard": [
       {
         "ad": "Tailored web traffic campaign 3/11/2026 Ad",
         "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
-        "ctr": 8.046,
+        "ctr": 8.049,
         "cpc": 0.082,
-        "spend": 311.6,
-        "hook_score": 80.378
+        "spend": 315.88,
+        "hook_score": 80.408
       },
       {
         "ad": "1",
@@ -8807,10 +8775,10 @@
       {
         "ad": "Seattle launch | v98_vo_b",
         "campaign": "TSS Seattle 4-way launch 20260321_095059",
-        "ctr": 5.685,
-        "cpc": 0.179,
-        "spend": 49.12,
-        "hook_score": 56.671
+        "ctr": 5.697,
+        "cpc": 0.18,
+        "spend": 52.8,
+        "hook_score": 56.79
       },
       {
         "ad": "Seattle launch | v104b_vo_c",
@@ -8831,10 +8799,10 @@
       {
         "ad": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
         "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
-        "ctr": 4.655,
-        "cpc": 0.156,
-        "spend": 87.98,
-        "hook_score": 46.394
+        "ctr": 4.706,
+        "cpc": 0.155,
+        "spend": 90.6,
+        "hook_score": 46.905
       },
       {
         "ad": "1",
