@@ -25,10 +25,17 @@ fi
 trap 'rmdir "$LOCK_DIR" >/dev/null 2>&1 || true' EXIT
 
 # Optional pull step (disabled by default to avoid duplicate pull/deploy cycles).
+# Current live source is the local duplicate Meta pull pipeline under:
+#   /Users/ericsysclaw/.openclaw/workspace/ops/gaginonricky-kpi-dup
 # Enable explicitly when needed:
 #   RUN_KPI_PULL_FIRST=1 bash health-board/scripts/sync_and_deploy.sh
+OPS_DUP_DIR="/Users/ericsysclaw/.openclaw/workspace/ops/gaginonricky-kpi-dup"
 if [ "${RUN_KPI_PULL_FIRST:-0}" = "1" ]; then
-  "$REPO_DIR/../ads-ops/scripts/run_kpi_pull.sh" >> "$LOG_DIR/full-kpi-pull.log" 2>&1 || true
+  if [ -x "$OPS_DUP_DIR/run_meta_pull.sh" ]; then
+    "$OPS_DUP_DIR/run_meta_pull.sh" >> "$LOG_DIR/full-kpi-pull.log" 2>&1 || true
+  else
+    echo "WARN: meta pull runner missing at $OPS_DUP_DIR/run_meta_pull.sh" >> "$LOG_DIR/full-kpi-pull.log"
+  fi
 else
   echo "INFO: skipping embedded KPI pull (RUN_KPI_PULL_FIRST!=1)"
 fi
@@ -52,7 +59,12 @@ python3 "$REPO_DIR/scripts/analyze_kpis.py" >> "$LOG_DIR/analyze-kpis.log" 2>&1 
 python3 "$REPO_DIR/scripts/archive_and_backup.py" >> "$LOG_DIR/archive-and-backup.log" 2>&1 || true
 
 # Build flywheel analytics join/view export (voice/hook/script + CPC trends)
-python3 "$REPO_DIR/../ads-ops/scripts/setup_flywheel_analytics.py" >> "$LOG_DIR/analyze-kpis.log" 2>&1 || true
+FLYWHEEL_SCRIPT="$OPS_DUP_DIR/scripts/setup_flywheel_analytics.py"
+if [ -f "$FLYWHEEL_SCRIPT" ]; then
+  python3 "$FLYWHEEL_SCRIPT" >> "$LOG_DIR/analyze-kpis.log" 2>&1 || true
+else
+  echo "INFO: flywheel analytics script not found at $FLYWHEEL_SCRIPT; skipping" >> "$LOG_DIR/analyze-kpis.log"
+fi
 
 # Mirror flywheel export into health-board data for deploy
 if [ -f "$REPO_DIR/data/flywheel_latest_metrics.json" ]; then
@@ -61,10 +73,12 @@ elif [ -f "$REPO_DIR/../health-board/data/flywheel_latest_metrics.json" ]; then
   cp "$REPO_DIR/../health-board/data/flywheel_latest_metrics.json" "$REPO_DIR/data/flywheel_latest_metrics.json"
 fi
 
-# Bring in expanded ads-ops payload (geo/age/device/placement breakdowns) when available.
-ADSOPS_LATEST="$REPO_DIR/../ads-ops/dashboard/data/latest.json"
+# Bring in the current adsops payload from the active local Meta pull pipeline.
+ADSOPS_LATEST="$OPS_DUP_DIR/data/adsops_latest.json"
 if [ -f "$ADSOPS_LATEST" ]; then
   cp "$ADSOPS_LATEST" "$REPO_DIR/data/adsops_latest.json"
+else
+  echo "WARN: adsops payload missing at $ADSOPS_LATEST" >> "$LOG_DIR/analyze-kpis.log"
 fi
 
 # Commit only if data changed.
