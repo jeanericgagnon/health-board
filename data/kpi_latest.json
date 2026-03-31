@@ -1,18 +1,18 @@
 {
-  "updated_at": "2026-03-31T01:41:10.122234Z",
+  "updated_at": "2026-03-31T02:01:27.482889Z",
   "summary": {
-    "ad_account_id": null,
-    "total_spend": 0.0,
-    "total_clicks": null,
-    "total_impressions": null,
-    "total_follows": null,
+    "ad_account_id": "1379452680603809",
+    "total_spend": 33.51,
+    "total_clicks": 324,
+    "total_impressions": 5366,
+    "total_follows": 0,
     "blended_cost_per_follow": null,
     "since": null,
     "until": null,
     "current_followers_live": null,
     "daily_gain_live": null,
     "baseline_followers": null,
-    "total_link_clicks": 0,
+    "total_link_clicks": 308,
     "total_outbound_clicks": 0,
     "total_landing_page_views": 0,
     "cost_per_landing_page_view": null,
@@ -21,23 +21,453 @@
     "manual_intraday_spend_as_of_local": null,
     "intraday_spend_estimated": false
   },
-  "campaigns": [],
-  "top_campaigns": [],
+  "campaigns": [
+    {
+      "campaign": "Unknown Campaign",
+      "campaign_id": "",
+      "spend": 1105.53,
+      "clicks": 10051,
+      "impressions": 150609,
+      "reach": 147103,
+      "link_clicks": 0,
+      "outbound_clicks": 0,
+      "landing_page_views": 0,
+      "ctr": 5.677,
+      "cpm": 8.201,
+      "cpc": 0.11,
+      "outbound_ctr": 0.0,
+      "lpv_rate": null,
+      "cost_per_lpv": null,
+      "frequency_avg": null,
+      "first_time_impression_ratio": 97.672,
+      "adsets": [
+        {
+          "adset": "Unknown Ad Set",
+          "adset_id": "",
+          "spend": 1105.53,
+          "clicks": 10051,
+          "impressions": 150609,
+          "reach": 147103,
+          "link_clicks": 0,
+          "outbound_clicks": 0,
+          "landing_page_views": 0,
+          "ctr": 5.677,
+          "cpm": 8.201,
+          "cpc": 0.11,
+          "outbound_ctr": 0.0,
+          "lpv_rate": null,
+          "cost_per_lpv": null,
+          "frequency_avg": null,
+          "first_time_impression_ratio": 97.672,
+          "ads": [
+            {
+              "ad": "1",
+              "ad_id": "6953786714557",
+              "spend": 557.01,
+              "clicks": 4683,
+              "impressions": 75061,
+              "reach": 73965,
+              "link_clicks": 0,
+              "outbound_clicks": 0,
+              "landing_page_views": 0,
+              "ctr": 5.992,
+              "cpm": 7.362,
+              "cpc": 0.119,
+              "outbound_ctr": 0.0,
+              "lpv_rate": null,
+              "cost_per_lpv": null,
+              "frequency_avg": null,
+              "first_time_impression_ratio": 98.54,
+              "trend_intelligence": null,
+              "fatigue_radar": null,
+              "decision_state": null,
+              "winner_durability": null
+            },
+            {
+              "ad": "Tailored web traffic campaign 3/11/2026 Ad",
+              "ad_id": "6955113574157",
+              "spend": 343.63,
+              "clicks": 4157,
+              "impressions": 51503,
+              "reach": 50113,
+              "link_clicks": 0,
+              "outbound_clicks": 0,
+              "landing_page_views": 0,
+              "ctr": 8.025,
+              "cpm": 6.7,
+              "cpc": 0.083,
+              "outbound_ctr": 0.0,
+              "lpv_rate": null,
+              "cost_per_lpv": null,
+              "frequency_avg": null,
+              "first_time_impression_ratio": 97.301,
+              "trend_intelligence": null,
+              "fatigue_radar": null,
+              "decision_state": null,
+              "winner_durability": null
+            },
+            {
+              "ad": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
+              "ad_id": "6960086009157",
+              "spend": 103.41,
+              "clicks": 661,
+              "impressions": 13748,
+              "reach": 13236,
+              "link_clicks": 0,
+              "outbound_clicks": 0,
+              "landing_page_views": 0,
+              "ctr": 4.817,
+              "cpm": 7.645,
+              "cpc": 0.156,
+              "outbound_ctr": 0.0,
+              "lpv_rate": null,
+              "cost_per_lpv": null,
+              "frequency_avg": null,
+              "first_time_impression_ratio": 96.276,
+              "trend_intelligence": null,
+              "fatigue_radar": null,
+              "decision_state": null,
+              "winner_durability": null
+            },
+            {
+              "ad": "Seattle launch | v98_vo_b",
+              "ad_id": "6960435771957",
+              "spend": 67.97,
+              "clicks": 393,
+              "impressions": 6847,
+              "reach": 6459,
+              "link_clicks": 0,
+              "outbound_clicks": 0,
+              "landing_page_views": 0,
+              "ctr": 5.805,
+              "cpm": 9.646,
+              "cpc": 0.173,
+              "outbound_ctr": 0.0,
+              "lpv_rate": null,
+              "cost_per_lpv": null,
+              "frequency_avg": null,
+              "first_time_impression_ratio": 94.333,
+              "trend_intelligence": null,
+              "fatigue_radar": null,
+              "decision_state": null,
+              "winner_durability": null
+            },
+            {
+              "ad": "Seattle launch | v104b_vo_c",
+              "ad_id": "6960435854157",
+              "spend": 15.77,
+              "clicks": 72,
+              "impressions": 1614,
+              "reach": 1556,
+              "link_clicks": 0,
+              "outbound_clicks": 0,
+              "landing_page_views": 0,
+              "ctr": 5.208,
+              "cpm": 9.537,
+              "cpc": 0.219,
+              "outbound_ctr": 0.0,
+              "lpv_rate": null,
+              "cost_per_lpv": null,
+              "frequency_avg": null,
+              "first_time_impression_ratio": 96.406,
+              "trend_intelligence": null,
+              "fatigue_radar": null,
+              "decision_state": null,
+              "winner_durability": null
+            },
+            {
+              "ad": "Seattle launch | v113_vo_a",
+              "ad_id": "6960435894757",
+              "spend": 11.29,
+              "clicks": 56,
+              "impressions": 1173,
+              "reach": 1131,
+              "link_clicks": 0,
+              "outbound_clicks": 0,
+              "landing_page_views": 0,
+              "ctr": 4.712,
+              "cpm": 9.626,
+              "cpc": 0.202,
+              "outbound_ctr": 0.0,
+              "lpv_rate": null,
+              "cost_per_lpv": null,
+              "frequency_avg": null,
+              "first_time_impression_ratio": 96.419,
+              "trend_intelligence": null,
+              "fatigue_radar": null,
+              "decision_state": null,
+              "winner_durability": null
+            },
+            {
+              "ad": "Seattle launch | v94_vo_d",
+              "ad_id": "6960435711757",
+              "spend": 6.45,
+              "clicks": 29,
+              "impressions": 663,
+              "reach": 643,
+              "link_clicks": 0,
+              "outbound_clicks": 0,
+              "landing_page_views": 0,
+              "ctr": 4.239,
+              "cpm": 9.403,
+              "cpc": 0.222,
+              "outbound_ctr": 0.0,
+              "lpv_rate": null,
+              "cost_per_lpv": null,
+              "frequency_avg": null,
+              "first_time_impression_ratio": 96.983,
+              "trend_intelligence": null,
+              "fatigue_radar": null,
+              "decision_state": null,
+              "winner_durability": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "top_campaigns": [
+    {
+      "campaign": "Unknown Campaign",
+      "campaign_id": "",
+      "spend": 1105.53,
+      "clicks": 10051,
+      "impressions": 150609,
+      "reach": 147103,
+      "link_clicks": 0,
+      "outbound_clicks": 0,
+      "landing_page_views": 0,
+      "ctr": 5.677,
+      "cpm": 8.201,
+      "cpc": 0.11,
+      "outbound_ctr": 0.0,
+      "lpv_rate": null,
+      "cost_per_lpv": null,
+      "frequency_avg": null,
+      "first_time_impression_ratio": 97.672,
+      "adsets": [
+        {
+          "adset": "Unknown Ad Set",
+          "adset_id": "",
+          "spend": 1105.53,
+          "clicks": 10051,
+          "impressions": 150609,
+          "reach": 147103,
+          "link_clicks": 0,
+          "outbound_clicks": 0,
+          "landing_page_views": 0,
+          "ctr": 5.677,
+          "cpm": 8.201,
+          "cpc": 0.11,
+          "outbound_ctr": 0.0,
+          "lpv_rate": null,
+          "cost_per_lpv": null,
+          "frequency_avg": null,
+          "first_time_impression_ratio": 97.672,
+          "ads": [
+            {
+              "ad": "1",
+              "ad_id": "6953786714557",
+              "spend": 557.01,
+              "clicks": 4683,
+              "impressions": 75061,
+              "reach": 73965,
+              "link_clicks": 0,
+              "outbound_clicks": 0,
+              "landing_page_views": 0,
+              "ctr": 5.992,
+              "cpm": 7.362,
+              "cpc": 0.119,
+              "outbound_ctr": 0.0,
+              "lpv_rate": null,
+              "cost_per_lpv": null,
+              "frequency_avg": null,
+              "first_time_impression_ratio": 98.54,
+              "trend_intelligence": null,
+              "fatigue_radar": null,
+              "decision_state": null,
+              "winner_durability": null
+            },
+            {
+              "ad": "Tailored web traffic campaign 3/11/2026 Ad",
+              "ad_id": "6955113574157",
+              "spend": 343.63,
+              "clicks": 4157,
+              "impressions": 51503,
+              "reach": 50113,
+              "link_clicks": 0,
+              "outbound_clicks": 0,
+              "landing_page_views": 0,
+              "ctr": 8.025,
+              "cpm": 6.7,
+              "cpc": 0.083,
+              "outbound_ctr": 0.0,
+              "lpv_rate": null,
+              "cost_per_lpv": null,
+              "frequency_avg": null,
+              "first_time_impression_ratio": 97.301,
+              "trend_intelligence": null,
+              "fatigue_radar": null,
+              "decision_state": null,
+              "winner_durability": null
+            },
+            {
+              "ad": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
+              "ad_id": "6960086009157",
+              "spend": 103.41,
+              "clicks": 661,
+              "impressions": 13748,
+              "reach": 13236,
+              "link_clicks": 0,
+              "outbound_clicks": 0,
+              "landing_page_views": 0,
+              "ctr": 4.817,
+              "cpm": 7.645,
+              "cpc": 0.156,
+              "outbound_ctr": 0.0,
+              "lpv_rate": null,
+              "cost_per_lpv": null,
+              "frequency_avg": null,
+              "first_time_impression_ratio": 96.276,
+              "trend_intelligence": null,
+              "fatigue_radar": null,
+              "decision_state": null,
+              "winner_durability": null
+            },
+            {
+              "ad": "Seattle launch | v98_vo_b",
+              "ad_id": "6960435771957",
+              "spend": 67.97,
+              "clicks": 393,
+              "impressions": 6847,
+              "reach": 6459,
+              "link_clicks": 0,
+              "outbound_clicks": 0,
+              "landing_page_views": 0,
+              "ctr": 5.805,
+              "cpm": 9.646,
+              "cpc": 0.173,
+              "outbound_ctr": 0.0,
+              "lpv_rate": null,
+              "cost_per_lpv": null,
+              "frequency_avg": null,
+              "first_time_impression_ratio": 94.333,
+              "trend_intelligence": null,
+              "fatigue_radar": null,
+              "decision_state": null,
+              "winner_durability": null
+            },
+            {
+              "ad": "Seattle launch | v104b_vo_c",
+              "ad_id": "6960435854157",
+              "spend": 15.77,
+              "clicks": 72,
+              "impressions": 1614,
+              "reach": 1556,
+              "link_clicks": 0,
+              "outbound_clicks": 0,
+              "landing_page_views": 0,
+              "ctr": 5.208,
+              "cpm": 9.537,
+              "cpc": 0.219,
+              "outbound_ctr": 0.0,
+              "lpv_rate": null,
+              "cost_per_lpv": null,
+              "frequency_avg": null,
+              "first_time_impression_ratio": 96.406,
+              "trend_intelligence": null,
+              "fatigue_radar": null,
+              "decision_state": null,
+              "winner_durability": null
+            },
+            {
+              "ad": "Seattle launch | v113_vo_a",
+              "ad_id": "6960435894757",
+              "spend": 11.29,
+              "clicks": 56,
+              "impressions": 1173,
+              "reach": 1131,
+              "link_clicks": 0,
+              "outbound_clicks": 0,
+              "landing_page_views": 0,
+              "ctr": 4.712,
+              "cpm": 9.626,
+              "cpc": 0.202,
+              "outbound_ctr": 0.0,
+              "lpv_rate": null,
+              "cost_per_lpv": null,
+              "frequency_avg": null,
+              "first_time_impression_ratio": 96.419,
+              "trend_intelligence": null,
+              "fatigue_radar": null,
+              "decision_state": null,
+              "winner_durability": null
+            },
+            {
+              "ad": "Seattle launch | v94_vo_d",
+              "ad_id": "6960435711757",
+              "spend": 6.45,
+              "clicks": 29,
+              "impressions": 663,
+              "reach": 643,
+              "link_clicks": 0,
+              "outbound_clicks": 0,
+              "landing_page_views": 0,
+              "ctr": 4.239,
+              "cpm": 9.403,
+              "cpc": 0.222,
+              "outbound_ctr": 0.0,
+              "lpv_rate": null,
+              "cost_per_lpv": null,
+              "frequency_avg": null,
+              "first_time_impression_ratio": 96.983,
+              "trend_intelligence": null,
+              "fatigue_radar": null,
+              "decision_state": null,
+              "winner_durability": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "campaign_daily": [],
   "followers_series": [],
   "followers_daily_series": [],
   "spend_series": [],
   "insights": [
     {
+      "type": "working",
+      "text": "Unknown Campaign is most efficient (CPC $0.11, CTR 5.68%)."
+    },
+    {
+      "type": "not_working",
+      "text": "Unknown Campaign is least efficient (CPC $0.11); consider reducing spend."
+    },
+    {
       "type": "data_gap",
       "text": "Follower attribution is still limited; blended CPF will improve as daily follower history grows."
     },
     {
-      "type": "alert",
-      "text": "Data health: degraded (No insights rows or no campaign rollup)."
+      "type": "action",
+      "text": "Auto recommendations: Unknown Campaign: Scale."
     }
   ],
-  "recommendations": [],
+  "recommendations": [
+    {
+      "campaign": "Unknown Campaign",
+      "campaign_id": "",
+      "tag": "Scale",
+      "reason": "Strong CTR + low CPC with acceptable frequency",
+      "confidence": "high",
+      "priority": "normal",
+      "diagnostic_tags": [
+        "efficiency"
+      ],
+      "expected_impact": "high",
+      "fatigue_score": null
+    }
+  ],
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 0.0,
@@ -47,15 +477,15 @@
     "today_spend_so_far": 0,
     "projected_eod_spend": 0.0,
     "projected_eod_cpc": null,
-    "pace_elapsed_pct": 77.85,
+    "pace_elapsed_pct": 79.24,
     "target_daily_spend": 60.0
   },
   "forecasting_tiles": {
-    "generated_at": "2026-03-31T01:41:10.122036Z",
+    "generated_at": "2026-03-31T02:01:27.482226Z",
     "projected_eod_spend": null,
     "projected_eod_cpc": null,
     "spend_progress_pct": null,
-    "hour_progress": 77.86,
+    "hour_progress": 79.27,
     "today_spend": 0.0,
     "today_clicks": 0,
     "data_source": "N/A",
@@ -84,7 +514,7 @@
     }
   },
   "trend_intelligence": {
-    "generated_at": "2026-03-31T01:41:10.120772Z",
+    "generated_at": "2026-03-31T02:01:27.479716Z",
     "source": "trend_intelligence_from_kpi_rows",
     "campaigns": [],
     "adsets": [],
@@ -93,18 +523,314 @@
     "refresh_note": "fallback if insufficient daily history"
   },
   "decision_state": {
-    "generated_at": "2026-03-31T01:41:10.121342Z",
-    "rows": [],
+    "generated_at": "2026-03-31T02:01:27.480248Z",
+    "rows": [
+      {
+        "campaign_id": "",
+        "campaign": "Unknown Campaign",
+        "adset_id": "",
+        "ad_id": "6953786714557",
+        "ad": "1",
+        "state": "SCALE",
+        "action_ready": "scalable",
+        "next_gate": "none",
+        "gate_progress": {
+          "spend": 557.01,
+          "gate_5": {
+            "required": 5.0,
+            "passed": true,
+            "current_pct": 100.0
+          },
+          "gate_10": {
+            "required": 10.0,
+            "passed": true,
+            "current_pct": 100.0
+          }
+        },
+        "action_timestamp": "2026-03-31T01:59:25.590155Z",
+        "updated_at": "2026-03-31T02:01:27.480248Z"
+      },
+      {
+        "campaign_id": "",
+        "campaign": "Unknown Campaign",
+        "adset_id": "",
+        "ad_id": "6955113574157",
+        "ad": "Tailored web traffic campaign 3/11/2026 Ad",
+        "state": "SCALE",
+        "action_ready": "scalable",
+        "next_gate": "none",
+        "gate_progress": {
+          "spend": 343.63,
+          "gate_5": {
+            "required": 5.0,
+            "passed": true,
+            "current_pct": 100.0
+          },
+          "gate_10": {
+            "required": 10.0,
+            "passed": true,
+            "current_pct": 100.0
+          }
+        },
+        "action_timestamp": "2026-03-31T01:55:39.880238Z",
+        "updated_at": "2026-03-31T02:01:27.480248Z"
+      },
+      {
+        "campaign_id": "",
+        "campaign": "Unknown Campaign",
+        "adset_id": "",
+        "ad_id": "6960086009157",
+        "ad": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
+        "state": "SCALE",
+        "action_ready": "scalable",
+        "next_gate": "none",
+        "gate_progress": {
+          "spend": 103.41,
+          "gate_5": {
+            "required": 5.0,
+            "passed": true,
+            "current_pct": 100.0
+          },
+          "gate_10": {
+            "required": 10.0,
+            "passed": true,
+            "current_pct": 100.0
+          }
+        },
+        "action_timestamp": "2026-03-31T01:59:25.590155Z",
+        "updated_at": "2026-03-31T02:01:27.480248Z"
+      },
+      {
+        "campaign_id": "",
+        "campaign": "Unknown Campaign",
+        "adset_id": "",
+        "ad_id": "6960435771957",
+        "ad": "Seattle launch | v98_vo_b",
+        "state": "SCALE",
+        "action_ready": "scalable",
+        "next_gate": "none",
+        "gate_progress": {
+          "spend": 67.97,
+          "gate_5": {
+            "required": 5.0,
+            "passed": true,
+            "current_pct": 100.0
+          },
+          "gate_10": {
+            "required": 10.0,
+            "passed": true,
+            "current_pct": 100.0
+          }
+        },
+        "action_timestamp": "2026-03-31T01:59:25.590155Z",
+        "updated_at": "2026-03-31T02:01:27.480248Z"
+      },
+      {
+        "campaign_id": "",
+        "campaign": "Unknown Campaign",
+        "adset_id": "",
+        "ad_id": "6960435854157",
+        "ad": "Seattle launch | v104b_vo_c",
+        "state": "SCALE",
+        "action_ready": "scalable",
+        "next_gate": "none",
+        "gate_progress": {
+          "spend": 15.77,
+          "gate_5": {
+            "required": 5.0,
+            "passed": true,
+            "current_pct": 100.0
+          },
+          "gate_10": {
+            "required": 10.0,
+            "passed": true,
+            "current_pct": 100.0
+          }
+        },
+        "action_timestamp": "2026-03-31T01:59:25.590155Z",
+        "updated_at": "2026-03-31T02:01:27.480248Z"
+      },
+      {
+        "campaign_id": "",
+        "campaign": "Unknown Campaign",
+        "adset_id": "",
+        "ad_id": "6960435894757",
+        "ad": "Seattle launch | v113_vo_a",
+        "state": "SCALE",
+        "action_ready": "scalable",
+        "next_gate": "none",
+        "gate_progress": {
+          "spend": 11.29,
+          "gate_5": {
+            "required": 5.0,
+            "passed": true,
+            "current_pct": 100.0
+          },
+          "gate_10": {
+            "required": 10.0,
+            "passed": true,
+            "current_pct": 100.0
+          }
+        },
+        "action_timestamp": "2026-03-31T01:59:25.590155Z",
+        "updated_at": "2026-03-31T02:01:27.480248Z"
+      },
+      {
+        "campaign_id": "",
+        "campaign": "Unknown Campaign",
+        "adset_id": "",
+        "ad_id": "6960435711757",
+        "ad": "Seattle launch | v94_vo_d",
+        "state": "WATCH",
+        "action_ready": "monitor",
+        "next_gate": "$10",
+        "gate_progress": {
+          "spend": 6.45,
+          "gate_5": {
+            "required": 5.0,
+            "passed": true,
+            "current_pct": 100.0
+          },
+          "gate_10": {
+            "required": 10.0,
+            "passed": false,
+            "current_pct": 29.0
+          }
+        },
+        "action_timestamp": "2026-03-31T01:59:25.590155Z",
+        "updated_at": "2026-03-31T02:01:27.480248Z"
+      }
+    ],
     "counts": {
       "hold": 0,
-      "watch": 0,
-      "scale": 0,
+      "watch": 1,
+      "scale": 6,
       "kill": 0
     }
   },
   "creative_attribution": {
-    "generated_at": "2026-03-31T01:41:10.121665Z",
-    "rows": [],
+    "generated_at": "2026-03-31T02:01:27.481874Z",
+    "rows": [
+      {
+        "campaign_id": "",
+        "campaign": "Unknown Campaign",
+        "adset_id": "",
+        "adset": "Unknown Ad Set",
+        "ad_id": "6953786714557",
+        "ad": "1",
+        "voice_id": "N/A",
+        "hook_bucket": "N/A",
+        "script_id": "N/A",
+        "format": "VIDEO",
+        "creative_id": "1548845102842551",
+        "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-97c4eb0f10f7736f63148e943baac553",
+        "spend": 557.01,
+        "ctr": 5.992,
+        "cpc": 0.119
+      },
+      {
+        "campaign_id": "",
+        "campaign": "Unknown Campaign",
+        "adset_id": "",
+        "adset": "Unknown Ad Set",
+        "ad_id": "6955113574157",
+        "ad": "Tailored web traffic campaign 3/11/2026 Ad",
+        "voice_id": "N/A",
+        "hook_bucket": "N/A",
+        "script_id": "N/A",
+        "format": "VIDEO",
+        "creative_id": "1598889647989602",
+        "creative_name": "Not your average night out: drinks + ideas + people who actually want to learn something. 2026-03-11-d903cc461832f20f0639f16d24cca0d4",
+        "spend": 343.63,
+        "ctr": 8.025,
+        "cpc": 0.083
+      },
+      {
+        "campaign_id": "",
+        "campaign": "Unknown Campaign",
+        "adset_id": "",
+        "adset": "Unknown Ad Set",
+        "ad_id": "6960086009157",
+        "ad": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
+        "voice_id": "N/A",
+        "hook_bucket": "N/A",
+        "script_id": "N/A",
+        "format": "VIDEO",
+        "creative_id": "2089966221853094",
+        "creative_name": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link 2026-03-20-1cf64a246dbc22003bfc846333d2c282",
+        "spend": 103.41,
+        "ctr": 4.817,
+        "cpc": 0.156
+      },
+      {
+        "campaign_id": "",
+        "campaign": "Unknown Campaign",
+        "adset_id": "",
+        "adset": "Unknown Ad Set",
+        "ad_id": "6960435771957",
+        "ad": "Seattle launch | v98_vo_b",
+        "voice_id": "N/A",
+        "hook_bucket": "N/A",
+        "script_id": "N/A",
+        "format": "VIDEO",
+        "creative_id": "1194881589203157",
+        "creative_name": "Seattle_v98_vo_b_creative 2026-03-21-99137ee9bf51b7e9ca0e5cbe9a2cb53d",
+        "spend": 67.97,
+        "ctr": 5.805,
+        "cpc": 0.173
+      },
+      {
+        "campaign_id": "",
+        "campaign": "Unknown Campaign",
+        "adset_id": "",
+        "adset": "Unknown Ad Set",
+        "ad_id": "6960435854157",
+        "ad": "Seattle launch | v104b_vo_c",
+        "voice_id": "N/A",
+        "hook_bucket": "N/A",
+        "script_id": "N/A",
+        "format": "VIDEO",
+        "creative_id": "947661237731455",
+        "creative_name": "Seattle_v104b_vo_c_creative 2026-03-21-2cef9627eece0157edddc1653614b310",
+        "spend": 15.77,
+        "ctr": 5.208,
+        "cpc": 0.219
+      },
+      {
+        "campaign_id": "",
+        "campaign": "Unknown Campaign",
+        "adset_id": "",
+        "adset": "Unknown Ad Set",
+        "ad_id": "6960435894757",
+        "ad": "Seattle launch | v113_vo_a",
+        "voice_id": "N/A",
+        "hook_bucket": "N/A",
+        "script_id": "N/A",
+        "format": "VIDEO",
+        "creative_id": "1307752414611397",
+        "creative_name": "Seattle_v113_vo_a_creative 2026-03-21-82e723bf68e3cbe70ca145c7239aa024",
+        "spend": 11.29,
+        "ctr": 4.712,
+        "cpc": 0.202
+      },
+      {
+        "campaign_id": "",
+        "campaign": "Unknown Campaign",
+        "adset_id": "",
+        "adset": "Unknown Ad Set",
+        "ad_id": "6960435711757",
+        "ad": "Seattle launch | v94_vo_d",
+        "voice_id": "N/A",
+        "hook_bucket": "N/A",
+        "script_id": "N/A",
+        "format": "VIDEO",
+        "creative_id": "1285603686819206",
+        "creative_name": "Seattle_v94_vo_d_creative 2026-03-21-55eccad43b49d6bd3852e9932daa6562",
+        "spend": 6.45,
+        "ctr": 4.239,
+        "cpc": 0.222
+      }
+    ],
     "mandatory_fields": [],
     "optional_fields": [
       "voice_id",
@@ -113,36 +839,36 @@
       "format"
     ],
     "missing_counts": {
-      "voice_id": 0,
-      "hook_bucket": 0,
-      "script_id": 0,
+      "voice_id": 7,
+      "hook_bucket": 7,
+      "script_id": 7,
       "format": 0
     }
   },
   "budget_movement": {
-    "generated_at": "2026-03-31T01:41:10.121739Z",
+    "generated_at": "2026-03-31T02:01:27.482134Z",
     "source": "inferred_from_ad_daily_rows",
     "audit_rows": [],
     "notes": "Events inferred from latest ad-level daily row deltas (not control-plane logs).",
     "after_effects_24h_available": false
   },
   "fatigue_radar": {
-    "generated_at": "2026-03-31T01:41:10.122097Z",
+    "generated_at": "2026-03-31T02:01:27.482369Z",
     "rows": [],
     "notes": "Frequency trend and CPC/CTR delta combined. \"before_collapse\" indicates likely alert tier.",
     "alert_count": 0
   },
   "winner_durability": {
-    "generated_at": "2026-03-31T01:41:10.122149Z",
+    "generated_at": "2026-03-31T02:01:27.482583Z",
     "rows": [],
     "note": "Durability distinguishes Good today vs stable 3+ days where CPC <= threshold and spend exists."
   },
   "geo_efficiency": [],
   "data_health": {
-    "status": "degraded",
-    "reason": "No insights rows or no campaign rollup",
-    "last_pull_age_min": null,
-    "attribution_confidence": "stale"
+    "status": "ok",
+    "reason": "Fresh pull and non-empty campaign data",
+    "last_pull_age_min": 64.3,
+    "attribution_confidence": "estimated"
   },
   "diagnostics": {
     "creative_fatigue": {
@@ -173,7 +899,7 @@
         },
         {
           "factor": "Data freshness (minutes)",
-          "value": null,
+          "value": 64.3,
           "penalty": 0.0
         },
         {
@@ -213,30 +939,96 @@
   },
   "optimization": {
     "frequency": {
-      "avg_frequency": null,
-      "first_time_impression_ratio": null
+      "avg_frequency": 1.024,
+      "first_time_impression_ratio": 0.977
     },
     "traffic_quality": {
       "outbound_clicks": 0,
-      "clicks": 0,
-      "outbound_click_rate": null
+      "clicks": 10051,
+      "outbound_click_rate": 0.0
     },
     "pacing": {
       "day_target": 60.0,
       "today_spend": 0.0,
-      "expected_spend_now": 46.71,
+      "expected_spend_now": 47.54,
       "pace_ratio": 0.0
     },
     "geo_efficiency": [],
-    "actions": [],
+    "actions": [
+      {
+        "campaign": "Unknown Campaign",
+        "tag": "scale",
+        "why": "strong efficiency",
+        "cpc": 0.11,
+        "ctr": 5.677,
+        "spend": 1105.53
+      }
+    ],
     "attribution": {
       "status": "estimated",
       "reason": "Using blended model (spend + follower deltas)"
     },
     "data_health": {
-      "stale_minutes": null,
+      "stale_minutes": 64,
       "status": "ok"
     },
-    "creative_leaderboard": []
+    "creative_leaderboard": [
+      {
+        "ad": "Tailored web traffic campaign 3/11/2026 Ad",
+        "campaign": "Unknown Campaign",
+        "ctr": 8.025,
+        "cpc": 0.083,
+        "spend": 343.63,
+        "hook_score": 80.167
+      },
+      {
+        "ad": "1",
+        "campaign": "Unknown Campaign",
+        "ctr": 5.992,
+        "cpc": 0.119,
+        "spend": 557.01,
+        "hook_score": 59.801
+      },
+      {
+        "ad": "Seattle launch | v98_vo_b",
+        "campaign": "Unknown Campaign",
+        "ctr": 5.805,
+        "cpc": 0.173,
+        "spend": 67.97,
+        "hook_score": 57.877
+      },
+      {
+        "ad": "Seattle launch | v104b_vo_c",
+        "campaign": "Unknown Campaign",
+        "ctr": 5.208,
+        "cpc": 0.219,
+        "spend": 15.77,
+        "hook_score": 51.861
+      },
+      {
+        "ad": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
+        "campaign": "Unknown Campaign",
+        "ctr": 4.817,
+        "cpc": 0.156,
+        "spend": 103.41,
+        "hook_score": 48.014
+      },
+      {
+        "ad": "Seattle launch | v113_vo_a",
+        "campaign": "Unknown Campaign",
+        "ctr": 4.712,
+        "cpc": 0.202,
+        "spend": 11.29,
+        "hook_score": 46.918
+      },
+      {
+        "ad": "Seattle launch | v94_vo_d",
+        "campaign": "Unknown Campaign",
+        "ctr": 4.239,
+        "cpc": 0.222,
+        "spend": 6.45,
+        "hook_score": 42.168
+      }
+    ]
   }
 }
