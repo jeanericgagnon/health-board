@@ -1,27 +1,27 @@
 {
-  "generated_at": "2026-03-31T13:00:15.196636Z",
-  "source_updated_at": "2026-03-31T13:00:02.836408Z",
+  "generated_at": "2026-03-31T14:00:17.949578Z",
+  "source_updated_at": "2026-03-31T14:00:02.984091Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
-    "today_spend": 1.6,
-    "expected_by_now": 15.0,
-    "pace_ratio": 0.107,
+    "today_spend": 2.13,
+    "expected_by_now": 17.5,
+    "pace_ratio": 0.122,
     "status": "too_slow"
   },
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 36.3,
+    "last_pull_age_min": 35.9,
     "attribution_confidence": "estimated"
   },
   "summary": {
-    "total_spend": 1.6,
-    "total_clicks": 26,
-    "total_impressions": 281,
-    "daily_gain_live": 0,
-    "current_followers_live": 109074
+    "total_spend": 2.13,
+    "total_clicks": 31,
+    "total_impressions": 373,
+    "daily_gain_live": 6,
+    "current_followers_live": 109080
   },
   "recommendations": {
     "scale": [],
@@ -48,9 +48,9 @@
       "campaign": "Unknown Campaign",
       "ad_id": "6966540858557",
       "ad_name": "Number2",
-      "ctr": 8.333,
-      "cpc": 0.055,
-      "spend": 0.11,
+      "ctr": 8.824,
+      "cpc": 0.053,
+      "spend": 0.16,
       "creative_name": null,
       "cta": null,
       "body": null
@@ -59,9 +59,9 @@
       "campaign": "Unknown Campaign",
       "ad_id": "6966539858757",
       "ad_name": "Tailored web traffic campaign 3/30/2026 Ad",
-      "ctr": 9.339,
-      "cpc": 0.062,
-      "spend": 1.49,
+      "ctr": 8.26,
+      "cpc": 0.07,
+      "spend": 1.97,
       "creative_name": null,
       "cta": null,
       "body": null
@@ -72,15 +72,11 @@
     "Confidence LOW: prioritize tracking/event reliability before major budget shifts."
   ],
   "alert": {
-    "should_alert": true,
-    "reasons": [
-      "scale_candidates_changed"
-    ]
+    "should_alert": false,
+    "reasons": []
   },
   "change_digest": {
-    "has_material_change": true,
-    "reasons": [
-      "scale_candidates_changed"
-    ]
+    "has_material_change": false,
+    "reasons": []
   }
 }
