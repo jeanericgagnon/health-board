@@ -183,6 +183,52 @@ def read_manual_intraday_spend_override():
 
 def read_insights_rows():
     adsops = read_adsops_latest()
+
+    # Prefer fresh adsops row-level hierarchy when available.
+    if adsops and adsops_payload_has_row_level_data(adsops):
+        campaign_rows = adsops.get('campaign') or []
+        flattened = []
+        for campaign in campaign_rows:
+            if not isinstance(campaign, dict):
+                continue
+            campaign_name = campaign.get('campaign') or campaign.get('campaign_name') or 'Unknown Campaign'
+            campaign_id = campaign.get('campaign_id') or ''
+            for adset in campaign.get('adsets') or []:
+                if not isinstance(adset, dict):
+                    continue
+                adset_name = adset.get('adset') or adset.get('adset_name') or 'Unknown Ad Set'
+                adset_id = adset.get('adset_id') or ''
+                for ad in adset.get('ads') or []:
+                    if not isinstance(ad, dict):
+                        continue
+                    flattened.append({
+                        'campaign_id': campaign_id,
+                        'campaign_name': campaign_name,
+                        'campaign': campaign_name,
+                        'adset_id': adset_id,
+                        'adset_name': adset_name,
+                        'adset': adset_name,
+                        'ad_id': ad.get('ad_id') or '',
+                        'ad_name': ad.get('ad') or ad.get('ad_name') or 'Unknown Ad',
+                        'ad': ad.get('ad') or ad.get('ad_name') or 'Unknown Ad',
+                        'date_start': ad.get('date_start') or adsops.get('updated_at', '')[:10],
+                        'date_stop': ad.get('date_stop') or adsops.get('updated_at', '')[:10],
+                        'spend': ad.get('spend'),
+                        'clicks': ad.get('clicks'),
+                        'impressions': ad.get('impressions'),
+                        'reach': ad.get('reach'),
+                        'ctr': ad.get('ctr'),
+                        'cpm': ad.get('cpm'),
+                        'cpc': ad.get('cpc'),
+                        'frequency': ad.get('frequency_avg'),
+                        'inline_link_clicks': ad.get('link_clicks'),
+                        'outbound_clicks': ad.get('outbound_clicks'),
+                        'landing_page_views': ad.get('landing_page_views'),
+                        'actions': ad.get('actions') or [],
+                    })
+        if flattened:
+            return flattened
+
     if adsops and not adsops_payload_has_row_level_data(adsops):
         # Do not mix a fresh summary-only payload with stale row-level history.
         # When the adsops payload lacks campaign/ad insight rows, return no rows so

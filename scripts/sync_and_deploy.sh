@@ -77,7 +77,15 @@ else
 fi
 
 # Publish every cycle (single attempt).
-vercel --prod --yes --scope eric-gagnons-projects >> "$LOG_DIR/deploy.log" 2>&1 || echo "WARN: vercel deploy failed"
+VERCEL_BIN="$(command -v vercel || true)"
+if [ -z "$VERCEL_BIN" ] && [ -x "/opt/homebrew/bin/vercel" ]; then
+  VERCEL_BIN="/opt/homebrew/bin/vercel"
+fi
+if [ -z "$VERCEL_BIN" ]; then
+  echo "WARN: vercel CLI not found in PATH or /opt/homebrew/bin/vercel" >> "$LOG_DIR/deploy.log"
+else
+  "$VERCEL_BIN" --prod --yes --scope eric-gagnons-projects >> "$LOG_DIR/deploy.log" 2>&1 || echo "WARN: vercel deploy failed" >> "$LOG_DIR/deploy.log"
+fi
 
 # Post-deploy health ping: verify live endpoint serves a parseable updated_at.
 python3 - <<'PY' >> "$LOG_DIR/deploy.log" 2>&1 || true
