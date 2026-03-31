@@ -1,27 +1,27 @@
 {
-  "generated_at": "2026-03-31T14:26:55.359646Z",
-  "source_updated_at": "2026-03-31T14:26:42.574177Z",
+  "generated_at": "2026-03-31T14:42:26.894294Z",
+  "source_updated_at": "2026-03-31T14:42:14.141088Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 2.69,
-    "expected_by_now": 18.58,
-    "pace_ratio": 0.145,
+    "expected_by_now": 19.25,
+    "pace_ratio": 0.14,
     "status": "too_slow"
   },
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 9.2,
+    "last_pull_age_min": 24.7,
     "attribution_confidence": "estimated"
   },
   "summary": {
     "total_spend": 2.69,
     "total_clicks": 40,
     "total_impressions": 480,
-    "daily_gain_live": 9,
-    "current_followers_live": 109083
+    "daily_gain_live": 11,
+    "current_followers_live": 109085
   },
   "recommendations": {
     "scale": [],
@@ -29,8 +29,8 @@
     "retest": [],
     "hold": [
       {
-        "campaign": "Unknown Campaign",
-        "campaign_id": "",
+        "campaign": "Tailored web traffic campaign 3/30/2026 Campaign",
+        "campaign_id": "6966539858957",
         "tag": "Hold",
         "reason": "Insufficient spend for confident action",
         "confidence": "low",
@@ -45,7 +45,7 @@
   },
   "creative_watchlist": [
     {
-      "campaign": "Unknown Campaign",
+      "campaign": "Tailored web traffic campaign 3/30/2026 Campaign",
       "ad_id": "6966539858757",
       "ad_name": "Tailored web traffic campaign 3/30/2026 Ad",
       "ctr": 8.486,
@@ -56,7 +56,7 @@
       "body": null
     },
     {
-      "campaign": "Unknown Campaign",
+      "campaign": "Tailored web traffic campaign 3/30/2026 Campaign",
       "ad_id": "6966540858557",
       "ad_name": "Number2",
       "ctr": 6.818,
