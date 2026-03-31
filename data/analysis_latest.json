@@ -1,96 +1,86 @@
 {
-  "generated_at": "2026-03-31T05:00:15.469122Z",
-  "source_updated_at": "2026-03-31T05:00:02.908168Z",
+  "generated_at": "2026-03-31T13:00:15.196636Z",
+  "source_updated_at": "2026-03-31T13:00:02.836408Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
-    "today_spend": 36.45,
-    "expected_by_now": 55.0,
-    "pace_ratio": 0.663,
+    "today_spend": 1.6,
+    "expected_by_now": 15.0,
+    "pace_ratio": 0.107,
     "status": "too_slow"
   },
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 55.0,
-    "attribution_confidence": "direct"
+    "last_pull_age_min": 36.3,
+    "attribution_confidence": "estimated"
   },
   "summary": {
-    "total_spend": 36.45,
-    "total_clicks": 362,
-    "total_impressions": 5995,
+    "total_spend": 1.6,
+    "total_clicks": 26,
+    "total_impressions": 281,
     "daily_gain_live": 0,
-    "current_followers_live": 109068
+    "current_followers_live": 109074
   },
   "recommendations": {
-    "scale": [
+    "scale": [],
+    "cut": [],
+    "retest": [],
+    "hold": [
       {
         "campaign": "Unknown Campaign",
         "campaign_id": "",
-        "tag": "Scale",
-        "reason": "Strong CTR + low CPC with acceptable frequency",
-        "confidence": "high",
+        "tag": "Hold",
+        "reason": "Insufficient spend for confident action",
+        "confidence": "low",
         "priority": "normal",
-        "diagnostic_tags": [
-          "efficiency"
-        ],
-        "expected_impact": "high",
+        "diagnostic_tags": [],
+        "expected_impact": "low",
         "fatigue_score": null
       }
     ],
-    "cut": [],
-    "retest": [],
-    "hold": [],
     "conversion_proven": [],
     "traffic_only": []
   },
   "creative_watchlist": [
     {
       "campaign": "Unknown Campaign",
-      "ad_id": "6955113574157",
-      "ad_name": "Tailored web traffic campaign 3/11/2026 Ad",
-      "ctr": 7.852,
-      "cpc": 0.079,
-      "spend": 9.28,
-      "creative_name": "Not your average night out: drinks + ideas + people who actually want to learn something. 2026-03-11-d903cc461832f20f0639f16d24cca0d4",
-      "cta": "VIEW_INSTAGRAM_PROFILE",
-      "body": "Not your average night out: drinks + ideas + people who actually want to learn something."
-    },
-    {
-      "campaign": "Unknown Campaign",
-      "ad_id": "6966539858757",
-      "ad_name": "Tailored web traffic campaign 3/30/2026 Ad",
-      "ctr": 5.595,
-      "cpc": 0.088,
-      "spend": 13.35,
+      "ad_id": "6966540858557",
+      "ad_name": "Number2",
+      "ctr": 8.333,
+      "cpc": 0.055,
+      "spend": 0.11,
       "creative_name": null,
       "cta": null,
       "body": null
     },
     {
       "campaign": "Unknown Campaign",
-      "ad_id": "6960435771957",
-      "ad_name": "Seattle launch | v98_vo_b",
-      "ctr": 5.663,
-      "cpc": 0.151,
-      "spend": 6.63,
-      "creative_name": "Seattle_v98_vo_b_creative 2026-03-21-99137ee9bf51b7e9ca0e5cbe9a2cb53d",
-      "cta": "LEARN_MORE",
-      "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
+      "ad_id": "6966539858757",
+      "ad_name": "Tailored web traffic campaign 3/30/2026 Ad",
+      "ctr": 9.339,
+      "cpc": 0.062,
+      "spend": 1.49,
+      "creative_name": null,
+      "cta": null,
+      "body": null
     }
   ],
   "immediate_actions": [
     "Pacing too slow: increase delivery on top efficient campaigns by ~10-15%.",
-    "Scale: Unknown Campaign (Strong CTR + low CPC with acceptable frequency)",
     "Confidence LOW: prioritize tracking/event reliability before major budget shifts."
   ],
   "alert": {
-    "should_alert": false,
-    "reasons": []
+    "should_alert": true,
+    "reasons": [
+      "scale_candidates_changed"
+    ]
   },
   "change_digest": {
-    "has_material_change": false,
-    "reasons": []
+    "has_material_change": true,
+    "reasons": [
+      "scale_candidates_changed"
+    ]
   }
 }

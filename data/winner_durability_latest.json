@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-31T05:00:02.907682Z",
+  "generated_at": "2026-03-31T13:00:02.836025Z",
   "rows": [
     {
       "entity_type": "ad",
@@ -9,65 +9,14 @@
       "adset_id": "",
       "threshold_cpc": 0.55,
       "durable_3d_min_days": 3,
-      "good_today": true,
-      "stable_3d": false,
-      "score": 56,
-      "days_under_threshold": 1,
-      "latest_cpc": 0.088,
-      "latest_ctr": 5.595,
-      "latest_frequency": null,
-      "spend_today": 13.35
-    },
-    {
-      "entity_type": "ad",
-      "ad_id": "6955113574157",
-      "ad": "Tailored web traffic campaign 3/11/2026 Ad",
-      "campaign_id": "",
-      "adset_id": "",
-      "threshold_cpc": 0.55,
-      "durable_3d_min_days": 3,
-      "good_today": true,
-      "stable_3d": false,
-      "score": 56,
-      "days_under_threshold": 1,
-      "latest_cpc": 0.079,
-      "latest_ctr": 7.852,
-      "latest_frequency": null,
-      "spend_today": 9.28
-    },
-    {
-      "entity_type": "ad",
-      "ad_id": "6960435771957",
-      "ad": "Seattle launch | v98_vo_b",
-      "campaign_id": "",
-      "adset_id": "",
-      "threshold_cpc": 0.55,
-      "durable_3d_min_days": 3,
-      "good_today": true,
-      "stable_3d": false,
-      "score": 56,
-      "days_under_threshold": 1,
-      "latest_cpc": 0.151,
-      "latest_ctr": 5.663,
-      "latest_frequency": null,
-      "spend_today": 6.63
-    },
-    {
-      "entity_type": "ad",
-      "ad_id": "6960086009157",
-      "ad": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
-      "campaign_id": "",
-      "adset_id": "",
-      "threshold_cpc": 0.55,
-      "durable_3d_min_days": 3,
       "good_today": false,
       "stable_3d": false,
       "score": 6,
       "days_under_threshold": 1,
-      "latest_cpc": 0.219,
-      "latest_ctr": 3.543,
+      "latest_cpc": 0.062,
+      "latest_ctr": 9.339,
       "latest_frequency": null,
-      "spend_today": 4.81
+      "spend_today": 1.49
     },
     {
       "entity_type": "ad",
@@ -81,10 +30,10 @@
       "stable_3d": false,
       "score": 6,
       "days_under_threshold": 1,
-      "latest_cpc": 0.085,
-      "latest_ctr": 6.863,
+      "latest_cpc": 0.055,
+      "latest_ctr": 8.333,
       "latest_frequency": null,
-      "spend_today": 2.38
+      "spend_today": 0.11
     }
   ],
   "note": "Durability distinguishes Good today vs stable 3+ days where CPC <= threshold and spend exists."
