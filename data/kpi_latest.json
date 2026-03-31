@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-03-31T16:00:03.801830Z",
+  "updated_at": "2026-03-31T17:00:02.978567Z",
   "summary": {
     "ad_account_id": "1379452680603809",
-    "total_spend": 3.43,
-    "total_clicks": 53,
-    "total_impressions": 617,
+    "total_spend": 4.63,
+    "total_clicks": 64,
+    "total_impressions": 814,
     "total_follows": 0,
     "blended_cost_per_follow": null,
     "since": null,
@@ -12,11 +12,11 @@
     "current_followers_live": 109085,
     "daily_gain_live": 11,
     "baseline_followers": 109074,
-    "total_link_clicks": 48,
-    "total_outbound_clicks": 0,
-    "total_landing_page_views": 0,
-    "cost_per_landing_page_view": null,
-    "lpv_per_outbound_click_rate": null,
+    "total_link_clicks": 60,
+    "total_outbound_clicks": 60,
+    "total_landing_page_views": 60,
+    "cost_per_landing_page_view": 0.077,
+    "lpv_per_outbound_click_rate": 100.0,
     "manual_intraday_spend_override_note": null,
     "manual_intraday_spend_as_of_local": null,
     "intraday_spend_estimated": false
@@ -25,59 +25,59 @@
     {
       "campaign": "Tailored web traffic campaign 3/30/2026 Campaign",
       "campaign_id": "6966539858957",
-      "spend": 3.43,
-      "clicks": 53,
-      "impressions": 617,
-      "reach": 579,
-      "link_clicks": 48,
-      "outbound_clicks": 0,
+      "spend": 4.63,
+      "clicks": 64,
+      "impressions": 814,
+      "reach": 745,
+      "link_clicks": 60,
+      "outbound_clicks": 60,
       "landing_page_views": 0,
-      "ctr": 9.46,
-      "cpm": 5.111,
-      "cpc": 0.065,
-      "outbound_ctr": 0.0,
-      "lpv_rate": null,
+      "ctr": 7.877,
+      "cpm": 5.438,
+      "cpc": 0.072,
+      "outbound_ctr": 7.371,
+      "lpv_rate": 0.0,
       "cost_per_lpv": null,
-      "frequency_avg": 1.066,
-      "first_time_impression_ratio": 93.841,
+      "frequency_avg": 1.093,
+      "first_time_impression_ratio": 91.523,
       "adsets": [
         {
           "adset": "Tailored web traffic campaign 3/30/2026 Ad set",
           "adset_id": "6966539859157",
-          "spend": 3.43,
-          "clicks": 53,
-          "impressions": 617,
-          "reach": 579,
-          "link_clicks": 48,
-          "outbound_clicks": 0,
+          "spend": 4.63,
+          "clicks": 64,
+          "impressions": 814,
+          "reach": 745,
+          "link_clicks": 60,
+          "outbound_clicks": 60,
           "landing_page_views": 0,
-          "ctr": 9.46,
-          "cpm": 5.111,
-          "cpc": 0.065,
-          "outbound_ctr": 0.0,
-          "lpv_rate": null,
+          "ctr": 7.877,
+          "cpm": 5.438,
+          "cpc": 0.072,
+          "outbound_ctr": 7.371,
+          "lpv_rate": 0.0,
           "cost_per_lpv": null,
-          "frequency_avg": 1.066,
-          "first_time_impression_ratio": 93.841,
+          "frequency_avg": 1.093,
+          "first_time_impression_ratio": 91.523,
           "ads": [
             {
               "ad": "Tailored web traffic campaign 3/30/2026 Ad",
               "ad_id": "6966539858757",
-              "spend": 3.17,
-              "clicks": 47,
-              "impressions": 560,
-              "reach": 525,
-              "link_clicks": 42,
-              "outbound_clicks": 0,
+              "spend": 4.24,
+              "clicks": 58,
+              "impressions": 738,
+              "reach": 672,
+              "link_clicks": 54,
+              "outbound_clicks": 54,
               "landing_page_views": 0,
-              "ctr": 8.393,
-              "cpm": 5.661,
-              "cpc": 0.067,
-              "outbound_ctr": 0.0,
-              "lpv_rate": null,
+              "ctr": 7.859,
+              "cpm": 5.745,
+              "cpc": 0.073,
+              "outbound_ctr": 7.317,
+              "lpv_rate": 0.0,
               "cost_per_lpv": null,
-              "frequency_avg": 1.067,
-              "first_time_impression_ratio": 93.75,
+              "frequency_avg": 1.098,
+              "first_time_impression_ratio": 91.057,
               "trend_intelligence": {
                 "ad_id": "6966539858757",
                 "ad": "Tailored web traffic campaign 3/30/2026 Ad",
@@ -118,19 +118,19 @@
                   "gate_5": {
                     "threshold": 5.0,
                     "passed": false,
-                    "progress_pct": 63.4
+                    "progress_pct": 84.8
                   },
                   "gate_10": {
                     "threshold": 10.0,
                     "passed": false,
-                    "progress_pct": 31.7
+                    "progress_pct": 42.4
                   }
                 },
-                "action_timestamp": "2026-03-31T16:00:03.799721Z",
+                "action_timestamp": "2026-03-31T17:00:02.976596Z",
                 "inputs": {
-                  "spend": 3.17,
-                  "ctr": 8.393,
-                  "cpc": 0.067
+                  "spend": 4.24,
+                  "ctr": 7.859,
+                  "cpc": 0.073
                 }
               },
               "winner_durability": {
@@ -145,21 +145,21 @@
             {
               "ad": "Number2",
               "ad_id": "6966540858557",
-              "spend": 0.26,
+              "spend": 0.39,
               "clicks": 6,
-              "impressions": 57,
-              "reach": 54,
+              "impressions": 76,
+              "reach": 73,
               "link_clicks": 6,
-              "outbound_clicks": 0,
+              "outbound_clicks": 6,
               "landing_page_views": 0,
-              "ctr": 10.526,
-              "cpm": 4.561,
-              "cpc": 0.043,
-              "outbound_ctr": 0.0,
-              "lpv_rate": null,
+              "ctr": 7.895,
+              "cpm": 5.132,
+              "cpc": 0.065,
+              "outbound_ctr": 7.895,
+              "lpv_rate": 0.0,
               "cost_per_lpv": null,
-              "frequency_avg": 1.056,
-              "first_time_impression_ratio": 94.737,
+              "frequency_avg": 1.041,
+              "first_time_impression_ratio": 96.053,
               "trend_intelligence": {
                 "ad_id": "6966540858557",
                 "ad": "Number2",
@@ -200,19 +200,19 @@
                   "gate_5": {
                     "threshold": 5.0,
                     "passed": false,
-                    "progress_pct": 5.2
+                    "progress_pct": 7.8
                   },
                   "gate_10": {
                     "threshold": 10.0,
                     "passed": false,
-                    "progress_pct": 2.6
+                    "progress_pct": 3.9
                   }
                 },
-                "action_timestamp": "2026-03-31T16:00:03.799704Z",
+                "action_timestamp": "2026-03-31T17:00:02.976575Z",
                 "inputs": {
-                  "spend": 0.26,
-                  "ctr": 10.526,
-                  "cpc": 0.043
+                  "spend": 0.39,
+                  "ctr": 7.895,
+                  "cpc": 0.065
                 }
               },
               "winner_durability": {
@@ -297,59 +297,59 @@
     {
       "campaign": "Tailored web traffic campaign 3/30/2026 Campaign",
       "campaign_id": "6966539858957",
-      "spend": 3.43,
-      "clicks": 53,
-      "impressions": 617,
-      "reach": 579,
-      "link_clicks": 48,
-      "outbound_clicks": 0,
+      "spend": 4.63,
+      "clicks": 64,
+      "impressions": 814,
+      "reach": 745,
+      "link_clicks": 60,
+      "outbound_clicks": 60,
       "landing_page_views": 0,
-      "ctr": 9.46,
-      "cpm": 5.111,
-      "cpc": 0.065,
-      "outbound_ctr": 0.0,
-      "lpv_rate": null,
+      "ctr": 7.877,
+      "cpm": 5.438,
+      "cpc": 0.072,
+      "outbound_ctr": 7.371,
+      "lpv_rate": 0.0,
       "cost_per_lpv": null,
-      "frequency_avg": 1.066,
-      "first_time_impression_ratio": 93.841,
+      "frequency_avg": 1.093,
+      "first_time_impression_ratio": 91.523,
       "adsets": [
         {
           "adset": "Tailored web traffic campaign 3/30/2026 Ad set",
           "adset_id": "6966539859157",
-          "spend": 3.43,
-          "clicks": 53,
-          "impressions": 617,
-          "reach": 579,
-          "link_clicks": 48,
-          "outbound_clicks": 0,
+          "spend": 4.63,
+          "clicks": 64,
+          "impressions": 814,
+          "reach": 745,
+          "link_clicks": 60,
+          "outbound_clicks": 60,
           "landing_page_views": 0,
-          "ctr": 9.46,
-          "cpm": 5.111,
-          "cpc": 0.065,
-          "outbound_ctr": 0.0,
-          "lpv_rate": null,
+          "ctr": 7.877,
+          "cpm": 5.438,
+          "cpc": 0.072,
+          "outbound_ctr": 7.371,
+          "lpv_rate": 0.0,
           "cost_per_lpv": null,
-          "frequency_avg": 1.066,
-          "first_time_impression_ratio": 93.841,
+          "frequency_avg": 1.093,
+          "first_time_impression_ratio": 91.523,
           "ads": [
             {
               "ad": "Tailored web traffic campaign 3/30/2026 Ad",
               "ad_id": "6966539858757",
-              "spend": 3.17,
-              "clicks": 47,
-              "impressions": 560,
-              "reach": 525,
-              "link_clicks": 42,
-              "outbound_clicks": 0,
+              "spend": 4.24,
+              "clicks": 58,
+              "impressions": 738,
+              "reach": 672,
+              "link_clicks": 54,
+              "outbound_clicks": 54,
               "landing_page_views": 0,
-              "ctr": 8.393,
-              "cpm": 5.661,
-              "cpc": 0.067,
-              "outbound_ctr": 0.0,
-              "lpv_rate": null,
+              "ctr": 7.859,
+              "cpm": 5.745,
+              "cpc": 0.073,
+              "outbound_ctr": 7.317,
+              "lpv_rate": 0.0,
               "cost_per_lpv": null,
-              "frequency_avg": 1.067,
-              "first_time_impression_ratio": 93.75,
+              "frequency_avg": 1.098,
+              "first_time_impression_ratio": 91.057,
               "trend_intelligence": {
                 "ad_id": "6966539858757",
                 "ad": "Tailored web traffic campaign 3/30/2026 Ad",
@@ -390,19 +390,19 @@
                   "gate_5": {
                     "threshold": 5.0,
                     "passed": false,
-                    "progress_pct": 63.4
+                    "progress_pct": 84.8
                   },
                   "gate_10": {
                     "threshold": 10.0,
                     "passed": false,
-                    "progress_pct": 31.7
+                    "progress_pct": 42.4
                   }
                 },
-                "action_timestamp": "2026-03-31T16:00:03.799721Z",
+                "action_timestamp": "2026-03-31T17:00:02.976596Z",
                 "inputs": {
-                  "spend": 3.17,
-                  "ctr": 8.393,
-                  "cpc": 0.067
+                  "spend": 4.24,
+                  "ctr": 7.859,
+                  "cpc": 0.073
                 }
               },
               "winner_durability": {
@@ -417,21 +417,21 @@
             {
               "ad": "Number2",
               "ad_id": "6966540858557",
-              "spend": 0.26,
+              "spend": 0.39,
               "clicks": 6,
-              "impressions": 57,
-              "reach": 54,
+              "impressions": 76,
+              "reach": 73,
               "link_clicks": 6,
-              "outbound_clicks": 0,
+              "outbound_clicks": 6,
               "landing_page_views": 0,
-              "ctr": 10.526,
-              "cpm": 4.561,
-              "cpc": 0.043,
-              "outbound_ctr": 0.0,
-              "lpv_rate": null,
+              "ctr": 7.895,
+              "cpm": 5.132,
+              "cpc": 0.065,
+              "outbound_ctr": 7.895,
+              "lpv_rate": 0.0,
               "cost_per_lpv": null,
-              "frequency_avg": 1.056,
-              "first_time_impression_ratio": 94.737,
+              "frequency_avg": 1.041,
+              "first_time_impression_ratio": 96.053,
               "trend_intelligence": {
                 "ad_id": "6966540858557",
                 "ad": "Number2",
@@ -472,19 +472,19 @@
                   "gate_5": {
                     "threshold": 5.0,
                     "passed": false,
-                    "progress_pct": 5.2
+                    "progress_pct": 7.8
                   },
                   "gate_10": {
                     "threshold": 10.0,
                     "passed": false,
-                    "progress_pct": 2.6
+                    "progress_pct": 3.9
                   }
                 },
-                "action_timestamp": "2026-03-31T16:00:03.799704Z",
+                "action_timestamp": "2026-03-31T17:00:02.976575Z",
                 "inputs": {
-                  "spend": 0.26,
-                  "ctr": 10.526,
-                  "cpc": 0.043
+                  "spend": 0.39,
+                  "ctr": 7.895,
+                  "cpc": 0.065
                 }
               },
               "winner_durability": {
@@ -570,14 +570,14 @@
       "date": "2026-03-31",
       "campaign_id": "6966539858957",
       "campaign_name": "Tailored web traffic campaign 3/30/2026 Campaign",
-      "spend": 3.43,
-      "clicks": 53,
-      "impressions": 617,
+      "spend": 4.63,
+      "clicks": 64,
+      "impressions": 814,
       "landing_page_views": 0,
-      "ctr": 8.59,
-      "cpc": 0.065,
+      "ctr": 7.862,
+      "cpc": 0.072,
       "cost_per_lpv": null,
-      "frequency_avg": 1.066
+      "frequency_avg": 1.093
     }
   ],
   "followers_series": [
@@ -587,7 +587,7 @@
     },
     {
       "date": "2026-03-31",
-      "followers_total": 109085.0
+      "followers_total": 109086.0
     }
   ],
   "followers_daily_series": [
@@ -598,20 +598,20 @@
     },
     {
       "date": "2026-03-31",
-      "followers_per_day": 11.0,
-      "followers_total": 109085.0
+      "followers_per_day": 12.0,
+      "followers_total": 109086.0
     }
   ],
   "spend_series": [
     {
       "date": "2026-03-31",
-      "spend": 3.43
+      "spend": 4.63
     }
   ],
   "insights": [
     {
       "type": "working",
-      "text": "Tailored web traffic campaign 3/30/2026 Campaign is most efficient (CPC $0.07, CTR 9.46%)."
+      "text": "Tailored web traffic campaign 3/30/2026 Campaign is most efficient (CPC $0.07, CTR 7.88%)."
     },
     {
       "type": "not_working",
@@ -623,11 +623,11 @@
     },
     {
       "type": "working",
-      "text": "Latest daily followers: 11. Keep top campaign structure stable while testing one variable at a time."
+      "text": "Latest daily followers: 12. Keep top campaign structure stable while testing one variable at a time."
     },
     {
       "type": "action",
-      "text": "Pacing watch: spend today is $3.43 vs $60/day target."
+      "text": "Pacing watch: spend today is $4.63 vs $60/day target."
     },
     {
       "type": "action",
@@ -649,26 +649,26 @@
   ],
   "pacing": {
     "target_daily": 60.0,
-    "today_spend": 3.43,
-    "expected_by_now": 22.5,
-    "pace_ratio": 0.152,
+    "today_spend": 4.63,
+    "expected_by_now": 25.0,
+    "pace_ratio": 0.185,
     "status": "too_slow"
   },
   "forecasting": {
-    "today_spend_so_far": 3.43,
-    "projected_eod_spend": 9.15,
-    "projected_eod_cpc": 0.065,
-    "pace_elapsed_pct": 37.5,
+    "today_spend_so_far": 4.63,
+    "projected_eod_spend": 11.11,
+    "projected_eod_cpc": 0.072,
+    "pace_elapsed_pct": 41.67,
     "target_daily_spend": 60.0
   },
   "forecasting_tiles": {
-    "generated_at": "2026-03-31T16:00:03.801265Z",
-    "projected_eod_spend": 9.15,
-    "projected_eod_cpc": 0.065,
-    "spend_progress_pct": 37.486,
-    "hour_progress": 37.5,
-    "today_spend": 3.43,
-    "today_clicks": 53,
+    "generated_at": "2026-03-31T17:00:02.977875Z",
+    "projected_eod_spend": 11.11,
+    "projected_eod_cpc": 0.072,
+    "spend_progress_pct": 41.674,
+    "hour_progress": 41.67,
+    "today_spend": 4.63,
+    "today_clicks": 64,
     "data_source": "live_intraday",
     "estimation_type": "realtime",
     "notes": "Projected EOD CPC = projected EOD spend \u00f7 projected EOD clicks. Requires today clicks for CPC."
@@ -788,19 +788,19 @@
             "gate_5": {
               "threshold": 5.0,
               "passed": false,
-              "progress_pct": 5.2
+              "progress_pct": 7.8
             },
             "gate_10": {
               "threshold": 10.0,
               "passed": false,
-              "progress_pct": 2.6
+              "progress_pct": 3.9
             }
           },
-          "action_timestamp": "2026-03-31T16:00:03.799704Z",
+          "action_timestamp": "2026-03-31T17:00:02.976575Z",
           "inputs": {
-            "spend": 0.26,
-            "ctr": 10.526,
-            "cpc": 0.043
+            "spend": 0.39,
+            "ctr": 7.895,
+            "cpc": 0.065
           }
         },
         "6966539858757": {
@@ -811,19 +811,19 @@
             "gate_5": {
               "threshold": 5.0,
               "passed": false,
-              "progress_pct": 63.4
+              "progress_pct": 84.8
             },
             "gate_10": {
               "threshold": 10.0,
               "passed": false,
-              "progress_pct": 31.7
+              "progress_pct": 42.4
             }
           },
-          "action_timestamp": "2026-03-31T16:00:03.799721Z",
+          "action_timestamp": "2026-03-31T17:00:02.976596Z",
           "inputs": {
-            "spend": 3.17,
-            "ctr": 8.393,
-            "cpc": 0.067
+            "spend": 4.24,
+            "ctr": 7.859,
+            "cpc": 0.073
           }
         }
       }
@@ -893,7 +893,7 @@
     }
   },
   "trend_intelligence": {
-    "generated_at": "2026-03-31T16:00:03.799773Z",
+    "generated_at": "2026-03-31T17:00:02.976651Z",
     "source": "trend_intelligence_from_kpi_rows",
     "campaigns": [
       {
@@ -930,10 +930,10 @@
             "freq_trend_pct": null
           }
         },
-        "ctr": 8.59,
-        "cpc": 0.065,
-        "frequency": 1.061,
-        "spend": 3.43,
+        "ctr": 7.862,
+        "cpc": 0.072,
+        "frequency": 1.07,
+        "spend": 4.63,
         "fatigue_signal": "stable",
         "fatigue_score": 0.0
       }
@@ -974,10 +974,10 @@
             "freq_trend_pct": null
           }
         },
-        "ctr": 8.59,
-        "cpc": 0.065,
-        "frequency": 1.061,
-        "spend": 3.43,
+        "ctr": 7.862,
+        "cpc": 0.072,
+        "frequency": 1.07,
+        "spend": 4.63,
         "fatigue_signal": "stable",
         "fatigue_score": 0.0
       }
@@ -1019,10 +1019,10 @@
             "freq_trend_pct": null
           }
         },
-        "ctr": 8.393,
-        "cpc": 0.067,
-        "frequency": 1.067,
-        "spend": 3.17,
+        "ctr": 7.859,
+        "cpc": 0.073,
+        "frequency": 1.098,
+        "spend": 4.24,
         "fatigue_signal": "stable",
         "fatigue_score": 0.0
       },
@@ -1062,10 +1062,10 @@
             "freq_trend_pct": null
           }
         },
-        "ctr": 10.526,
-        "cpc": 0.043,
-        "frequency": 1.056,
-        "spend": 0.26,
+        "ctr": 7.895,
+        "cpc": 0.065,
+        "frequency": 1.041,
+        "spend": 0.39,
         "fatigue_signal": "stable",
         "fatigue_score": 0.0
       }
@@ -1074,7 +1074,7 @@
     "refresh_note": "fallback if insufficient daily history"
   },
   "decision_state": {
-    "generated_at": "2026-03-31T16:00:03.800404Z",
+    "generated_at": "2026-03-31T17:00:02.977202Z",
     "rows": [
       {
         "campaign_id": "6966539858957",
@@ -1086,11 +1086,11 @@
         "action_ready": "insufficient_spend",
         "next_gate": "$5",
         "gate_progress": {
-          "spend": 3.17,
+          "spend": 4.24,
           "gate_5": {
             "required": 5.0,
             "passed": false,
-            "current_pct": 63.4
+            "current_pct": 84.8
           },
           "gate_10": {
             "required": 10.0,
@@ -1099,7 +1099,7 @@
           }
         },
         "action_timestamp": null,
-        "updated_at": "2026-03-31T16:00:03.800404Z"
+        "updated_at": "2026-03-31T17:00:02.977202Z"
       },
       {
         "campaign_id": "6966539858957",
@@ -1111,11 +1111,11 @@
         "action_ready": "insufficient_spend",
         "next_gate": "$5",
         "gate_progress": {
-          "spend": 0.26,
+          "spend": 0.39,
           "gate_5": {
             "required": 5.0,
             "passed": false,
-            "current_pct": 5.2
+            "current_pct": 7.8
           },
           "gate_10": {
             "required": 10.0,
@@ -1124,7 +1124,7 @@
           }
         },
         "action_timestamp": null,
-        "updated_at": "2026-03-31T16:00:03.800404Z"
+        "updated_at": "2026-03-31T17:00:02.977202Z"
       }
     ],
     "counts": {
@@ -1135,7 +1135,7 @@
     }
   },
   "creative_attribution": {
-    "generated_at": "2026-03-31T16:00:03.800853Z",
+    "generated_at": "2026-03-31T17:00:02.977543Z",
     "rows": [
       {
         "campaign_id": "6966539858957",
@@ -1150,9 +1150,9 @@
         "format": "N/A",
         "creative_id": "N/A",
         "creative_name": "N/A",
-        "spend": 3.17,
-        "ctr": 8.393,
-        "cpc": 0.067
+        "spend": 4.24,
+        "ctr": 7.859,
+        "cpc": 0.073
       },
       {
         "campaign_id": "6966539858957",
@@ -1167,9 +1167,9 @@
         "format": "N/A",
         "creative_id": "N/A",
         "creative_name": "N/A",
-        "spend": 0.26,
-        "ctr": 10.526,
-        "cpc": 0.043
+        "spend": 0.39,
+        "ctr": 7.895,
+        "cpc": 0.065
       }
     ],
     "mandatory_fields": [],
@@ -1187,14 +1187,14 @@
     }
   },
   "budget_movement": {
-    "generated_at": "2026-03-31T16:00:03.801151Z",
+    "generated_at": "2026-03-31T17:00:02.977744Z",
     "source": "inferred_from_ad_daily_rows",
     "audit_rows": [],
     "notes": "Events inferred from latest ad-level daily row deltas (not control-plane logs).",
     "after_effects_24h_available": false
   },
   "fatigue_radar": {
-    "generated_at": "2026-03-31T16:00:03.801396Z",
+    "generated_at": "2026-03-31T17:00:02.978028Z",
     "rows": [
       {
         "ad_id": "6966539858757",
@@ -1206,8 +1206,8 @@
         "frequency_prior_3d": null,
         "ctr_decay_pct_3d": null,
         "cpc_delta_pct_3d": null,
-        "latest_ctr": 8.393,
-        "latest_cpc": 0.067,
+        "latest_ctr": 7.859,
+        "latest_cpc": 0.073,
         "fatigue_score": 0.0,
         "alert": "none",
         "signal": "stable"
@@ -1222,8 +1222,8 @@
         "frequency_prior_3d": null,
         "ctr_decay_pct_3d": null,
         "cpc_delta_pct_3d": null,
-        "latest_ctr": 10.526,
-        "latest_cpc": 0.043,
+        "latest_ctr": 7.895,
+        "latest_cpc": 0.065,
         "fatigue_score": 0.0,
         "alert": "none",
         "signal": "stable"
@@ -1233,7 +1233,7 @@
     "alert_count": 0
   },
   "winner_durability": {
-    "generated_at": "2026-03-31T16:00:03.801554Z",
+    "generated_at": "2026-03-31T17:00:02.978220Z",
     "rows": [
       {
         "entity_type": "campaign",
@@ -1245,10 +1245,10 @@
         "stable_3d": false,
         "score": 6,
         "days_under_threshold": 1,
-        "latest_cpc": 0.065,
-        "latest_ctr": 8.59,
-        "latest_frequency": 1.061,
-        "spend_today": 3.43
+        "latest_cpc": 0.072,
+        "latest_ctr": 7.862,
+        "latest_frequency": 1.07,
+        "spend_today": 4.63
       },
       {
         "entity_type": "ad",
@@ -1262,10 +1262,10 @@
         "stable_3d": false,
         "score": 6,
         "days_under_threshold": 1,
-        "latest_cpc": 0.067,
-        "latest_ctr": 8.393,
-        "latest_frequency": 1.067,
-        "spend_today": 3.17
+        "latest_cpc": 0.073,
+        "latest_ctr": 7.859,
+        "latest_frequency": 1.098,
+        "spend_today": 4.24
       },
       {
         "entity_type": "ad",
@@ -1279,10 +1279,10 @@
         "stable_3d": false,
         "score": 6,
         "days_under_threshold": 1,
-        "latest_cpc": 0.043,
-        "latest_ctr": 10.526,
-        "latest_frequency": 1.056,
-        "spend_today": 0.26
+        "latest_cpc": 0.065,
+        "latest_ctr": 7.895,
+        "latest_frequency": 1.041,
+        "spend_today": 0.39
       }
     ],
     "note": "Durability distinguishes Good today vs stable 3+ days where CPC <= threshold and spend exists."
@@ -1306,33 +1306,33 @@
       "best_windows": [
         {
           "bucket": "Tue",
-          "spend": 3.43,
-          "ctr": 8.59,
-          "cpc": 0.065,
-          "efficiency_score": 68.396,
+          "spend": 4.63,
+          "ctr": 7.862,
+          "cpc": 0.072,
+          "efficiency_score": 62.538,
           "sample_days": 1
         }
       ],
       "worst_windows": [
         {
           "bucket": "Tue",
-          "spend": 3.43,
-          "ctr": 8.59,
-          "cpc": 0.065,
-          "efficiency_score": 68.396,
+          "spend": 4.63,
+          "ctr": 7.862,
+          "cpc": 0.072,
+          "efficiency_score": 62.538,
           "sample_days": 1
         }
       ],
       "notes": "Hourly data unavailable; fallback uses day-of-week efficiency."
     },
     "attribution_confidence": {
-      "score": 72.0,
+      "score": 62.0,
       "band": "med",
       "factors": [
         {
           "factor": "LPV coverage of outbound clicks",
           "value": 0.0,
-          "penalty": 0.0
+          "penalty": 20.0
         },
         {
           "factor": "Direct follow events",
@@ -1346,12 +1346,12 @@
         },
         {
           "factor": "Attribution sample size (outbound clicks)",
-          "value": 0,
-          "penalty": 10.0
+          "value": 60,
+          "penalty": 0.0
         }
       ],
-      "penalty_total": 28.0,
-      "summary": "Attribution confidence MED (72.0/100)."
+      "penalty_total": 38.0,
+      "summary": "Attribution confidence MED (62.0/100)."
     },
     "anomalies": {
       "count": 0,
@@ -1381,19 +1381,19 @@
   },
   "optimization": {
     "frequency": {
-      "avg_frequency": 1.066,
-      "first_time_impression_ratio": 0.938
+      "avg_frequency": 1.093,
+      "first_time_impression_ratio": 0.915
     },
     "traffic_quality": {
-      "outbound_clicks": 0,
-      "clicks": 53,
-      "outbound_click_rate": 0.0
+      "outbound_clicks": 60,
+      "clicks": 64,
+      "outbound_click_rate": 0.938
     },
     "pacing": {
       "day_target": 60.0,
-      "today_spend": 3.43,
-      "expected_spend_now": 22.5,
-      "pace_ratio": 0.152
+      "today_spend": 4.63,
+      "expected_spend_now": 25.0,
+      "pace_ratio": 0.185
     },
     "geo_efficiency": [],
     "actions": [
@@ -1401,9 +1401,9 @@
         "campaign": "Tailored web traffic campaign 3/30/2026 Campaign",
         "tag": "hold",
         "why": "stable",
-        "cpc": 0.065,
-        "ctr": 9.46,
-        "spend": 3.43
+        "cpc": 0.072,
+        "ctr": 7.877,
+        "spend": 4.63
       }
     ],
     "attribution": {
@@ -1418,18 +1418,18 @@
       {
         "ad": "Number2",
         "campaign": "Tailored web traffic campaign 3/30/2026 Campaign",
-        "ctr": 10.526,
-        "cpc": 0.043,
-        "spend": 0.26,
-        "hook_score": 105.217
+        "ctr": 7.895,
+        "cpc": 0.065,
+        "spend": 0.39,
+        "hook_score": 78.885
       },
       {
         "ad": "Tailored web traffic campaign 3/30/2026 Ad",
         "campaign": "Tailored web traffic campaign 3/30/2026 Campaign",
-        "ctr": 8.393,
-        "cpc": 0.067,
-        "spend": 3.17,
-        "hook_score": 83.863
+        "ctr": 7.859,
+        "cpc": 0.073,
+        "spend": 4.24,
+        "hook_score": 78.517
       }
     ]
   }
