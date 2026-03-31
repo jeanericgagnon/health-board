@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-31T00:57:10.086464Z",
+  "updated_at": "2026-03-31T19:05:00.924353Z",
   "label": "TSSAds",
   "account": {
     "id": "act_1379452680603809",
@@ -10,43 +10,564 @@
     "timezone_name": "America/Los_Angeles"
   },
   "insights": {
-    "spend": "33.51",
-    "clicks": "324",
-    "impressions": "5366",
-    "cpc": "0.103426",
-    "cpm": "6.244875",
-    "ctr": "6.038017",
-    "reach": "5098",
-    "frequency": "1.05257",
-    "unique_clicks": "308",
-    "date_start": "2026-03-30",
-    "date_stop": "2026-03-30"
+    "spend": "7.23",
+    "clicks": "97",
+    "impressions": "1280",
+    "cpc": "0.074536",
+    "cpm": "5.648438",
+    "ctr": "7.578125",
+    "reach": "1205",
+    "frequency": "1.062241",
+    "unique_clicks": "91",
+    "actions": [
+      {
+        "action_type": "link_click",
+        "value": "93"
+      },
+      {
+        "action_type": "page_engagement",
+        "value": "560"
+      },
+      {
+        "action_type": "post_engagement",
+        "value": "560"
+      },
+      {
+        "action_type": "post_interaction_gross",
+        "value": "26"
+      },
+      {
+        "action_type": "post_interaction_net",
+        "value": "26"
+      },
+      {
+        "action_type": "post",
+        "value": "5"
+      },
+      {
+        "action_type": "onsite_conversion.post_save",
+        "value": "1"
+      },
+      {
+        "action_type": "onsite_conversion.post_net_save",
+        "value": "1"
+      },
+      {
+        "action_type": "onsite_conversion.post_net_like",
+        "value": "20"
+      },
+      {
+        "action_type": "video_view",
+        "value": "441"
+      },
+      {
+        "action_type": "post_reaction",
+        "value": "20"
+      }
+    ],
+    "date_start": "2026-03-31",
+    "date_stop": "2026-03-31"
   },
   "campaigns": [
     {
       "id": "6966539858957",
       "name": "Tailored web traffic campaign 3/30/2026 Campaign",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE"
     },
     {
       "id": "6960435320957",
       "name": "TMP ENG CAMP 1774111919",
-      "status": "PAUSED"
+      "status": "PAUSED",
+      "effective_status": "PAUSED"
     },
     {
       "id": "6960435028357",
       "name": "TSS Seattle 4-way launch 20260321_095059",
-      "status": "PAUSED"
+      "status": "PAUSED",
+      "effective_status": "PAUSED"
     },
     {
       "id": "6960434318957",
       "name": "TSS Seattle 4-way launch 20260321_095019",
-      "status": "PAUSED"
+      "status": "PAUSED",
+      "effective_status": "PAUSED"
     },
     {
       "id": "6960384244557",
       "name": "CPF Seattle Exclusion Advantage+ VO Test 2026-03-21 08:13",
-      "status": "PAUSED"
+      "status": "PAUSED",
+      "effective_status": "PAUSED"
+    },
+    {
+      "id": "6960086008957",
+      "name": "Tailored web traffic campaign 3/20/2026 Campaign",
+      "status": "PAUSED",
+      "effective_status": "PAUSED"
+    },
+    {
+      "id": "6955113574357",
+      "name": "Tailored web traffic campaign 3/11/2026 Campaign",
+      "status": "PAUSED",
+      "effective_status": "PAUSED"
+    },
+    {
+      "id": "6953786714157",
+      "name": "2",
+      "status": "PAUSED",
+      "effective_status": "PAUSED"
+    },
+    {
+      "id": "6951024653957",
+      "name": "1",
+      "status": "PAUSED",
+      "effective_status": "PAUSED"
     }
-  ]
+  ],
+  "adsets": [
+    {
+      "id": "6966539859157",
+      "name": "Tailored web traffic campaign 3/30/2026 Ad set",
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE",
+      "campaign_id": "6966539858957"
+    },
+    {
+      "id": "6960435878157",
+      "name": "Seattle launch | v113_vo_a | $10/day",
+      "status": "PAUSED",
+      "effective_status": "PAUSED",
+      "campaign_id": "6960435028357"
+    },
+    {
+      "id": "6960435841557",
+      "name": "Seattle launch | v104b_vo_c | $20/day",
+      "status": "PAUSED",
+      "effective_status": "PAUSED",
+      "campaign_id": "6960435028357"
+    },
+    {
+      "id": "6960435749557",
+      "name": "Seattle launch | v98_vo_b | $10/day",
+      "status": "ACTIVE",
+      "effective_status": "CAMPAIGN_PAUSED",
+      "campaign_id": "6960435028357"
+    },
+    {
+      "id": "6960435699357",
+      "name": "Seattle launch | v94_vo_d | $10/day",
+      "status": "PAUSED",
+      "effective_status": "PAUSED",
+      "campaign_id": "6960435028357"
+    },
+    {
+      "id": "6960435476357",
+      "name": "Seattle launch | v94_vo_d | $3/day",
+      "status": "PAUSED",
+      "effective_status": "PAUSED",
+      "campaign_id": "6960435028357"
+    },
+    {
+      "id": "6960435407157",
+      "name": "TMP LC seattle | $3/day",
+      "status": "PAUSED",
+      "effective_status": "PAUSED",
+      "campaign_id": "6960435028357"
+    },
+    {
+      "id": "6960086009357",
+      "name": "Tailored web traffic campaign 3/20/2026 Ad set",
+      "status": "ACTIVE",
+      "effective_status": "CAMPAIGN_PAUSED",
+      "campaign_id": "6960086008957"
+    },
+    {
+      "id": "6955113574557",
+      "name": "Tailored web traffic campaign 3/11/2026 Ad set",
+      "status": "ACTIVE",
+      "effective_status": "CAMPAIGN_PAUSED",
+      "campaign_id": "6955113574357"
+    },
+    {
+      "id": "6953786714957",
+      "name": "Test - New Traffic Ad set with recommended settings",
+      "status": "ACTIVE",
+      "effective_status": "CAMPAIGN_PAUSED",
+      "campaign_id": "6953786714157"
+    },
+    {
+      "id": "6953786714757",
+      "name": "New Traffic Ad set with recommended settings",
+      "status": "PAUSED",
+      "effective_status": "PAUSED",
+      "campaign_id": "6953786714157"
+    },
+    {
+      "id": "6953785406157",
+      "name": "Test - New Traffic Ad set with recommended settings",
+      "status": "ACTIVE",
+      "effective_status": "CAMPAIGN_PAUSED",
+      "campaign_id": "6951024653957"
+    },
+    {
+      "id": "6951024653757",
+      "name": "New Traffic Ad set with recommended settings",
+      "status": "ACTIVE",
+      "effective_status": "CAMPAIGN_PAUSED",
+      "campaign_id": "6951024653957"
+    }
+  ],
+  "ads": [
+    {
+      "id": "6966540858557",
+      "name": "Number2",
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE",
+      "adset_id": "6966539859157",
+      "campaign_id": "6966539858957",
+      "creative": {
+        "id": "1934035907231154",
+        "name": "Come join us. Tickets drop every Sunday at 10AM! 2026-03-30-7548aa170eb79df73b40be1b510ca528"
+      }
+    },
+    {
+      "id": "6966539858757",
+      "name": "Tailored web traffic campaign 3/30/2026 Ad",
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE",
+      "adset_id": "6966539859157",
+      "campaign_id": "6966539858957",
+      "creative": {
+        "id": "2156471275125936",
+        "name": "Hot take: going out can actually make you smarter\u2026when it involves The Social Study \ud83c\udf7b  Grab a drink 2026-03-30-1f183b35e0a23daa3af313acf43782a9"
+      }
+    },
+    {
+      "id": "6951024654157",
+      "name": "1",
+      "status": "PAUSED",
+      "effective_status": "PAUSED",
+      "adset_id": "6951024653757",
+      "campaign_id": "6951024653957",
+      "creative": {
+        "id": "1725670242173247",
+        "name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-abc028c632e0436a68507d2aeb3662fe"
+      }
+    },
+    {
+      "id": "6953785406357",
+      "name": "1",
+      "status": "PAUSED",
+      "effective_status": "PAUSED",
+      "adset_id": "6953785406157",
+      "campaign_id": "6951024653957",
+      "creative": {
+        "id": "1548845102842551",
+        "name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-97c4eb0f10f7736f63148e943baac553"
+      }
+    },
+    {
+      "id": "6953786714557",
+      "name": "1",
+      "status": "PAUSED",
+      "effective_status": "PAUSED",
+      "adset_id": "6953786714957",
+      "campaign_id": "6953786714157",
+      "creative": {
+        "id": "1548845102842551",
+        "name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-97c4eb0f10f7736f63148e943baac553"
+      }
+    },
+    {
+      "id": "6953786714357",
+      "name": "1",
+      "status": "PAUSED",
+      "effective_status": "PAUSED",
+      "adset_id": "6953786714757",
+      "campaign_id": "6953786714157",
+      "creative": {
+        "id": "1308682617805300",
+        "name": "Calling all San Diego, Orange County, and Denver intellectuals \ud83e\udde0 This one\u2019s for you. Tickets drop e 2026-03-08-8687ee2e441bfe97bf6ef5e14260fb48"
+      }
+    },
+    {
+      "id": "6960435894757",
+      "name": "Seattle launch | v113_vo_a",
+      "status": "ACTIVE",
+      "effective_status": "ADSET_PAUSED",
+      "adset_id": "6960435878157",
+      "campaign_id": "6960435028357",
+      "creative": {
+        "id": "1307752414611397",
+        "name": "Seattle_v113_vo_a_creative 2026-03-21-82e723bf68e3cbe70ca145c7239aa024"
+      }
+    },
+    {
+      "id": "6960435854157",
+      "name": "Seattle launch | v104b_vo_c",
+      "status": "ACTIVE",
+      "effective_status": "ADSET_PAUSED",
+      "adset_id": "6960435841557",
+      "campaign_id": "6960435028357",
+      "creative": {
+        "id": "947661237731455",
+        "name": "Seattle_v104b_vo_c_creative 2026-03-21-2cef9627eece0157edddc1653614b310"
+      }
+    },
+    {
+      "id": "6960435771957",
+      "name": "Seattle launch | v98_vo_b",
+      "status": "ACTIVE",
+      "effective_status": "CAMPAIGN_PAUSED",
+      "adset_id": "6960435749557",
+      "campaign_id": "6960435028357",
+      "creative": {
+        "id": "1194881589203157",
+        "name": "Seattle_v98_vo_b_creative 2026-03-21-99137ee9bf51b7e9ca0e5cbe9a2cb53d"
+      }
+    },
+    {
+      "id": "6960435711757",
+      "name": "Seattle launch | v94_vo_d",
+      "status": "ACTIVE",
+      "effective_status": "ADSET_PAUSED",
+      "adset_id": "6960435699357",
+      "campaign_id": "6960435028357",
+      "creative": {
+        "id": "1285603686819206",
+        "name": "Seattle_v94_vo_d_creative 2026-03-21-55eccad43b49d6bd3852e9932daa6562"
+      }
+    },
+    {
+      "id": "6960086009157",
+      "name": "Tailored web traffic campaign 3/20/2026 Ad",
+      "status": "ACTIVE",
+      "effective_status": "CAMPAIGN_PAUSED",
+      "adset_id": "6960086009357",
+      "campaign_id": "6960086008957",
+      "creative": {
+        "id": "2089966221853094",
+        "name": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link 2026-03-20-1cf64a246dbc22003bfc846333d2c282"
+      }
+    },
+    {
+      "id": "6955113574157",
+      "name": "Tailored web traffic campaign 3/11/2026 Ad",
+      "status": "ACTIVE",
+      "effective_status": "CAMPAIGN_PAUSED",
+      "adset_id": "6955113574557",
+      "campaign_id": "6955113574357",
+      "creative": {
+        "id": "1598889647989602",
+        "name": "Not your average night out: drinks + ideas + people who actually want to learn something. 2026-03-11-d903cc461832f20f0639f16d24cca0d4"
+      }
+    }
+  ],
+  "campaign": [
+    {
+      "campaign_id": "6966539858957",
+      "campaign": "Tailored web traffic campaign 3/30/2026 Campaign",
+      "status": "ACTIVE",
+      "adsets": [
+        {
+          "adset_id": "6966539859157",
+          "adset": "Tailored web traffic campaign 3/30/2026 Ad set",
+          "status": "ACTIVE",
+          "ads": [
+            {
+              "ad_id": "6966539858757",
+              "ad": "Tailored web traffic campaign 3/30/2026 Ad",
+              "status": "ACTIVE",
+              "date_start": "2026-03-31",
+              "date_stop": "2026-03-31",
+              "creative_id": "2156471275125936",
+              "creative_name": "Hot take: going out can actually make you smarter\u2026when it involves The Social Study \ud83c\udf7b  Grab a drink 2026-03-30-1f183b35e0a23daa3af313acf43782a9",
+              "spend": 6.72,
+              "clicks": 90,
+              "impressions": 1179,
+              "reach": 1110,
+              "link_clicks": 86,
+              "outbound_clicks": 86,
+              "landing_page_views": 86,
+              "purchases": 0,
+              "leads": 0,
+              "view_content": 0,
+              "add_to_cart": 0,
+              "initiate_checkout": 0,
+              "ctr": 7.633588,
+              "cpm": 5.699746,
+              "cpc": 0.074667,
+              "frequency_avg": 1.062162,
+              "outbound_ctr": 7.29431721798134,
+              "lpv_rate": 100.0,
+              "cost_per_lpv": 0.07813953488372093,
+              "first_time_impression_ratio": 94.14758269720102,
+              "actions": [
+                {
+                  "action_type": "link_click",
+                  "value": "86"
+                },
+                {
+                  "action_type": "page_engagement",
+                  "value": "507"
+                },
+                {
+                  "action_type": "post_engagement",
+                  "value": "507"
+                },
+                {
+                  "action_type": "post_interaction_gross",
+                  "value": "24"
+                },
+                {
+                  "action_type": "post_interaction_net",
+                  "value": "24"
+                },
+                {
+                  "action_type": "post",
+                  "value": "4"
+                },
+                {
+                  "action_type": "onsite_conversion.post_save",
+                  "value": "1"
+                },
+                {
+                  "action_type": "onsite_conversion.post_net_save",
+                  "value": "1"
+                },
+                {
+                  "action_type": "onsite_conversion.post_net_like",
+                  "value": "19"
+                },
+                {
+                  "action_type": "video_view",
+                  "value": "397"
+                },
+                {
+                  "action_type": "post_reaction",
+                  "value": "19"
+                }
+              ],
+              "trend_intelligence": null,
+              "fatigue_radar": null,
+              "decision_state": null,
+              "winner_durability": null
+            },
+            {
+              "ad_id": "6966540858557",
+              "ad": "Number2",
+              "status": "ACTIVE",
+              "date_start": "2026-03-31",
+              "date_stop": "2026-03-31",
+              "creative_id": "1934035907231154",
+              "creative_name": "Come join us. Tickets drop every Sunday at 10AM! 2026-03-30-7548aa170eb79df73b40be1b510ca528",
+              "spend": 0.51,
+              "clicks": 7,
+              "impressions": 101,
+              "reach": 99,
+              "link_clicks": 7,
+              "outbound_clicks": 7,
+              "landing_page_views": 7,
+              "purchases": 0,
+              "leads": 0,
+              "view_content": 0,
+              "add_to_cart": 0,
+              "initiate_checkout": 0,
+              "ctr": 6.930693,
+              "cpm": 5.049505,
+              "cpc": 0.072857,
+              "frequency_avg": 1.020202,
+              "outbound_ctr": 6.9306930693069315,
+              "lpv_rate": 100.0,
+              "cost_per_lpv": 0.07285714285714286,
+              "first_time_impression_ratio": 98.01980198019803,
+              "actions": [
+                {
+                  "action_type": "link_click",
+                  "value": "7"
+                },
+                {
+                  "action_type": "page_engagement",
+                  "value": "53"
+                },
+                {
+                  "action_type": "post_engagement",
+                  "value": "53"
+                },
+                {
+                  "action_type": "post_interaction_gross",
+                  "value": "2"
+                },
+                {
+                  "action_type": "post_interaction_net",
+                  "value": "2"
+                },
+                {
+                  "action_type": "post",
+                  "value": "1"
+                },
+                {
+                  "action_type": "onsite_conversion.post_net_like",
+                  "value": "1"
+                },
+                {
+                  "action_type": "video_view",
+                  "value": "44"
+                },
+                {
+                  "action_type": "post_reaction",
+                  "value": "1"
+                }
+              ],
+              "trend_intelligence": null,
+              "fatigue_radar": null,
+              "decision_state": null,
+              "winner_durability": null
+            }
+          ],
+          "spend": 7.23,
+          "clicks": 97,
+          "impressions": 1280,
+          "reach": 1209,
+          "link_clicks": 93,
+          "outbound_clicks": 93,
+          "landing_page_views": 93,
+          "purchases": 0,
+          "leads": 0,
+          "view_content": 0,
+          "add_to_cart": 0,
+          "initiate_checkout": 0,
+          "ctr": 7.578,
+          "cpm": 5.648,
+          "cpc": 0.075,
+          "frequency_avg": 1.059,
+          "outbound_ctr": 7.266,
+          "lpv_rate": 100.0,
+          "cost_per_lpv": 0.078,
+          "first_time_impression_ratio": 94.453
+        }
+      ],
+      "spend": 7.23,
+      "clicks": 97,
+      "impressions": 1280,
+      "reach": 1209,
+      "link_clicks": 93,
+      "outbound_clicks": 93,
+      "landing_page_views": 93,
+      "purchases": 0,
+      "leads": 0,
+      "view_content": 0,
+      "add_to_cart": 0,
+      "initiate_checkout": 0,
+      "ctr": 7.578,
+      "cpm": 5.648,
+      "cpc": 0.075,
+      "frequency_avg": 1.059,
+      "outbound_ctr": 7.266,
+      "lpv_rate": 100.0,
+      "cost_per_lpv": 0.078,
+      "first_time_impression_ratio": 94.453
+    }
+  ],
+  "source": "direct_meta_ad_level_pull"
 }
