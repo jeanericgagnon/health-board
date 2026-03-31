@@ -33,7 +33,10 @@ else
   echo "INFO: skipping embedded KPI pull (RUN_KPI_PULL_FIRST!=1)"
 fi
 
-# Build website snapshot from latest exports
+# Pull follower baseline first so KPI payload can use live baseline/day gain.
+python3 "$REPO_DIR/scripts/fetch_followers_blastup.py" >> "$LOG_DIR/followers.log" 2>&1 || true
+
+# Build website snapshot from latest exports (ad-level metrics are the primary grain)
 python3 "$REPO_DIR/scripts/pull_kpis.py"
 
 # Pull creative metadata for concept-level analysis (best effort)
@@ -44,6 +47,9 @@ python3 "$REPO_DIR/scripts/fetch_competitor_followers_blastup.py" >> "$LOG_DIR/c
 
 # Run analyzer (Phase 1 autopilot foundation)
 python3 "$REPO_DIR/scripts/analyze_kpis.py" >> "$LOG_DIR/analyze-kpis.log" 2>&1 || true
+
+# Archive outputs + Desktop backups after generation.
+python3 "$REPO_DIR/scripts/archive_and_backup.py" >> "$LOG_DIR/archive-and-backup.log" 2>&1 || true
 
 # Build flywheel analytics join/view export (voice/hook/script + CPC trends)
 python3 "$REPO_DIR/../ads-ops/scripts/setup_flywheel_analytics.py" >> "$LOG_DIR/analyze-kpis.log" 2>&1 || true

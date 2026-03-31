@@ -1,0 +1,136 @@
+{
+  "generated_at": "2026-03-31T02:40:42.905781Z",
+  "rows": [
+    {
+      "campaign_id": "",
+      "campaign": "Unknown Campaign",
+      "adset_id": "",
+      "ad_id": "6966539858757",
+      "ad": "Tailored web traffic campaign 3/30/2026 Ad",
+      "state": "SCALE",
+      "action_ready": "scalable",
+      "next_gate": "none",
+      "gate_progress": {
+        "spend": 12.38,
+        "gate_5": {
+          "required": 5.0,
+          "passed": true,
+          "current_pct": 100.0
+        },
+        "gate_10": {
+          "required": 10.0,
+          "passed": true,
+          "current_pct": 100.0
+        }
+      },
+      "action_timestamp": "2026-03-31T02:36:29.916658Z",
+      "updated_at": "2026-03-31T02:40:42.905781Z"
+    },
+    {
+      "campaign_id": "",
+      "campaign": "Unknown Campaign",
+      "adset_id": "",
+      "ad_id": "6955113574157",
+      "ad": "Tailored web traffic campaign 3/11/2026 Ad",
+      "state": "WATCH",
+      "action_ready": "monitor",
+      "next_gate": "$10",
+      "gate_progress": {
+        "spend": 9.28,
+        "gate_5": {
+          "required": 5.0,
+          "passed": true,
+          "current_pct": 100.0
+        },
+        "gate_10": {
+          "required": 10.0,
+          "passed": false,
+          "current_pct": 85.6
+        }
+      },
+      "action_timestamp": "2026-03-31T02:36:29.916658Z",
+      "updated_at": "2026-03-31T02:40:42.905781Z"
+    },
+    {
+      "campaign_id": "",
+      "campaign": "Unknown Campaign",
+      "adset_id": "",
+      "ad_id": "6960435771957",
+      "ad": "Seattle launch | v98_vo_b",
+      "state": "WATCH",
+      "action_ready": "monitor",
+      "next_gate": "$10",
+      "gate_progress": {
+        "spend": 6.63,
+        "gate_5": {
+          "required": 5.0,
+          "passed": true,
+          "current_pct": 100.0
+        },
+        "gate_10": {
+          "required": 10.0,
+          "passed": false,
+          "current_pct": 32.6
+        }
+      },
+      "action_timestamp": "2026-03-31T02:40:05.188147Z",
+      "updated_at": "2026-03-31T02:40:42.905781Z"
+    },
+    {
+      "campaign_id": "",
+      "campaign": "Unknown Campaign",
+      "adset_id": "",
+      "ad_id": "6960086009157",
+      "ad": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
+      "state": "HOLD",
+      "action_ready": "insufficient_spend",
+      "next_gate": "$5",
+      "gate_progress": {
+        "spend": 4.81,
+        "gate_5": {
+          "required": 5.0,
+          "passed": false,
+          "current_pct": 96.2
+        },
+        "gate_10": {
+          "required": 10.0,
+          "passed": false,
+          "current_pct": null
+        }
+      },
+      "action_timestamp": null,
+      "updated_at": "2026-03-31T02:40:42.905781Z"
+    },
+    {
+      "campaign_id": "",
+      "campaign": "Unknown Campaign",
+      "adset_id": "",
+      "ad_id": "6966540858557",
+      "ad": "Number2",
+      "state": "HOLD",
+      "action_ready": "insufficient_spend",
+      "next_gate": "$5",
+      "gate_progress": {
+        "spend": 2.27,
+        "gate_5": {
+          "required": 5.0,
+          "passed": false,
+          "current_pct": 45.4
+        },
+        "gate_10": {
+          "required": 10.0,
+          "passed": false,
+          "current_pct": null
+        }
+      },
+      "action_timestamp": null,
+      "updated_at": "2026-03-31T02:40:42.905781Z"
+    }
+  ],
+  "counts": {
+    "hold": 2,
+    "watch": 2,
+    "scale": 1,
+    "kill": 0
+  }
+}

@@ -7,13 +7,15 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 WORKSPACE = Path('/Users/ericsysclaw/.openclaw/workspace')
+DUP_DIR = WORKSPACE / 'ops' / 'gaginonricky-kpi-dup'
 ADS_DIR = WORKSPACE / 'exports' / 'meta-ads'
-DB_PATH = WORKSPACE / 'ads-ops' / 'db' / 'kpi.sqlite'
+DB_PATH = DUP_DIR / 'gaginonricky_kpi.sqlite'
 DATA_DIR = Path(__file__).resolve().parents[1] / 'data'
 OUT = DATA_DIR / 'kpi_latest.json'
 MANUAL_INTRADAY_SPEND_PATH = DATA_DIR / 'manual_intraday_spend.json'
-ADSOPS_LATEST_PATH = WORKSPACE / 'ads-ops' / 'dashboard' / 'data' / 'latest.json'
+ADSOPS_LATEST_PATH = DUP_DIR / 'data' / 'adsops_latest.json'
 CAMPAIGN_ANNOTATIONS_PATH = DATA_DIR / 'campaign_annotations.json'
+FOLLOWER_BASELINE_PATH = DATA_DIR / 'follower_baseline_latest.json'
 
 # Configurable intelligence thresholds (safe defaults; tune as needed)
 TREND_MIN_SPEND_PER_DAY = 1.0
@@ -48,8 +50,52 @@ def read_adsops_latest():
         return None
 
 
+def adsops_payload_has_row_level_data(d):
+    if not isinstance(d, dict):
+        return False
+    if isinstance(d.get('campaign'), list) and d.get('campaign'):
+        return True
+    if isinstance(d.get('campaigns'), list) and d.get('campaigns'):
+        first = d['campaigns'][0]
+        return isinstance(first, dict) and any(k in first for k in ('spend', 'clicks', 'impressions'))
+    return False
+
+
 def read_summary():
-    # Prefer fresh ads-ops dashboard payload (DB-backed) when available.
+    # Primary source: latest dup-db KPI summary imported from the richer site payload.
+    if DB_PATH.exists():
+        try:
+            conn = sqlite3.connect(DB_PATH)
+            conn.row_factory = sqlite3.Row
+            row = conn.execute(
+                "SELECT * FROM kpi_summary ORDER BY updated_at_utc DESC LIMIT 1"
+            ).fetchone()
+            conn.close()
+            if row:
+                return {
+                    'since': None,
+                    'until': None,
+                    'rows': 1,
+                    'total_spend': row['total_spend'] or 0.0,
+                    'total_clicks': row['total_clicks'] or 0,
+                    'total_impressions': row['total_impressions'] or 0,
+                    'total_follows': row['total_follows'] or 0,
+                    'blended_cost_per_follow': row['blended_cost_per_follow'],
+                    'pulled_at': row['updated_at_utc'],
+                    'ad_account_id': row['ad_account_id'],
+                    'current_followers_live': row['current_followers_live'],
+                    'daily_gain_live': row['daily_gain_live'],
+                    'baseline_followers': row['baseline_followers'],
+                    'total_link_clicks': row['total_link_clicks'] or 0,
+                    'total_outbound_clicks': row['total_outbound_clicks'] or 0,
+                    'total_landing_page_views': row['total_landing_page_views'] or 0,
+                    'cost_per_landing_page_view': row['cost_per_landing_page_view'],
+                    'lpv_per_outbound_click_rate': row['lpv_per_outbound_click_rate'],
+                }
+        except Exception:
+            pass
+
+    # Secondary source: fresh ads-ops dashboard payload when available.
     d = read_adsops_latest()
     if d:
         try:
@@ -67,6 +113,15 @@ def read_summary():
                 'total_follows': 0,
                 'blended_cost_per_follow': None,
                 'pulled_at': d.get('updated_at'),
+                'ad_account_id': (d.get('account') or {}).get('id'),
+                'current_followers_live': None,
+                'daily_gain_live': None,
+                'baseline_followers': None,
+                'total_link_clicks': 0,
+                'total_outbound_clicks': 0,
+                'total_landing_page_views': 0,
+                'cost_per_landing_page_view': None,
+                'lpv_per_outbound_click_rate': None,
             }
         except Exception:
             pass
@@ -127,25 +182,39 @@ def read_manual_intraday_spend_override():
 
 
 def read_insights_rows():
-    # Primary source: latest raw ad-level payload from SQLite (contains date_start/date_stop).
+    adsops = read_adsops_latest()
+    if adsops and not adsops_payload_has_row_level_data(adsops):
+        # Do not mix a fresh summary-only payload with stale row-level history.
+        # When the adsops payload lacks campaign/ad insight rows, return no rows so
+        # downstream output stays internally consistent with the live summary.
+        return []
+
+    # Primary source: populated dup-db ad_metrics rows imported from the richer site payload.
     if DB_PATH.exists():
         try:
             conn = sqlite3.connect(DB_PATH)
             conn.row_factory = sqlite3.Row
-            row = conn.execute(
-                """
-                SELECT payload_json
-                FROM kpi_snapshots
-                WHERE source='meta_marketing_api' AND level='ad'
-                ORDER BY id DESC
-                LIMIT 1
-                """
+            latest = conn.execute(
+                "SELECT snapshot_updated_at_utc FROM ad_metrics ORDER BY snapshot_updated_at_utc DESC LIMIT 1"
             ).fetchone()
-            conn.close()
-            if row and row['payload_json']:
-                rows = json.loads(row['payload_json'])
-                if isinstance(rows, list) and rows:
-                    return rows
+            if latest and latest['snapshot_updated_at_utc']:
+                rows = conn.execute(
+                    "SELECT raw_json FROM ad_metrics WHERE snapshot_updated_at_utc = ? ORDER BY spend DESC",
+                    (latest['snapshot_updated_at_utc'],)
+                ).fetchall()
+                conn.close()
+                out = []
+                for r in rows:
+                    try:
+                        obj = json.loads(r['raw_json']) if r['raw_json'] else None
+                    except Exception:
+                        obj = None
+                    if isinstance(obj, dict):
+                        out.append(obj)
+                if out:
+                    return out
+            else:
+                conn.close()
         except Exception:
             pass
 
@@ -174,12 +243,66 @@ def action_count(row, action_type: str):
         return 0.0
 
 
+def enrich_names_from_dup_db(rows):
+    if not rows or not DB_PATH.exists():
+        return rows
+    try:
+        conn = sqlite3.connect(DB_PATH)
+        conn.row_factory = sqlite3.Row
+        campaign_map = {}
+        for r in conn.execute("SELECT campaign_id, campaign_name FROM campaign_metrics WHERE campaign_id IS NOT NULL AND campaign_id != '' AND campaign_name IS NOT NULL AND campaign_name != '' ORDER BY snapshot_updated_at_utc DESC"):
+            cid = str(r['campaign_id'] or '').strip()
+            cname = str(r['campaign_name'] or '').strip()
+            if cid and cname and cid not in campaign_map:
+                campaign_map[cid] = cname
+        adset_map = {}
+        for r in conn.execute("SELECT adset_id, adset_name FROM adset_metrics WHERE adset_id IS NOT NULL AND adset_id != '' AND adset_name IS NOT NULL AND adset_name != '' ORDER BY snapshot_updated_at_utc DESC"):
+            sid = str(r['adset_id'] or '').strip()
+            sname = str(r['adset_name'] or '').strip()
+            if sid and sname and sid not in adset_map:
+                adset_map[sid] = sname
+        ad_map = {}
+        for r in conn.execute("SELECT ad_id, ad_name FROM ad_metrics WHERE ad_id IS NOT NULL AND ad_id != '' AND ad_name IS NOT NULL AND ad_name != '' ORDER BY snapshot_updated_at_utc DESC"):
+            aid = str(r['ad_id'] or '').strip()
+            aname = str(r['ad_name'] or '').strip()
+            if aid and aname and aid not in ad_map:
+                ad_map[aid] = aname
+        conn.close()
+    except Exception:
+        return rows
+
+    out = []
+    for r in rows:
+        rr = dict(r)
+        cid = str(rr.get('campaign_id') or '').strip()
+        sid = str(rr.get('adset_id') or '').strip()
+        aid = str(rr.get('ad_id') or '').strip()
+
+        mapped_campaign = campaign_map.get(cid)
+        mapped_adset = adset_map.get(sid)
+        mapped_ad = ad_map.get(aid)
+
+        if cid and mapped_campaign and ((not rr.get('campaign_name')) or str(rr.get('campaign_name')).strip() in ('', 'Unknown Campaign')):
+            rr['campaign_name'] = mapped_campaign
+            rr['campaign'] = mapped_campaign
+        if sid and mapped_adset and ((not rr.get('adset_name')) or str(rr.get('adset_name')).strip() in ('', 'Unknown Ad Set')):
+            rr['adset_name'] = mapped_adset
+            rr['adset'] = mapped_adset
+        if aid and mapped_ad and ((not rr.get('ad_name')) or str(rr.get('ad_name')).strip() in ('', 'Unknown Ad')):
+            rr['ad_name'] = mapped_ad
+            rr['ad'] = mapped_ad
+        out.append(rr)
+    return out
+
+
 def apply_market_labels(rows):
     """Apply human-friendly market labels to known campaigns/adsets/ads.
     This is intentionally lightweight so next cron pull reflects naming without a manual deploy.
     """
     if not rows:
       return rows
+
+    rows = enrich_names_from_dup_db(rows)
 
     CAMPAIGN_LABEL_OVERRIDES = {
         'Tailored web traffic campaign 3/20/2026 Campaign': 'Denver — Tailored web traffic campaign 3/20/2026 Campaign',
@@ -211,12 +334,12 @@ def aggregate_hierarchy(rows):
     campaigns = {}
 
     for r in rows:
-        c = (r.get('campaign_name') or 'Unknown Campaign').strip() or 'Unknown Campaign'
-        s = (r.get('adset_name') or 'Unknown Ad Set').strip() or 'Unknown Ad Set'
-        a = (r.get('ad_name') or 'Unknown Ad').strip() or 'Unknown Ad'
-        cid = (r.get('campaign_id') or '').strip()
-        sid = (r.get('adset_id') or '').strip()
-        aid = (r.get('ad_id') or '').strip()
+        c = (r.get('campaign_name') or r.get('campaign') or 'Unknown Campaign').strip() or 'Unknown Campaign'
+        s = (r.get('adset_name') or r.get('adset') or 'Unknown Ad Set').strip() or 'Unknown Ad Set'
+        a = (r.get('ad_name') or r.get('ad') or 'Unknown Ad').strip() or 'Unknown Ad'
+        cid = str(r.get('campaign_id') or '').strip()
+        sid = str(r.get('adset_id') or '').strip()
+        aid = str(r.get('ad_id') or '').strip()
 
         cobj = campaigns.setdefault(c, {
             'campaign': c,
@@ -345,33 +468,7 @@ def aggregate_hierarchy(rows):
 
 
 def read_followers_series(limit=120):
-    # Prefer live DB snapshots so chart/date advances even when manual CSV lags.
-    if DB_PATH.exists():
-        try:
-            conn = sqlite3.connect(DB_PATH)
-            conn.row_factory = sqlite3.Row
-            rows = conn.execute("""
-                SELECT pulled_at_utc, follower_count
-                FROM follower_snapshots
-                WHERE username='thesocial.study'
-                ORDER BY pulled_at_utc ASC, id ASC
-            """).fetchall()
-            conn.close()
-
-            by_day = {}
-            for r in rows:
-                ts = r['pulled_at_utc']
-                dt = datetime.fromisoformat(ts.replace('Z', '+00:00')).astimezone(ZoneInfo('America/Los_Angeles'))
-                day = dt.date().isoformat()
-                by_day[day] = int(r['follower_count'])  # latest snapshot wins for day
-
-            out = [{'date': d, 'followers_total': v} for d, v in sorted(by_day.items())]
-            if out:
-                return out[-limit:]
-        except Exception:
-            pass
-
-    # Fallback: legacy CSV backfill
+    # Current dup-db does not yet store follower_snapshots history; use legacy CSV backfill when available.
     p = ADS_DIR / 'followers_daily.csv'
     if not p.exists():
         return []
@@ -736,51 +833,27 @@ def enrich_hierarchy_with_intelligence(campaigns, intelligence):
 
 
 def read_live_followers_stats():
-    if not DB_PATH.exists():
+    if FOLLOWER_BASELINE_PATH.exists():
+        try:
+            d = json.loads(FOLLOWER_BASELINE_PATH.read_text())
+            return {
+                'current_followers_live': d.get('current_followers_live'),
+                'daily_gain_live': d.get('daily_gain_live'),
+                'baseline_followers': d.get('baseline_followers'),
+            }
+        except Exception:
+            pass
+    # Until follower snapshots are persisted into the dup-db, derive live stats from the latest competitor/follower mirrors when possible.
+    followers = read_followers_series(limit=120)
+    if not followers:
         return {'current_followers_live': None, 'daily_gain_live': None, 'baseline_followers': None}
-
-    try:
-        conn = sqlite3.connect(DB_PATH)
-        conn.row_factory = sqlite3.Row
-
-        latest = conn.execute(
-            """
-            SELECT pulled_at_utc, follower_count
-            FROM follower_snapshots
-            WHERE username='thesocial.study'
-            ORDER BY pulled_at_utc DESC
-            LIMIT 1
-            """
-        ).fetchone()
-        if not latest:
-            conn.close()
-            return {'current_followers_live': None, 'daily_gain_live': None, 'baseline_followers': None}
-
-        now_local = datetime.now(ZoneInfo('America/Los_Angeles'))
-        day_start_local = now_local.replace(hour=0, minute=0, second=0, microsecond=0)
-        day_start_utc = day_start_local.astimezone(timezone.utc).isoformat()
-
-        baseline = conn.execute(
-            """
-            SELECT follower_count
-            FROM follower_snapshots
-            WHERE username='thesocial.study' AND pulled_at_utc < ?
-            ORDER BY pulled_at_utc DESC
-            LIMIT 1
-            """,
-            (day_start_utc,)
-        ).fetchone()
-        conn.close()
-
-        current = int(latest['follower_count'])
-        baseline_count = int(baseline['follower_count']) if baseline else current
-        return {
-            'current_followers_live': current,
-            'daily_gain_live': current - baseline_count,
-            'baseline_followers': baseline_count,
-        }
-    except Exception:
-        return {'current_followers_live': None, 'daily_gain_live': None, 'baseline_followers': None}
+    current = int(num(followers[-1].get('followers_total')))
+    baseline_count = int(num(followers[-2].get('followers_total'))) if len(followers) >= 2 else current
+    return {
+        'current_followers_live': current,
+        'daily_gain_live': current - baseline_count,
+        'baseline_followers': baseline_count,
+    }
 
 
 def build_insights(summary, campaigns, followers_daily, spend_series, recommendations, data_health):
@@ -2281,22 +2354,22 @@ def main():
     payload = {
         'updated_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
         'summary': {
-            'ad_account_id': meta.get('ad_account_id'),
-            'total_spend': total_spend,
+            'ad_account_id': summary.get('ad_account_id') or meta.get('ad_account_id'),
+            'total_spend': summary.get('total_spend', total_spend),
             'total_clicks': summary.get('total_clicks'),
             'total_impressions': summary.get('total_impressions'),
             'total_follows': summary.get('total_follows'),
             'blended_cost_per_follow': summary.get('blended_cost_per_follow'),
             'since': summary.get('since'),
             'until': summary.get('until'),
-            'current_followers_live': live_followers.get('current_followers_live'),
-            'daily_gain_live': live_followers.get('daily_gain_live'),
-            'baseline_followers': live_followers.get('baseline_followers'),
-            'total_link_clicks': total_link_clicks,
-            'total_outbound_clicks': total_outbound_clicks,
-            'total_landing_page_views': total_landing_page_views,
-            'cost_per_landing_page_view': round(total_spend / total_landing_page_views, 3) if total_landing_page_views > 0 else None,
-            'lpv_per_outbound_click_rate': round((total_landing_page_views / total_outbound_clicks) * 100, 3) if total_outbound_clicks > 0 else None,
+            'current_followers_live': summary.get('current_followers_live') if summary.get('current_followers_live') is not None else live_followers.get('current_followers_live'),
+            'daily_gain_live': summary.get('daily_gain_live') if summary.get('daily_gain_live') is not None else live_followers.get('daily_gain_live'),
+            'baseline_followers': summary.get('baseline_followers') if summary.get('baseline_followers') is not None else live_followers.get('baseline_followers'),
+            'total_link_clicks': summary.get('total_link_clicks', total_link_clicks),
+            'total_outbound_clicks': summary.get('total_outbound_clicks', total_outbound_clicks),
+            'total_landing_page_views': summary.get('total_landing_page_views', total_landing_page_views),
+            'cost_per_landing_page_view': summary.get('cost_per_landing_page_view') if summary.get('cost_per_landing_page_view') is not None else (round(total_spend / total_landing_page_views, 3) if total_landing_page_views > 0 else None),
+            'lpv_per_outbound_click_rate': summary.get('lpv_per_outbound_click_rate') if summary.get('lpv_per_outbound_click_rate') is not None else (round((total_landing_page_views / total_outbound_clicks) * 100, 3) if total_outbound_clicks > 0 else None),
             'manual_intraday_spend_override_note': ('intraday spend manually overridden from data/manual_intraday_spend.json' if manual_spend_override else None),
             'manual_intraday_spend_as_of_local': (manual_spend_override.get('as_of_local') if manual_spend_override else None),
             'intraday_spend_estimated': intraday_estimated,

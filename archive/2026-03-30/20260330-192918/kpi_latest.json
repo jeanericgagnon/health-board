@@ -1,0 +1,253 @@
+{
+  "updated_at": "2026-03-31T02:29:18.474038Z",
+  "summary": {
+    "ad_account_id": "1379452680603809",
+    "total_spend": 34.89,
+    "total_clicks": 344,
+    "total_impressions": 5658,
+    "total_follows": 0,
+    "blended_cost_per_follow": null,
+    "since": null,
+    "until": null,
+    "current_followers_live": 109068,
+    "daily_gain_live": 0,
+    "baseline_followers": 109068,
+    "total_link_clicks": 330,
+    "total_outbound_clicks": 0,
+    "total_landing_page_views": 0,
+    "cost_per_landing_page_view": null,
+    "lpv_per_outbound_click_rate": null,
+    "manual_intraday_spend_override_note": null,
+    "manual_intraday_spend_as_of_local": null,
+    "intraday_spend_estimated": false
+  },
+  "campaigns": [],
+  "top_campaigns": [],
+  "campaign_daily": [],
+  "followers_series": [
+    {
+      "date": "2026-03-30",
+      "followers_total": 109068.0
+    }
+  ],
+  "followers_daily_series": [
+    {
+      "date": "2026-03-30",
+      "followers_per_day": null,
+      "followers_total": 109068.0
+    }
+  ],
+  "spend_series": [],
+  "insights": [
+    {
+      "type": "data_gap",
+      "text": "Follower attribution is still limited; blended CPF will improve as daily follower history grows."
+    },
+    {
+      "type": "alert",
+      "text": "Data health: degraded (No insights rows or no campaign rollup)."
+    }
+  ],
+  "recommendations": [],
+  "pacing": {
+    "target_daily": 60.0,
+    "today_spend": 0.0,
+    "status": "unknown"
+  },
+  "forecasting": {
+    "today_spend_so_far": 0,
+    "projected_eod_spend": 0.0,
+    "projected_eod_cpc": null,
+    "pace_elapsed_pct": 81.18,
+    "target_daily_spend": 60.0
+  },
+  "forecasting_tiles": {
+    "generated_at": "2026-03-31T02:29:18.473828Z",
+    "projected_eod_spend": null,
+    "projected_eod_cpc": null,
+    "spend_progress_pct": null,
+    "hour_progress": 81.2,
+    "today_spend": 0.0,
+    "today_clicks": 0,
+    "data_source": "N/A",
+    "estimation_type": "estimated",
+    "notes": "Projected EOD CPC = projected EOD spend \u00f7 projected EOD clicks. Requires today clicks for CPC."
+  },
+  "intelligence": {
+    "trend_intelligence": {
+      "campaign": {},
+      "adset": {},
+      "ad": {}
+    },
+    "decision_state": {
+      "ad": {}
+    },
+    "budget_movement_audit": {
+      "events": []
+    },
+    "fatigue_radar": {
+      "campaign": {},
+      "adset": {},
+      "ad": {}
+    },
+    "winner_durability": {
+      "ad": {}
+    }
+  },
+  "trend_intelligence": {
+    "generated_at": "2026-03-31T02:29:18.473160Z",
+    "source": "trend_intelligence_from_kpi_rows",
+    "campaigns": [],
+    "adsets": [],
+    "ads": [],
+    "notes": "Data source: kpi snapshot rows + daily aggregation. Trend is recent_window vs prior_window.",
+    "refresh_note": "fallback if insufficient daily history"
+  },
+  "decision_state": {
+    "generated_at": "2026-03-31T02:29:18.473454Z",
+    "rows": [],
+    "counts": {
+      "hold": 0,
+      "watch": 0,
+      "scale": 0,
+      "kill": 0
+    }
+  },
+  "creative_attribution": {
+    "generated_at": "2026-03-31T02:29:18.473575Z",
+    "rows": [],
+    "mandatory_fields": [],
+    "optional_fields": [
+      "voice_id",
+      "hook_bucket",
+      "script_id",
+      "format"
+    ],
+    "missing_counts": {
+      "voice_id": 0,
+      "hook_bucket": 0,
+      "script_id": 0,
+      "format": 0
+    }
+  },
+  "budget_movement": {
+    "generated_at": "2026-03-31T02:29:18.473763Z",
+    "source": "inferred_from_ad_daily_rows",
+    "audit_rows": [],
+    "notes": "Events inferred from latest ad-level daily row deltas (not control-plane logs).",
+    "after_effects_24h_available": false
+  },
+  "fatigue_radar": {
+    "generated_at": "2026-03-31T02:29:18.473887Z",
+    "rows": [],
+    "notes": "Frequency trend and CPC/CTR delta combined. \"before_collapse\" indicates likely alert tier.",
+    "alert_count": 0
+  },
+  "winner_durability": {
+    "generated_at": "2026-03-31T02:29:18.473949Z",
+    "rows": [],
+    "note": "Durability distinguishes Good today vs stable 3+ days where CPC <= threshold and spend exists."
+  },
+  "geo_efficiency": [],
+  "data_health": {
+    "status": "degraded",
+    "reason": "No insights rows or no campaign rollup",
+    "last_pull_age_min": 24.3,
+    "attribution_confidence": "stale"
+  },
+  "diagnostics": {
+    "creative_fatigue": {
+      "campaigns": [],
+      "ads": [],
+      "method": "frequency_pressure_plus_ctr_cpc_decay"
+    },
+    "time_efficiency": {
+      "source": "day_of_week_fallback",
+      "confidence": "low",
+      "best_windows": [],
+      "worst_windows": [],
+      "notes": "Hourly data unavailable; fallback uses day-of-week efficiency."
+    },
+    "attribution_confidence": {
+      "score": 72.0,
+      "band": "med",
+      "factors": [
+        {
+          "factor": "LPV coverage of outbound clicks",
+          "value": 0.0,
+          "penalty": 0.0
+        },
+        {
+          "factor": "Direct follow events",
+          "value": 0,
+          "penalty": 18.0
+        },
+        {
+          "factor": "Data freshness (minutes)",
+          "value": 24.3,
+          "penalty": 0.0
+        },
+        {
+          "factor": "Attribution sample size (outbound clicks)",
+          "value": 0,
+          "penalty": 10.0
+        }
+      ],
+      "penalty_total": 28.0,
+      "summary": "Attribution confidence MED (72.0/100)."
+    },
+    "anomalies": {
+      "count": 0,
+      "items": [],
+      "noise_guards": {
+        "min_impressions": 800,
+        "min_spend": 4,
+        "min_baseline_points": 4,
+        "z_threshold": 2.4
+      }
+    },
+    "recommendation_context": {
+      "top_fatigue_campaigns": [],
+      "anomaly_count": 0,
+      "time_efficiency_source": "day_of_week_fallback",
+      "attribution_band": "med"
+    }
+  },
+  "breakdowns": {
+    "placement": [],
+    "age_gender": [],
+    "device": [],
+    "region": []
+  },
+  "follower_demographics": {
+    "city": []
+  },
+  "optimization": {
+    "frequency": {
+      "avg_frequency": null,
+      "first_time_impression_ratio": null
+    },
+    "traffic_quality": {
+      "outbound_clicks": 0,
+      "clicks": 0,
+      "outbound_click_rate": null
+    },
+    "pacing": {
+      "day_target": 60.0,
+      "today_spend": 0.0,
+      "expected_spend_now": 48.71,
+      "pace_ratio": 0.0
+    },
+    "geo_efficiency": [],
+    "actions": [],
+    "attribution": {
+      "status": "estimated",
+      "reason": "Using blended model (spend + follower deltas)"
+    },
+    "data_health": {
+      "stale_minutes": 24,
+      "status": "ok"
+    },
+    "creative_leaderboard": []
+  }
+}
