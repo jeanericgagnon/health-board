@@ -1,27 +1,27 @@
 {
-  "generated_at": "2026-03-31T17:00:14.627374Z",
-  "source_updated_at": "2026-03-31T17:00:02.978567Z",
+  "generated_at": "2026-03-31T18:00:14.352194Z",
+  "source_updated_at": "2026-03-31T18:00:03.509037Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
-    "today_spend": 4.63,
-    "expected_by_now": 25.0,
-    "pace_ratio": 0.185,
+    "today_spend": 5.37,
+    "expected_by_now": 27.5,
+    "pace_ratio": 0.195,
     "status": "too_slow"
   },
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 55.0,
+    "last_pull_age_min": 55.1,
     "attribution_confidence": "estimated"
   },
   "summary": {
-    "total_spend": 4.63,
-    "total_clicks": 64,
-    "total_impressions": 814,
-    "daily_gain_live": 11,
-    "current_followers_live": 109085
+    "total_spend": 5.37,
+    "total_clicks": 76,
+    "total_impressions": 950,
+    "daily_gain_live": 12,
+    "current_followers_live": 109086
   },
   "recommendations": {
     "scale": [],
@@ -48,9 +48,9 @@
       "campaign": "Tailored web traffic campaign 3/30/2026 Campaign",
       "ad_id": "6966540858557",
       "ad_name": "Number2",
-      "ctr": 7.895,
-      "cpc": 0.065,
-      "spend": 0.39,
+      "ctr": 8.14,
+      "cpc": 0.063,
+      "spend": 0.44,
       "creative_name": null,
       "cta": null,
       "body": null
@@ -59,9 +59,9 @@
       "campaign": "Tailored web traffic campaign 3/30/2026 Campaign",
       "ad_id": "6966539858757",
       "ad_name": "Tailored web traffic campaign 3/30/2026 Ad",
-      "ctr": 7.859,
-      "cpc": 0.073,
-      "spend": 4.24,
+      "ctr": 7.986,
+      "cpc": 0.071,
+      "spend": 4.93,
       "creative_name": null,
       "cta": null,
       "body": null
