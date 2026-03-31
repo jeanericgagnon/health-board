@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-31T14:00:02.982614Z",
+  "generated_at": "2026-03-31T14:26:42.573567Z",
   "rows": [
     {
       "campaign_id": "",
@@ -11,11 +11,11 @@
       "action_ready": "insufficient_spend",
       "next_gate": "$5",
       "gate_progress": {
-        "spend": 1.97,
+        "spend": 2.49,
         "gate_5": {
           "required": 5.0,
           "passed": false,
-          "current_pct": 39.4
+          "current_pct": 49.8
         },
         "gate_10": {
           "required": 10.0,
@@ -24,7 +24,7 @@
         }
       },
       "action_timestamp": null,
-      "updated_at": "2026-03-31T14:00:02.982614Z"
+      "updated_at": "2026-03-31T14:26:42.573567Z"
     },
     {
       "campaign_id": "",
@@ -36,11 +36,11 @@
       "action_ready": "insufficient_spend",
       "next_gate": "$5",
       "gate_progress": {
-        "spend": 0.16,
+        "spend": 0.2,
         "gate_5": {
           "required": 5.0,
           "passed": false,
-          "current_pct": 3.2
+          "current_pct": 4.0
         },
         "gate_10": {
           "required": 10.0,
@@ -49,7 +49,7 @@
         }
       },
       "action_timestamp": null,
-      "updated_at": "2026-03-31T14:00:02.982614Z"
+      "updated_at": "2026-03-31T14:26:42.573567Z"
     }
   ],
   "counts": {

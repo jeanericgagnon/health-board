@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-31T14:00:02.983774Z",
+  "generated_at": "2026-03-31T14:26:42.574044Z",
   "rows": [
     {
       "entity_type": "ad",
@@ -13,10 +13,10 @@
       "stable_3d": false,
       "score": 6,
       "days_under_threshold": 1,
-      "latest_cpc": 0.07,
-      "latest_ctr": 8.26,
+      "latest_cpc": 0.067,
+      "latest_ctr": 8.486,
       "latest_frequency": null,
-      "spend_today": 1.97
+      "spend_today": 2.49
     },
     {
       "entity_type": "ad",
@@ -30,10 +30,10 @@
       "stable_3d": false,
       "score": 6,
       "days_under_threshold": 1,
-      "latest_cpc": 0.053,
-      "latest_ctr": 8.824,
+      "latest_cpc": 0.067,
+      "latest_ctr": 6.818,
       "latest_frequency": null,
-      "spend_today": 0.16
+      "spend_today": 0.2
     }
   ],
   "note": "Durability distinguishes Good today vs stable 3+ days where CPC <= threshold and spend exists."
