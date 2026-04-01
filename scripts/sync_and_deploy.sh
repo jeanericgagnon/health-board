@@ -52,6 +52,9 @@ python3 "$REPO_DIR/scripts/fetch_creative_metadata.py" >> "$LOG_DIR/creative-met
 # Pull competitor follower baselines (best effort)
 python3 "$REPO_DIR/scripts/fetch_competitor_followers_blastup.py" >> "$LOG_DIR/creative-meta.log" 2>&1 || true
 
+# Generate follower geo payload status/file so the dashboard has an explicit source state.
+python3 "$REPO_DIR/scripts/fetch_follower_demographics_city.py" >> "$LOG_DIR/followers.log" 2>&1 || true
+
 # Run analyzer (Phase 1 autopilot foundation)
 python3 "$REPO_DIR/scripts/analyze_kpis.py" >> "$LOG_DIR/analyze-kpis.log" 2>&1 || true
 
@@ -82,8 +85,8 @@ else
 fi
 
 # Commit only if data changed.
-if ! git diff --quiet -- data/kpi_latest.json data/adsops_latest.json data/analysis_latest.json data/analysis_brief.txt data/analysis_history.jsonl data/creative_metadata_latest.json data/competitor_followers_latest.json data/competitor_followers_history.jsonl data/trend_intelligence_latest.json data/decision_state_latest.json data/creative_attribution_latest.json data/budget_movement_audit.json data/forecasting_tiles_latest.json data/fatigue_radar_latest.json data/winner_durability_latest.json data/flywheel_latest_metrics.json 2>/dev/null; then
-  git add data/kpi_latest.json data/adsops_latest.json data/analysis_latest.json data/analysis_brief.txt data/analysis_history.jsonl data/creative_metadata_latest.json data/competitor_followers_latest.json data/competitor_followers_history.jsonl data/trend_intelligence_latest.json data/decision_state_latest.json data/creative_attribution_latest.json data/budget_movement_audit.json data/forecasting_tiles_latest.json data/fatigue_radar_latest.json data/winner_durability_latest.json data/flywheel_latest_metrics.json 2>/dev/null || git add data/kpi_latest.json data/analysis_latest.json data/analysis_brief.txt data/analysis_history.jsonl data/creative_metadata_latest.json data/competitor_followers_latest.json data/competitor_followers_history.jsonl data/flywheel_latest_metrics.json
+if ! git diff --quiet -- data/kpi_latest.json data/adsops_latest.json data/analysis_latest.json data/analysis_brief.txt data/analysis_history.jsonl data/creative_metadata_latest.json data/competitor_followers_latest.json data/competitor_followers_history.jsonl data/follower_demographics_city_latest.json data/trend_intelligence_latest.json data/decision_state_latest.json data/creative_attribution_latest.json data/budget_movement_audit.json data/forecasting_tiles_latest.json data/fatigue_radar_latest.json data/winner_durability_latest.json data/flywheel_latest_metrics.json 2>/dev/null; then
+  git add data/kpi_latest.json data/adsops_latest.json data/analysis_latest.json data/analysis_brief.txt data/analysis_history.jsonl data/creative_metadata_latest.json data/competitor_followers_latest.json data/competitor_followers_history.jsonl data/follower_demographics_city_latest.json data/trend_intelligence_latest.json data/decision_state_latest.json data/creative_attribution_latest.json data/budget_movement_audit.json data/forecasting_tiles_latest.json data/fatigue_radar_latest.json data/winner_durability_latest.json data/flywheel_latest_metrics.json 2>/dev/null || git add data/kpi_latest.json data/analysis_latest.json data/analysis_brief.txt data/analysis_history.jsonl data/creative_metadata_latest.json data/competitor_followers_latest.json data/competitor_followers_history.jsonl data/follower_demographics_city_latest.json data/flywheel_latest_metrics.json
   git commit -m "data: refresh KPI snapshot $(date '+%Y-%m-%d %H:%M %Z')" || true
   git push origin main || echo "WARN: git push failed (non-interactive credentials); continuing to deploy"
 else

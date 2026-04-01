@@ -1429,8 +1429,12 @@ def build_data_health(summary, campaigns, rows):
 
 
 def read_follower_city_rows(limit=200):
-    p = ADS_DIR / 'follower_demographics_city_latest.json'
-    if not p.exists():
+    candidate_paths = [
+        ADS_DIR / 'follower_demographics_city_latest.json',
+        DATA_DIR / 'follower_demographics_city_latest.json',
+    ]
+    p = next((x for x in candidate_paths if x.exists()), None)
+    if p is None:
         return []
     try:
         d = json.loads(p.read_text())
