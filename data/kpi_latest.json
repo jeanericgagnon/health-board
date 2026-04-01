@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-01T15:00:02.735072Z",
+  "updated_at": "2026-04-01T15:03:09.783336Z",
   "summary": {
     "ad_account_id": "1379452680603809",
     "total_spend": 1.59,
@@ -9,8 +9,8 @@
     "blended_cost_per_follow": null,
     "since": null,
     "until": null,
-    "current_followers_live": 109108,
-    "daily_gain_live": 35,
+    "current_followers_live": 109113,
+    "daily_gain_live": 40,
     "baseline_followers": 109073,
     "total_link_clicks": 13,
     "total_outbound_clicks": 13,
@@ -126,7 +126,7 @@
                     "progress_pct": 14.5
                   }
                 },
-                "action_timestamp": "2026-04-01T15:00:02.732635Z",
+                "action_timestamp": "2026-04-01T15:03:09.782496Z",
                 "inputs": {
                   "spend": 1.45,
                   "ctr": 4.795,
@@ -208,7 +208,7 @@
                     "progress_pct": 1.4
                   }
                 },
-                "action_timestamp": "2026-04-01T15:00:02.732612Z",
+                "action_timestamp": "2026-04-01T15:03:09.782485Z",
                 "inputs": {
                   "spend": 0.14,
                   "ctr": 9.524,
@@ -398,7 +398,7 @@
                     "progress_pct": 14.5
                   }
                 },
-                "action_timestamp": "2026-04-01T15:00:02.732635Z",
+                "action_timestamp": "2026-04-01T15:03:09.782496Z",
                 "inputs": {
                   "spend": 1.45,
                   "ctr": 4.795,
@@ -480,7 +480,7 @@
                     "progress_pct": 1.4
                   }
                 },
-                "action_timestamp": "2026-04-01T15:00:02.732612Z",
+                "action_timestamp": "2026-04-01T15:03:09.782485Z",
                 "inputs": {
                   "spend": 0.14,
                   "ctr": 9.524,
@@ -659,23 +659,23 @@
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 1.59,
-    "expected_by_now": 20.0,
-    "pace_ratio": 0.08,
+    "expected_by_now": 20.12,
+    "pace_ratio": 0.079,
     "status": "too_slow"
   },
   "forecasting": {
     "today_spend_so_far": 1.59,
-    "projected_eod_spend": 4.77,
+    "projected_eod_spend": 4.74,
     "projected_eod_cpc": 0.099,
-    "pace_elapsed_pct": 33.33,
+    "pace_elapsed_pct": 33.54,
     "target_daily_spend": 60.0
   },
   "forecasting_tiles": {
-    "generated_at": "2026-04-01T15:00:02.734354Z",
-    "projected_eod_spend": 4.77,
+    "generated_at": "2026-04-01T15:03:09.783066Z",
+    "projected_eod_spend": 4.74,
     "projected_eod_cpc": 0.099,
-    "spend_progress_pct": 33.333,
-    "hour_progress": 33.34,
+    "spend_progress_pct": 33.544,
+    "hour_progress": 33.55,
     "today_spend": 1.59,
     "today_clicks": 16,
     "data_source": "live_intraday",
@@ -805,7 +805,7 @@
               "progress_pct": 1.4
             }
           },
-          "action_timestamp": "2026-04-01T15:00:02.732612Z",
+          "action_timestamp": "2026-04-01T15:03:09.782485Z",
           "inputs": {
             "spend": 0.14,
             "ctr": 9.524,
@@ -828,7 +828,7 @@
               "progress_pct": 14.5
             }
           },
-          "action_timestamp": "2026-04-01T15:00:02.732635Z",
+          "action_timestamp": "2026-04-01T15:03:09.782496Z",
           "inputs": {
             "spend": 1.45,
             "ctr": 4.795,
@@ -902,7 +902,7 @@
     }
   },
   "trend_intelligence": {
-    "generated_at": "2026-04-01T15:00:02.732691Z",
+    "generated_at": "2026-04-01T15:03:09.782533Z",
     "source": "trend_intelligence_from_kpi_rows",
     "campaigns": [
       {
@@ -1083,7 +1083,7 @@
     "refresh_note": "fallback if insufficient daily history"
   },
   "decision_state": {
-    "generated_at": "2026-04-01T15:00:02.733479Z",
+    "generated_at": "2026-04-01T15:03:09.782750Z",
     "rows": [
       {
         "campaign_id": "6966539858957",
@@ -1108,7 +1108,7 @@
           }
         },
         "action_timestamp": null,
-        "updated_at": "2026-04-01T15:00:02.733479Z"
+        "updated_at": "2026-04-01T15:03:09.782750Z"
       },
       {
         "campaign_id": "6966539858957",
@@ -1133,7 +1133,7 @@
           }
         },
         "action_timestamp": null,
-        "updated_at": "2026-04-01T15:00:02.733479Z"
+        "updated_at": "2026-04-01T15:03:09.782750Z"
       }
     ],
     "counts": {
@@ -1144,7 +1144,7 @@
     }
   },
   "creative_attribution": {
-    "generated_at": "2026-04-01T15:00:02.733876Z",
+    "generated_at": "2026-04-01T15:03:09.782903Z",
     "rows": [
       {
         "campaign_id": "6966539858957",
@@ -1196,14 +1196,14 @@
     }
   },
   "budget_movement": {
-    "generated_at": "2026-04-01T15:00:02.734212Z",
+    "generated_at": "2026-04-01T15:03:09.782994Z",
     "source": "inferred_from_ad_daily_rows",
     "audit_rows": [],
     "notes": "Events inferred from latest ad-level daily row deltas (not control-plane logs).",
     "after_effects_24h_available": false
   },
   "fatigue_radar": {
-    "generated_at": "2026-04-01T15:00:02.734523Z",
+    "generated_at": "2026-04-01T15:03:09.783134Z",
     "rows": [
       {
         "ad_id": "6966539858757",
@@ -1242,7 +1242,7 @@
     "alert_count": 0
   },
   "winner_durability": {
-    "generated_at": "2026-04-01T15:00:02.734701Z",
+    "generated_at": "2026-04-01T15:03:09.783208Z",
     "rows": [
       {
         "entity_type": "campaign",
@@ -1300,7 +1300,7 @@
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 55.0,
+    "last_pull_age_min": 58.1,
     "attribution_confidence": "estimated"
   },
   "diagnostics": {
@@ -1350,7 +1350,7 @@
         },
         {
           "factor": "Data freshness (minutes)",
-          "value": 55.0,
+          "value": 58.1,
           "penalty": 0.0
         },
         {
@@ -1401,7 +1401,7 @@
     "pacing": {
       "day_target": 60.0,
       "today_spend": 1.59,
-      "expected_spend_now": 20.0,
+      "expected_spend_now": 20.12,
       "pace_ratio": 0.079
     },
     "geo_efficiency": [],
@@ -1420,7 +1420,7 @@
       "reason": "Using blended model (spend + follower deltas)"
     },
     "data_health": {
-      "stale_minutes": 55,
+      "stale_minutes": 58,
       "status": "ok"
     },
     "creative_leaderboard": [
