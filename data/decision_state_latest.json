@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-31T19:40:50.772443Z",
+  "generated_at": "2026-04-01T11:04:25.761773Z",
   "rows": [
     {
       "campaign_id": "6966539858957",
@@ -7,24 +7,24 @@
       "adset_id": "6966539859157",
       "ad_id": "6966539858757",
       "ad": "Tailored web traffic campaign 3/30/2026 Ad",
-      "state": "WATCH",
-      "action_ready": "monitor",
-      "next_gate": "$10",
+      "state": "HOLD",
+      "action_ready": "insufficient_spend",
+      "next_gate": "$5",
       "gate_progress": {
-        "spend": 6.72,
+        "spend": 0.88,
         "gate_5": {
           "required": 5.0,
-          "passed": true,
-          "current_pct": 100.0
+          "passed": false,
+          "current_pct": 17.6
         },
         "gate_10": {
           "required": 10.0,
           "passed": false,
-          "current_pct": 34.4
+          "current_pct": null
         }
       },
-      "action_timestamp": "2026-03-31T19:00:02.819427Z",
-      "updated_at": "2026-03-31T19:40:50.772443Z"
+      "action_timestamp": null,
+      "updated_at": "2026-04-01T11:04:25.761773Z"
     },
     {
       "campaign_id": "6966539858957",
@@ -36,11 +36,11 @@
       "action_ready": "insufficient_spend",
       "next_gate": "$5",
       "gate_progress": {
-        "spend": 0.51,
+        "spend": 0.03,
         "gate_5": {
           "required": 5.0,
           "passed": false,
-          "current_pct": 10.2
+          "current_pct": 0.6
         },
         "gate_10": {
           "required": 10.0,
@@ -49,12 +49,12 @@
         }
       },
       "action_timestamp": null,
-      "updated_at": "2026-03-31T19:40:50.772443Z"
+      "updated_at": "2026-04-01T11:04:25.761773Z"
     }
   ],
   "counts": {
-    "hold": 1,
-    "watch": 1,
+    "hold": 2,
+    "watch": 0,
     "scale": 0,
     "kill": 0
   }

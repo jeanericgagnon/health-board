@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-31T19:40:50.773560Z",
+  "generated_at": "2026-04-01T11:04:25.762477Z",
   "rows": [
     {
       "entity_type": "campaign",
@@ -7,14 +7,14 @@
       "campaign": "Tailored web traffic campaign 3/30/2026 Campaign",
       "threshold_cpc": 0.55,
       "durable_3d_min_days": 3,
-      "good_today": true,
+      "good_today": false,
       "stable_3d": false,
-      "score": 56,
+      "score": 6,
       "days_under_threshold": 1,
-      "latest_cpc": 0.075,
-      "latest_ctr": 7.578,
-      "latest_frequency": 1.041,
-      "spend_today": 7.23
+      "latest_cpc": 0.101,
+      "latest_ctr": 4.663,
+      "latest_frequency": 1.008,
+      "spend_today": 0.91
     },
     {
       "entity_type": "ad",
@@ -24,14 +24,14 @@
       "adset_id": "6966539859157",
       "threshold_cpc": 0.55,
       "durable_3d_min_days": 3,
-      "good_today": true,
+      "good_today": false,
       "stable_3d": false,
-      "score": 56,
+      "score": 6,
       "days_under_threshold": 1,
-      "latest_cpc": 0.075,
-      "latest_ctr": 7.634,
-      "latest_frequency": 1.062,
-      "spend_today": 6.72
+      "latest_cpc": 0.098,
+      "latest_ctr": 4.839,
+      "latest_frequency": 1.016,
+      "spend_today": 0.88
     },
     {
       "entity_type": "ad",
@@ -43,12 +43,12 @@
       "durable_3d_min_days": 3,
       "good_today": false,
       "stable_3d": false,
-      "score": 6,
-      "days_under_threshold": 1,
-      "latest_cpc": 0.073,
-      "latest_ctr": 6.931,
-      "latest_frequency": 1.02,
-      "spend_today": 0.51
+      "score": 0,
+      "days_under_threshold": 0,
+      "latest_cpc": null,
+      "latest_ctr": 0.0,
+      "latest_frequency": 1.0,
+      "spend_today": 0.03
     }
   ],
   "note": "Durability distinguishes Good today vs stable 3+ days where CPC <= threshold and spend exists."
