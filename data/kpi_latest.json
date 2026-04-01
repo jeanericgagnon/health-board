@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-01T14:00:03.579478Z",
+  "updated_at": "2026-04-01T14:03:22.357132Z",
   "summary": {
     "ad_account_id": "1379452680603809",
     "total_spend": 1.16,
@@ -9,8 +9,8 @@
     "blended_cost_per_follow": null,
     "since": null,
     "until": null,
-    "current_followers_live": 109107,
-    "daily_gain_live": 34,
+    "current_followers_live": 109108,
+    "daily_gain_live": 35,
     "baseline_followers": 109073,
     "total_link_clicks": 11,
     "total_outbound_clicks": 11,
@@ -126,7 +126,7 @@
                     "progress_pct": 11.2
                   }
                 },
-                "action_timestamp": "2026-04-01T14:00:03.577058Z",
+                "action_timestamp": "2026-04-01T14:03:22.356263Z",
                 "inputs": {
                   "spend": 1.12,
                   "ctr": 5.116,
@@ -208,7 +208,7 @@
                     "progress_pct": 0.4
                   }
                 },
-                "action_timestamp": "2026-04-01T14:00:03.577039Z",
+                "action_timestamp": "2026-04-01T14:03:22.356253Z",
                 "inputs": {
                   "spend": 0.04,
                   "ctr": 0.0,
@@ -398,7 +398,7 @@
                     "progress_pct": 11.2
                   }
                 },
-                "action_timestamp": "2026-04-01T14:00:03.577058Z",
+                "action_timestamp": "2026-04-01T14:03:22.356263Z",
                 "inputs": {
                   "spend": 1.12,
                   "ctr": 5.116,
@@ -480,7 +480,7 @@
                     "progress_pct": 0.4
                   }
                 },
-                "action_timestamp": "2026-04-01T14:00:03.577039Z",
+                "action_timestamp": "2026-04-01T14:03:22.356253Z",
                 "inputs": {
                   "spend": 0.04,
                   "ctr": 0.0,
@@ -659,23 +659,23 @@
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 1.16,
-    "expected_by_now": 17.5,
+    "expected_by_now": 17.62,
     "pace_ratio": 0.066,
     "status": "too_slow"
   },
   "forecasting": {
     "today_spend_so_far": 1.16,
-    "projected_eod_spend": 3.98,
+    "projected_eod_spend": 3.95,
     "projected_eod_cpc": 0.105,
-    "pace_elapsed_pct": 29.17,
+    "pace_elapsed_pct": 29.38,
     "target_daily_spend": 60.0
   },
   "forecasting_tiles": {
-    "generated_at": "2026-04-01T14:00:03.578781Z",
-    "projected_eod_spend": 3.98,
+    "generated_at": "2026-04-01T14:03:22.356837Z",
+    "projected_eod_spend": 3.95,
     "projected_eod_cpc": 0.106,
-    "spend_progress_pct": 29.146,
-    "hour_progress": 29.17,
+    "spend_progress_pct": 29.367,
+    "hour_progress": 29.4,
     "today_spend": 1.16,
     "today_clicks": 11,
     "data_source": "live_intraday",
@@ -805,7 +805,7 @@
               "progress_pct": 0.4
             }
           },
-          "action_timestamp": "2026-04-01T14:00:03.577039Z",
+          "action_timestamp": "2026-04-01T14:03:22.356253Z",
           "inputs": {
             "spend": 0.04,
             "ctr": 0.0,
@@ -828,7 +828,7 @@
               "progress_pct": 11.2
             }
           },
-          "action_timestamp": "2026-04-01T14:00:03.577058Z",
+          "action_timestamp": "2026-04-01T14:03:22.356263Z",
           "inputs": {
             "spend": 1.12,
             "ctr": 5.116,
@@ -902,7 +902,7 @@
     }
   },
   "trend_intelligence": {
-    "generated_at": "2026-04-01T14:00:03.577117Z",
+    "generated_at": "2026-04-01T14:03:22.356299Z",
     "source": "trend_intelligence_from_kpi_rows",
     "campaigns": [
       {
@@ -1083,7 +1083,7 @@
     "refresh_note": "fallback if insufficient daily history"
   },
   "decision_state": {
-    "generated_at": "2026-04-01T14:00:03.577968Z",
+    "generated_at": "2026-04-01T14:03:22.356512Z",
     "rows": [
       {
         "campaign_id": "6966539858957",
@@ -1108,7 +1108,7 @@
           }
         },
         "action_timestamp": null,
-        "updated_at": "2026-04-01T14:00:03.577968Z"
+        "updated_at": "2026-04-01T14:03:22.356512Z"
       },
       {
         "campaign_id": "6966539858957",
@@ -1133,7 +1133,7 @@
           }
         },
         "action_timestamp": null,
-        "updated_at": "2026-04-01T14:00:03.577968Z"
+        "updated_at": "2026-04-01T14:03:22.356512Z"
       }
     ],
     "counts": {
@@ -1144,7 +1144,7 @@
     }
   },
   "creative_attribution": {
-    "generated_at": "2026-04-01T14:00:03.578318Z",
+    "generated_at": "2026-04-01T14:03:22.356656Z",
     "rows": [
       {
         "campaign_id": "6966539858957",
@@ -1196,14 +1196,14 @@
     }
   },
   "budget_movement": {
-    "generated_at": "2026-04-01T14:00:03.578631Z",
+    "generated_at": "2026-04-01T14:03:22.356761Z",
     "source": "inferred_from_ad_daily_rows",
     "audit_rows": [],
     "notes": "Events inferred from latest ad-level daily row deltas (not control-plane logs).",
     "after_effects_24h_available": false
   },
   "fatigue_radar": {
-    "generated_at": "2026-04-01T14:00:03.578945Z",
+    "generated_at": "2026-04-01T14:03:22.356915Z",
     "rows": [
       {
         "ad_id": "6966539858757",
@@ -1242,7 +1242,7 @@
     "alert_count": 0
   },
   "winner_durability": {
-    "generated_at": "2026-04-01T14:00:03.579121Z",
+    "generated_at": "2026-04-01T14:03:22.356995Z",
     "rows": [
       {
         "entity_type": "campaign",
@@ -1300,7 +1300,7 @@
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 55.0,
+    "last_pull_age_min": 58.4,
     "attribution_confidence": "estimated"
   },
   "diagnostics": {
@@ -1350,7 +1350,7 @@
         },
         {
           "factor": "Data freshness (minutes)",
-          "value": 55.0,
+          "value": 58.4,
           "penalty": 0.0
         },
         {
@@ -1401,7 +1401,7 @@
     "pacing": {
       "day_target": 60.0,
       "today_spend": 1.16,
-      "expected_spend_now": 17.5,
+      "expected_spend_now": 17.62,
       "pace_ratio": 0.066
     },
     "geo_efficiency": [],
@@ -1420,7 +1420,7 @@
       "reason": "Using blended model (spend + follower deltas)"
     },
     "data_health": {
-      "stale_minutes": 55,
+      "stale_minutes": 58,
       "status": "ok"
     },
     "creative_leaderboard": [
