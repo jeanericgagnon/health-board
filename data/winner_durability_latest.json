@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-01T12:03:07.446050Z",
+  "generated_at": "2026-04-01T13:00:03.590234Z",
   "rows": [
     {
       "entity_type": "campaign",
@@ -11,10 +11,10 @@
       "stable_3d": false,
       "score": 6,
       "days_under_threshold": 1,
-      "latest_cpc": 0.097,
-      "latest_ctr": 4.975,
+      "latest_cpc": 0.102,
+      "latest_ctr": 4.854,
       "latest_frequency": 1.0,
-      "spend_today": 0.97
+      "spend_today": 1.02
     },
     {
       "entity_type": "ad",
@@ -28,10 +28,10 @@
       "stable_3d": false,
       "score": 6,
       "days_under_threshold": 1,
-      "latest_cpc": 0.094,
-      "latest_ctr": 5.155,
+      "latest_cpc": 0.098,
+      "latest_ctr": 5.051,
       "latest_frequency": 1.0,
-      "spend_today": 0.94
+      "spend_today": 0.98
     },
     {
       "entity_type": "ad",
@@ -48,7 +48,7 @@
       "latest_cpc": null,
       "latest_ctr": 0.0,
       "latest_frequency": 1.0,
-      "spend_today": 0.03
+      "spend_today": 0.04
     }
   ],
   "note": "Durability distinguishes Good today vs stable 3+ days where CPC <= threshold and spend exists."

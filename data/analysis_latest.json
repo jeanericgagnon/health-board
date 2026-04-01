@@ -1,25 +1,25 @@
 {
-  "generated_at": "2026-04-01T12:03:16.799666Z",
-  "source_updated_at": "2026-04-01T12:03:07.446175Z",
+  "generated_at": "2026-04-01T13:00:13.297584Z",
+  "source_updated_at": "2026-04-01T13:00:03.590602Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
-    "today_spend": 0.97,
-    "expected_by_now": 12.62,
-    "pace_ratio": 0.077,
+    "today_spend": 1.02,
+    "expected_by_now": 15.0,
+    "pace_ratio": 0.068,
     "status": "too_slow"
   },
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 58.1,
+    "last_pull_age_min": 55.1,
     "attribution_confidence": "estimated"
   },
   "summary": {
-    "total_spend": 0.97,
+    "total_spend": 1.02,
     "total_clicks": 10,
-    "total_impressions": 201,
+    "total_impressions": 206,
     "daily_gain_live": 33,
     "current_followers_live": 109106
   },
@@ -48,9 +48,9 @@
       "campaign": "Tailored web traffic campaign 3/30/2026 Campaign",
       "ad_id": "6966539858757",
       "ad_name": "Tailored web traffic campaign 3/30/2026 Ad",
-      "ctr": 5.155,
-      "cpc": 0.094,
-      "spend": 0.94,
+      "ctr": 5.051,
+      "cpc": 0.098,
+      "spend": 0.98,
       "creative_name": null,
       "cta": null,
       "body": null
@@ -61,7 +61,7 @@
       "ad_name": "Number2",
       "ctr": 0.0,
       "cpc": null,
-      "spend": 0.03,
+      "spend": 0.04,
       "creative_name": null,
       "cta": null,
       "body": null
