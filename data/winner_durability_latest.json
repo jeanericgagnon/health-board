@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-02T07:03:09.917503Z",
+  "generated_at": "2026-04-02T08:03:16.385746Z",
   "rows": [
     {
       "entity_type": "campaign",
@@ -86,10 +86,10 @@
       "stable_3d": false,
       "score": 56,
       "days_under_threshold": 1,
-      "latest_cpc": 0.085,
-      "latest_ctr": 6.027,
-      "latest_frequency": 1.042,
-      "spend_today": 37.77
+      "latest_cpc": 0.081,
+      "latest_ctr": 6.307,
+      "latest_frequency": 1.064,
+      "spend_today": 54.78
     },
     {
       "entity_type": "ad",
@@ -273,10 +273,10 @@
       "stable_3d": false,
       "score": 56,
       "days_under_threshold": 1,
-      "latest_cpc": 0.086,
-      "latest_ctr": 5.94,
-      "latest_frequency": 1.065,
-      "spend_today": 34.13
+      "latest_cpc": 0.084,
+      "latest_ctr": 6.084,
+      "latest_frequency": 1.067,
+      "spend_today": 46.49
     },
     {
       "entity_type": "ad",
@@ -286,14 +286,14 @@
       "adset_id": "6966539859157",
       "threshold_cpc": 0.55,
       "durable_3d_min_days": 3,
-      "good_today": false,
+      "good_today": true,
       "stable_3d": false,
-      "score": 6,
+      "score": 56,
       "days_under_threshold": 1,
-      "latest_cpc": 0.079,
-      "latest_ctr": 6.907,
-      "latest_frequency": 1.02,
-      "spend_today": 3.64
+      "latest_cpc": 0.068,
+      "latest_ctr": 7.573,
+      "latest_frequency": 1.061,
+      "spend_today": 8.29
     }
   ],
   "note": "Durability distinguishes Good today vs stable 3+ days where CPC <= threshold and spend exists."
