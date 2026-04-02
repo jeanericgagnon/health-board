@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-04-02T17:00:13.443304Z",
-  "source_updated_at": "2026-04-02T17:00:02.555906Z",
+  "generated_at": "2026-04-02T17:03:28.362333Z",
+  "source_updated_at": "2026-04-02T17:03:18.289166Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 1547.55,
-    "expected_by_now": 25.0,
-    "pace_ratio": 61.902,
+    "expected_by_now": 25.12,
+    "pace_ratio": 61.594,
     "status": "too_fast"
   },
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 55.0,
+    "last_pull_age_min": 58.3,
     "attribution_confidence": "direct"
   },
   "summary": {
