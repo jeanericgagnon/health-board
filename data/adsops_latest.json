@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-02T08:05:00.898744Z",
+  "updated_at": "2026-04-02T09:05:00.719423Z",
   "label": "TSSAds",
   "account": {
     "id": "act_1379452680603809",
@@ -10,31 +10,47 @@
     "timezone_name": "America/Los_Angeles"
   },
   "insights": {
-    "spend": "0.16",
+    "spend": "0.29",
     "clicks": "3",
-    "impressions": "35",
-    "cpc": "0.053333",
-    "cpm": "4.571429",
-    "ctr": "8.571429",
-    "reach": "28",
-    "frequency": "1.25",
-    "unique_clicks": "2",
+    "impressions": "57",
+    "cpc": "0.096667",
+    "cpm": "5.087719",
+    "ctr": "5.263158",
+    "reach": "54",
+    "frequency": "1.055556",
+    "unique_clicks": "3",
     "actions": [
       {
         "action_type": "link_click",
-        "value": "2"
+        "value": "3"
       },
       {
         "action_type": "page_engagement",
-        "value": "8"
+        "value": "20"
       },
       {
         "action_type": "post_engagement",
-        "value": "8"
+        "value": "20"
+      },
+      {
+        "action_type": "post_interaction_gross",
+        "value": "1"
+      },
+      {
+        "action_type": "post_interaction_net",
+        "value": "1"
+      },
+      {
+        "action_type": "onsite_conversion.post_save",
+        "value": "1"
+      },
+      {
+        "action_type": "onsite_conversion.post_net_save",
+        "value": "1"
       },
       {
         "action_type": "video_view",
-        "value": "6"
+        "value": "16"
       }
     ],
     "date_start": "2026-04-02",
