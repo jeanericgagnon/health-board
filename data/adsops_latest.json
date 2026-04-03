@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-03T07:05:01.152692Z",
+  "updated_at": "2026-04-03T08:05:00.635457Z",
   "label": "TSSAds",
   "account": {
     "id": "act_1379452680603809",
@@ -9,7 +9,37 @@
     "currency": "USD",
     "timezone_name": "America/Los_Angeles"
   },
-  "insights": {},
+  "insights": {
+    "spend": "0.93",
+    "clicks": "7",
+    "impressions": "130",
+    "cpc": "0.132857",
+    "cpm": "7.153846",
+    "ctr": "5.384615",
+    "reach": "124",
+    "frequency": "1.048387",
+    "unique_clicks": "7",
+    "actions": [
+      {
+        "action_type": "link_click",
+        "value": "7"
+      },
+      {
+        "action_type": "page_engagement",
+        "value": "49"
+      },
+      {
+        "action_type": "post_engagement",
+        "value": "49"
+      },
+      {
+        "action_type": "video_view",
+        "value": "42"
+      }
+    ],
+    "date_start": "2026-04-03",
+    "date_stop": "2026-04-03"
+  },
   "campaigns": [
     {
       "id": "6966539858957",
@@ -1774,7 +1804,7 @@
                 },
                 {
                   "action_type": "page_engagement",
-                  "value": "4331"
+                  "value": "4332"
                 },
                 {
                   "action_type": "onsite_conversion.post_unlike",
@@ -1782,7 +1812,7 @@
                 },
                 {
                   "action_type": "post_engagement",
-                  "value": "4331"
+                  "value": "4332"
                 },
                 {
                   "action_type": "post_interaction_gross",
@@ -1810,7 +1840,7 @@
                 },
                 {
                   "action_type": "video_view",
-                  "value": "3456"
+                  "value": "3457"
                 },
                 {
                   "action_type": "post_reaction",
@@ -1830,34 +1860,34 @@
               "date_stop": "2026-04-02",
               "creative_id": "1934035907231154",
               "creative_name": "Come join us. Tickets drop every Sunday at 10AM! 2026-03-30-7548aa170eb79df73b40be1b510ca528",
-              "spend": 14.32,
-              "clicks": 211,
-              "impressions": 2670,
-              "reach": 2470,
-              "link_clicks": 209,
-              "outbound_clicks": 209,
-              "landing_page_views": 209,
+              "spend": 14.33,
+              "clicks": 212,
+              "impressions": 2673,
+              "reach": 2479,
+              "link_clicks": 210,
+              "outbound_clicks": 210,
+              "landing_page_views": 210,
               "purchases": 0,
               "leads": 0,
               "view_content": 0,
               "add_to_cart": 0,
               "initiate_checkout": 0,
-              "ctr": 7.902622,
-              "cpm": 5.363296,
-              "cpc": 0.067867,
-              "frequency_avg": 1.080972,
-              "outbound_ctr": 7.827715355805244,
+              "ctr": 7.931163,
+              "cpm": 5.361018,
+              "cpc": 0.067594,
+              "frequency_avg": 1.078257,
+              "outbound_ctr": 7.856341189674524,
               "lpv_rate": 100.0,
-              "cost_per_lpv": 0.06851674641148325,
-              "first_time_impression_ratio": 92.50936329588015,
+              "cost_per_lpv": 0.06823809523809524,
+              "first_time_impression_ratio": 92.74223718668163,
               "actions": [
                 {
                   "action_type": "link_click",
-                  "value": "209"
+                  "value": "210"
                 },
                 {
                   "action_type": "page_engagement",
-                  "value": "1297"
+                  "value": "1302"
                 },
                 {
                   "action_type": "onsite_conversion.post_unlike",
@@ -1865,7 +1895,7 @@
                 },
                 {
                   "action_type": "post_engagement",
-                  "value": "1297"
+                  "value": "1302"
                 },
                 {
                   "action_type": "post_interaction_gross",
@@ -1893,7 +1923,7 @@
                 },
                 {
                   "action_type": "video_view",
-                  "value": "1053"
+                  "value": "1057"
                 },
                 {
                   "action_type": "post_reaction",
@@ -1906,48 +1936,48 @@
               "winner_durability": null
             }
           ],
-          "spend": 73.61,
-          "clicks": 895,
-          "impressions": 14109,
-          "reach": 13149,
-          "link_clicks": 892,
-          "outbound_clicks": 892,
-          "landing_page_views": 892,
+          "spend": 73.62,
+          "clicks": 896,
+          "impressions": 14112,
+          "reach": 13158,
+          "link_clicks": 893,
+          "outbound_clicks": 893,
+          "landing_page_views": 893,
           "purchases": 0,
           "leads": 0,
           "view_content": 0,
           "add_to_cart": 0,
           "initiate_checkout": 0,
-          "ctr": 6.343,
+          "ctr": 6.349,
           "cpm": 5.217,
           "cpc": 0.082,
           "frequency_avg": 1.073,
-          "outbound_ctr": 6.322,
+          "outbound_ctr": 6.328,
           "lpv_rate": 100.0,
-          "cost_per_lpv": 0.083,
-          "first_time_impression_ratio": 93.196
+          "cost_per_lpv": 0.082,
+          "first_time_impression_ratio": 93.24
         }
       ],
-      "spend": 73.61,
-      "clicks": 895,
-      "impressions": 14109,
-      "reach": 13149,
-      "link_clicks": 892,
-      "outbound_clicks": 892,
-      "landing_page_views": 892,
+      "spend": 73.62,
+      "clicks": 896,
+      "impressions": 14112,
+      "reach": 13158,
+      "link_clicks": 893,
+      "outbound_clicks": 893,
+      "landing_page_views": 893,
       "purchases": 0,
       "leads": 0,
       "view_content": 0,
       "add_to_cart": 0,
       "initiate_checkout": 0,
-      "ctr": 6.343,
+      "ctr": 6.349,
       "cpm": 5.217,
       "cpc": 0.082,
       "frequency_avg": 1.073,
-      "outbound_ctr": 6.322,
+      "outbound_ctr": 6.328,
       "lpv_rate": 100.0,
-      "cost_per_lpv": 0.083,
-      "first_time_impression_ratio": 93.196
+      "cost_per_lpv": 0.082,
+      "first_time_impression_ratio": 93.24
     }
   ],
   "source": "direct_meta_ad_level_pull"
