@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-03T17:05:00.493480Z",
+  "updated_at": "2026-04-03T18:03:12.037175Z",
   "label": "TSSAds",
   "account": {
     "id": "act_1379452680603809",
@@ -10,27 +10,27 @@
     "timezone_name": "America/Los_Angeles"
   },
   "insights": {
-    "spend": "7.31",
-    "clicks": "106",
-    "impressions": "1111",
-    "cpc": "0.068962",
-    "cpm": "6.579658",
-    "ctr": "9.540954",
-    "reach": "1033",
-    "frequency": "1.075508",
-    "unique_clicks": "104",
+    "spend": "8.11",
+    "clicks": "111",
+    "impressions": "1264",
+    "cpc": "0.073063",
+    "cpm": "6.416139",
+    "ctr": "8.781646",
+    "reach": "1124",
+    "frequency": "1.124555",
+    "unique_clicks": "109",
     "actions": [
       {
         "action_type": "link_click",
-        "value": "104"
+        "value": "109"
       },
       {
         "action_type": "page_engagement",
-        "value": "568"
+        "value": "613"
       },
       {
         "action_type": "post_engagement",
-        "value": "568"
+        "value": "613"
       },
       {
         "action_type": "post_interaction_gross",
@@ -50,7 +50,7 @@
       },
       {
         "action_type": "video_view",
-        "value": "456"
+        "value": "496"
       },
       {
         "action_type": "post_reaction",
@@ -61,6 +61,12 @@
     "date_stop": "2026-04-03"
   },
   "campaigns": [
+    {
+      "id": "6969205964557",
+      "name": "New Traffic Campaign",
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE"
+    },
     {
       "id": "6966539858957",
       "name": "Tailored web traffic campaign 3/30/2026 Campaign",
@@ -117,6 +123,13 @@
     }
   ],
   "adsets": [
+    {
+      "id": "6969205964757",
+      "name": "New Traffic Ad Set",
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE",
+      "campaign_id": "6969205964557"
+    },
     {
       "id": "6966539859157",
       "name": "Tailored web traffic campaign 3/30/2026 Ad set",
@@ -210,6 +223,18 @@
     }
   ],
   "ads": [
+    {
+      "id": "6969205964357",
+      "name": "New Traffic Ad",
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE",
+      "adset_id": "6969205964757",
+      "campaign_id": "6969205964557",
+      "creative": {
+        "id": "1202030255143678",
+        "name": "If there\u2019s one thing we know how to do, it\u2019s find an expert with a story to tell and gather curious 2026-04-03-9e6809d45d12204045983b2f1129d638"
+      }
+    },
     {
       "id": "6966540858557",
       "name": "Number2",
