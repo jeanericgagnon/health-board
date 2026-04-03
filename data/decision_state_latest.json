@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-03T07:03:13.746505Z",
+  "generated_at": "2026-04-03T08:03:36.032281Z",
   "rows": [
     {
       "campaign_id": "6955113574357",
@@ -24,7 +24,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-03T07:03:13.746505Z"
+      "updated_at": "2026-04-03T08:03:36.032281Z"
     },
     {
       "campaign_id": "6951024653957",
@@ -49,7 +49,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-03T07:03:13.746505Z"
+      "updated_at": "2026-04-03T08:03:36.032281Z"
     },
     {
       "campaign_id": "6951024653957",
@@ -74,7 +74,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-03T07:03:13.746505Z"
+      "updated_at": "2026-04-03T08:03:36.032281Z"
     },
     {
       "campaign_id": "6953786714157",
@@ -99,7 +99,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-03T07:03:13.746505Z"
+      "updated_at": "2026-04-03T08:03:36.032281Z"
     },
     {
       "campaign_id": "6953786714157",
@@ -124,7 +124,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-03T07:03:13.746505Z"
+      "updated_at": "2026-04-03T08:03:36.032281Z"
     },
     {
       "campaign_id": "6960435028357",
@@ -149,7 +149,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-03T07:03:13.746505Z"
+      "updated_at": "2026-04-03T08:03:36.032281Z"
     },
     {
       "campaign_id": "6960435028357",
@@ -174,7 +174,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-03T07:03:13.746505Z"
+      "updated_at": "2026-04-03T08:03:36.032281Z"
     },
     {
       "campaign_id": "6960435028357",
@@ -199,7 +199,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-03T07:03:13.746505Z"
+      "updated_at": "2026-04-03T08:03:36.032281Z"
     },
     {
       "campaign_id": "6960435028357",
@@ -224,7 +224,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-03T07:03:13.746505Z"
+      "updated_at": "2026-04-03T08:03:36.032281Z"
     },
     {
       "campaign_id": "6960086008957",
@@ -249,7 +249,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-03T07:03:13.746505Z"
+      "updated_at": "2026-04-03T08:03:36.032281Z"
     },
     {
       "campaign_id": "6966539858957",
@@ -261,7 +261,7 @@
       "action_ready": "scalable",
       "next_gate": "none",
       "gate_progress": {
-        "spend": 46.52,
+        "spend": 59.29,
         "gate_5": {
           "required": 5.0,
           "passed": true,
@@ -274,7 +274,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-03T07:03:13.746505Z"
+      "updated_at": "2026-04-03T08:03:36.032281Z"
     },
     {
       "campaign_id": "6966539858957",
@@ -282,11 +282,11 @@
       "adset_id": "6966539859157",
       "ad_id": "6966540858557",
       "ad": "Number2",
-      "state": "WATCH",
-      "action_ready": "monitor",
-      "next_gate": "$10",
+      "state": "SCALE",
+      "action_ready": "scalable",
+      "next_gate": "none",
       "gate_progress": {
-        "spend": 8.29,
+        "spend": 14.32,
         "gate_5": {
           "required": 5.0,
           "passed": true,
@@ -294,18 +294,18 @@
         },
         "gate_10": {
           "required": 10.0,
-          "passed": false,
-          "current_pct": 65.8
+          "passed": true,
+          "current_pct": 100.0
         }
       },
-      "action_timestamp": "2026-04-02T08:03:16.384784Z",
-      "updated_at": "2026-04-03T07:03:13.746505Z"
+      "action_timestamp": "2026-04-03T08:03:36.032281Z",
+      "updated_at": "2026-04-03T08:03:36.032281Z"
     }
   ],
   "counts": {
     "hold": 0,
-    "watch": 2,
-    "scale": 10,
+    "watch": 1,
+    "scale": 11,
     "kill": 0
   }
 }
