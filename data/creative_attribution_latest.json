@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-04T06:03:12.182857Z",
+  "generated_at": "2026-04-04T07:03:12.389623Z",
   "rows": [
     {
       "campaign_id": "6955113574357",
@@ -184,9 +184,9 @@
       "format": "N/A",
       "creative_id": "N/A",
       "creative_name": "N/A",
-      "spend": 59.29,
-      "ctr": 5.98,
-      "cpc": 0.087
+      "spend": 63.75,
+      "ctr": 6.076,
+      "cpc": 0.086
     },
     {
       "campaign_id": "6966539858957",
@@ -201,9 +201,26 @@
       "format": "N/A",
       "creative_id": "N/A",
       "creative_name": "N/A",
-      "spend": 14.33,
-      "ctr": 7.928,
-      "cpc": 0.068
+      "spend": 29.71,
+      "ctr": 8.583,
+      "cpc": 0.066
+    },
+    {
+      "campaign_id": "6969205964557",
+      "campaign": "New Traffic Campaign",
+      "adset_id": "6969205964757",
+      "adset": "New Traffic Ad Set",
+      "ad_id": "6969205964357",
+      "ad": "New Traffic Ad",
+      "voice_id": "N/A",
+      "hook_bucket": "N/A",
+      "script_id": "N/A",
+      "format": "N/A",
+      "creative_id": "N/A",
+      "creative_name": "N/A",
+      "spend": 19.11,
+      "ctr": 2.409,
+      "cpc": 0.269
     }
   ],
   "mandatory_fields": [],
@@ -214,9 +231,9 @@
     "format"
   ],
   "missing_counts": {
-    "voice_id": 12,
-    "hook_bucket": 12,
-    "script_id": 12,
-    "format": 2
+    "voice_id": 13,
+    "hook_bucket": 13,
+    "script_id": 13,
+    "format": 3
   }
 }
