@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-04-05T05:00:15.722865Z",
-  "source_updated_at": "2026-04-05T05:00:03.394981Z",
+  "generated_at": "2026-04-05T13:00:15.369618Z",
+  "source_updated_at": "2026-04-05T13:00:03.428887Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
-    "today_spend": 1605.37,
-    "expected_by_now": 55.0,
-    "pace_ratio": 29.189,
+    "today_spend": 1651.48,
+    "expected_by_now": 15.0,
+    "pace_ratio": 110.099,
     "status": "too_fast"
   },
   "data_health": {
@@ -17,11 +17,11 @@
     "attribution_confidence": "direct"
   },
   "summary": {
-    "total_spend": 1605.37,
-    "total_clicks": 14578,
-    "total_impressions": 222275,
-    "daily_gain_live": 64,
-    "current_followers_live": 109313
+    "total_spend": 1651.48,
+    "total_clicks": 14941,
+    "total_impressions": 229367,
+    "daily_gain_live": 66,
+    "current_followers_live": 109315
   },
   "recommendations": {
     "scale": [
@@ -67,19 +67,7 @@
     ],
     "cut": [],
     "retest": [],
-    "hold": [
-      {
-        "campaign": "New Traffic Campaign",
-        "campaign_id": "6969205964557",
-        "tag": "Hold",
-        "reason": "Baseline monitoring",
-        "confidence": "low",
-        "priority": "normal",
-        "diagnostic_tags": [],
-        "expected_impact": "low",
-        "fatigue_score": null
-      }
-    ],
+    "hold": [],
     "conversion_proven": [],
     "traffic_only": []
   },
@@ -88,9 +76,9 @@
       "campaign": "Tailored web traffic campaign 3/30/2026 Campaign",
       "ad_id": "6966540858557",
       "ad_name": "Number2",
-      "ctr": 8.581,
+      "ctr": 8.594,
       "cpc": 0.066,
-      "spend": 29.72,
+      "spend": 41.18,
       "creative_name": null,
       "cta": null,
       "body": null
@@ -110,9 +98,9 @@
       "campaign": "Tailored web traffic campaign 3/30/2026 Campaign",
       "ad_id": "6966539858757",
       "ad_name": "Tailored web traffic campaign 3/30/2026 Ad",
-      "ctr": 6.076,
+      "ctr": 6.151,
       "cpc": 0.086,
-      "spend": 63.75,
+      "spend": 70.88,
       "creative_name": null,
       "cta": null,
       "body": null
