@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-06T14:05:00.297797Z",
+  "updated_at": "2026-04-06T15:05:00.879452Z",
   "label": "TSSAds",
   "account": {
     "id": "act_1379452680603809",
@@ -10,15 +10,15 @@
     "timezone_name": "America/Los_Angeles"
   },
   "insights": {
-    "spend": "5.33",
-    "clicks": "52",
-    "impressions": "831",
-    "cpc": "0.1025",
-    "cpm": "6.413959",
-    "ctr": "6.257521",
-    "reach": "767",
-    "frequency": "1.083442",
-    "unique_clicks": "49",
+    "spend": "7.83",
+    "clicks": "82",
+    "impressions": "1250",
+    "cpc": "0.095488",
+    "cpm": "6.264",
+    "ctr": "6.56",
+    "reach": "1175",
+    "frequency": "1.06383",
+    "unique_clicks": "75",
     "actions": [
       {
         "action_type": "onsite_conversion.total_messaging_connection",
@@ -26,26 +26,30 @@
       },
       {
         "action_type": "link_click",
-        "value": "48"
+        "value": "75"
       },
       {
         "action_type": "page_engagement",
-        "value": "380"
+        "value": "567"
       },
       {
         "action_type": "post_engagement",
-        "value": "380"
+        "value": "567"
       },
       {
         "action_type": "post_interaction_gross",
-        "value": "8"
+        "value": "10"
       },
       {
         "action_type": "post_interaction_net",
-        "value": "8"
+        "value": "10"
       },
       {
         "action_type": "onsite_conversion.messaging_first_reply",
+        "value": "1"
+      },
+      {
+        "action_type": "post",
         "value": "1"
       },
       {
@@ -58,7 +62,7 @@
       },
       {
         "action_type": "onsite_conversion.post_net_like",
-        "value": "6"
+        "value": "7"
       },
       {
         "action_type": "onsite_conversion.messaging_conversation_started_7d",
@@ -66,11 +70,11 @@
       },
       {
         "action_type": "video_view",
-        "value": "324"
+        "value": "482"
       },
       {
         "action_type": "post_reaction",
-        "value": "6"
+        "value": "7"
       }
     ],
     "date_start": "2026-04-06",
