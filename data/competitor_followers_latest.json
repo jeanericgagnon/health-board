@@ -1,77 +1,77 @@
 {
-  "updated_at": "2026-04-07T04:03:19.294577Z",
+  "updated_at": "2026-04-07T05:00:03.624886Z",
   "rows": [
-    {
-      "label": "Big Idea Night (San Diego)",
-      "username": "bigideanight",
-      "url": "https://www.instagram.com/bigideanight",
-      "market": "San Diego",
-      "followers": 571,
-      "baseline_24h": 560,
-      "delta_24h": 11,
-      "baselines": {
-        "1": 560,
-        "3": 537,
-        "7": 487,
-        "30": null
-      },
-      "deltas": {
-        "1": 11,
-        "3": 34,
-        "7": 84,
-        "30": null
-      },
-      "pulled_at_utc": "2026-04-07T04:03:19.294577Z",
-      "ok": true,
-      "error": null
-    },
     {
       "label": "Lectures on Tap",
       "username": "lecturesontap",
       "url": "https://www.instagram.com/lecturesontap",
       "market": "NYC, Los Angeles, San Francisco, Boston, Chicago",
-      "followers": null,
-      "baseline_24h": 492718,
-      "delta_24h": null,
+      "followers": 492718,
+      "baseline_24h": 492726,
+      "delta_24h": -8,
       "baselines": {
-        "1": 492718,
-        "3": 492602,
-        "7": 492496,
+        "1": 492726,
+        "3": 492609,
+        "7": 492493,
         "30": null
       },
       "deltas": {
-        "1": null,
-        "3": null,
-        "7": null,
+        "1": -8,
+        "3": 109,
+        "7": 225,
         "30": null
       },
-      "pulled_at_utc": "2026-04-07T04:03:19.294577Z",
-      "ok": false,
-      "error": "unsuccessful response: {'success': False}"
+      "pulled_at_utc": "2026-04-07T05:00:03.624886Z",
+      "ok": true,
+      "error": null
     },
     {
       "label": "The Curious People of Denver",
       "username": "thecuriouspeopleofdenver",
       "url": "https://www.instagram.com/thecuriouspeopleofdenver",
       "market": "Denver",
-      "followers": null,
+      "followers": 923,
       "baseline_24h": 918,
-      "delta_24h": null,
+      "delta_24h": 5,
       "baselines": {
         "1": 918,
         "3": 918,
-        "7": 914,
+        "7": 915,
         "30": null
       },
       "deltas": {
-        "1": null,
-        "3": null,
-        "7": null,
+        "1": 5,
+        "3": 5,
+        "7": 8,
         "30": null
       },
-      "pulled_at_utc": "2026-04-07T04:03:19.294577Z",
-      "ok": false,
-      "error": "unsuccessful response: {'success': False}"
+      "pulled_at_utc": "2026-04-07T05:00:03.624886Z",
+      "ok": true,
+      "error": null
+    },
+    {
+      "label": "Big Idea Night (San Diego)",
+      "username": "bigideanight",
+      "url": "https://www.instagram.com/bigideanight",
+      "market": "San Diego",
+      "followers": 571,
+      "baseline_24h": 561,
+      "delta_24h": 10,
+      "baselines": {
+        "1": 561,
+        "3": 537,
+        "7": 490,
+        "30": null
+      },
+      "deltas": {
+        "1": 10,
+        "3": 34,
+        "7": 81,
+        "30": null
+      },
+      "pulled_at_utc": "2026-04-07T05:00:03.624886Z",
+      "ok": true,
+      "error": null
     }
   ]
 }
