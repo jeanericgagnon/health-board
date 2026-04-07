@@ -1,27 +1,27 @@
 {
-  "generated_at": "2026-04-07T01:03:37.397390Z",
-  "source_updated_at": "2026-04-07T01:03:26.061824Z",
+  "generated_at": "2026-04-07T02:03:35.204141Z",
+  "source_updated_at": "2026-04-07T02:03:23.761848Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 1703.14,
-    "expected_by_now": 45.12,
-    "pace_ratio": 37.743,
+    "expected_by_now": 47.63,
+    "pace_ratio": 35.761,
     "status": "too_fast"
   },
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 0.3,
+    "last_pull_age_min": 0.2,
     "attribution_confidence": "direct"
   },
   "summary": {
     "total_spend": 1703.14,
     "total_clicks": 15412,
     "total_impressions": 238468,
-    "daily_gain_live": 51,
-    "current_followers_live": 109418
+    "daily_gain_live": 53,
+    "current_followers_live": 109420
   },
   "recommendations": {
     "scale": [
