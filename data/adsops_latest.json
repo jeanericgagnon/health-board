@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-06T23:03:14.347854Z",
+  "updated_at": "2026-04-07T00:03:14.687910Z",
   "label": "TSSAds",
   "account": {
     "id": "act_1379452680603809",
@@ -10,15 +10,15 @@
     "timezone_name": "America/Los_Angeles"
   },
   "insights": {
-    "spend": "27.22",
-    "clicks": "276",
-    "impressions": "4899",
-    "cpc": "0.098623",
-    "cpm": "5.556236",
-    "ctr": "5.633803",
-    "reach": "4579",
-    "frequency": "1.069884",
-    "unique_clicks": "270",
+    "spend": "29.61",
+    "clicks": "305",
+    "impressions": "5333",
+    "cpc": "0.097082",
+    "cpm": "5.552222",
+    "ctr": "5.719107",
+    "reach": "5037",
+    "frequency": "1.058765",
+    "unique_clicks": "300",
     "actions": [
       {
         "action_type": "onsite_conversion.total_messaging_connection",
@@ -26,23 +26,27 @@
       },
       {
         "action_type": "link_click",
-        "value": "276"
+        "value": "301"
       },
       {
         "action_type": "page_engagement",
-        "value": "2112"
+        "value": "2295"
+      },
+      {
+        "action_type": "onsite_conversion.post_unlike",
+        "value": "1"
       },
       {
         "action_type": "post_engagement",
-        "value": "2112"
+        "value": "2295"
       },
       {
         "action_type": "post_interaction_gross",
-        "value": "48"
+        "value": "55"
       },
       {
         "action_type": "post_interaction_net",
-        "value": "48"
+        "value": "56"
       },
       {
         "action_type": "onsite_conversion.messaging_first_reply",
@@ -62,7 +66,7 @@
       },
       {
         "action_type": "onsite_conversion.post_net_like",
-        "value": "31"
+        "value": "37"
       },
       {
         "action_type": "onsite_conversion.messaging_conversation_started_7d",
@@ -70,11 +74,11 @@
       },
       {
         "action_type": "video_view",
-        "value": "1788"
+        "value": "1939"
       },
       {
         "action_type": "post_reaction",
-        "value": "31"
+        "value": "38"
       }
     ],
     "date_start": "2026-04-06",
