@@ -15,6 +15,7 @@ OUT = DATA_DIR / 'kpi_latest.json'
 MANUAL_INTRADAY_SPEND_PATH = DATA_DIR / 'manual_intraday_spend.json'
 ADSOPS_LATEST_PATH = DUP_DIR / 'data' / 'adsops_latest.json'
 META_ROLLUPS_LATEST_PATH = DUP_DIR / 'data' / 'meta_rollups_latest.json'
+META_ENTITY_ROLLUPS_LATEST_PATH = DUP_DIR / 'data' / 'meta_entity_rollups_latest.json'
 CAMPAIGN_ANNOTATIONS_PATH = DATA_DIR / 'campaign_annotations.json'
 FOLLOWER_BASELINE_PATH = DATA_DIR / 'follower_baseline_latest.json'
 
@@ -56,6 +57,15 @@ def read_meta_rollups_latest():
         return None
     try:
         return json.loads(META_ROLLUPS_LATEST_PATH.read_text())
+    except Exception:
+        return None
+
+
+def read_meta_entity_rollups_latest():
+    if not META_ENTITY_ROLLUPS_LATEST_PATH.exists():
+        return None
+    try:
+        return json.loads(META_ENTITY_ROLLUPS_LATEST_PATH.read_text())
     except Exception:
         return None
 
@@ -2311,6 +2321,7 @@ def main():
     summary = read_summary()
     meta = read_meta_config()
     meta_rollups = read_meta_rollups_latest() or {}
+    meta_entity_rollups = read_meta_entity_rollups_latest() or {}
     rollup_today = ((meta_rollups.get('rollups') or {}).get('today') or {}).get('summary') or {}
     rollup_yesterday = ((meta_rollups.get('rollups') or {}).get('yesterday') or {}).get('summary') or {}
     rollup_7d = ((meta_rollups.get('rollups') or {}).get('last_7d') or {}).get('summary') or {}
@@ -2495,6 +2506,7 @@ def main():
             'last_7d': ((meta_rollups.get('rollups') or {}).get('last_7d') or {}),
             'last_30d': ((meta_rollups.get('rollups') or {}).get('last_30d') or {}),
         },
+        'meta_entity_rollups': meta_entity_rollups.get('windows') or {},
     }
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
