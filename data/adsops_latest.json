@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-08T19:05:00.861148Z",
+  "updated_at": "2026-04-08T20:05:00.364474Z",
   "label": "TSSAds",
   "account": {
     "id": "act_1379452680603809",
@@ -10,23 +10,23 @@
     "timezone_name": "America/Los_Angeles"
   },
   "insights": {
-    "spend": 17.61,
-    "clicks": 170,
-    "impressions": 3124,
-    "cpc": 0.103588,
-    "cpm": 5.637004,
-    "ctr": 5.441741,
-    "reach": 2939,
-    "frequency": "1.062947",
-    "unique_clicks": "162",
+    "spend": 17.8,
+    "clicks": 172,
+    "impressions": 3165,
+    "cpc": 0.103488,
+    "cpm": 5.624013,
+    "ctr": 5.434439,
+    "reach": 3086,
+    "frequency": "1.025599",
+    "unique_clicks": "167",
     "actions": [
       {
         "action_type": "link_click",
-        "value": "166"
+        "value": "175"
       },
       {
         "action_type": "page_engagement",
-        "value": "1337"
+        "value": "1399"
       },
       {
         "action_type": "onsite_conversion.post_unlike",
@@ -34,7 +34,7 @@
       },
       {
         "action_type": "post_engagement",
-        "value": "1337"
+        "value": "1399"
       },
       {
         "action_type": "post_interaction_gross",
@@ -70,7 +70,7 @@
       },
       {
         "action_type": "video_view",
-        "value": "1127"
+        "value": "1180"
       },
       {
         "action_type": "post_reaction",
@@ -79,9 +79,9 @@
     ],
     "date_start": "2026-04-08",
     "date_stop": "2026-04-08",
-    "link_clicks": 166.0,
-    "outbound_clicks": 166.0,
-    "landing_page_views": 166.0,
+    "link_clicks": 175.0,
+    "outbound_clicks": 175.0,
+    "landing_page_views": 175.0,
     "purchases": 0.0,
     "leads": 0.0,
     "view_content": 0.0,
@@ -103,24 +103,24 @@
       "video_view",
       "post_reaction"
     ],
-    "frequency_avg": 1.062947,
-    "outbound_ctr": 5.313700384122919,
+    "frequency_avg": 1.025599,
+    "outbound_ctr": 5.529225908372828,
     "lpv_rate": 100.0,
-    "cost_per_lpv": 0.10608433734939758,
-    "first_time_impression_ratio": 94.07810499359796
+    "cost_per_lpv": 0.10171428571428572,
+    "first_time_impression_ratio": 97.5039494470774
   },
   "campaigns": [
     {
       "id": "6969205964557",
       "name": "New Traffic Campaign",
-      "status": "ACTIVE",
-      "effective_status": "ACTIVE"
+      "status": "PAUSED",
+      "effective_status": "PAUSED"
     },
     {
       "id": "6966539858957",
       "name": "Tailored web traffic campaign 3/30/2026 Campaign",
-      "status": "ACTIVE",
-      "effective_status": "ACTIVE"
+      "status": "PAUSED",
+      "effective_status": "PAUSED"
     },
     {
       "id": "6960435320957",
@@ -176,14 +176,14 @@
       "id": "6969205964757",
       "name": "New Traffic Ad Set",
       "status": "ACTIVE",
-      "effective_status": "ACTIVE",
+      "effective_status": "CAMPAIGN_PAUSED",
       "campaign_id": "6969205964557"
     },
     {
       "id": "6966539859157",
       "name": "Tailored web traffic campaign 3/30/2026 Ad set",
       "status": "ACTIVE",
-      "effective_status": "ACTIVE",
+      "effective_status": "CAMPAIGN_PAUSED",
       "campaign_id": "6966539858957"
     },
     {
@@ -276,7 +276,7 @@
       "id": "6969205964357",
       "name": "New Traffic Ad",
       "status": "ACTIVE",
-      "effective_status": "ACTIVE",
+      "effective_status": "CAMPAIGN_PAUSED",
       "adset_id": "6969205964757",
       "campaign_id": "6969205964557",
       "creative": {
@@ -288,7 +288,7 @@
       "id": "6966540858557",
       "name": "Number2",
       "status": "ACTIVE",
-      "effective_status": "ACTIVE",
+      "effective_status": "CAMPAIGN_PAUSED",
       "adset_id": "6966539859157",
       "campaign_id": "6966539858957",
       "creative": {
@@ -300,7 +300,7 @@
       "id": "6966539858757",
       "name": "Tailored web traffic campaign 3/30/2026 Ad",
       "status": "ACTIVE",
-      "effective_status": "ACTIVE",
+      "effective_status": "CAMPAIGN_PAUSED",
       "adset_id": "6966539859157",
       "campaign_id": "6966539858957",
       "creative": {
@@ -1852,17 +1852,17 @@
     {
       "campaign_id": "6966539858957",
       "campaign": "Tailored web traffic campaign 3/30/2026 Campaign",
-      "status": "ACTIVE",
+      "status": "PAUSED",
       "adsets": [
         {
           "adset_id": "6966539859157",
           "adset": "Tailored web traffic campaign 3/30/2026 Ad set",
-          "status": "ACTIVE",
+          "status": "CAMPAIGN_PAUSED",
           "ads": [
             {
               "ad_id": "6966539858757",
               "ad": "Tailored web traffic campaign 3/30/2026 Ad",
-              "status": "ACTIVE",
+              "status": "CAMPAIGN_PAUSED",
               "date_start": "2026-03-09",
               "date_stop": "2026-04-07",
               "creative_id": "2156471275125936",
@@ -1969,7 +1969,7 @@
             {
               "ad_id": "6966540858557",
               "ad": "Number2",
-              "status": "ACTIVE",
+              "status": "CAMPAIGN_PAUSED",
               "date_start": "2026-03-09",
               "date_stop": "2026-04-07",
               "creative_id": "1934035907231154",
@@ -2096,24 +2096,24 @@
     {
       "campaign_id": "6969205964557",
       "campaign": "New Traffic Campaign",
-      "status": "ACTIVE",
+      "status": "PAUSED",
       "adsets": [
         {
           "adset_id": "6969205964757",
           "adset": "New Traffic Ad Set",
-          "status": "ACTIVE",
+          "status": "CAMPAIGN_PAUSED",
           "ads": [
             {
               "ad_id": "6969205964357",
               "ad": "New Traffic Ad",
-              "status": "ACTIVE",
+              "status": "CAMPAIGN_PAUSED",
               "date_start": "2026-03-09",
               "date_stop": "2026-04-07",
               "creative_id": "1202030255143678",
               "creative_name": "If there\u2019s one thing we know how to do, it\u2019s find an expert with a story to tell and gather curious 2026-04-03-9e6809d45d12204045983b2f1129d638",
               "spend": 135.93,
               "clicks": 555,
-              "impressions": 22080,
+              "impressions": 22081,
               "reach": 17721,
               "link_clicks": 568,
               "outbound_clicks": 568,
@@ -2123,14 +2123,14 @@
               "view_content": 0,
               "add_to_cart": 0,
               "initiate_checkout": 0,
-              "ctr": 2.513587,
-              "cpm": 6.15625,
+              "ctr": 2.513473,
+              "cpm": 6.155971,
               "cpc": 0.244919,
-              "frequency_avg": 1.245979,
-              "outbound_ctr": 2.572463768115942,
+              "frequency_avg": 1.246036,
+              "outbound_ctr": 2.572347266881029,
               "lpv_rate": 100.0,
               "cost_per_lpv": 0.23931338028169016,
-              "first_time_impression_ratio": 80.25815217391305,
+              "first_time_impression_ratio": 80.25451745844843,
               "actions": [
                 {
                   "action_type": "link_click",
@@ -2189,7 +2189,7 @@
           ],
           "spend": 135.93,
           "clicks": 555,
-          "impressions": 22080,
+          "impressions": 22081,
           "reach": 17721,
           "link_clicks": 568,
           "outbound_clicks": 568,
@@ -2199,19 +2199,19 @@
           "view_content": 0,
           "add_to_cart": 0,
           "initiate_checkout": 0,
-          "ctr": 2.514,
+          "ctr": 2.513,
           "cpm": 6.156,
           "cpc": 0.245,
           "frequency_avg": 1.246,
           "outbound_ctr": 2.572,
           "lpv_rate": 100.0,
           "cost_per_lpv": 0.239,
-          "first_time_impression_ratio": 80.258
+          "first_time_impression_ratio": 80.255
         }
       ],
       "spend": 135.93,
       "clicks": 555,
-      "impressions": 22080,
+      "impressions": 22081,
       "reach": 17721,
       "link_clicks": 568,
       "outbound_clicks": 568,
@@ -2221,14 +2221,14 @@
       "view_content": 0,
       "add_to_cart": 0,
       "initiate_checkout": 0,
-      "ctr": 2.514,
+      "ctr": 2.513,
       "cpm": 6.156,
       "cpc": 0.245,
       "frequency_avg": 1.246,
       "outbound_ctr": 2.572,
       "lpv_rate": 100.0,
       "cost_per_lpv": 0.239,
-      "first_time_impression_ratio": 80.258
+      "first_time_impression_ratio": 80.255
     }
   ],
   "source": "direct_meta_ad_level_pull"
