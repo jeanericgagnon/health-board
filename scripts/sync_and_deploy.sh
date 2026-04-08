@@ -76,7 +76,7 @@ elif [ -f "$REPO_DIR/../health-board/data/flywheel_latest_metrics.json" ]; then
   cp "$REPO_DIR/../health-board/data/flywheel_latest_metrics.json" "$REPO_DIR/data/flywheel_latest_metrics.json"
 fi
 
-# Bring in the current adsops payload from the active local Meta pull pipeline.
+# Bring in the current Meta payloads from the active local Meta pull pipeline.
 ADSOPS_LATEST="$OPS_DUP_DIR/data/adsops_latest.json"
 if [ -f "$ADSOPS_LATEST" ]; then
   cp "$ADSOPS_LATEST" "$REPO_DIR/data/adsops_latest.json"
@@ -84,9 +84,16 @@ else
   echo "WARN: adsops payload missing at $ADSOPS_LATEST" >> "$LOG_DIR/analyze-kpis.log"
 fi
 
+META_ROLLUPS_LATEST="$OPS_DUP_DIR/data/meta_rollups_latest.json"
+if [ -f "$META_ROLLUPS_LATEST" ]; then
+  cp "$META_ROLLUPS_LATEST" "$REPO_DIR/data/meta_rollups_latest.json"
+else
+  echo "WARN: meta rollups payload missing at $META_ROLLUPS_LATEST" >> "$LOG_DIR/analyze-kpis.log"
+fi
+
 # Commit only if data changed.
-if ! git diff --quiet -- data/kpi_latest.json data/adsops_latest.json data/analysis_latest.json data/analysis_brief.txt data/analysis_history.jsonl data/creative_metadata_latest.json data/competitor_followers_latest.json data/competitor_followers_history.jsonl data/follower_demographics_city_latest.json data/trend_intelligence_latest.json data/decision_state_latest.json data/creative_attribution_latest.json data/budget_movement_audit.json data/forecasting_tiles_latest.json data/fatigue_radar_latest.json data/winner_durability_latest.json data/flywheel_latest_metrics.json 2>/dev/null; then
-  git add data/kpi_latest.json data/adsops_latest.json data/analysis_latest.json data/analysis_brief.txt data/analysis_history.jsonl data/creative_metadata_latest.json data/competitor_followers_latest.json data/competitor_followers_history.jsonl data/follower_demographics_city_latest.json data/trend_intelligence_latest.json data/decision_state_latest.json data/creative_attribution_latest.json data/budget_movement_audit.json data/forecasting_tiles_latest.json data/fatigue_radar_latest.json data/winner_durability_latest.json data/flywheel_latest_metrics.json 2>/dev/null || git add data/kpi_latest.json data/analysis_latest.json data/analysis_brief.txt data/analysis_history.jsonl data/creative_metadata_latest.json data/competitor_followers_latest.json data/competitor_followers_history.jsonl data/follower_demographics_city_latest.json data/flywheel_latest_metrics.json
+if ! git diff --quiet -- data/kpi_latest.json data/adsops_latest.json data/meta_rollups_latest.json data/analysis_latest.json data/analysis_brief.txt data/analysis_history.jsonl data/creative_metadata_latest.json data/competitor_followers_latest.json data/competitor_followers_history.jsonl data/follower_demographics_city_latest.json data/trend_intelligence_latest.json data/decision_state_latest.json data/creative_attribution_latest.json data/budget_movement_audit.json data/forecasting_tiles_latest.json data/fatigue_radar_latest.json data/winner_durability_latest.json data/flywheel_latest_metrics.json 2>/dev/null; then
+  git add data/kpi_latest.json data/adsops_latest.json data/meta_rollups_latest.json data/analysis_latest.json data/analysis_brief.txt data/analysis_history.jsonl data/creative_metadata_latest.json data/competitor_followers_latest.json data/competitor_followers_history.jsonl data/follower_demographics_city_latest.json data/trend_intelligence_latest.json data/decision_state_latest.json data/creative_attribution_latest.json data/budget_movement_audit.json data/forecasting_tiles_latest.json data/fatigue_radar_latest.json data/winner_durability_latest.json data/flywheel_latest_metrics.json 2>/dev/null || git add data/kpi_latest.json data/analysis_latest.json data/analysis_brief.txt data/analysis_history.jsonl data/creative_metadata_latest.json data/competitor_followers_latest.json data/competitor_followers_history.jsonl data/follower_demographics_city_latest.json data/flywheel_latest_metrics.json data/meta_rollups_latest.json
   git commit -m "data: refresh KPI snapshot $(date '+%Y-%m-%d %H:%M %Z')" || true
   git push origin main || echo "WARN: git push failed (non-interactive credentials); continuing to deploy"
 else
