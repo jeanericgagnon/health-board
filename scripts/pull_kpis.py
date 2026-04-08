@@ -14,6 +14,7 @@ DATA_DIR = Path(__file__).resolve().parents[1] / 'data'
 OUT = DATA_DIR / 'kpi_latest.json'
 MANUAL_INTRADAY_SPEND_PATH = DATA_DIR / 'manual_intraday_spend.json'
 ADSOPS_LATEST_PATH = DUP_DIR / 'data' / 'adsops_latest.json'
+META_ROLLUPS_LATEST_PATH = DUP_DIR / 'data' / 'meta_rollups_latest.json'
 CAMPAIGN_ANNOTATIONS_PATH = DATA_DIR / 'campaign_annotations.json'
 FOLLOWER_BASELINE_PATH = DATA_DIR / 'follower_baseline_latest.json'
 
@@ -46,6 +47,15 @@ def read_adsops_latest():
         return None
     try:
         return json.loads(ADSOPS_LATEST_PATH.read_text())
+    except Exception:
+        return None
+
+
+def read_meta_rollups_latest():
+    if not META_ROLLUPS_LATEST_PATH.exists():
+        return None
+    try:
+        return json.loads(META_ROLLUPS_LATEST_PATH.read_text())
     except Exception:
         return None
 
@@ -2300,6 +2310,11 @@ def add_upgraded_artifacts(rows, campaigns, spend_series):
 def main():
     summary = read_summary()
     meta = read_meta_config()
+    meta_rollups = read_meta_rollups_latest() or {}
+    rollup_today = ((meta_rollups.get('rollups') or {}).get('today') or {}).get('summary') or {}
+    rollup_yesterday = ((meta_rollups.get('rollups') or {}).get('yesterday') or {}).get('summary') or {}
+    rollup_7d = ((meta_rollups.get('rollups') or {}).get('last_7d') or {}).get('summary') or {}
+    rollup_30d = ((meta_rollups.get('rollups') or {}).get('last_30d') or {}).get('summary') or {}
     rows = apply_market_labels(read_insights_rows())
     campaigns = aggregate_hierarchy(rows)
 
@@ -2408,6 +2423,10 @@ def main():
             'total_spend': summary.get('total_spend', total_spend),
             'total_clicks': summary.get('total_clicks'),
             'total_impressions': summary.get('total_impressions'),
+            'today_spend': rollup_today.get('spend'),
+            'yesterday_spend': rollup_yesterday.get('spend'),
+            'last_7d_spend': rollup_7d.get('spend'),
+            'last_30d_spend': rollup_30d.get('spend'),
             'total_follows': summary.get('total_follows'),
             'blended_cost_per_follow': summary.get('blended_cost_per_follow'),
             'since': summary.get('since'),
@@ -2432,7 +2451,11 @@ def main():
         'spend_series': spend_series,
         'insights': build_insights(summary, campaigns, followers_daily, spend_series, action_recommendations, data_health),
         'recommendations': action_recommendations,
-        'pacing': pacing,
+        'pacing': {
+            **pacing,
+            'today_spend_db_rollup': rollup_today.get('spend'),
+            'yesterday_spend_db_rollup': rollup_yesterday.get('spend'),
+        },
         'forecasting': forecasting,
         'forecasting_tiles': upgraded_forecast,
         'intelligence': intelligence,
@@ -2466,6 +2489,12 @@ def main():
             'city': follower_city_rows,
         },
         'optimization': build_optimization(rows, campaigns, summary, followers_daily),
+        'meta_rollups': {
+            'today': ((meta_rollups.get('rollups') or {}).get('today') or {}),
+            'yesterday': ((meta_rollups.get('rollups') or {}).get('yesterday') or {}),
+            'last_7d': ((meta_rollups.get('rollups') or {}).get('last_7d') or {}),
+            'last_30d': ((meta_rollups.get('rollups') or {}).get('last_30d') or {}),
+        },
     }
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
