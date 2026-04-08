@@ -17,6 +17,7 @@ ADSOPS_LATEST_PATH = DUP_DIR / 'data' / 'adsops_latest.json'
 META_ROLLUPS_LATEST_PATH = DUP_DIR / 'data' / 'meta_rollups_latest.json'
 META_ENTITY_ROLLUPS_LATEST_PATH = DUP_DIR / 'data' / 'meta_entity_rollups_latest.json'
 META_HEALTH_LATEST_PATH = DUP_DIR / 'data' / 'meta_health_latest.json'
+META_CREATIVE_JOINS_LATEST_PATH = DUP_DIR / 'data' / 'meta_creative_joins_latest.json'
 CAMPAIGN_ANNOTATIONS_PATH = DATA_DIR / 'campaign_annotations.json'
 FOLLOWER_BASELINE_PATH = DATA_DIR / 'follower_baseline_latest.json'
 
@@ -76,6 +77,15 @@ def read_meta_health_latest():
         return None
     try:
         return json.loads(META_HEALTH_LATEST_PATH.read_text())
+    except Exception:
+        return None
+
+
+def read_meta_creative_joins_latest():
+    if not META_CREATIVE_JOINS_LATEST_PATH.exists():
+        return None
+    try:
+        return json.loads(META_CREATIVE_JOINS_LATEST_PATH.read_text())
     except Exception:
         return None
 
@@ -2333,6 +2343,7 @@ def main():
     meta_rollups = read_meta_rollups_latest() or {}
     meta_entity_rollups = read_meta_entity_rollups_latest() or {}
     meta_health = read_meta_health_latest() or {}
+    meta_creative_joins = read_meta_creative_joins_latest() or {}
     rollup_today = ((meta_rollups.get('rollups') or {}).get('today') or {}).get('summary') or {}
     rollup_yesterday = ((meta_rollups.get('rollups') or {}).get('yesterday') or {}).get('summary') or {}
     rollup_7d = ((meta_rollups.get('rollups') or {}).get('last_7d') or {}).get('summary') or {}
@@ -2519,6 +2530,7 @@ def main():
         },
         'meta_entity_rollups': meta_entity_rollups.get('windows') or {},
         'meta_health': meta_health,
+        'meta_creative_joins': meta_creative_joins,
     }
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
