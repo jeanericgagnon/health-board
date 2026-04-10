@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-04-10T22:00:17.375473Z",
-  "source_updated_at": "2026-04-10T22:00:03.972421Z",
+  "generated_at": "2026-04-10T23:00:22.391517Z",
+  "source_updated_at": "2026-04-10T23:00:05.683602Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 1756.34,
-    "expected_by_now": 37.5,
-    "pace_ratio": 46.836,
+    "expected_by_now": 40.0,
+    "pace_ratio": 43.908,
     "status": "too_fast",
     "today_spend_db_rollup": 33.19,
     "yesterday_spend_db_rollup": 50.65
@@ -15,15 +15,15 @@
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 55.1,
+    "last_pull_age_min": 115.1,
     "attribution_confidence": "direct"
   },
   "summary": {
     "total_spend": 1756.34,
     "total_clicks": 15937,
     "total_impressions": 250539,
-    "daily_gain_live": 12,
-    "current_followers_live": 109544
+    "daily_gain_live": 13,
+    "current_followers_live": 109545
   },
   "recommendations": {
     "scale": [
@@ -32,10 +32,11 @@
         "campaign_id": "6955113574357",
         "tag": "Scale",
         "reason": "Strong CTR + low CPC with acceptable frequency",
-        "confidence": "high",
+        "confidence": "low",
         "priority": "normal",
         "diagnostic_tags": [
-          "efficiency"
+          "efficiency",
+          "low_attribution_confidence"
         ],
         "expected_impact": "high",
         "fatigue_score": null
@@ -45,10 +46,11 @@
         "campaign_id": "6951024653957",
         "tag": "Scale",
         "reason": "Strong CTR + low CPC with acceptable frequency",
-        "confidence": "high",
+        "confidence": "low",
         "priority": "normal",
         "diagnostic_tags": [
-          "efficiency"
+          "efficiency",
+          "low_attribution_confidence"
         ],
         "expected_impact": "high",
         "fatigue_score": null
@@ -58,10 +60,11 @@
         "campaign_id": "6953786714157",
         "tag": "Scale",
         "reason": "Strong CTR + low CPC with acceptable frequency",
-        "confidence": "high",
+        "confidence": "low",
         "priority": "normal",
         "diagnostic_tags": [
-          "efficiency"
+          "efficiency",
+          "low_attribution_confidence"
         ],
         "expected_impact": "high",
         "fatigue_score": null
