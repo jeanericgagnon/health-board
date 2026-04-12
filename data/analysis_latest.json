@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-04-11T19:00:31.438490Z",
-  "source_updated_at": "2026-04-11T19:00:03.573088Z",
+  "generated_at": "2026-04-12T00:00:15.925002Z",
+  "source_updated_at": "2026-04-12T00:00:03.738682Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 1697.8,
-    "expected_by_now": 30.0,
-    "pace_ratio": 56.593,
+    "expected_by_now": 42.5,
+    "pace_ratio": 39.948,
     "status": "too_fast",
     "today_spend_db_rollup": 33.19,
     "yesterday_spend_db_rollup": 50.65
@@ -191,11 +191,15 @@
     "Scale: 1 (Strong CTR + low CPC with acceptable frequency)"
   ],
   "alert": {
-    "should_alert": false,
-    "reasons": []
+    "should_alert": true,
+    "reasons": [
+      "data_health_changed"
+    ]
   },
   "change_digest": {
-    "has_material_change": false,
-    "reasons": []
+    "has_material_change": true,
+    "reasons": [
+      "data_health_changed"
+    ]
   }
 }
