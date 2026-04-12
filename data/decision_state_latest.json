@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-12T05:00:02.735007Z",
+  "generated_at": "2026-04-12T13:00:03.459643Z",
   "rows": [
     {
       "campaign_id": "6955113574357",
@@ -11,7 +11,7 @@
       "action_ready": "scalable",
       "next_gate": "none",
       "gate_progress": {
-        "spend": 508.56,
+        "spend": 488.63,
         "gate_5": {
           "required": 5.0,
           "passed": true,
@@ -24,107 +24,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-12T05:00:02.735007Z"
-    },
-    {
-      "campaign_id": "6951024653957",
-      "campaign": "1",
-      "adset_id": "6953785406157",
-      "ad_id": "6953785406357",
-      "ad": "1",
-      "state": "SCALE",
-      "action_ready": "scalable",
-      "next_gate": "none",
-      "gate_progress": {
-        "spend": 117.58,
-        "gate_5": {
-          "required": 5.0,
-          "passed": true,
-          "current_pct": 100.0
-        },
-        "gate_10": {
-          "required": 10.0,
-          "passed": true,
-          "current_pct": 100.0
-        }
-      },
-      "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-12T05:00:02.735007Z"
-    },
-    {
-      "campaign_id": "6951024653957",
-      "campaign": "1",
-      "adset_id": "6951024653757",
-      "ad_id": "6951024654157",
-      "ad": "1",
-      "state": "SCALE",
-      "action_ready": "scalable",
-      "next_gate": "none",
-      "gate_progress": {
-        "spend": 109.76,
-        "gate_5": {
-          "required": 5.0,
-          "passed": true,
-          "current_pct": 100.0
-        },
-        "gate_10": {
-          "required": 10.0,
-          "passed": true,
-          "current_pct": 100.0
-        }
-      },
-      "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-12T05:00:02.735007Z"
-    },
-    {
-      "campaign_id": "6953786714157",
-      "campaign": "2",
-      "adset_id": "6953786714957",
-      "ad_id": "6953786714557",
-      "ad": "1",
-      "state": "SCALE",
-      "action_ready": "scalable",
-      "next_gate": "none",
-      "gate_progress": {
-        "spend": 133.28,
-        "gate_5": {
-          "required": 5.0,
-          "passed": true,
-          "current_pct": 100.0
-        },
-        "gate_10": {
-          "required": 10.0,
-          "passed": true,
-          "current_pct": 100.0
-        }
-      },
-      "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-12T05:00:02.735007Z"
-    },
-    {
-      "campaign_id": "6953786714157",
-      "campaign": "2",
-      "adset_id": "6953786714757",
-      "ad_id": "6953786714357",
-      "ad": "1",
-      "state": "SCALE",
-      "action_ready": "scalable",
-      "next_gate": "none",
-      "gate_progress": {
-        "spend": 88.58,
-        "gate_5": {
-          "required": 5.0,
-          "passed": true,
-          "current_pct": 100.0
-        },
-        "gate_10": {
-          "required": 10.0,
-          "passed": true,
-          "current_pct": 100.0
-        }
-      },
-      "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-12T05:00:02.735007Z"
+      "updated_at": "2026-04-12T13:00:03.459643Z"
     },
     {
       "campaign_id": "6960435028357",
@@ -149,7 +49,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-12T05:00:02.735007Z"
+      "updated_at": "2026-04-12T13:00:03.459643Z"
     },
     {
       "campaign_id": "6960435028357",
@@ -174,7 +74,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-12T05:00:02.735007Z"
+      "updated_at": "2026-04-12T13:00:03.459643Z"
     },
     {
       "campaign_id": "6960435028357",
@@ -199,7 +99,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-12T05:00:02.735007Z"
+      "updated_at": "2026-04-12T13:00:03.459643Z"
     },
     {
       "campaign_id": "6960435028357",
@@ -224,7 +124,107 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-12T05:00:02.735007Z"
+      "updated_at": "2026-04-12T13:00:03.459643Z"
+    },
+    {
+      "campaign_id": "6951024653957",
+      "campaign": "1",
+      "adset_id": "6953785406157",
+      "ad_id": "6953785406357",
+      "ad": "1",
+      "state": "SCALE",
+      "action_ready": "scalable",
+      "next_gate": "none",
+      "gate_progress": {
+        "spend": 103.15,
+        "gate_5": {
+          "required": 5.0,
+          "passed": true,
+          "current_pct": 100.0
+        },
+        "gate_10": {
+          "required": 10.0,
+          "passed": true,
+          "current_pct": 100.0
+        }
+      },
+      "action_timestamp": "2026-04-01T18:00:03.722584Z",
+      "updated_at": "2026-04-12T13:00:03.459643Z"
+    },
+    {
+      "campaign_id": "6951024653957",
+      "campaign": "1",
+      "adset_id": "6951024653757",
+      "ad_id": "6951024654157",
+      "ad": "1",
+      "state": "SCALE",
+      "action_ready": "scalable",
+      "next_gate": "none",
+      "gate_progress": {
+        "spend": 98.26,
+        "gate_5": {
+          "required": 5.0,
+          "passed": true,
+          "current_pct": 100.0
+        },
+        "gate_10": {
+          "required": 10.0,
+          "passed": true,
+          "current_pct": 100.0
+        }
+      },
+      "action_timestamp": "2026-04-01T18:00:03.722584Z",
+      "updated_at": "2026-04-12T13:00:03.459643Z"
+    },
+    {
+      "campaign_id": "6953786714157",
+      "campaign": "2",
+      "adset_id": "6953786714957",
+      "ad_id": "6953786714557",
+      "ad": "1",
+      "state": "SCALE",
+      "action_ready": "scalable",
+      "next_gate": "none",
+      "gate_progress": {
+        "spend": 118.58,
+        "gate_5": {
+          "required": 5.0,
+          "passed": true,
+          "current_pct": 100.0
+        },
+        "gate_10": {
+          "required": 10.0,
+          "passed": true,
+          "current_pct": 100.0
+        }
+      },
+      "action_timestamp": "2026-04-01T18:00:03.722584Z",
+      "updated_at": "2026-04-12T13:00:03.459643Z"
+    },
+    {
+      "campaign_id": "6953786714157",
+      "campaign": "2",
+      "adset_id": "6953786714757",
+      "ad_id": "6953786714357",
+      "ad": "1",
+      "state": "SCALE",
+      "action_ready": "scalable",
+      "next_gate": "none",
+      "gate_progress": {
+        "spend": 80.02,
+        "gate_5": {
+          "required": 5.0,
+          "passed": true,
+          "current_pct": 100.0
+        },
+        "gate_10": {
+          "required": 10.0,
+          "passed": true,
+          "current_pct": 100.0
+        }
+      },
+      "action_timestamp": "2026-04-01T18:00:03.722584Z",
+      "updated_at": "2026-04-12T13:00:03.459643Z"
     },
     {
       "campaign_id": "6960086008957",
@@ -249,7 +249,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-12T05:00:02.735007Z"
+      "updated_at": "2026-04-12T13:00:03.459643Z"
     },
     {
       "campaign_id": "6966539858957",
@@ -274,7 +274,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-12T05:00:02.735007Z"
+      "updated_at": "2026-04-12T13:00:03.459643Z"
     },
     {
       "campaign_id": "6966539858957",
@@ -299,7 +299,7 @@
         }
       },
       "action_timestamp": "2026-04-03T08:03:36.032281Z",
-      "updated_at": "2026-04-12T05:00:02.735007Z"
+      "updated_at": "2026-04-12T13:00:03.459643Z"
     },
     {
       "campaign_id": "6969205964557",
@@ -324,7 +324,7 @@
         }
       },
       "action_timestamp": "2026-04-04T07:03:12.389063Z",
-      "updated_at": "2026-04-12T05:00:02.735007Z"
+      "updated_at": "2026-04-12T13:00:03.459643Z"
     }
   ],
   "counts": {
