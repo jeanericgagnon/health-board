@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-12T17:05:00.597407Z",
+  "updated_at": "2026-04-12T18:05:00.305404Z",
   "label": "TSSAds",
   "account": {
     "id": "act_1379452680603809",
@@ -10,27 +10,74 @@
     "timezone_name": "America/Los_Angeles"
   },
   "insights": {
-    "link_clicks": 0.0,
-    "outbound_clicks": 0.0,
-    "landing_page_views": 0.0,
+    "spend": 1.18,
+    "clicks": 4,
+    "impressions": 126,
+    "cpc": 0.295,
+    "cpm": 9.365079,
+    "ctr": 3.174603,
+    "reach": 97,
+    "frequency": "1.298969",
+    "unique_clicks": "3",
+    "actions": [
+      {
+        "action_type": "link_click",
+        "value": "1"
+      },
+      {
+        "action_type": "page_engagement",
+        "value": "28"
+      },
+      {
+        "action_type": "post_engagement",
+        "value": "28"
+      },
+      {
+        "action_type": "post_interaction_gross",
+        "value": "1"
+      },
+      {
+        "action_type": "post_interaction_net",
+        "value": "1"
+      },
+      {
+        "action_type": "onsite_conversion.post_net_like",
+        "value": "1"
+      },
+      {
+        "action_type": "video_view",
+        "value": "26"
+      },
+      {
+        "action_type": "post_reaction",
+        "value": "1"
+      }
+    ],
+    "date_start": "2026-04-12",
+    "date_stop": "2026-04-12",
+    "link_clicks": 1.0,
+    "outbound_clicks": 1.0,
+    "landing_page_views": 1.0,
     "purchases": 0.0,
     "leads": 0.0,
     "view_content": 0.0,
     "add_to_cart": 0.0,
     "initiate_checkout": 0.0,
-    "_raw_action_types": [],
-    "spend": 0.0,
-    "clicks": 0,
-    "impressions": 0,
-    "reach": 0,
-    "ctr": 0.0,
-    "cpm": 0.0,
-    "cpc": null,
-    "frequency_avg": null,
-    "outbound_ctr": null,
-    "lpv_rate": null,
-    "cost_per_lpv": null,
-    "first_time_impression_ratio": null
+    "_raw_action_types": [
+      "link_click",
+      "page_engagement",
+      "post_engagement",
+      "post_interaction_gross",
+      "post_interaction_net",
+      "onsite_conversion.post_net_like",
+      "video_view",
+      "post_reaction"
+    ],
+    "frequency_avg": 1.298969,
+    "outbound_ctr": 0.7936507936507936,
+    "lpv_rate": 100.0,
+    "cost_per_lpv": 1.18,
+    "first_time_impression_ratio": 76.98412698412699
   },
   "campaigns": [
     {
@@ -54,8 +101,8 @@
     {
       "id": "6960435028357",
       "name": "TSS Seattle 4-way launch 20260321_095059",
-      "status": "PAUSED",
-      "effective_status": "PAUSED"
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE"
     },
     {
       "id": "6960434318957",
@@ -72,8 +119,8 @@
     {
       "id": "6960086008957",
       "name": "Tailored web traffic campaign 3/20/2026 Campaign",
-      "status": "PAUSED",
-      "effective_status": "PAUSED"
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE"
     },
     {
       "id": "6955113574357",
@@ -84,14 +131,14 @@
     {
       "id": "6953786714157",
       "name": "2",
-      "status": "PAUSED",
-      "effective_status": "PAUSED"
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE"
     },
     {
       "id": "6951024653957",
       "name": "1",
-      "status": "PAUSED",
-      "effective_status": "PAUSED"
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE"
     }
   ],
   "adsets": [
@@ -127,7 +174,7 @@
       "id": "6960435749557",
       "name": "Seattle launch | v98_vo_b | $10/day",
       "status": "ACTIVE",
-      "effective_status": "CAMPAIGN_PAUSED",
+      "effective_status": "ACTIVE",
       "campaign_id": "6960435028357"
     },
     {
@@ -155,7 +202,7 @@
       "id": "6960086009357",
       "name": "Tailored web traffic campaign 3/20/2026 Ad set",
       "status": "ACTIVE",
-      "effective_status": "CAMPAIGN_PAUSED",
+      "effective_status": "ACTIVE",
       "campaign_id": "6960086008957"
     },
     {
@@ -169,7 +216,7 @@
       "id": "6953786714957",
       "name": "Test - New Traffic Ad set with recommended settings",
       "status": "ACTIVE",
-      "effective_status": "CAMPAIGN_PAUSED",
+      "effective_status": "ACTIVE",
       "campaign_id": "6953786714157"
     },
     {
@@ -183,14 +230,14 @@
       "id": "6953785406157",
       "name": "Test - New Traffic Ad set with recommended settings",
       "status": "ACTIVE",
-      "effective_status": "CAMPAIGN_PAUSED",
+      "effective_status": "ACTIVE",
       "campaign_id": "6951024653957"
     },
     {
       "id": "6951024653757",
       "name": "New Traffic Ad set with recommended settings",
       "status": "ACTIVE",
-      "effective_status": "CAMPAIGN_PAUSED",
+      "effective_status": "ACTIVE",
       "campaign_id": "6951024653957"
     }
   ],
@@ -307,7 +354,7 @@
       "id": "6960435771957",
       "name": "Seattle launch | v98_vo_b",
       "status": "ACTIVE",
-      "effective_status": "CAMPAIGN_PAUSED",
+      "effective_status": "ACTIVE",
       "adset_id": "6960435749557",
       "campaign_id": "6960435028357",
       "creative": {
@@ -331,7 +378,7 @@
       "id": "6960086009157",
       "name": "Tailored web traffic campaign 3/20/2026 Ad",
       "status": "ACTIVE",
-      "effective_status": "CAMPAIGN_PAUSED",
+      "effective_status": "ACTIVE",
       "adset_id": "6960086009357",
       "campaign_id": "6960086008957",
       "creative": {
@@ -525,17 +572,17 @@
     {
       "campaign_id": "6960435028357",
       "campaign": "TSS Seattle 4-way launch 20260321_095059",
-      "status": "PAUSED",
+      "status": "ACTIVE",
       "adsets": [
         {
           "adset_id": "6960435749557",
           "adset": "Seattle launch | v98_vo_b | $10/day",
-          "status": "CAMPAIGN_PAUSED",
+          "status": "ACTIVE",
           "ads": [
             {
               "ad_id": "6960435771957",
               "ad": "Seattle launch | v98_vo_b",
-              "status": "CAMPAIGN_PAUSED",
+              "status": "ACTIVE",
               "date_start": "2026-03-13",
               "date_stop": "2026-04-11",
               "creative_id": "1194881589203157",
@@ -1040,12 +1087,12 @@
     {
       "campaign_id": "6951024653957",
       "campaign": "1",
-      "status": "PAUSED",
+      "status": "ACTIVE",
       "adsets": [
         {
           "adset_id": "6953785406157",
           "adset": "Test - New Traffic Ad set with recommended settings",
-          "status": "CAMPAIGN_PAUSED",
+          "status": "ACTIVE",
           "ads": [
             {
               "ad_id": "6953785406357",
@@ -1175,7 +1222,7 @@
         {
           "adset_id": "6951024653757",
           "adset": "New Traffic Ad set with recommended settings",
-          "status": "CAMPAIGN_PAUSED",
+          "status": "ACTIVE",
           "ads": [
             {
               "ad_id": "6951024654157",
@@ -1315,12 +1362,12 @@
     {
       "campaign_id": "6953786714157",
       "campaign": "2",
-      "status": "PAUSED",
+      "status": "ACTIVE",
       "adsets": [
         {
           "adset_id": "6953786714957",
           "adset": "Test - New Traffic Ad set with recommended settings",
-          "status": "CAMPAIGN_PAUSED",
+          "status": "ACTIVE",
           "ads": [
             {
               "ad_id": "6953786714557",
@@ -1590,17 +1637,17 @@
     {
       "campaign_id": "6960086008957",
       "campaign": "Tailored web traffic campaign 3/20/2026 Campaign",
-      "status": "PAUSED",
+      "status": "ACTIVE",
       "adsets": [
         {
           "adset_id": "6960086009357",
           "adset": "Tailored web traffic campaign 3/20/2026 Ad set",
-          "status": "CAMPAIGN_PAUSED",
+          "status": "ACTIVE",
           "ads": [
             {
               "ad_id": "6960086009157",
               "ad": "Tailored web traffic campaign 3/20/2026 Ad",
-              "status": "CAMPAIGN_PAUSED",
+              "status": "ACTIVE",
               "date_start": "2026-03-13",
               "date_stop": "2026-04-11",
               "creative_id": "2089966221853094",
