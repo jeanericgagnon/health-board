@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-13T19:05:01.179024Z",
+  "updated_at": "2026-04-13T20:05:00.293387Z",
   "label": "TSSAds",
   "account": {
     "id": "act_1379452680603809",
@@ -10,23 +10,23 @@
     "timezone_name": "America/Los_Angeles"
   },
   "insights": {
-    "spend": 37.98,
-    "clicks": 179,
-    "impressions": 4885,
-    "cpc": 0.212179,
-    "cpm": 7.774821,
-    "ctr": 3.664278,
-    "reach": 4695,
-    "frequency": "1.040469",
-    "unique_clicks": "169",
+    "spend": 42.6,
+    "clicks": 209,
+    "impressions": 5545,
+    "cpc": 0.203828,
+    "cpm": 7.682597,
+    "ctr": 3.769161,
+    "reach": 5332,
+    "frequency": "1.039947",
+    "unique_clicks": "196",
     "actions": [
       {
         "action_type": "link_click",
-        "value": "163"
+        "value": "196"
       },
       {
         "action_type": "page_engagement",
-        "value": "1942"
+        "value": "2335"
       },
       {
         "action_type": "landing_page_view",
@@ -38,15 +38,15 @@
       },
       {
         "action_type": "onsite_conversion.post_unlike",
-        "value": "2"
+        "value": "3"
       },
       {
         "action_type": "post_engagement",
-        "value": "1942"
+        "value": "2335"
       },
       {
         "action_type": "post_interaction_gross",
-        "value": "50"
+        "value": "67"
       },
       {
         "action_type": "comment",
@@ -54,15 +54,15 @@
       },
       {
         "action_type": "post_interaction_net",
-        "value": "52"
+        "value": "70"
       },
       {
         "action_type": "post",
-        "value": "3"
+        "value": "5"
       },
       {
         "action_type": "onsite_conversion.post_save",
-        "value": "6"
+        "value": "7"
       },
       {
         "action_type": "onsite_conversion.post_net_comment",
@@ -70,25 +70,25 @@
       },
       {
         "action_type": "onsite_conversion.post_net_save",
-        "value": "6"
+        "value": "7"
       },
       {
         "action_type": "onsite_conversion.post_net_like",
-        "value": "36"
+        "value": "49"
       },
       {
         "action_type": "video_view",
-        "value": "1729"
+        "value": "2072"
       },
       {
         "action_type": "post_reaction",
-        "value": "38"
+        "value": "52"
       }
     ],
     "date_start": "2026-04-13",
     "date_stop": "2026-04-13",
-    "link_clicks": 163.0,
-    "outbound_clicks": 163.0,
+    "link_clicks": 196.0,
+    "outbound_clicks": 196.0,
     "landing_page_views": 16.0,
     "purchases": 0.0,
     "leads": 0.0,
@@ -113,11 +113,11 @@
       "video_view",
       "post_reaction"
     ],
-    "frequency_avg": 1.040469,
-    "outbound_ctr": 3.336745138178096,
-    "lpv_rate": 9.815950920245399,
-    "cost_per_lpv": 2.37375,
-    "first_time_impression_ratio": 96.11054247697032
+    "frequency_avg": 1.039947,
+    "outbound_ctr": 3.5347159603246165,
+    "lpv_rate": 8.16326530612245,
+    "cost_per_lpv": 2.6625,
+    "first_time_impression_ratio": 96.15870153291254
   },
   "campaigns": [
     {
@@ -177,8 +177,8 @@
     {
       "id": "6953786714157",
       "name": "2",
-      "status": "ACTIVE",
-      "effective_status": "ACTIVE"
+      "status": "PAUSED",
+      "effective_status": "PAUSED"
     },
     {
       "id": "6951024653957",
@@ -269,7 +269,7 @@
       "id": "6953786714957",
       "name": "Test - New Traffic Ad set with recommended settings",
       "status": "ACTIVE",
-      "effective_status": "ACTIVE",
+      "effective_status": "CAMPAIGN_PAUSED",
       "campaign_id": "6953786714157"
     },
     {
@@ -1824,12 +1824,12 @@
     {
       "campaign_id": "6953786714157",
       "campaign": "2",
-      "status": "ACTIVE",
+      "status": "PAUSED",
       "adsets": [
         {
           "adset_id": "6953786714957",
           "adset": "Test - New Traffic Ad set with recommended settings",
-          "status": "ACTIVE",
+          "status": "CAMPAIGN_PAUSED",
           "ads": [
             {
               "ad_id": "6953786714557",
