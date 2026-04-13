@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-13T18:05:01.071151Z",
+  "updated_at": "2026-04-13T19:05:01.179024Z",
   "label": "TSSAds",
   "account": {
     "id": "act_1379452680603809",
@@ -10,23 +10,23 @@
     "timezone_name": "America/Los_Angeles"
   },
   "insights": {
-    "spend": 15.81,
-    "clicks": 103,
-    "impressions": 2090,
-    "cpc": 0.153495,
-    "cpm": 7.564593,
-    "ctr": 4.92823,
-    "reach": 1991,
-    "frequency": "1.049724",
-    "unique_clicks": "97",
+    "spend": 37.98,
+    "clicks": 179,
+    "impressions": 4885,
+    "cpc": 0.212179,
+    "cpm": 7.774821,
+    "ctr": 3.664278,
+    "reach": 4695,
+    "frequency": "1.040469",
+    "unique_clicks": "169",
     "actions": [
       {
         "action_type": "link_click",
-        "value": "89"
+        "value": "163"
       },
       {
         "action_type": "page_engagement",
-        "value": "913"
+        "value": "1942"
       },
       {
         "action_type": "landing_page_view",
@@ -37,54 +37,58 @@
         "value": "8"
       },
       {
+        "action_type": "onsite_conversion.post_unlike",
+        "value": "2"
+      },
+      {
         "action_type": "post_engagement",
-        "value": "913"
+        "value": "1942"
       },
       {
         "action_type": "post_interaction_gross",
-        "value": "17"
+        "value": "50"
       },
       {
         "action_type": "comment",
-        "value": "1"
+        "value": "3"
       },
       {
         "action_type": "post_interaction_net",
-        "value": "17"
+        "value": "52"
       },
       {
         "action_type": "post",
-        "value": "1"
+        "value": "3"
       },
       {
         "action_type": "onsite_conversion.post_save",
-        "value": "3"
+        "value": "6"
       },
       {
         "action_type": "onsite_conversion.post_net_comment",
-        "value": "1"
-      },
-      {
-        "action_type": "onsite_conversion.post_net_save",
         "value": "3"
       },
       {
+        "action_type": "onsite_conversion.post_net_save",
+        "value": "6"
+      },
+      {
         "action_type": "onsite_conversion.post_net_like",
-        "value": "12"
+        "value": "36"
       },
       {
         "action_type": "video_view",
-        "value": "807"
+        "value": "1729"
       },
       {
         "action_type": "post_reaction",
-        "value": "12"
+        "value": "38"
       }
     ],
     "date_start": "2026-04-13",
     "date_stop": "2026-04-13",
-    "link_clicks": 89.0,
-    "outbound_clicks": 89.0,
+    "link_clicks": 163.0,
+    "outbound_clicks": 163.0,
     "landing_page_views": 16.0,
     "purchases": 0.0,
     "leads": 0.0,
@@ -96,6 +100,7 @@
       "page_engagement",
       "landing_page_view",
       "omni_landing_page_view",
+      "onsite_conversion.post_unlike",
       "post_engagement",
       "post_interaction_gross",
       "comment",
@@ -108,13 +113,19 @@
       "video_view",
       "post_reaction"
     ],
-    "frequency_avg": 1.049724,
-    "outbound_ctr": 4.258373205741626,
-    "lpv_rate": 17.97752808988764,
-    "cost_per_lpv": 0.988125,
-    "first_time_impression_ratio": 95.26315789473684
+    "frequency_avg": 1.040469,
+    "outbound_ctr": 3.336745138178096,
+    "lpv_rate": 9.815950920245399,
+    "cost_per_lpv": 2.37375,
+    "first_time_impression_ratio": 96.11054247697032
   },
   "campaigns": [
+    {
+      "id": "6974197316357",
+      "name": "New Traffic Campaign",
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE"
+    },
     {
       "id": "6969205964557",
       "name": "New Traffic Campaign",
@@ -160,8 +171,8 @@
     {
       "id": "6955113574357",
       "name": "Tailored web traffic campaign 3/11/2026 Campaign",
-      "status": "PAUSED",
-      "effective_status": "PAUSED"
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE"
     },
     {
       "id": "6953786714157",
@@ -177,6 +188,13 @@
     }
   ],
   "adsets": [
+    {
+      "id": "6974197316557",
+      "name": "New Traffic Ad Set",
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE",
+      "campaign_id": "6974197316357"
+    },
     {
       "id": "6969205964757",
       "name": "New Traffic Ad Set",
@@ -244,7 +262,7 @@
       "id": "6955113574557",
       "name": "Tailored web traffic campaign 3/11/2026 Ad set",
       "status": "ACTIVE",
-      "effective_status": "CAMPAIGN_PAUSED",
+      "effective_status": "ACTIVE",
       "campaign_id": "6955113574357"
     },
     {
@@ -277,6 +295,30 @@
     }
   ],
   "ads": [
+    {
+      "id": "6955113574157",
+      "name": "Tailored web traffic campaign 3/11/2026 Ad",
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE",
+      "adset_id": "6955113574557",
+      "campaign_id": "6955113574357",
+      "creative": {
+        "id": "1598889647989602",
+        "name": "Not your average night out: drinks + ideas + people who actually want to learn something. 2026-03-11-d903cc461832f20f0639f16d24cca0d4"
+      }
+    },
+    {
+      "id": "6974197316757",
+      "name": "New Traffic Ad",
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE",
+      "adset_id": "6974197316557",
+      "campaign_id": "6974197316357",
+      "creative": {
+        "id": "1246554427206922",
+        "name": "Drink Smarter Not harder. 60 minute expert talks in bars and breweries 2026-04-13-ac5aca8a726c4a6f2c306b9160b0ff63"
+      }
+    },
     {
       "id": "6969205964357",
       "name": "New Traffic Ad",
@@ -420,35 +462,23 @@
         "id": "2089966221853094",
         "name": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link 2026-03-20-1cf64a246dbc22003bfc846333d2c282"
       }
-    },
-    {
-      "id": "6955113574157",
-      "name": "Tailored web traffic campaign 3/11/2026 Ad",
-      "status": "ACTIVE",
-      "effective_status": "CAMPAIGN_PAUSED",
-      "adset_id": "6955113574557",
-      "campaign_id": "6955113574357",
-      "creative": {
-        "id": "1598889647989602",
-        "name": "Not your average night out: drinks + ideas + people who actually want to learn something. 2026-03-11-d903cc461832f20f0639f16d24cca0d4"
-      }
     }
   ],
   "campaign": [
     {
       "campaign_id": "6955113574357",
       "campaign": "Tailored web traffic campaign 3/11/2026 Campaign",
-      "status": "PAUSED",
+      "status": "ACTIVE",
       "adsets": [
         {
           "adset_id": "6955113574557",
           "adset": "Tailored web traffic campaign 3/11/2026 Ad set",
-          "status": "CAMPAIGN_PAUSED",
+          "status": "ACTIVE",
           "ads": [
             {
               "ad_id": "6955113574157",
               "ad": "Tailored web traffic campaign 3/11/2026 Ad",
-              "status": "CAMPAIGN_PAUSED",
+              "status": "ACTIVE",
               "date_start": "2026-03-14",
               "date_stop": "2026-04-12",
               "creative_id": "1598889647989602",
