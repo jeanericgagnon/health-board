@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-13T04:05:01.043415Z",
+  "updated_at": "2026-04-13T12:05:01.119265Z",
   "label": "TSSAds",
   "account": {
     "id": "act_1379452680603809",
@@ -10,78 +10,66 @@
     "timezone_name": "America/Los_Angeles"
   },
   "insights": {
-    "spend": 36.95,
-    "clicks": 210,
-    "impressions": 4977,
-    "cpc": 0.175952,
-    "cpm": 7.424151,
-    "ctr": 4.219409,
-    "reach": 4563,
-    "frequency": "1.09073",
-    "unique_clicks": "200",
+    "spend": 4.8,
+    "clicks": 25,
+    "impressions": 633,
+    "cpc": 0.192,
+    "cpm": 7.582938,
+    "ctr": 3.949447,
+    "reach": 579,
+    "frequency": "1.093264",
+    "unique_clicks": "24",
     "actions": [
       {
         "action_type": "link_click",
-        "value": "187"
+        "value": "20"
       },
       {
         "action_type": "page_engagement",
-        "value": "1879"
-      },
-      {
-        "action_type": "landing_page_view",
-        "value": "24"
-      },
-      {
-        "action_type": "omni_landing_page_view",
-        "value": "24"
-      },
-      {
-        "action_type": "onsite_conversion.post_unlike",
-        "value": "2"
+        "value": "255"
       },
       {
         "action_type": "post_engagement",
-        "value": "1879"
+        "value": "255"
       },
       {
         "action_type": "post_interaction_gross",
-        "value": "43"
-      },
-      {
-        "action_type": "post_interaction_net",
-        "value": "45"
-      },
-      {
-        "action_type": "post",
         "value": "6"
       },
       {
+        "action_type": "post_interaction_net",
+        "value": "6"
+      },
+      {
+        "action_type": "post",
+        "value": "1"
+      },
+      {
         "action_type": "onsite_conversion.post_save",
-        "value": "4"
+        "value": "1"
       },
       {
         "action_type": "onsite_conversion.post_net_save",
-        "value": "4"
+        "value": "1"
       },
       {
         "action_type": "onsite_conversion.post_net_like",
-        "value": "31"
+        "value": "4"
       },
       {
         "action_type": "video_view",
-        "value": "1649"
+        "value": "229"
       },
       {
         "action_type": "post_reaction",
-        "value": "33"
+        "value": "4"
       }
     ],
-    "date_start": "2026-04-12",
-    "date_stop": "2026-04-12",
-    "link_clicks": 187.0,
-    "outbound_clicks": 187.0,
-    "landing_page_views": 48.0,
+    "date_start": "2026-04-13",
+    "date_stop": "2026-04-13",
+    "link_clicks": 20.0,
+    "outbound_clicks": 20.0,
+    "landing_page_views": 20.0,
     "purchases": 0.0,
     "leads": 0.0,
     "view_content": 0.0,
@@ -90,9 +78,6 @@
     "_raw_action_types": [
       "link_click",
       "page_engagement",
-      "landing_page_view",
-      "omni_landing_page_view",
-      "onsite_conversion.post_unlike",
       "post_engagement",
       "post_interaction_gross",
       "post_interaction_net",
@@ -103,11 +88,11 @@
       "video_view",
       "post_reaction"
     ],
-    "frequency_avg": 1.09073,
-    "outbound_ctr": 3.7572835041189476,
-    "lpv_rate": 25.668449197860966,
-    "cost_per_lpv": 0.7697916666666668,
-    "first_time_impression_ratio": 91.68173598553345
+    "frequency_avg": 1.093264,
+    "outbound_ctr": 3.15955766192733,
+    "lpv_rate": 100.0,
+    "cost_per_lpv": 0.24,
+    "first_time_impression_ratio": 91.4691943127962
   },
   "campaigns": [
     {
@@ -444,15 +429,15 @@
               "ad_id": "6955113574157",
               "ad": "Tailored web traffic campaign 3/11/2026 Ad",
               "status": "CAMPAIGN_PAUSED",
-              "date_start": "2026-03-13",
-              "date_stop": "2026-04-11",
+              "date_start": "2026-03-14",
+              "date_stop": "2026-04-12",
               "creative_id": "1598889647989602",
               "creative_name": "Not your average night out: drinks + ideas + people who actually want to learn something. 2026-03-11-d903cc461832f20f0639f16d24cca0d4",
-              "spend": 488.63,
-              "clicks": 5886,
-              "impressions": 74248,
-              "reach": 60266,
-              "link_clicks": 5908,
+              "spend": 469.66,
+              "clicks": 5651,
+              "impressions": 71365,
+              "reach": 58500,
+              "link_clicks": 5671,
               "outbound_clicks": 9,
               "landing_page_views": 9,
               "purchases": 0,
@@ -460,14 +445,14 @@
               "view_content": 0,
               "add_to_cart": 0,
               "initiate_checkout": 0,
-              "ctr": 7.927486,
-              "cpm": 6.581053,
-              "cpc": 0.083016,
-              "frequency_avg": 1.232005,
-              "outbound_ctr": 0.012121538627303093,
+              "ctr": 7.918447,
+              "cpm": 6.581097,
+              "cpc": 0.083111,
+              "frequency_avg": 1.219915,
+              "outbound_ctr": 0.012611223989350521,
               "lpv_rate": 100.0,
-              "cost_per_lpv": 54.29222222222222,
-              "first_time_impression_ratio": 81.16851632367201,
+              "cost_per_lpv": 52.184444444444445,
+              "first_time_impression_ratio": 81.9729559307784,
               "actions": [
                 {
                   "action_type": "onsite_conversion.total_messaging_connection",
@@ -475,35 +460,31 @@
                 },
                 {
                   "action_type": "link_click",
-                  "value": "5908"
+                  "value": "5671"
                 },
                 {
                   "action_type": "page_engagement",
-                  "value": "52691"
+                  "value": "50653"
                 },
                 {
                   "action_type": "onsite_conversion.post_unlike",
-                  "value": "159"
+                  "value": "155"
                 },
                 {
                   "action_type": "post_engagement",
-                  "value": "52691"
+                  "value": "50653"
                 },
                 {
                   "action_type": "post_interaction_gross",
-                  "value": "3254"
+                  "value": "3160"
                 },
                 {
                   "action_type": "comment",
-                  "value": "13"
+                  "value": "11"
                 },
                 {
                   "action_type": "post_interaction_net",
-                  "value": "3415"
-                },
-                {
-                  "action_type": "onsite_conversion.messaging_user_depth_2_message_send",
-                  "value": "1"
+                  "value": "3317"
                 },
                 {
                   "action_type": "onsite_conversion.messaging_first_reply",
@@ -511,7 +492,7 @@
                 },
                 {
                   "action_type": "post",
-                  "value": "189"
+                  "value": "187"
                 },
                 {
                   "action_type": "onsite_conversion.post_unsave",
@@ -519,19 +500,19 @@
                 },
                 {
                   "action_type": "onsite_conversion.post_save",
-                  "value": "242"
+                  "value": "233"
                 },
                 {
                   "action_type": "onsite_conversion.post_net_comment",
-                  "value": "13"
+                  "value": "11"
                 },
                 {
                   "action_type": "onsite_conversion.post_net_save",
-                  "value": "240"
+                  "value": "231"
                 },
                 {
                   "action_type": "onsite_conversion.post_net_like",
-                  "value": "2651"
+                  "value": "2574"
                 },
                 {
                   "action_type": "onsite_conversion.messaging_conversation_started_7d",
@@ -539,15 +520,15 @@
                 },
                 {
                   "action_type": "onsite_conversion.messaging_conversation_replied_7d",
-                  "value": "3"
+                  "value": "2"
                 },
                 {
                   "action_type": "video_view",
-                  "value": "43529"
+                  "value": "41822"
                 },
                 {
                   "action_type": "post_reaction",
-                  "value": "2810"
+                  "value": "2729"
                 }
               ],
               "trend_intelligence": null,
@@ -556,11 +537,11 @@
               "winner_durability": null
             }
           ],
-          "spend": 488.63,
-          "clicks": 5886,
-          "impressions": 74248,
-          "reach": 60266,
-          "link_clicks": 5908,
+          "spend": 469.66,
+          "clicks": 5651,
+          "impressions": 71365,
+          "reach": 58500,
+          "link_clicks": 5671,
           "outbound_clicks": 9,
           "landing_page_views": 9,
           "purchases": 0,
@@ -568,21 +549,21 @@
           "view_content": 0,
           "add_to_cart": 0,
           "initiate_checkout": 0,
-          "ctr": 7.927,
+          "ctr": 7.918,
           "cpm": 6.581,
           "cpc": 0.083,
-          "frequency_avg": 1.232,
-          "outbound_ctr": 0.012,
+          "frequency_avg": 1.22,
+          "outbound_ctr": 0.013,
           "lpv_rate": 100.0,
-          "cost_per_lpv": 54.292,
-          "first_time_impression_ratio": 81.169
+          "cost_per_lpv": 52.184,
+          "first_time_impression_ratio": 81.973
         }
       ],
-      "spend": 488.63,
-      "clicks": 5886,
-      "impressions": 74248,
-      "reach": 60266,
-      "link_clicks": 5908,
+      "spend": 469.66,
+      "clicks": 5651,
+      "impressions": 71365,
+      "reach": 58500,
+      "link_clicks": 5671,
       "outbound_clicks": 9,
       "landing_page_views": 9,
       "purchases": 0,
@@ -590,14 +571,14 @@
       "view_content": 0,
       "add_to_cart": 0,
       "initiate_checkout": 0,
-      "ctr": 7.927,
+      "ctr": 7.918,
       "cpm": 6.581,
       "cpc": 0.083,
-      "frequency_avg": 1.232,
-      "outbound_ctr": 0.012,
+      "frequency_avg": 1.22,
+      "outbound_ctr": 0.013,
       "lpv_rate": 100.0,
-      "cost_per_lpv": 54.292,
-      "first_time_impression_ratio": 81.169
+      "cost_per_lpv": 52.184,
+      "first_time_impression_ratio": 81.973
     },
     {
       "campaign_id": "6960435028357",
@@ -613,30 +594,30 @@
               "ad_id": "6960435771957",
               "ad": "Seattle launch | v98_vo_b",
               "status": "ACTIVE",
-              "date_start": "2026-03-13",
-              "date_stop": "2026-04-11",
+              "date_start": "2026-03-14",
+              "date_stop": "2026-04-12",
               "creative_id": "1194881589203157",
               "creative_name": "Seattle_v98_vo_b_creative 2026-03-21-99137ee9bf51b7e9ca0e5cbe9a2cb53d",
-              "spend": 183.23,
-              "clicks": 1058,
-              "impressions": 19063,
-              "reach": 13170,
-              "link_clicks": 798,
-              "outbound_clicks": 798,
-              "landing_page_views": 368,
+              "spend": 208.47,
+              "clicks": 1206,
+              "impressions": 22240,
+              "reach": 15132,
+              "link_clicks": 919,
+              "outbound_clicks": 919,
+              "landing_page_views": 424,
               "purchases": 0,
               "leads": 0,
               "view_content": 0,
               "add_to_cart": 0,
               "initiate_checkout": 0,
-              "ctr": 5.550018,
-              "cpm": 9.611813,
-              "cpc": 0.173185,
-              "frequency_avg": 1.447456,
-              "outbound_ctr": 4.18611970833552,
-              "lpv_rate": 46.11528822055138,
-              "cost_per_lpv": 0.49790760869565215,
-              "first_time_impression_ratio": 69.08671247967266,
+              "ctr": 5.422662,
+              "cpm": 9.373651,
+              "cpc": 0.172861,
+              "frequency_avg": 1.469733,
+              "outbound_ctr": 4.1321942446043165,
+              "lpv_rate": 46.13710554951034,
+              "cost_per_lpv": 0.4916745283018868,
+              "first_time_impression_ratio": 68.03956834532374,
               "actions": [
                 {
                   "action_type": "onsite_conversion.messaging_block",
@@ -644,31 +625,31 @@
                 },
                 {
                   "action_type": "link_click",
-                  "value": "798"
+                  "value": "919"
                 },
                 {
                   "action_type": "page_engagement",
-                  "value": "9144"
+                  "value": "10295"
                 },
                 {
                   "action_type": "landing_page_view",
-                  "value": "184"
+                  "value": "212"
                 },
                 {
                   "action_type": "omni_landing_page_view",
-                  "value": "184"
+                  "value": "212"
                 },
                 {
                   "action_type": "onsite_conversion.post_unlike",
-                  "value": "9"
+                  "value": "10"
                 },
                 {
                   "action_type": "post_engagement",
-                  "value": "9144"
+                  "value": "10295"
                 },
                 {
                   "action_type": "post_interaction_gross",
-                  "value": "156"
+                  "value": "169"
                 },
                 {
                   "action_type": "comment",
@@ -676,15 +657,15 @@
                 },
                 {
                   "action_type": "post_interaction_net",
-                  "value": "165"
+                  "value": "179"
                 },
                 {
                   "action_type": "post",
-                  "value": "12"
+                  "value": "15"
                 },
                 {
                   "action_type": "onsite_conversion.post_save",
-                  "value": "32"
+                  "value": "34"
                 },
                 {
                   "action_type": "onsite_conversion.post_net_comment",
@@ -692,19 +673,19 @@
                 },
                 {
                   "action_type": "onsite_conversion.post_net_save",
-                  "value": "32"
+                  "value": "34"
                 },
                 {
                   "action_type": "onsite_conversion.post_net_like",
-                  "value": "102"
+                  "value": "109"
                 },
                 {
                   "action_type": "video_view",
-                  "value": "8190"
+                  "value": "9207"
                 },
                 {
                   "action_type": "post_reaction",
-                  "value": "111"
+                  "value": "119"
                 }
               ],
               "trend_intelligence": null,
@@ -713,26 +694,26 @@
               "winner_durability": null
             }
           ],
-          "spend": 183.23,
-          "clicks": 1058,
-          "impressions": 19063,
-          "reach": 13170,
-          "link_clicks": 798,
-          "outbound_clicks": 798,
-          "landing_page_views": 368,
+          "spend": 208.47,
+          "clicks": 1206,
+          "impressions": 22240,
+          "reach": 15132,
+          "link_clicks": 919,
+          "outbound_clicks": 919,
+          "landing_page_views": 424,
           "purchases": 0,
           "leads": 0,
           "view_content": 0,
           "add_to_cart": 0,
           "initiate_checkout": 0,
-          "ctr": 5.55,
-          "cpm": 9.612,
+          "ctr": 5.423,
+          "cpm": 9.374,
           "cpc": 0.173,
-          "frequency_avg": 1.447,
-          "outbound_ctr": 4.186,
-          "lpv_rate": 46.115,
-          "cost_per_lpv": 0.498,
-          "first_time_impression_ratio": 69.087
+          "frequency_avg": 1.47,
+          "outbound_ctr": 4.132,
+          "lpv_rate": 46.137,
+          "cost_per_lpv": 0.492,
+          "first_time_impression_ratio": 68.04
         },
         {
           "adset_id": "6960435841557",
@@ -743,8 +724,8 @@
               "ad_id": "6960435854157",
               "ad": "Seattle launch | v104b_vo_c",
               "status": "ADSET_PAUSED",
-              "date_start": "2026-03-13",
-              "date_stop": "2026-04-11",
+              "date_start": "2026-03-14",
+              "date_stop": "2026-04-12",
               "creative_id": "947661237731455",
               "creative_name": "Seattle_v104b_vo_c_creative 2026-03-21-2cef9627eece0157edddc1653614b310",
               "spend": 15.77,
@@ -877,8 +858,8 @@
               "ad_id": "6960435894757",
               "ad": "Seattle launch | v113_vo_a",
               "status": "ADSET_PAUSED",
-              "date_start": "2026-03-13",
-              "date_stop": "2026-04-11",
+              "date_start": "2026-03-14",
+              "date_stop": "2026-04-12",
               "creative_id": "1307752414611397",
               "creative_name": "Seattle_v113_vo_a_creative 2026-03-21-82e723bf68e3cbe70ca145c7239aa024",
               "spend": 11.29,
@@ -991,8 +972,8 @@
               "ad_id": "6960435711757",
               "ad": "Seattle launch | v94_vo_d",
               "status": "ADSET_PAUSED",
-              "date_start": "2026-03-13",
-              "date_stop": "2026-04-11",
+              "date_start": "2026-03-14",
+              "date_stop": "2026-04-12",
               "creative_id": "1285603686819206",
               "creative_name": "Seattle_v94_vo_d_creative 2026-03-21-55eccad43b49d6bd3852e9932daa6562",
               "spend": 6.45,
@@ -1093,576 +1074,26 @@
           "first_time_impression_ratio": 95.928
         }
       ],
-      "spend": 216.74,
-      "clicks": 1215,
-      "impressions": 22513,
-      "reach": 16329,
-      "link_clicks": 911,
-      "outbound_clicks": 855,
-      "landing_page_views": 388,
+      "spend": 241.98,
+      "clicks": 1363,
+      "impressions": 25690,
+      "reach": 18291,
+      "link_clicks": 1032,
+      "outbound_clicks": 976,
+      "landing_page_views": 444,
       "purchases": 0,
       "leads": 0,
       "view_content": 0,
       "add_to_cart": 0,
       "initiate_checkout": 0,
-      "ctr": 5.397,
-      "cpm": 9.627,
+      "ctr": 5.306,
+      "cpm": 9.419,
       "cpc": 0.178,
-      "frequency_avg": 1.393,
-      "outbound_ctr": 3.798,
-      "lpv_rate": 45.38,
-      "cost_per_lpv": 0.559,
-      "first_time_impression_ratio": 72.531
-    },
-    {
-      "campaign_id": "6951024653957",
-      "campaign": "1",
-      "status": "ACTIVE",
-      "adsets": [
-        {
-          "adset_id": "6953785406157",
-          "adset": "Test - New Traffic Ad set with recommended settings",
-          "status": "ACTIVE",
-          "ads": [
-            {
-              "ad_id": "6953785406357",
-              "ad": "1",
-              "status": "PAUSED",
-              "date_start": "2026-03-13",
-              "date_stop": "2026-04-11",
-              "creative_id": "1548845102842551",
-              "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-97c4eb0f10f7736f63148e943baac553",
-              "spend": 103.15,
-              "clicks": 901,
-              "impressions": 13849,
-              "reach": 13484,
-              "link_clicks": 898,
-              "outbound_clicks": 2,
-              "landing_page_views": 2,
-              "purchases": 0,
-              "leads": 0,
-              "view_content": 0,
-              "add_to_cart": 0,
-              "initiate_checkout": 0,
-              "ctr": 6.505885,
-              "cpm": 7.448191,
-              "cpc": 0.114484,
-              "frequency_avg": 1.027069,
-              "outbound_ctr": 0.014441475918838906,
-              "lpv_rate": 100.0,
-              "cost_per_lpv": 51.575,
-              "first_time_impression_ratio": 97.36443064481189,
-              "actions": [
-                {
-                  "action_type": "onsite_conversion.total_messaging_connection",
-                  "value": "2"
-                },
-                {
-                  "action_type": "link_click",
-                  "value": "898"
-                },
-                {
-                  "action_type": "page_engagement",
-                  "value": "7903"
-                },
-                {
-                  "action_type": "onsite_conversion.post_unlike",
-                  "value": "8"
-                },
-                {
-                  "action_type": "post_engagement",
-                  "value": "7903"
-                },
-                {
-                  "action_type": "post_interaction_gross",
-                  "value": "470"
-                },
-                {
-                  "action_type": "comment",
-                  "value": "4"
-                },
-                {
-                  "action_type": "post_interaction_net",
-                  "value": "478"
-                },
-                {
-                  "action_type": "onsite_conversion.messaging_first_reply",
-                  "value": "2"
-                },
-                {
-                  "action_type": "post",
-                  "value": "75"
-                },
-                {
-                  "action_type": "onsite_conversion.post_save",
-                  "value": "26"
-                },
-                {
-                  "action_type": "onsite_conversion.post_net_comment",
-                  "value": "4"
-                },
-                {
-                  "action_type": "onsite_conversion.post_net_save",
-                  "value": "26"
-                },
-                {
-                  "action_type": "onsite_conversion.post_net_like",
-                  "value": "357"
-                },
-                {
-                  "action_type": "onsite_conversion.messaging_conversation_started_7d",
-                  "value": "2"
-                },
-                {
-                  "action_type": "video_view",
-                  "value": "6535"
-                },
-                {
-                  "action_type": "post_reaction",
-                  "value": "365"
-                }
-              ],
-              "trend_intelligence": null,
-              "fatigue_radar": null,
-              "decision_state": null,
-              "winner_durability": null
-            }
-          ],
-          "spend": 103.15,
-          "clicks": 901,
-          "impressions": 13849,
-          "reach": 13484,
-          "link_clicks": 898,
-          "outbound_clicks": 2,
-          "landing_page_views": 2,
-          "purchases": 0,
-          "leads": 0,
-          "view_content": 0,
-          "add_to_cart": 0,
-          "initiate_checkout": 0,
-          "ctr": 6.506,
-          "cpm": 7.448,
-          "cpc": 0.114,
-          "frequency_avg": 1.027,
-          "outbound_ctr": 0.014,
-          "lpv_rate": 100.0,
-          "cost_per_lpv": 51.575,
-          "first_time_impression_ratio": 97.364
-        },
-        {
-          "adset_id": "6951024653757",
-          "adset": "New Traffic Ad set with recommended settings",
-          "status": "ACTIVE",
-          "ads": [
-            {
-              "ad_id": "6951024654157",
-              "ad": "1",
-              "status": "PAUSED",
-              "date_start": "2026-03-13",
-              "date_stop": "2026-04-11",
-              "creative_id": "1725670242173247",
-              "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-abc028c632e0436a68507d2aeb3662fe",
-              "spend": 98.26,
-              "clicks": 912,
-              "impressions": 13642,
-              "reach": 13238,
-              "link_clicks": 909,
-              "outbound_clicks": 909,
-              "landing_page_views": 909,
-              "purchases": 0,
-              "leads": 0,
-              "view_content": 0,
-              "add_to_cart": 0,
-              "initiate_checkout": 0,
-              "ctr": 6.685237,
-              "cpm": 7.202756,
-              "cpc": 0.107741,
-              "frequency_avg": 1.030518,
-              "outbound_ctr": 6.663245858378537,
-              "lpv_rate": 100.0,
-              "cost_per_lpv": 0.1080968096809681,
-              "first_time_impression_ratio": 97.0385573962762,
-              "actions": [
-                {
-                  "action_type": "link_click",
-                  "value": "909"
-                },
-                {
-                  "action_type": "page_engagement",
-                  "value": "7615"
-                },
-                {
-                  "action_type": "onsite_conversion.post_unlike",
-                  "value": "13"
-                },
-                {
-                  "action_type": "post_engagement",
-                  "value": "7615"
-                },
-                {
-                  "action_type": "post_interaction_gross",
-                  "value": "412"
-                },
-                {
-                  "action_type": "comment",
-                  "value": "5"
-                },
-                {
-                  "action_type": "post_interaction_net",
-                  "value": "425"
-                },
-                {
-                  "action_type": "post",
-                  "value": "53"
-                },
-                {
-                  "action_type": "onsite_conversion.post_save",
-                  "value": "34"
-                },
-                {
-                  "action_type": "onsite_conversion.post_net_comment",
-                  "value": "5"
-                },
-                {
-                  "action_type": "onsite_conversion.post_net_save",
-                  "value": "34"
-                },
-                {
-                  "action_type": "onsite_conversion.post_net_like",
-                  "value": "307"
-                },
-                {
-                  "action_type": "video_view",
-                  "value": "6294"
-                },
-                {
-                  "action_type": "post_reaction",
-                  "value": "320"
-                }
-              ],
-              "trend_intelligence": null,
-              "fatigue_radar": null,
-              "decision_state": null,
-              "winner_durability": null
-            }
-          ],
-          "spend": 98.26,
-          "clicks": 912,
-          "impressions": 13642,
-          "reach": 13238,
-          "link_clicks": 909,
-          "outbound_clicks": 909,
-          "landing_page_views": 909,
-          "purchases": 0,
-          "leads": 0,
-          "view_content": 0,
-          "add_to_cart": 0,
-          "initiate_checkout": 0,
-          "ctr": 6.685,
-          "cpm": 7.203,
-          "cpc": 0.108,
-          "frequency_avg": 1.031,
-          "outbound_ctr": 6.663,
-          "lpv_rate": 100.0,
-          "cost_per_lpv": 0.108,
-          "first_time_impression_ratio": 97.039
-        }
-      ],
-      "spend": 201.41,
-      "clicks": 1813,
-      "impressions": 27491,
-      "reach": 26722,
-      "link_clicks": 1807,
-      "outbound_clicks": 911,
-      "landing_page_views": 911,
-      "purchases": 0,
-      "leads": 0,
-      "view_content": 0,
-      "add_to_cart": 0,
-      "initiate_checkout": 0,
-      "ctr": 6.595,
-      "cpm": 7.326,
-      "cpc": 0.111,
-      "frequency_avg": 1.029,
-      "outbound_ctr": 3.314,
-      "lpv_rate": 100.0,
-      "cost_per_lpv": 0.221,
-      "first_time_impression_ratio": 97.203
-    },
-    {
-      "campaign_id": "6953786714157",
-      "campaign": "2",
-      "status": "ACTIVE",
-      "adsets": [
-        {
-          "adset_id": "6953786714957",
-          "adset": "Test - New Traffic Ad set with recommended settings",
-          "status": "ACTIVE",
-          "ads": [
-            {
-              "ad_id": "6953786714557",
-              "ad": "1",
-              "status": "PAUSED",
-              "date_start": "2026-03-13",
-              "date_stop": "2026-04-11",
-              "creative_id": "1548845102842551",
-              "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-97c4eb0f10f7736f63148e943baac553",
-              "spend": 118.58,
-              "clicks": 999,
-              "impressions": 15968,
-              "reach": 15175,
-              "link_clicks": 998,
-              "outbound_clicks": 998,
-              "landing_page_views": 998,
-              "purchases": 0,
-              "leads": 0,
-              "view_content": 0,
-              "add_to_cart": 0,
-              "initiate_checkout": 0,
-              "ctr": 6.256263,
-              "cpm": 7.426102,
-              "cpc": 0.118699,
-              "frequency_avg": 1.052257,
-              "outbound_ctr": 6.25,
-              "lpv_rate": 100.0,
-              "cost_per_lpv": 0.11881763527054108,
-              "first_time_impression_ratio": 95.03381763527055,
-              "actions": [
-                {
-                  "action_type": "link_click",
-                  "value": "998"
-                },
-                {
-                  "action_type": "page_engagement",
-                  "value": "8916"
-                },
-                {
-                  "action_type": "onsite_conversion.post_unlike",
-                  "value": "6"
-                },
-                {
-                  "action_type": "post_engagement",
-                  "value": "8916"
-                },
-                {
-                  "action_type": "post_interaction_gross",
-                  "value": "597"
-                },
-                {
-                  "action_type": "comment",
-                  "value": "3"
-                },
-                {
-                  "action_type": "post_interaction_net",
-                  "value": "604"
-                },
-                {
-                  "action_type": "post",
-                  "value": "88"
-                },
-                {
-                  "action_type": "onsite_conversion.post_unsave",
-                  "value": "1"
-                },
-                {
-                  "action_type": "onsite_conversion.post_save",
-                  "value": "54"
-                },
-                {
-                  "action_type": "onsite_conversion.post_net_comment",
-                  "value": "3"
-                },
-                {
-                  "action_type": "onsite_conversion.post_net_save",
-                  "value": "53"
-                },
-                {
-                  "action_type": "onsite_conversion.post_net_like",
-                  "value": "446"
-                },
-                {
-                  "action_type": "video_view",
-                  "value": "7321"
-                },
-                {
-                  "action_type": "post_reaction",
-                  "value": "452"
-                }
-              ],
-              "trend_intelligence": null,
-              "fatigue_radar": null,
-              "decision_state": null,
-              "winner_durability": null
-            }
-          ],
-          "spend": 118.58,
-          "clicks": 999,
-          "impressions": 15968,
-          "reach": 15175,
-          "link_clicks": 998,
-          "outbound_clicks": 998,
-          "landing_page_views": 998,
-          "purchases": 0,
-          "leads": 0,
-          "view_content": 0,
-          "add_to_cart": 0,
-          "initiate_checkout": 0,
-          "ctr": 6.256,
-          "cpm": 7.426,
-          "cpc": 0.119,
-          "frequency_avg": 1.052,
-          "outbound_ctr": 6.25,
-          "lpv_rate": 100.0,
-          "cost_per_lpv": 0.119,
-          "first_time_impression_ratio": 95.034
-        },
-        {
-          "adset_id": "6953786714757",
-          "adset": "New Traffic Ad set with recommended settings",
-          "status": "PAUSED",
-          "ads": [
-            {
-              "ad_id": "6953786714357",
-              "ad": "1",
-              "status": "PAUSED",
-              "date_start": "2026-03-13",
-              "date_stop": "2026-04-11",
-              "creative_id": "1308682617805300",
-              "creative_name": "Calling all San Diego, Orange County, and Denver intellectuals \ud83e\udde0 This one\u2019s for you. Tickets drop e 2026-03-08-8687ee2e441bfe97bf6ef5e14260fb48",
-              "spend": 80.02,
-              "clicks": 503,
-              "impressions": 10508,
-              "reach": 9350,
-              "link_clicks": 511,
-              "outbound_clicks": 2,
-              "landing_page_views": 2,
-              "purchases": 0,
-              "leads": 0,
-              "view_content": 0,
-              "add_to_cart": 0,
-              "initiate_checkout": 0,
-              "ctr": 4.786829,
-              "cpm": 7.61515,
-              "cpc": 0.159085,
-              "frequency_avg": 1.12385,
-              "outbound_ctr": 0.01903311762466692,
-              "lpv_rate": 100.0,
-              "cost_per_lpv": 40.01,
-              "first_time_impression_ratio": 88.97982489531785,
-              "actions": [
-                {
-                  "action_type": "onsite_conversion.total_messaging_connection",
-                  "value": "2"
-                },
-                {
-                  "action_type": "link_click",
-                  "value": "511"
-                },
-                {
-                  "action_type": "page_engagement",
-                  "value": "4298"
-                },
-                {
-                  "action_type": "onsite_conversion.post_unlike",
-                  "value": "5"
-                },
-                {
-                  "action_type": "post_engagement",
-                  "value": "4298"
-                },
-                {
-                  "action_type": "post_interaction_gross",
-                  "value": "129"
-                },
-                {
-                  "action_type": "post_interaction_net",
-                  "value": "134"
-                },
-                {
-                  "action_type": "onsite_conversion.messaging_first_reply",
-                  "value": "2"
-                },
-                {
-                  "action_type": "post",
-                  "value": "15"
-                },
-                {
-                  "action_type": "onsite_conversion.post_save",
-                  "value": "12"
-                },
-                {
-                  "action_type": "onsite_conversion.post_net_save",
-                  "value": "12"
-                },
-                {
-                  "action_type": "onsite_conversion.post_net_like",
-                  "value": "97"
-                },
-                {
-                  "action_type": "onsite_conversion.messaging_conversation_started_7d",
-                  "value": "2"
-                },
-                {
-                  "action_type": "onsite_conversion.messaging_conversation_replied_7d",
-                  "value": "1"
-                },
-                {
-                  "action_type": "video_view",
-                  "value": "3658"
-                },
-                {
-                  "action_type": "post_reaction",
-                  "value": "102"
-                }
-              ],
-              "trend_intelligence": null,
-              "fatigue_radar": null,
-              "decision_state": null,
-              "winner_durability": null
-            }
-          ],
-          "spend": 80.02,
-          "clicks": 503,
-          "impressions": 10508,
-          "reach": 9350,
-          "link_clicks": 511,
-          "outbound_clicks": 2,
-          "landing_page_views": 2,
-          "purchases": 0,
-          "leads": 0,
-          "view_content": 0,
-          "add_to_cart": 0,
-          "initiate_checkout": 0,
-          "ctr": 4.787,
-          "cpm": 7.615,
-          "cpc": 0.159,
-          "frequency_avg": 1.124,
-          "outbound_ctr": 0.019,
-          "lpv_rate": 100.0,
-          "cost_per_lpv": 40.01,
-          "first_time_impression_ratio": 88.98
-        }
-      ],
-      "spend": 198.6,
-      "clicks": 1502,
-      "impressions": 26476,
-      "reach": 24525,
-      "link_clicks": 1509,
-      "outbound_clicks": 1000,
-      "landing_page_views": 1000,
-      "purchases": 0,
-      "leads": 0,
-      "view_content": 0,
-      "add_to_cart": 0,
-      "initiate_checkout": 0,
-      "ctr": 5.673,
-      "cpm": 7.501,
-      "cpc": 0.132,
-      "frequency_avg": 1.081,
-      "outbound_ctr": 3.777,
-      "lpv_rate": 100.0,
-      "cost_per_lpv": 0.199,
-      "first_time_impression_ratio": 92.631
+      "frequency_avg": 1.419,
+      "outbound_ctr": 3.799,
+      "lpv_rate": 45.492,
+      "cost_per_lpv": 0.545,
+      "first_time_impression_ratio": 71.199
     },
     {
       "campaign_id": "6960086008957",
@@ -1678,15 +1109,15 @@
               "ad_id": "6960086009157",
               "ad": "Tailored web traffic campaign 3/20/2026 Ad",
               "status": "ACTIVE",
-              "date_start": "2026-03-13",
-              "date_stop": "2026-04-11",
+              "date_start": "2026-03-14",
+              "date_stop": "2026-04-12",
               "creative_id": "2089966221853094",
               "creative_name": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link 2026-03-20-1cf64a246dbc22003bfc846333d2c282",
-              "spend": 196.27,
-              "clicks": 1166,
-              "impressions": 25498,
-              "reach": 19370,
-              "link_clicks": 1173,
+              "spend": 216.24,
+              "clicks": 1279,
+              "impressions": 28402,
+              "reach": 21066,
+              "link_clicks": 1288,
               "outbound_clicks": 3,
               "landing_page_views": 3,
               "purchases": 0,
@@ -1694,14 +1125,14 @@
               "view_content": 0,
               "add_to_cart": 0,
               "initiate_checkout": 0,
-              "ctr": 4.572908,
-              "cpm": 7.697466,
-              "cpc": 0.168328,
-              "frequency_avg": 1.316366,
-              "outbound_ctr": 0.011765628676758962,
+              "ctr": 4.503204,
+              "cpm": 7.613548,
+              "cpc": 0.16907,
+              "frequency_avg": 1.348239,
+              "outbound_ctr": 0.010562636434053939,
               "lpv_rate": 100.0,
-              "cost_per_lpv": 65.42333333333333,
-              "first_time_impression_ratio": 75.96674248960703,
+              "cost_per_lpv": 72.08,
+              "first_time_impression_ratio": 74.17083303992676,
               "actions": [
                 {
                   "action_type": "onsite_conversion.total_messaging_connection",
@@ -1709,23 +1140,23 @@
                 },
                 {
                   "action_type": "link_click",
-                  "value": "1173"
+                  "value": "1288"
                 },
                 {
                   "action_type": "page_engagement",
-                  "value": "12968"
+                  "value": "14209"
                 },
                 {
                   "action_type": "onsite_conversion.post_unlike",
-                  "value": "3"
+                  "value": "4"
                 },
                 {
                   "action_type": "post_engagement",
-                  "value": "12968"
+                  "value": "14209"
                 },
                 {
                   "action_type": "post_interaction_gross",
-                  "value": "376"
+                  "value": "414"
                 },
                 {
                   "action_type": "comment",
@@ -1733,7 +1164,7 @@
                 },
                 {
                   "action_type": "post_interaction_net",
-                  "value": "379"
+                  "value": "418"
                 },
                 {
                   "action_type": "onsite_conversion.messaging_first_reply",
@@ -1741,11 +1172,11 @@
                 },
                 {
                   "action_type": "post",
-                  "value": "44"
+                  "value": "49"
                 },
                 {
                   "action_type": "onsite_conversion.post_save",
-                  "value": "58"
+                  "value": "61"
                 },
                 {
                   "action_type": "onsite_conversion.post_net_comment",
@@ -1753,11 +1184,11 @@
                 },
                 {
                   "action_type": "onsite_conversion.post_net_save",
-                  "value": "58"
+                  "value": "61"
                 },
                 {
                   "action_type": "onsite_conversion.post_net_like",
-                  "value": "267"
+                  "value": "296"
                 },
                 {
                   "action_type": "onsite_conversion.messaging_conversation_started_7d",
@@ -1765,11 +1196,11 @@
                 },
                 {
                   "action_type": "video_view",
-                  "value": "11419"
+                  "value": "12507"
                 },
                 {
                   "action_type": "post_reaction",
-                  "value": "270"
+                  "value": "300"
                 }
               ],
               "trend_intelligence": null,
@@ -1778,11 +1209,11 @@
               "winner_durability": null
             }
           ],
-          "spend": 196.27,
-          "clicks": 1166,
-          "impressions": 25498,
-          "reach": 19370,
-          "link_clicks": 1173,
+          "spend": 216.24,
+          "clicks": 1279,
+          "impressions": 28402,
+          "reach": 21066,
+          "link_clicks": 1288,
           "outbound_clicks": 3,
           "landing_page_views": 3,
           "purchases": 0,
@@ -1790,21 +1221,21 @@
           "view_content": 0,
           "add_to_cart": 0,
           "initiate_checkout": 0,
-          "ctr": 4.573,
-          "cpm": 7.697,
-          "cpc": 0.168,
-          "frequency_avg": 1.316,
-          "outbound_ctr": 0.012,
+          "ctr": 4.503,
+          "cpm": 7.614,
+          "cpc": 0.169,
+          "frequency_avg": 1.348,
+          "outbound_ctr": 0.011,
           "lpv_rate": 100.0,
-          "cost_per_lpv": 65.423,
-          "first_time_impression_ratio": 75.967
+          "cost_per_lpv": 72.08,
+          "first_time_impression_ratio": 74.171
         }
       ],
-      "spend": 196.27,
-      "clicks": 1166,
-      "impressions": 25498,
-      "reach": 19370,
-      "link_clicks": 1173,
+      "spend": 216.24,
+      "clicks": 1279,
+      "impressions": 28402,
+      "reach": 21066,
+      "link_clicks": 1288,
       "outbound_clicks": 3,
       "landing_page_views": 3,
       "purchases": 0,
@@ -1812,14 +1243,14 @@
       "view_content": 0,
       "add_to_cart": 0,
       "initiate_checkout": 0,
-      "ctr": 4.573,
-      "cpm": 7.697,
-      "cpc": 0.168,
-      "frequency_avg": 1.316,
-      "outbound_ctr": 0.012,
+      "ctr": 4.503,
+      "cpm": 7.614,
+      "cpc": 0.169,
+      "frequency_avg": 1.348,
+      "outbound_ctr": 0.011,
       "lpv_rate": 100.0,
-      "cost_per_lpv": 65.423,
-      "first_time_impression_ratio": 75.967
+      "cost_per_lpv": 72.08,
+      "first_time_impression_ratio": 74.171
     },
     {
       "campaign_id": "6966539858957",
@@ -1835,8 +1266,8 @@
               "ad_id": "6966539858757",
               "ad": "Tailored web traffic campaign 3/30/2026 Ad",
               "status": "CAMPAIGN_PAUSED",
-              "date_start": "2026-03-13",
-              "date_stop": "2026-04-11",
+              "date_start": "2026-03-14",
+              "date_stop": "2026-04-12",
               "creative_id": "2156471275125936",
               "creative_name": "Hot take: going out can actually make you smarter\u2026when it involves The Social Study \ud83c\udf7b  Grab a drink 2026-03-30-1f183b35e0a23daa3af313acf43782a9",
               "spend": 97.09,
@@ -1942,8 +1373,8 @@
               "ad_id": "6966540858557",
               "ad": "Number2",
               "status": "CAMPAIGN_PAUSED",
-              "date_start": "2026-03-13",
-              "date_stop": "2026-04-11",
+              "date_start": "2026-03-14",
+              "date_stop": "2026-04-12",
               "creative_id": "1934035907231154",
               "creative_name": "Come join us. Tickets drop every Sunday at 10AM! 2026-03-30-7548aa170eb79df73b40be1b510ca528",
               "spend": 84.03,
@@ -2066,6 +1497,556 @@
       "first_time_impression_ratio": 85.987
     },
     {
+      "campaign_id": "6951024653957",
+      "campaign": "1",
+      "status": "ACTIVE",
+      "adsets": [
+        {
+          "adset_id": "6953785406157",
+          "adset": "Test - New Traffic Ad set with recommended settings",
+          "status": "ACTIVE",
+          "ads": [
+            {
+              "ad_id": "6953785406357",
+              "ad": "1",
+              "status": "PAUSED",
+              "date_start": "2026-03-14",
+              "date_stop": "2026-04-12",
+              "creative_id": "1548845102842551",
+              "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-97c4eb0f10f7736f63148e943baac553",
+              "spend": 90.14,
+              "clicks": 799,
+              "impressions": 12380,
+              "reach": 12102,
+              "link_clicks": 798,
+              "outbound_clicks": 2,
+              "landing_page_views": 2,
+              "purchases": 0,
+              "leads": 0,
+              "view_content": 0,
+              "add_to_cart": 0,
+              "initiate_checkout": 0,
+              "ctr": 6.453958,
+              "cpm": 7.281099,
+              "cpc": 0.112816,
+              "frequency_avg": 1.022971,
+              "outbound_ctr": 0.01615508885298869,
+              "lpv_rate": 100.0,
+              "cost_per_lpv": 45.07,
+              "first_time_impression_ratio": 97.75444264943457,
+              "actions": [
+                {
+                  "action_type": "onsite_conversion.total_messaging_connection",
+                  "value": "2"
+                },
+                {
+                  "action_type": "link_click",
+                  "value": "798"
+                },
+                {
+                  "action_type": "page_engagement",
+                  "value": "7004"
+                },
+                {
+                  "action_type": "onsite_conversion.post_unlike",
+                  "value": "7"
+                },
+                {
+                  "action_type": "post_engagement",
+                  "value": "7004"
+                },
+                {
+                  "action_type": "post_interaction_gross",
+                  "value": "409"
+                },
+                {
+                  "action_type": "comment",
+                  "value": "3"
+                },
+                {
+                  "action_type": "post_interaction_net",
+                  "value": "416"
+                },
+                {
+                  "action_type": "onsite_conversion.messaging_first_reply",
+                  "value": "2"
+                },
+                {
+                  "action_type": "post",
+                  "value": "65"
+                },
+                {
+                  "action_type": "onsite_conversion.post_save",
+                  "value": "22"
+                },
+                {
+                  "action_type": "onsite_conversion.post_net_comment",
+                  "value": "3"
+                },
+                {
+                  "action_type": "onsite_conversion.post_net_save",
+                  "value": "22"
+                },
+                {
+                  "action_type": "onsite_conversion.post_net_like",
+                  "value": "312"
+                },
+                {
+                  "action_type": "onsite_conversion.messaging_conversation_started_7d",
+                  "value": "2"
+                },
+                {
+                  "action_type": "video_view",
+                  "value": "5797"
+                },
+                {
+                  "action_type": "post_reaction",
+                  "value": "319"
+                }
+              ],
+              "trend_intelligence": null,
+              "fatigue_radar": null,
+              "decision_state": null,
+              "winner_durability": null
+            }
+          ],
+          "spend": 90.14,
+          "clicks": 799,
+          "impressions": 12380,
+          "reach": 12102,
+          "link_clicks": 798,
+          "outbound_clicks": 2,
+          "landing_page_views": 2,
+          "purchases": 0,
+          "leads": 0,
+          "view_content": 0,
+          "add_to_cart": 0,
+          "initiate_checkout": 0,
+          "ctr": 6.454,
+          "cpm": 7.281,
+          "cpc": 0.113,
+          "frequency_avg": 1.023,
+          "outbound_ctr": 0.016,
+          "lpv_rate": 100.0,
+          "cost_per_lpv": 45.07,
+          "first_time_impression_ratio": 97.754
+        },
+        {
+          "adset_id": "6951024653757",
+          "adset": "New Traffic Ad set with recommended settings",
+          "status": "ACTIVE",
+          "ads": [
+            {
+              "ad_id": "6951024654157",
+              "ad": "1",
+              "status": "PAUSED",
+              "date_start": "2026-03-14",
+              "date_stop": "2026-04-12",
+              "creative_id": "1725670242173247",
+              "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-abc028c632e0436a68507d2aeb3662fe",
+              "spend": 87.22,
+              "clicks": 830,
+              "impressions": 12394,
+              "reach": 12060,
+              "link_clicks": 829,
+              "outbound_clicks": 829,
+              "landing_page_views": 829,
+              "purchases": 0,
+              "leads": 0,
+              "view_content": 0,
+              "add_to_cart": 0,
+              "initiate_checkout": 0,
+              "ctr": 6.696789,
+              "cpm": 7.037276,
+              "cpc": 0.105084,
+              "frequency_avg": 1.027695,
+              "outbound_ctr": 6.688720348555753,
+              "lpv_rate": 100.0,
+              "cost_per_lpv": 0.10521109770808203,
+              "first_time_impression_ratio": 97.30514765208972,
+              "actions": [
+                {
+                  "action_type": "link_click",
+                  "value": "829"
+                },
+                {
+                  "action_type": "page_engagement",
+                  "value": "6906"
+                },
+                {
+                  "action_type": "onsite_conversion.post_unlike",
+                  "value": "11"
+                },
+                {
+                  "action_type": "post_engagement",
+                  "value": "6906"
+                },
+                {
+                  "action_type": "post_interaction_gross",
+                  "value": "369"
+                },
+                {
+                  "action_type": "comment",
+                  "value": "4"
+                },
+                {
+                  "action_type": "post_interaction_net",
+                  "value": "380"
+                },
+                {
+                  "action_type": "post",
+                  "value": "49"
+                },
+                {
+                  "action_type": "onsite_conversion.post_save",
+                  "value": "30"
+                },
+                {
+                  "action_type": "onsite_conversion.post_net_comment",
+                  "value": "4"
+                },
+                {
+                  "action_type": "onsite_conversion.post_net_save",
+                  "value": "30"
+                },
+                {
+                  "action_type": "onsite_conversion.post_net_like",
+                  "value": "275"
+                },
+                {
+                  "action_type": "video_view",
+                  "value": "5708"
+                },
+                {
+                  "action_type": "post_reaction",
+                  "value": "286"
+                }
+              ],
+              "trend_intelligence": null,
+              "fatigue_radar": null,
+              "decision_state": null,
+              "winner_durability": null
+            }
+          ],
+          "spend": 87.22,
+          "clicks": 830,
+          "impressions": 12394,
+          "reach": 12060,
+          "link_clicks": 829,
+          "outbound_clicks": 829,
+          "landing_page_views": 829,
+          "purchases": 0,
+          "leads": 0,
+          "view_content": 0,
+          "add_to_cart": 0,
+          "initiate_checkout": 0,
+          "ctr": 6.697,
+          "cpm": 7.037,
+          "cpc": 0.105,
+          "frequency_avg": 1.028,
+          "outbound_ctr": 6.689,
+          "lpv_rate": 100.0,
+          "cost_per_lpv": 0.105,
+          "first_time_impression_ratio": 97.305
+        }
+      ],
+      "spend": 177.36,
+      "clicks": 1629,
+      "impressions": 24774,
+      "reach": 24162,
+      "link_clicks": 1627,
+      "outbound_clicks": 831,
+      "landing_page_views": 831,
+      "purchases": 0,
+      "leads": 0,
+      "view_content": 0,
+      "add_to_cart": 0,
+      "initiate_checkout": 0,
+      "ctr": 6.575,
+      "cpm": 7.159,
+      "cpc": 0.109,
+      "frequency_avg": 1.025,
+      "outbound_ctr": 3.354,
+      "lpv_rate": 100.0,
+      "cost_per_lpv": 0.213,
+      "first_time_impression_ratio": 97.53
+    },
+    {
+      "campaign_id": "6953786714157",
+      "campaign": "2",
+      "status": "ACTIVE",
+      "adsets": [
+        {
+          "adset_id": "6953786714957",
+          "adset": "Test - New Traffic Ad set with recommended settings",
+          "status": "ACTIVE",
+          "ads": [
+            {
+              "ad_id": "6953786714557",
+              "ad": "1",
+              "status": "PAUSED",
+              "date_start": "2026-03-14",
+              "date_stop": "2026-04-12",
+              "creative_id": "1548845102842551",
+              "creative_name": "Come see what all the hype is about! Tickets drop every Sunday at 10 AM PST. We sell out fast, so y 2026-03-08-97c4eb0f10f7736f63148e943baac553",
+              "spend": 102.59,
+              "clicks": 869,
+              "impressions": 14141,
+              "reach": 13492,
+              "link_clicks": 868,
+              "outbound_clicks": 868,
+              "landing_page_views": 868,
+              "purchases": 0,
+              "leads": 0,
+              "view_content": 0,
+              "add_to_cart": 0,
+              "initiate_checkout": 0,
+              "ctr": 6.145251,
+              "cpm": 7.254791,
+              "cpc": 0.118055,
+              "frequency_avg": 1.048103,
+              "outbound_ctr": 6.138179760978715,
+              "lpv_rate": 100.0,
+              "cost_per_lpv": 0.11819124423963134,
+              "first_time_impression_ratio": 95.41050845060462,
+              "actions": [
+                {
+                  "action_type": "link_click",
+                  "value": "868"
+                },
+                {
+                  "action_type": "page_engagement",
+                  "value": "7832"
+                },
+                {
+                  "action_type": "onsite_conversion.post_unlike",
+                  "value": "5"
+                },
+                {
+                  "action_type": "post_engagement",
+                  "value": "7832"
+                },
+                {
+                  "action_type": "post_interaction_gross",
+                  "value": "516"
+                },
+                {
+                  "action_type": "comment",
+                  "value": "3"
+                },
+                {
+                  "action_type": "post_interaction_net",
+                  "value": "522"
+                },
+                {
+                  "action_type": "post",
+                  "value": "70"
+                },
+                {
+                  "action_type": "onsite_conversion.post_unsave",
+                  "value": "1"
+                },
+                {
+                  "action_type": "onsite_conversion.post_save",
+                  "value": "48"
+                },
+                {
+                  "action_type": "onsite_conversion.post_net_comment",
+                  "value": "3"
+                },
+                {
+                  "action_type": "onsite_conversion.post_net_save",
+                  "value": "47"
+                },
+                {
+                  "action_type": "onsite_conversion.post_net_like",
+                  "value": "390"
+                },
+                {
+                  "action_type": "video_view",
+                  "value": "6448"
+                },
+                {
+                  "action_type": "post_reaction",
+                  "value": "395"
+                }
+              ],
+              "trend_intelligence": null,
+              "fatigue_radar": null,
+              "decision_state": null,
+              "winner_durability": null
+            }
+          ],
+          "spend": 102.59,
+          "clicks": 869,
+          "impressions": 14141,
+          "reach": 13492,
+          "link_clicks": 868,
+          "outbound_clicks": 868,
+          "landing_page_views": 868,
+          "purchases": 0,
+          "leads": 0,
+          "view_content": 0,
+          "add_to_cart": 0,
+          "initiate_checkout": 0,
+          "ctr": 6.145,
+          "cpm": 7.255,
+          "cpc": 0.118,
+          "frequency_avg": 1.048,
+          "outbound_ctr": 6.138,
+          "lpv_rate": 100.0,
+          "cost_per_lpv": 0.118,
+          "first_time_impression_ratio": 95.411
+        },
+        {
+          "adset_id": "6953786714757",
+          "adset": "New Traffic Ad set with recommended settings",
+          "status": "PAUSED",
+          "ads": [
+            {
+              "ad_id": "6953786714357",
+              "ad": "1",
+              "status": "PAUSED",
+              "date_start": "2026-03-14",
+              "date_stop": "2026-04-12",
+              "creative_id": "1308682617805300",
+              "creative_name": "Calling all San Diego, Orange County, and Denver intellectuals \ud83e\udde0 This one\u2019s for you. Tickets drop e 2026-03-08-8687ee2e441bfe97bf6ef5e14260fb48",
+              "spend": 71.69,
+              "clicks": 466,
+              "impressions": 9530,
+              "reach": 8489,
+              "link_clicks": 474,
+              "outbound_clicks": 1,
+              "landing_page_views": 1,
+              "purchases": 0,
+              "leads": 0,
+              "view_content": 0,
+              "add_to_cart": 0,
+              "initiate_checkout": 0,
+              "ctr": 4.889822,
+              "cpm": 7.52256,
+              "cpc": 0.153841,
+              "frequency_avg": 1.122629,
+              "outbound_ctr": 0.01049317943336831,
+              "lpv_rate": 100.0,
+              "cost_per_lpv": 71.69,
+              "first_time_impression_ratio": 89.07660020986359,
+              "actions": [
+                {
+                  "action_type": "onsite_conversion.total_messaging_connection",
+                  "value": "1"
+                },
+                {
+                  "action_type": "link_click",
+                  "value": "474"
+                },
+                {
+                  "action_type": "page_engagement",
+                  "value": "3944"
+                },
+                {
+                  "action_type": "onsite_conversion.post_unlike",
+                  "value": "4"
+                },
+                {
+                  "action_type": "post_engagement",
+                  "value": "3944"
+                },
+                {
+                  "action_type": "post_interaction_gross",
+                  "value": "113"
+                },
+                {
+                  "action_type": "post_interaction_net",
+                  "value": "117"
+                },
+                {
+                  "action_type": "onsite_conversion.messaging_first_reply",
+                  "value": "1"
+                },
+                {
+                  "action_type": "post",
+                  "value": "11"
+                },
+                {
+                  "action_type": "onsite_conversion.post_save",
+                  "value": "11"
+                },
+                {
+                  "action_type": "onsite_conversion.post_net_save",
+                  "value": "11"
+                },
+                {
+                  "action_type": "onsite_conversion.post_net_like",
+                  "value": "87"
+                },
+                {
+                  "action_type": "onsite_conversion.messaging_conversation_started_7d",
+                  "value": "1"
+                },
+                {
+                  "action_type": "onsite_conversion.messaging_conversation_replied_7d",
+                  "value": "1"
+                },
+                {
+                  "action_type": "video_view",
+                  "value": "3357"
+                },
+                {
+                  "action_type": "post_reaction",
+                  "value": "91"
+                }
+              ],
+              "trend_intelligence": null,
+              "fatigue_radar": null,
+              "decision_state": null,
+              "winner_durability": null
+            }
+          ],
+          "spend": 71.69,
+          "clicks": 466,
+          "impressions": 9530,
+          "reach": 8489,
+          "link_clicks": 474,
+          "outbound_clicks": 1,
+          "landing_page_views": 1,
+          "purchases": 0,
+          "leads": 0,
+          "view_content": 0,
+          "add_to_cart": 0,
+          "initiate_checkout": 0,
+          "ctr": 4.89,
+          "cpm": 7.523,
+          "cpc": 0.154,
+          "frequency_avg": 1.123,
+          "outbound_ctr": 0.01,
+          "lpv_rate": 100.0,
+          "cost_per_lpv": 71.69,
+          "first_time_impression_ratio": 89.077
+        }
+      ],
+      "spend": 174.28,
+      "clicks": 1335,
+      "impressions": 23671,
+      "reach": 21981,
+      "link_clicks": 1342,
+      "outbound_clicks": 869,
+      "landing_page_views": 869,
+      "purchases": 0,
+      "leads": 0,
+      "view_content": 0,
+      "add_to_cart": 0,
+      "initiate_checkout": 0,
+      "ctr": 5.64,
+      "cpm": 7.363,
+      "cpc": 0.131,
+      "frequency_avg": 1.078,
+      "outbound_ctr": 3.671,
+      "lpv_rate": 100.0,
+      "cost_per_lpv": 0.201,
+      "first_time_impression_ratio": 92.86
+    },
+    {
       "campaign_id": "6969205964557",
       "campaign": "New Traffic Campaign",
       "status": "PAUSED",
@@ -2079,8 +2060,8 @@
               "ad_id": "6969205964357",
               "ad": "New Traffic Ad",
               "status": "CAMPAIGN_PAUSED",
-              "date_start": "2026-03-13",
-              "date_stop": "2026-04-11",
+              "date_start": "2026-03-14",
+              "date_stop": "2026-04-12",
               "creative_id": "1202030255143678",
               "creative_name": "If there\u2019s one thing we know how to do, it\u2019s find an expert with a story to tell and gather curious 2026-04-03-9e6809d45d12204045983b2f1129d638",
               "spend": 145.91,
