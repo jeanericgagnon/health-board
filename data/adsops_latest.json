@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-13T01:05:00.948454Z",
+  "updated_at": "2026-04-13T02:05:00.781256Z",
   "label": "TSSAds",
   "account": {
     "id": "act_1379452680603809",
@@ -10,31 +10,31 @@
     "timezone_name": "America/Los_Angeles"
   },
   "insights": {
-    "spend": 25.43,
-    "clicks": 121,
-    "impressions": 3272,
-    "cpc": 0.210165,
-    "cpm": 7.772005,
-    "ctr": 3.698044,
-    "reach": 2990,
-    "frequency": "1.094314",
-    "unique_clicks": "117",
+    "spend": 29.25,
+    "clicks": 154,
+    "impressions": 3830,
+    "cpc": 0.189935,
+    "cpm": 7.637076,
+    "ctr": 4.020888,
+    "reach": 3480,
+    "frequency": "1.100575",
+    "unique_clicks": "146",
     "actions": [
       {
         "action_type": "link_click",
-        "value": "108"
+        "value": "133"
       },
       {
         "action_type": "page_engagement",
-        "value": "1148"
+        "value": "1381"
       },
       {
         "action_type": "landing_page_view",
-        "value": "14"
+        "value": "16"
       },
       {
         "action_type": "omni_landing_page_view",
-        "value": "14"
+        "value": "16"
       },
       {
         "action_type": "onsite_conversion.post_unlike",
@@ -42,38 +42,46 @@
       },
       {
         "action_type": "post_engagement",
-        "value": "1148"
+        "value": "1381"
       },
       {
         "action_type": "post_interaction_gross",
-        "value": "26"
+        "value": "32"
       },
       {
         "action_type": "post_interaction_net",
-        "value": "28"
+        "value": "34"
       },
       {
         "action_type": "post",
         "value": "4"
       },
       {
+        "action_type": "onsite_conversion.post_save",
+        "value": "2"
+      },
+      {
+        "action_type": "onsite_conversion.post_net_save",
+        "value": "2"
+      },
+      {
         "action_type": "onsite_conversion.post_net_like",
-        "value": "20"
+        "value": "24"
       },
       {
         "action_type": "video_view",
-        "value": "1014"
+        "value": "1216"
       },
       {
         "action_type": "post_reaction",
-        "value": "22"
+        "value": "26"
       }
     ],
     "date_start": "2026-04-12",
     "date_stop": "2026-04-12",
-    "link_clicks": 108.0,
-    "outbound_clicks": 108.0,
-    "landing_page_views": 28.0,
+    "link_clicks": 133.0,
+    "outbound_clicks": 133.0,
+    "landing_page_views": 32.0,
     "purchases": 0.0,
     "leads": 0.0,
     "view_content": 0.0,
@@ -89,15 +97,17 @@
       "post_interaction_gross",
       "post_interaction_net",
       "post",
+      "onsite_conversion.post_save",
+      "onsite_conversion.post_net_save",
       "onsite_conversion.post_net_like",
       "video_view",
       "post_reaction"
     ],
-    "frequency_avg": 1.094314,
-    "outbound_ctr": 3.3007334963325183,
-    "lpv_rate": 25.925925925925924,
-    "cost_per_lpv": 0.9082142857142858,
-    "first_time_impression_ratio": 91.38141809290954
+    "frequency_avg": 1.100575,
+    "outbound_ctr": 3.4725848563968666,
+    "lpv_rate": 24.06015037593985,
+    "cost_per_lpv": 0.9140625,
+    "first_time_impression_ratio": 90.86161879895562
   },
   "campaigns": [
     {
