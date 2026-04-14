@@ -1,27 +1,27 @@
 {
-  "updated_at": "2026-04-14T17:00:03.541246Z",
+  "updated_at": "2026-04-14T18:00:02.718457Z",
   "rows": [
     {
       "label": "Lectures on Tap",
       "username": "lecturesontap",
       "url": "https://www.instagram.com/lecturesontap",
       "market": "NYC, Los Angeles, San Francisco, Boston, Chicago",
-      "followers": 493342,
-      "baseline_24h": 493322,
-      "delta_24h": 20,
+      "followers": 493346,
+      "baseline_24h": 493282,
+      "delta_24h": 64,
       "baselines": {
-        "1": 493322,
-        "3": 493212,
+        "1": 493282,
+        "3": 493267,
         "7": 492720,
         "30": null
       },
       "deltas": {
-        "1": 20,
-        "3": 130,
-        "7": 622,
+        "1": 64,
+        "3": 79,
+        "7": 626,
         "30": null
       },
-      "pulled_at_utc": "2026-04-14T17:00:03.541246Z",
+      "pulled_at_utc": "2026-04-14T18:00:02.718457Z",
       "ok": true,
       "error": null
     },
@@ -45,7 +45,7 @@
         "7": 10,
         "30": null
       },
-      "pulled_at_utc": "2026-04-14T17:00:03.541246Z",
+      "pulled_at_utc": "2026-04-14T18:00:02.718457Z",
       "ok": true,
       "error": null
     },
@@ -54,24 +54,24 @@
       "username": "bigideanight",
       "url": "https://www.instagram.com/bigideanight",
       "market": "San Diego",
-      "followers": 654,
+      "followers": null,
       "baseline_24h": 642,
-      "delta_24h": 12,
+      "delta_24h": null,
       "baselines": {
         "1": 642,
-        "3": 620,
+        "3": 621,
         "7": 573,
         "30": null
       },
       "deltas": {
-        "1": 12,
-        "3": 34,
-        "7": 81,
+        "1": null,
+        "3": null,
+        "7": null,
         "30": null
       },
-      "pulled_at_utc": "2026-04-14T17:00:03.541246Z",
-      "ok": true,
-      "error": null
+      "pulled_at_utc": "2026-04-14T18:00:02.718457Z",
+      "ok": false,
+      "error": "unsuccessful response: {'success': False}"
     }
   ]
 }
