@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-14T18:00:02.718457Z",
+  "updated_at": "2026-04-14T19:00:04.072331Z",
   "rows": [
     {
       "label": "Lectures on Tap",
@@ -7,21 +7,21 @@
       "url": "https://www.instagram.com/lecturesontap",
       "market": "NYC, Los Angeles, San Francisco, Boston, Chicago",
       "followers": 493346,
-      "baseline_24h": 493282,
-      "delta_24h": 64,
+      "baseline_24h": 493288,
+      "delta_24h": 58,
       "baselines": {
-        "1": 493282,
-        "3": 493267,
+        "1": 493288,
+        "3": 493272,
         "7": 492720,
         "30": null
       },
       "deltas": {
-        "1": 64,
-        "3": 79,
+        "1": 58,
+        "3": 74,
         "7": 626,
         "30": null
       },
-      "pulled_at_utc": "2026-04-14T18:00:02.718457Z",
+      "pulled_at_utc": "2026-04-14T19:00:04.072331Z",
       "ok": true,
       "error": null
     },
@@ -35,17 +35,17 @@
       "delta_24h": 2,
       "baselines": {
         "1": 931,
-        "3": 931,
+        "3": 930,
         "7": 923,
         "30": null
       },
       "deltas": {
         "1": 2,
-        "3": 2,
+        "3": 3,
         "7": 10,
         "30": null
       },
-      "pulled_at_utc": "2026-04-14T18:00:02.718457Z",
+      "pulled_at_utc": "2026-04-14T19:00:04.072331Z",
       "ok": true,
       "error": null
     },
@@ -54,24 +54,24 @@
       "username": "bigideanight",
       "url": "https://www.instagram.com/bigideanight",
       "market": "San Diego",
-      "followers": null,
+      "followers": 654,
       "baseline_24h": 642,
-      "delta_24h": null,
+      "delta_24h": 12,
       "baselines": {
         "1": 642,
-        "3": 621,
+        "3": 622,
         "7": 573,
         "30": null
       },
       "deltas": {
-        "1": null,
-        "3": null,
-        "7": null,
+        "1": 12,
+        "3": 32,
+        "7": 81,
         "30": null
       },
-      "pulled_at_utc": "2026-04-14T18:00:02.718457Z",
-      "ok": false,
-      "error": "unsuccessful response: {'success': False}"
+      "pulled_at_utc": "2026-04-14T19:00:04.072331Z",
+      "ok": true,
+      "error": null
     }
   ]
 }
