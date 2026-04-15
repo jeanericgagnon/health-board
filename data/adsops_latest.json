@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-15T01:05:00.911119Z",
+  "updated_at": "2026-04-15T02:05:00.540240Z",
   "label": "TSSAds",
   "account": {
     "id": "act_1379452680603809",
@@ -10,15 +10,15 @@
     "timezone_name": "America/Los_Angeles"
   },
   "insights": {
-    "spend": 55.46,
-    "clicks": 358,
-    "impressions": 8513,
-    "cpc": 0.154916,
-    "cpm": 6.514742,
-    "ctr": 4.205333,
-    "reach": 7974,
-    "frequency": "1.067595",
-    "unique_clicks": "358",
+    "spend": 60.58,
+    "clicks": 392,
+    "impressions": 9318,
+    "cpc": 0.154541,
+    "cpm": 6.501395,
+    "ctr": 4.206911,
+    "reach": 8750,
+    "frequency": "1.064914",
+    "unique_clicks": "392",
     "actions": [
       {
         "action_type": "onsite_conversion.total_messaging_connection",
@@ -26,27 +26,31 @@
       },
       {
         "action_type": "link_click",
-        "value": "359"
+        "value": "388"
       },
       {
         "action_type": "page_engagement",
-        "value": "4741"
+        "value": "5182"
       },
       {
         "action_type": "onsite_conversion.post_unlike",
-        "value": "16"
+        "value": "17"
       },
       {
         "action_type": "post_engagement",
-        "value": "4741"
+        "value": "5181"
+      },
+      {
+        "action_type": "like",
+        "value": "1"
       },
       {
         "action_type": "post_interaction_gross",
-        "value": "193"
+        "value": "209"
       },
       {
         "action_type": "post_interaction_net",
-        "value": "210"
+        "value": "227"
       },
       {
         "action_type": "onsite_conversion.messaging_user_depth_2_message_send",
@@ -58,7 +62,7 @@
       },
       {
         "action_type": "post",
-        "value": "14"
+        "value": "16"
       },
       {
         "action_type": "onsite_conversion.post_unsave",
@@ -66,7 +70,7 @@
       },
       {
         "action_type": "onsite_conversion.post_save",
-        "value": "21"
+        "value": "22"
       },
       {
         "action_type": "onsite_conversion.messaging_user_depth_3_message_send",
@@ -74,11 +78,11 @@
       },
       {
         "action_type": "onsite_conversion.post_net_save",
-        "value": "20"
+        "value": "21"
       },
       {
         "action_type": "onsite_conversion.post_net_like",
-        "value": "142"
+        "value": "154"
       },
       {
         "action_type": "onsite_conversion.messaging_conversation_started_7d",
@@ -90,16 +94,16 @@
       },
       {
         "action_type": "video_view",
-        "value": "4189"
+        "value": "4584"
       },
       {
         "action_type": "post_reaction",
-        "value": "158"
+        "value": "171"
       }
     ],
     "date_start": "2026-04-14",
     "date_stop": "2026-04-14",
-    "link_clicks": 359.0,
+    "link_clicks": 388.0,
     "outbound_clicks": 1.0,
     "landing_page_views": 1.0,
     "purchases": 0.0,
@@ -113,6 +117,7 @@
       "page_engagement",
       "onsite_conversion.post_unlike",
       "post_engagement",
+      "like",
       "post_interaction_gross",
       "post_interaction_net",
       "onsite_conversion.messaging_user_depth_2_message_send",
@@ -128,11 +133,11 @@
       "video_view",
       "post_reaction"
     ],
-    "frequency_avg": 1.067595,
-    "outbound_ctr": 0.01174674027957242,
+    "frequency_avg": 1.064914,
+    "outbound_ctr": 0.01073191672032625,
     "lpv_rate": 100.0,
-    "cost_per_lpv": 55.46,
-    "first_time_impression_ratio": 93.66850698931046
+    "cost_per_lpv": 60.58,
+    "first_time_impression_ratio": 93.9042713028547
   },
   "campaigns": [
     {
