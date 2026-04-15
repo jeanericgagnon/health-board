@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-15T05:00:06.340313Z",
+  "generated_at": "2026-04-15T13:00:04.106526Z",
   "rows": [
     {
       "campaign_id": "6955113574357",
@@ -11,7 +11,7 @@
       "action_ready": "scalable",
       "next_gate": "none",
       "gate_progress": {
-        "spend": 494.53,
+        "spend": 520.65,
         "gate_5": {
           "required": 5.0,
           "passed": true,
@@ -24,7 +24,32 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-15T05:00:06.340313Z"
+      "updated_at": "2026-04-15T13:00:04.106526Z"
+    },
+    {
+      "campaign_id": "6960086008957",
+      "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
+      "adset_id": "6960086009357",
+      "ad_id": "6960086009157",
+      "ad": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
+      "state": "SCALE",
+      "action_ready": "scalable",
+      "next_gate": "none",
+      "gate_progress": {
+        "spend": 257.24,
+        "gate_5": {
+          "required": 5.0,
+          "passed": true,
+          "current_pct": 100.0
+        },
+        "gate_10": {
+          "required": 10.0,
+          "passed": true,
+          "current_pct": 100.0
+        }
+      },
+      "action_timestamp": "2026-04-01T18:00:03.722584Z",
+      "updated_at": "2026-04-15T13:00:04.106526Z"
     },
     {
       "campaign_id": "6960435028357",
@@ -49,7 +74,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-15T05:00:06.340313Z"
+      "updated_at": "2026-04-15T13:00:04.106526Z"
     },
     {
       "campaign_id": "6960435028357",
@@ -74,7 +99,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-15T05:00:06.340313Z"
+      "updated_at": "2026-04-15T13:00:04.106526Z"
     },
     {
       "campaign_id": "6960435028357",
@@ -99,7 +124,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-15T05:00:06.340313Z"
+      "updated_at": "2026-04-15T13:00:04.106526Z"
     },
     {
       "campaign_id": "6960435028357",
@@ -124,19 +149,19 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-15T05:00:06.340313Z"
+      "updated_at": "2026-04-15T13:00:04.106526Z"
     },
     {
-      "campaign_id": "6960086008957",
-      "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
-      "adset_id": "6960086009357",
-      "ad_id": "6960086009157",
-      "ad": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
+      "campaign_id": "6969205964557",
+      "campaign": "New Traffic Campaign",
+      "adset_id": "6969205964757",
+      "ad_id": "6969205964357",
+      "ad": "New Traffic Ad",
       "state": "SCALE",
       "action_ready": "scalable",
       "next_gate": "none",
       "gate_progress": {
-        "spend": 239.59,
+        "spend": 184.91,
         "gate_5": {
           "required": 5.0,
           "passed": true,
@@ -148,8 +173,8 @@
           "current_pct": 100.0
         }
       },
-      "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-15T05:00:06.340313Z"
+      "action_timestamp": "2026-04-04T07:03:12.389063Z",
+      "updated_at": "2026-04-15T13:00:04.106526Z"
     },
     {
       "campaign_id": "6966539858957",
@@ -174,7 +199,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-15T05:00:06.340313Z"
+      "updated_at": "2026-04-15T13:00:04.106526Z"
     },
     {
       "campaign_id": "6966539858957",
@@ -199,32 +224,7 @@
         }
       },
       "action_timestamp": "2026-04-03T08:03:36.032281Z",
-      "updated_at": "2026-04-15T05:00:06.340313Z"
-    },
-    {
-      "campaign_id": "6969205964557",
-      "campaign": "New Traffic Campaign",
-      "adset_id": "6969205964757",
-      "ad_id": "6969205964357",
-      "ad": "New Traffic Ad",
-      "state": "SCALE",
-      "action_ready": "scalable",
-      "next_gate": "none",
-      "gate_progress": {
-        "spend": 169.16,
-        "gate_5": {
-          "required": 5.0,
-          "passed": true,
-          "current_pct": 100.0
-        },
-        "gate_10": {
-          "required": 10.0,
-          "passed": true,
-          "current_pct": 100.0
-        }
-      },
-      "action_timestamp": "2026-04-04T07:03:12.389063Z",
-      "updated_at": "2026-04-15T05:00:06.340313Z"
+      "updated_at": "2026-04-15T13:00:04.106526Z"
     },
     {
       "campaign_id": "6951024653957",
@@ -236,7 +236,7 @@
       "action_ready": "scalable",
       "next_gate": "none",
       "gate_progress": {
-        "spend": 77.86,
+        "spend": 66.35,
         "gate_5": {
           "required": 5.0,
           "passed": true,
@@ -249,7 +249,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-15T05:00:06.340313Z"
+      "updated_at": "2026-04-15T13:00:04.106526Z"
     },
     {
       "campaign_id": "6951024653957",
@@ -261,7 +261,7 @@
       "action_ready": "scalable",
       "next_gate": "none",
       "gate_progress": {
-        "spend": 76.43,
+        "spend": 65.66,
         "gate_5": {
           "required": 5.0,
           "passed": true,
@@ -274,7 +274,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-15T05:00:06.340313Z"
+      "updated_at": "2026-04-15T13:00:04.106526Z"
     },
     {
       "campaign_id": "6953786714157",
@@ -286,7 +286,7 @@
       "action_ready": "scalable",
       "next_gate": "none",
       "gate_progress": {
-        "spend": 90.41,
+        "spend": 77.3,
         "gate_5": {
           "required": 5.0,
           "passed": true,
@@ -299,7 +299,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-15T05:00:06.340313Z"
+      "updated_at": "2026-04-15T13:00:04.106526Z"
     },
     {
       "campaign_id": "6953786714157",
@@ -311,7 +311,7 @@
       "action_ready": "scalable",
       "next_gate": "none",
       "gate_progress": {
-        "spend": 60.38,
+        "spend": 51.93,
         "gate_5": {
           "required": 5.0,
           "passed": true,
@@ -324,7 +324,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-15T05:00:06.340313Z"
+      "updated_at": "2026-04-15T13:00:04.106526Z"
     }
   ],
   "counts": {
