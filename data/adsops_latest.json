@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-16T01:05:00.774255Z",
+  "updated_at": "2026-04-16T02:05:00.693865Z",
   "label": "TSSAds",
   "account": {
     "id": "act_1379452680603809",
@@ -10,70 +10,70 @@
     "timezone_name": "America/Los_Angeles"
   },
   "insights": {
-    "spend": 52.06,
-    "clicks": 320,
-    "impressions": 7972,
-    "cpc": 0.162688,
-    "cpm": 6.530356,
-    "ctr": 4.014049,
-    "reach": 7325,
-    "frequency": "1.088328",
-    "unique_clicks": "320",
+    "spend": 65.51,
+    "clicks": 382,
+    "impressions": 9667,
+    "cpc": 0.171492,
+    "cpm": 6.776663,
+    "ctr": 3.951588,
+    "reach": 8857,
+    "frequency": "1.091453",
+    "unique_clicks": "382",
     "actions": [
       {
         "action_type": "link_click",
-        "value": "303"
+        "value": "357"
       },
       {
         "action_type": "page_engagement",
-        "value": "4431"
+        "value": "5086"
       },
       {
         "action_type": "onsite_conversion.post_unlike",
-        "value": "12"
+        "value": "13"
       },
       {
         "action_type": "post_engagement",
-        "value": "4431"
+        "value": "5086"
       },
       {
         "action_type": "post_interaction_gross",
-        "value": "217"
+        "value": "234"
       },
       {
         "action_type": "post_interaction_net",
-        "value": "229"
+        "value": "247"
       },
       {
         "action_type": "post",
-        "value": "19"
+        "value": "20"
       },
       {
         "action_type": "onsite_conversion.post_save",
-        "value": "25"
+        "value": "27"
       },
       {
         "action_type": "onsite_conversion.post_net_save",
-        "value": "25"
+        "value": "27"
       },
       {
         "action_type": "onsite_conversion.post_net_like",
-        "value": "161"
+        "value": "174"
       },
       {
         "action_type": "video_view",
-        "value": "3911"
+        "value": "4495"
       },
       {
         "action_type": "post_reaction",
-        "value": "173"
+        "value": "187"
       }
     ],
     "date_start": "2026-04-15",
     "date_stop": "2026-04-15",
-    "link_clicks": 303.0,
-    "outbound_clicks": 303.0,
-    "landing_page_views": 303.0,
+    "link_clicks": 357.0,
+    "outbound_clicks": 357.0,
+    "landing_page_views": 357.0,
     "purchases": 0.0,
     "leads": 0.0,
     "view_content": 0.0,
@@ -93,13 +93,19 @@
       "video_view",
       "post_reaction"
     ],
-    "frequency_avg": 1.088328,
-    "outbound_ctr": 3.800802809834421,
+    "frequency_avg": 1.091453,
+    "outbound_ctr": 3.692976104272266,
     "lpv_rate": 100.0,
-    "cost_per_lpv": 0.1718151815181518,
-    "first_time_impression_ratio": 91.88409433015553
+    "cost_per_lpv": 0.1835014005602241,
+    "first_time_impression_ratio": 91.62097858694528
   },
   "campaigns": [
+    {
+      "id": "6975489971557",
+      "name": "New Traffic Campaign",
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE"
+    },
     {
       "id": "6974197316357",
       "name": "New Traffic Campaign",
@@ -168,6 +174,13 @@
     }
   ],
   "adsets": [
+    {
+      "id": "6975489971957",
+      "name": "New Traffic Ad Set",
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE",
+      "campaign_id": "6975489971557"
+    },
     {
       "id": "6974197316557",
       "name": "New Traffic Ad Set",
@@ -275,6 +288,18 @@
     }
   ],
   "ads": [
+    {
+      "id": "6975489971757",
+      "name": "New Traffic Ad",
+      "status": "ACTIVE",
+      "effective_status": "ACTIVE",
+      "adset_id": "6975489971957",
+      "campaign_id": "6975489971557",
+      "creative": {
+        "id": "837013932083855",
+        "name": "A night out that actually makes you smarter.\n\nThe Social Study brings professors, researchers, and  2026-04-15-aeab66c14fa980f1f1b7b989a12dff72"
+      }
+    },
     {
       "id": "6955113574157",
       "name": "Tailored web traffic campaign 3/11/2026 Ad",
