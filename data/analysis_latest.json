@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-04-18T13:03:44.953142Z",
-  "source_updated_at": "2026-04-18T13:03:31.087253Z",
+  "generated_at": "2026-04-18T14:00:13.130887Z",
+  "source_updated_at": "2026-04-18T14:00:03.014115Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
-    "today_spend": 1788.14,
-    "expected_by_now": 15.12,
-    "pace_ratio": 118.224,
+    "today_spend": 1788.16,
+    "expected_by_now": 17.5,
+    "pace_ratio": 102.181,
     "status": "too_fast",
     "today_spend_db_rollup": 33.19,
     "yesterday_spend_db_rollup": 50.65
@@ -15,13 +15,13 @@
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 58.5,
+    "last_pull_age_min": 55.0,
     "attribution_confidence": "direct"
   },
   "summary": {
-    "total_spend": 1788.14,
+    "total_spend": 1788.16,
     "total_clicks": 14435,
-    "total_impressions": 257654,
+    "total_impressions": 257655,
     "daily_gain_live": 22,
     "current_followers_live": 110691
   },
@@ -102,7 +102,7 @@
       "ad_name": "Tailored web traffic campaign 3/11/2026 Ad",
       "ctr": 6.478,
       "cpc": 0.106,
-      "spend": 613.79,
+      "spend": 613.81,
       "creative_name": "Not your average night out: drinks + ideas + people who actually want to learn something. 2026-03-11-d903cc461832f20f0639f16d24cca0d4",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Not your average night out: drinks + ideas + people who actually want to learn something."
