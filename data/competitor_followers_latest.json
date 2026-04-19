@@ -1,66 +1,18 @@
 {
-  "updated_at": "2026-04-19T04:00:02.737906Z",
+  "updated_at": "2026-04-19T05:00:02.022953Z",
   "rows": [
-    {
-      "label": "Lectures on Tap",
-      "username": "lecturesontap",
-      "url": "https://www.instagram.com/lecturesontap",
-      "market": "NYC, Los Angeles, San Francisco, Boston, Chicago",
-      "followers": 493540,
-      "baseline_24h": 493511,
-      "delta_24h": 29,
-      "baselines": {
-        "1": 493511,
-        "3": 493389,
-        "7": 493277,
-        "30": null
-      },
-      "deltas": {
-        "1": 29,
-        "3": 151,
-        "7": 263,
-        "30": null
-      },
-      "pulled_at_utc": "2026-04-19T04:00:02.737906Z",
-      "ok": true,
-      "error": null
-    },
-    {
-      "label": "The Curious People of Denver",
-      "username": "thecuriouspeopleofdenver",
-      "url": "https://www.instagram.com/thecuriouspeopleofdenver",
-      "market": "Denver",
-      "followers": 934,
-      "baseline_24h": 933,
-      "delta_24h": 1,
-      "baselines": {
-        "1": 933,
-        "3": 933,
-        "7": 931,
-        "30": null
-      },
-      "deltas": {
-        "1": 1,
-        "3": 1,
-        "7": 3,
-        "30": null
-      },
-      "pulled_at_utc": "2026-04-19T04:00:02.737906Z",
-      "ok": true,
-      "error": null
-    },
     {
       "label": "Big Idea Night (San Diego)",
       "username": "bigideanight",
       "url": "https://www.instagram.com/bigideanight",
       "market": "San Diego",
       "followers": null,
-      "baseline_24h": 687,
+      "baseline_24h": 688,
       "delta_24h": null,
       "baselines": {
-        "1": 687,
-        "3": 668,
-        "7": 625,
+        "1": 688,
+        "3": 669,
+        "7": 626,
         "30": null
       },
       "deltas": {
@@ -69,7 +21,55 @@
         "7": null,
         "30": null
       },
-      "pulled_at_utc": "2026-04-19T04:00:02.737906Z",
+      "pulled_at_utc": "2026-04-19T05:00:02.022953Z",
+      "ok": false,
+      "error": "unsuccessful response: {'success': False}"
+    },
+    {
+      "label": "Lectures on Tap",
+      "username": "lecturesontap",
+      "url": "https://www.instagram.com/lecturesontap",
+      "market": "NYC, Los Angeles, San Francisco, Boston, Chicago",
+      "followers": null,
+      "baseline_24h": 493520,
+      "delta_24h": null,
+      "baselines": {
+        "1": 493520,
+        "3": 493385,
+        "7": 493277,
+        "30": null
+      },
+      "deltas": {
+        "1": null,
+        "3": null,
+        "7": null,
+        "30": null
+      },
+      "pulled_at_utc": "2026-04-19T05:00:02.022953Z",
+      "ok": false,
+      "error": "unsuccessful response: {'success': False}"
+    },
+    {
+      "label": "The Curious People of Denver",
+      "username": "thecuriouspeopleofdenver",
+      "url": "https://www.instagram.com/thecuriouspeopleofdenver",
+      "market": "Denver",
+      "followers": null,
+      "baseline_24h": 933,
+      "delta_24h": null,
+      "baselines": {
+        "1": 933,
+        "3": 933,
+        "7": 931,
+        "30": null
+      },
+      "deltas": {
+        "1": null,
+        "3": null,
+        "7": null,
+        "30": null
+      },
+      "pulled_at_utc": "2026-04-19T05:00:02.022953Z",
       "ok": false,
       "error": "unsuccessful response: {'success': False}"
     }
