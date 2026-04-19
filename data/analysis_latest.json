@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-04-19T15:00:14.799954Z",
-  "source_updated_at": "2026-04-19T15:00:03.649462Z",
+  "generated_at": "2026-04-19T16:00:10.090831Z",
+  "source_updated_at": "2026-04-19T16:00:03.718190Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
-    "today_spend": 1826.81,
-    "expected_by_now": 20.0,
-    "pace_ratio": 91.34,
+    "today_spend": 1826.82,
+    "expected_by_now": 22.5,
+    "pace_ratio": 81.192,
     "status": "too_fast",
     "today_spend_db_rollup": 33.19,
     "yesterday_spend_db_rollup": 50.65
@@ -15,15 +15,15 @@
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 55.1,
+    "last_pull_age_min": 55.0,
     "attribution_confidence": "direct"
   },
   "summary": {
-    "total_spend": 1826.81,
+    "total_spend": 1826.82,
     "total_clicks": 14497,
-    "total_impressions": 262667,
-    "daily_gain_live": 82,
-    "current_followers_live": 110899
+    "total_impressions": 262669,
+    "daily_gain_live": 89,
+    "current_followers_live": 110906
   },
   "recommendations": {
     "scale": [
@@ -146,7 +146,7 @@
       "ad_name": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
       "ctr": 4.475,
       "cpc": 0.167,
-      "spend": 335.93,
+      "spend": 335.94,
       "creative_name": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link 2026-03-20-1cf64a246dbc22003bfc846333d2c282",
       "cta": "VIEW_INSTAGRAM_PROFILE",
       "body": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link in our bio."
