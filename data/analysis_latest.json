@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-04-19T19:03:21.472533Z",
-  "source_updated_at": "2026-04-19T19:03:05.882131Z",
+  "generated_at": "2026-04-19T20:00:11.182705Z",
+  "source_updated_at": "2026-04-19T20:00:03.542680Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 1826.84,
-    "expected_by_now": 30.12,
-    "pace_ratio": 60.642,
+    "expected_by_now": 32.5,
+    "pace_ratio": 56.21,
     "status": "too_fast",
     "today_spend_db_rollup": 33.19,
     "yesterday_spend_db_rollup": 50.65
@@ -15,13 +15,13 @@
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 58.1,
+    "last_pull_age_min": 55.0,
     "attribution_confidence": "direct"
   },
   "summary": {
     "total_spend": 1826.84,
     "total_clicks": 14497,
-    "total_impressions": 262672,
+    "total_impressions": 262675,
     "daily_gain_live": 134,
     "current_followers_live": 110951
   },
@@ -144,7 +144,7 @@
       "campaign": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Campaign",
       "ad_id": "6960086009157",
       "ad_name": "Denver \u2014 Tailored web traffic campaign 3/20/2026 Ad",
-      "ctr": 4.475,
+      "ctr": 4.474,
       "cpc": 0.167,
       "spend": 335.94,
       "creative_name": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link 2026-03-20-1cf64a246dbc22003bfc846333d2c282",
