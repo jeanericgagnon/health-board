@@ -1,6 +1,6 @@
 Decision confidence: LOW (core coverage 0.0%)
-Pacing: too_fast | spend today 1826.86 vs expected 55.0
-Scale: Tailored web traffic campaign 3/11/2026 Campaign, Denver — Tailored web traffic campaign 3/20/2026 Campaign, New Traffic Campaign
+Pacing: too_fast | spend today 1858.82 vs expected 15.0
+Scale: Tailored web traffic campaign 3/11/2026 Campaign, New Traffic Campaign, Denver — Tailored web traffic campaign 3/20/2026 Campaign
 Signal split: conversion-proven=0, traffic-only=0
-Do now: Pacing too fast: reduce total daily spend velocity by ~10-20% today. | Scale: Tailored web traffic campaign 3/11/2026 Campaign (Strong CTR + low CPC with acceptable frequency) | Scale: Denver — Tailored web traffic campaign 3/20/2026 Campaign (Strong CTR + low CPC with acceptable frequency)
-Alert: NO (no_change)
+Do now: Pacing too fast: reduce total daily spend velocity by ~10-20% today. | Scale: Tailored web traffic campaign 3/11/2026 Campaign (Strong CTR + low CPC with acceptable frequency) | Scale: New Traffic Campaign (Strong CTR + low CPC with acceptable frequency)
+Alert: YES (scale_candidates_changed)
