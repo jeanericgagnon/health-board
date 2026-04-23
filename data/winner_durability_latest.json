@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-23T05:00:04.146945Z",
+  "generated_at": "2026-04-23T13:00:03.571513Z",
   "rows": [
     {
       "entity_type": "campaign",
@@ -11,10 +11,10 @@
       "stable_3d": false,
       "score": 56,
       "days_under_threshold": 1,
-      "latest_cpc": 0.12,
-      "latest_ctr": 5.775,
-      "latest_frequency": 1.208,
-      "spend_today": 693.95
+      "latest_cpc": 0.126,
+      "latest_ctr": 5.488,
+      "latest_frequency": 1.202,
+      "spend_today": 691.67
     },
     {
       "entity_type": "campaign",
@@ -26,10 +26,25 @@
       "stable_3d": false,
       "score": 56,
       "days_under_threshold": 1,
-      "latest_cpc": 0.169,
-      "latest_ctr": 4.448,
-      "latest_frequency": 1.375,
-      "spend_today": 343.48
+      "latest_cpc": 0.172,
+      "latest_ctr": 4.387,
+      "latest_frequency": 1.362,
+      "spend_today": 342.59
+    },
+    {
+      "entity_type": "campaign",
+      "campaign_id": "6974197316357",
+      "campaign": "New Traffic Campaign",
+      "threshold_cpc": 0.55,
+      "durable_3d_min_days": 3,
+      "good_today": true,
+      "stable_3d": false,
+      "score": 56,
+      "days_under_threshold": 1,
+      "latest_cpc": 0.103,
+      "latest_ctr": 5.888,
+      "latest_frequency": 1.154,
+      "spend_today": 189.64
     },
     {
       "entity_type": "campaign",
@@ -41,10 +56,10 @@
       "stable_3d": false,
       "score": 56,
       "days_under_threshold": 1,
-      "latest_cpc": 0.175,
-      "latest_ctr": 5.345,
-      "latest_frequency": 1.186,
-      "spend_today": 215.28
+      "latest_cpc": 0.172,
+      "latest_ctr": 5.334,
+      "latest_frequency": 1.439,
+      "spend_today": 182.46
     },
     {
       "entity_type": "campaign",
@@ -60,21 +75,6 @@
       "latest_ctr": 7.601,
       "latest_frequency": 1.169,
       "spend_today": 181.12
-    },
-    {
-      "entity_type": "campaign",
-      "campaign_id": "6974197316357",
-      "campaign": "New Traffic Campaign",
-      "threshold_cpc": 0.55,
-      "durable_3d_min_days": 3,
-      "good_today": true,
-      "stable_3d": false,
-      "score": 56,
-      "days_under_threshold": 1,
-      "latest_cpc": 0.105,
-      "latest_ctr": 5.759,
-      "latest_frequency": 1.144,
-      "spend_today": 169.98
     },
     {
       "entity_type": "campaign",
@@ -102,9 +102,9 @@
       "score": 56,
       "days_under_threshold": 1,
       "latest_cpc": 0.186,
-      "latest_ctr": 4.026,
-      "latest_frequency": 1.151,
-      "spend_today": 122.76
+      "latest_ctr": 4.043,
+      "latest_frequency": 1.178,
+      "spend_today": 142.93
     },
     {
       "entity_type": "ad",
@@ -118,10 +118,10 @@
       "stable_3d": false,
       "score": 56,
       "days_under_threshold": 1,
-      "latest_cpc": 0.12,
-      "latest_ctr": 5.775,
-      "latest_frequency": 1.208,
-      "spend_today": 693.95
+      "latest_cpc": 0.126,
+      "latest_ctr": 5.488,
+      "latest_frequency": 1.202,
+      "spend_today": 691.67
     },
     {
       "entity_type": "ad",
@@ -135,10 +135,27 @@
       "stable_3d": false,
       "score": 56,
       "days_under_threshold": 1,
-      "latest_cpc": 0.169,
-      "latest_ctr": 4.448,
-      "latest_frequency": 1.375,
-      "spend_today": 343.48
+      "latest_cpc": 0.172,
+      "latest_ctr": 4.387,
+      "latest_frequency": 1.362,
+      "spend_today": 342.59
+    },
+    {
+      "entity_type": "ad",
+      "ad_id": "6974197316757",
+      "ad": "New Traffic Ad",
+      "campaign_id": "6974197316357",
+      "adset_id": "6974197316557",
+      "threshold_cpc": 0.55,
+      "durable_3d_min_days": 3,
+      "good_today": true,
+      "stable_3d": false,
+      "score": 56,
+      "days_under_threshold": 1,
+      "latest_cpc": 0.103,
+      "latest_ctr": 5.888,
+      "latest_frequency": 1.154,
+      "spend_today": 189.64
     },
     {
       "entity_type": "ad",
@@ -152,27 +169,10 @@
       "stable_3d": false,
       "score": 56,
       "days_under_threshold": 1,
-      "latest_cpc": 0.173,
-      "latest_ctr": 5.396,
-      "latest_frequency": 1.478,
-      "spend_today": 207.56
-    },
-    {
-      "entity_type": "ad",
-      "ad_id": "6960435854157",
-      "ad": "Seattle launch | v104b_vo_c",
-      "campaign_id": "6960435028357",
-      "adset_id": "6960435841557",
-      "threshold_cpc": 0.55,
-      "durable_3d_min_days": 3,
-      "good_today": true,
-      "stable_3d": false,
-      "score": 56,
-      "days_under_threshold": 1,
-      "latest_cpc": 0.267,
-      "latest_ctr": 3.909,
-      "latest_frequency": 1.045,
-      "spend_today": 5.07
+      "latest_cpc": 0.172,
+      "latest_ctr": 5.334,
+      "latest_frequency": 1.439,
+      "spend_today": 182.46
     },
     {
       "entity_type": "ad",
@@ -210,23 +210,6 @@
     },
     {
       "entity_type": "ad",
-      "ad_id": "6974197316757",
-      "ad": "New Traffic Ad",
-      "campaign_id": "6974197316357",
-      "adset_id": "6974197316557",
-      "threshold_cpc": 0.55,
-      "durable_3d_min_days": 3,
-      "good_today": true,
-      "stable_3d": false,
-      "score": 56,
-      "days_under_threshold": 1,
-      "latest_cpc": 0.105,
-      "latest_ctr": 5.759,
-      "latest_frequency": 1.144,
-      "spend_today": 169.98
-    },
-    {
-      "entity_type": "ad",
       "ad_id": "6969205964357",
       "ad": "New Traffic Ad",
       "campaign_id": "6969205964557",
@@ -255,26 +238,9 @@
       "score": 56,
       "days_under_threshold": 1,
       "latest_cpc": 0.186,
-      "latest_ctr": 4.026,
-      "latest_frequency": 1.151,
-      "spend_today": 122.76
-    },
-    {
-      "entity_type": "ad",
-      "ad_id": "6960435894757",
-      "ad": "Seattle launch | v113_vo_a",
-      "campaign_id": "6960435028357",
-      "adset_id": "6960435878157",
-      "threshold_cpc": 0.55,
-      "durable_3d_min_days": 3,
-      "good_today": false,
-      "stable_3d": false,
-      "score": 6,
-      "days_under_threshold": 1,
-      "latest_cpc": 0.265,
-      "latest_ctr": 3.731,
-      "latest_frequency": 1.035,
-      "spend_today": 2.65
+      "latest_ctr": 4.043,
+      "latest_frequency": 1.178,
+      "spend_today": 142.93
     }
   ],
   "note": "Durability distinguishes Good today vs stable 3+ days where CPC <= threshold and spend exists."

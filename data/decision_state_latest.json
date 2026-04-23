@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-23T05:00:04.143179Z",
+  "generated_at": "2026-04-23T13:00:03.568275Z",
   "rows": [
     {
       "campaign_id": "6955113574357",
@@ -11,7 +11,7 @@
       "action_ready": "scalable",
       "next_gate": "none",
       "gate_progress": {
-        "spend": 693.95,
+        "spend": 691.67,
         "gate_5": {
           "required": 5.0,
           "passed": true,
@@ -24,7 +24,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-23T05:00:04.143179Z"
+      "updated_at": "2026-04-23T13:00:03.568275Z"
     },
     {
       "campaign_id": "6974197316357",
@@ -36,7 +36,7 @@
       "action_ready": "scalable",
       "next_gate": "none",
       "gate_progress": {
-        "spend": 438.65,
+        "spend": 478.48,
         "gate_5": {
           "required": 5.0,
           "passed": true,
@@ -49,7 +49,7 @@
         }
       },
       "action_timestamp": "2026-04-21T13:00:03.767291Z",
-      "updated_at": "2026-04-23T05:00:04.143179Z"
+      "updated_at": "2026-04-23T13:00:03.568275Z"
     },
     {
       "campaign_id": "6960086008957",
@@ -61,7 +61,7 @@
       "action_ready": "scalable",
       "next_gate": "none",
       "gate_progress": {
-        "spend": 343.48,
+        "spend": 342.59,
         "gate_5": {
           "required": 5.0,
           "passed": true,
@@ -74,7 +74,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-23T05:00:04.143179Z"
+      "updated_at": "2026-04-23T13:00:03.568275Z"
     },
     {
       "campaign_id": "6960435028357",
@@ -86,7 +86,7 @@
       "action_ready": "scalable",
       "next_gate": "none",
       "gate_progress": {
-        "spend": 207.56,
+        "spend": 182.46,
         "gate_5": {
           "required": 5.0,
           "passed": true,
@@ -99,57 +99,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-23T05:00:04.143179Z"
-    },
-    {
-      "campaign_id": "6960435028357",
-      "campaign": "TSS Seattle 4-way launch 20260321_095059",
-      "adset_id": "6960435841557",
-      "ad_id": "6960435854157",
-      "ad": "Seattle launch | v104b_vo_c",
-      "state": "WATCH",
-      "action_ready": "monitor",
-      "next_gate": "$10",
-      "gate_progress": {
-        "spend": 5.07,
-        "gate_5": {
-          "required": 5.0,
-          "passed": true,
-          "current_pct": 100.0
-        },
-        "gate_10": {
-          "required": 10.0,
-          "passed": false,
-          "current_pct": 1.4
-        }
-      },
-      "action_timestamp": "2026-04-22T13:00:05.064231Z",
-      "updated_at": "2026-04-23T05:00:04.143179Z"
-    },
-    {
-      "campaign_id": "6960435028357",
-      "campaign": "TSS Seattle 4-way launch 20260321_095059",
-      "adset_id": "6960435878157",
-      "ad_id": "6960435894757",
-      "ad": "Seattle launch | v113_vo_a",
-      "state": "HOLD",
-      "action_ready": "insufficient_spend",
-      "next_gate": "$5",
-      "gate_progress": {
-        "spend": 2.65,
-        "gate_5": {
-          "required": 5.0,
-          "passed": false,
-          "current_pct": 53.0
-        },
-        "gate_10": {
-          "required": 10.0,
-          "passed": false,
-          "current_pct": null
-        }
-      },
-      "action_timestamp": null,
-      "updated_at": "2026-04-23T05:00:04.143179Z"
+      "updated_at": "2026-04-23T13:00:03.568275Z"
     },
     {
       "campaign_id": "6966539858957",
@@ -174,7 +124,7 @@
         }
       },
       "action_timestamp": "2026-04-01T18:00:03.722584Z",
-      "updated_at": "2026-04-23T05:00:04.143179Z"
+      "updated_at": "2026-04-23T13:00:03.568275Z"
     },
     {
       "campaign_id": "6966539858957",
@@ -199,12 +149,12 @@
         }
       },
       "action_timestamp": "2026-04-03T08:03:36.032281Z",
-      "updated_at": "2026-04-23T05:00:04.143179Z"
+      "updated_at": "2026-04-23T13:00:03.568275Z"
     }
   ],
   "counts": {
-    "hold": 1,
-    "watch": 1,
+    "hold": 0,
+    "watch": 0,
     "scale": 6,
     "kill": 0
   }

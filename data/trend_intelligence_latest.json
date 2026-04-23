@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-23T05:00:04.140583Z",
+  "generated_at": "2026-04-23T13:00:03.565703Z",
   "source": "trend_intelligence_from_kpi_rows",
   "campaigns": [
     {
@@ -36,10 +36,10 @@
           "freq_trend_pct": null
         }
       },
-      "ctr": 5.775,
-      "cpc": 0.12,
-      "frequency": 1.208,
-      "spend": 693.95,
+      "ctr": 5.488,
+      "cpc": 0.126,
+      "frequency": 1.202,
+      "spend": 691.67,
       "fatigue_signal": "stable",
       "fatigue_score": 0.0
     },
@@ -77,10 +77,51 @@
           "freq_trend_pct": null
         }
       },
-      "ctr": 4.448,
-      "cpc": 0.169,
-      "frequency": 1.375,
-      "spend": 343.48,
+      "ctr": 4.387,
+      "cpc": 0.172,
+      "frequency": 1.362,
+      "spend": 342.59,
+      "fatigue_signal": "stable",
+      "fatigue_score": 0.0
+    },
+    {
+      "campaign_id": "6974197316357",
+      "campaign": "New Traffic Campaign",
+      "entity_type": "campaign",
+      "trends": {
+        "d3": {
+          "status": "na",
+          "current_spend": null,
+          "prior_spend": null,
+          "ctr_current": null,
+          "ctr_prior": null,
+          "cpc_current": null,
+          "cpc_prior": null,
+          "freq_current": null,
+          "freq_prior": null,
+          "ctr_trend_pct": null,
+          "cpc_trend_pct": null,
+          "freq_trend_pct": null
+        },
+        "d7": {
+          "status": "na",
+          "current_spend": null,
+          "prior_spend": null,
+          "ctr_current": null,
+          "ctr_prior": null,
+          "cpc_current": null,
+          "cpc_prior": null,
+          "freq_current": null,
+          "freq_prior": null,
+          "ctr_trend_pct": null,
+          "cpc_trend_pct": null,
+          "freq_trend_pct": null
+        }
+      },
+      "ctr": 5.888,
+      "cpc": 0.103,
+      "frequency": 1.154,
+      "spend": 189.64,
       "fatigue_signal": "stable",
       "fatigue_score": 0.0
     },
@@ -118,10 +159,10 @@
           "freq_trend_pct": null
         }
       },
-      "ctr": 5.345,
-      "cpc": 0.175,
-      "frequency": 1.186,
-      "spend": 215.28,
+      "ctr": 5.334,
+      "cpc": 0.172,
+      "frequency": 1.439,
+      "spend": 182.46,
       "fatigue_signal": "stable",
       "fatigue_score": 0.0
     },
@@ -163,47 +204,6 @@
       "cpc": 0.069,
       "frequency": 1.169,
       "spend": 181.12,
-      "fatigue_signal": "stable",
-      "fatigue_score": 0.0
-    },
-    {
-      "campaign_id": "6974197316357",
-      "campaign": "New Traffic Campaign",
-      "entity_type": "campaign",
-      "trends": {
-        "d3": {
-          "status": "na",
-          "current_spend": null,
-          "prior_spend": null,
-          "ctr_current": null,
-          "ctr_prior": null,
-          "cpc_current": null,
-          "cpc_prior": null,
-          "freq_current": null,
-          "freq_prior": null,
-          "ctr_trend_pct": null,
-          "cpc_trend_pct": null,
-          "freq_trend_pct": null
-        },
-        "d7": {
-          "status": "na",
-          "current_spend": null,
-          "prior_spend": null,
-          "ctr_current": null,
-          "ctr_prior": null,
-          "cpc_current": null,
-          "cpc_prior": null,
-          "freq_current": null,
-          "freq_prior": null,
-          "ctr_trend_pct": null,
-          "cpc_trend_pct": null,
-          "freq_trend_pct": null
-        }
-      },
-      "ctr": 5.759,
-      "cpc": 0.105,
-      "frequency": 1.144,
-      "spend": 169.98,
       "fatigue_signal": "stable",
       "fatigue_score": 0.0
     },
@@ -282,10 +282,10 @@
           "freq_trend_pct": null
         }
       },
-      "ctr": 4.026,
+      "ctr": 4.043,
       "cpc": 0.186,
-      "frequency": 1.151,
-      "spend": 122.76,
+      "frequency": 1.178,
+      "spend": 142.93,
       "fatigue_signal": "stable",
       "fatigue_score": 0.0
     }
@@ -326,10 +326,10 @@
           "freq_trend_pct": null
         }
       },
-      "ctr": 5.775,
-      "cpc": 0.12,
-      "frequency": 1.208,
-      "spend": 693.95,
+      "ctr": 5.488,
+      "cpc": 0.126,
+      "frequency": 1.202,
+      "spend": 691.67,
       "fatigue_signal": "stable",
       "fatigue_score": 0.0
     },
@@ -368,10 +368,52 @@
           "freq_trend_pct": null
         }
       },
-      "ctr": 4.448,
-      "cpc": 0.169,
-      "frequency": 1.375,
-      "spend": 343.48,
+      "ctr": 4.387,
+      "cpc": 0.172,
+      "frequency": 1.362,
+      "spend": 342.59,
+      "fatigue_signal": "stable",
+      "fatigue_score": 0.0
+    },
+    {
+      "adset_id": "6974197316557",
+      "adset": "New Traffic Ad Set",
+      "campaign_id": "6974197316357",
+      "entity_type": "adset",
+      "trends": {
+        "d3": {
+          "status": "na",
+          "current_spend": null,
+          "prior_spend": null,
+          "ctr_current": null,
+          "ctr_prior": null,
+          "cpc_current": null,
+          "cpc_prior": null,
+          "freq_current": null,
+          "freq_prior": null,
+          "ctr_trend_pct": null,
+          "cpc_trend_pct": null,
+          "freq_trend_pct": null
+        },
+        "d7": {
+          "status": "na",
+          "current_spend": null,
+          "prior_spend": null,
+          "ctr_current": null,
+          "ctr_prior": null,
+          "cpc_current": null,
+          "cpc_prior": null,
+          "freq_current": null,
+          "freq_prior": null,
+          "ctr_trend_pct": null,
+          "cpc_trend_pct": null,
+          "freq_trend_pct": null
+        }
+      },
+      "ctr": 5.888,
+      "cpc": 0.103,
+      "frequency": 1.154,
+      "spend": 189.64,
       "fatigue_signal": "stable",
       "fatigue_score": 0.0
     },
@@ -410,94 +452,10 @@
           "freq_trend_pct": null
         }
       },
-      "ctr": 5.396,
-      "cpc": 0.173,
-      "frequency": 1.478,
-      "spend": 207.56,
-      "fatigue_signal": "stable",
-      "fatigue_score": 0.0
-    },
-    {
-      "adset_id": "6960435841557",
-      "adset": "Seattle launch | v104b_vo_c | $20/day",
-      "campaign_id": "6960435028357",
-      "entity_type": "adset",
-      "trends": {
-        "d3": {
-          "status": "na",
-          "current_spend": null,
-          "prior_spend": null,
-          "ctr_current": null,
-          "ctr_prior": null,
-          "cpc_current": null,
-          "cpc_prior": null,
-          "freq_current": null,
-          "freq_prior": null,
-          "ctr_trend_pct": null,
-          "cpc_trend_pct": null,
-          "freq_trend_pct": null
-        },
-        "d7": {
-          "status": "na",
-          "current_spend": null,
-          "prior_spend": null,
-          "ctr_current": null,
-          "ctr_prior": null,
-          "cpc_current": null,
-          "cpc_prior": null,
-          "freq_current": null,
-          "freq_prior": null,
-          "ctr_trend_pct": null,
-          "cpc_trend_pct": null,
-          "freq_trend_pct": null
-        }
-      },
-      "ctr": 3.909,
-      "cpc": 0.267,
-      "frequency": 1.045,
-      "spend": 5.07,
-      "fatigue_signal": "stable",
-      "fatigue_score": 0.0
-    },
-    {
-      "adset_id": "6960435878157",
-      "adset": "Seattle launch | v113_vo_a | $10/day",
-      "campaign_id": "6960435028357",
-      "entity_type": "adset",
-      "trends": {
-        "d3": {
-          "status": "na",
-          "current_spend": null,
-          "prior_spend": null,
-          "ctr_current": null,
-          "ctr_prior": null,
-          "cpc_current": null,
-          "cpc_prior": null,
-          "freq_current": null,
-          "freq_prior": null,
-          "ctr_trend_pct": null,
-          "cpc_trend_pct": null,
-          "freq_trend_pct": null
-        },
-        "d7": {
-          "status": "na",
-          "current_spend": null,
-          "prior_spend": null,
-          "ctr_current": null,
-          "ctr_prior": null,
-          "cpc_current": null,
-          "cpc_prior": null,
-          "freq_current": null,
-          "freq_prior": null,
-          "ctr_trend_pct": null,
-          "cpc_trend_pct": null,
-          "freq_trend_pct": null
-        }
-      },
-      "ctr": 3.731,
-      "cpc": 0.265,
-      "frequency": 1.035,
-      "spend": 2.65,
+      "ctr": 5.334,
+      "cpc": 0.172,
+      "frequency": 1.439,
+      "spend": 182.46,
       "fatigue_signal": "stable",
       "fatigue_score": 0.0
     },
@@ -540,48 +498,6 @@
       "cpc": 0.069,
       "frequency": 1.169,
       "spend": 181.12,
-      "fatigue_signal": "stable",
-      "fatigue_score": 0.0
-    },
-    {
-      "adset_id": "6974197316557",
-      "adset": "New Traffic Ad Set",
-      "campaign_id": "6974197316357",
-      "entity_type": "adset",
-      "trends": {
-        "d3": {
-          "status": "na",
-          "current_spend": null,
-          "prior_spend": null,
-          "ctr_current": null,
-          "ctr_prior": null,
-          "cpc_current": null,
-          "cpc_prior": null,
-          "freq_current": null,
-          "freq_prior": null,
-          "ctr_trend_pct": null,
-          "cpc_trend_pct": null,
-          "freq_trend_pct": null
-        },
-        "d7": {
-          "status": "na",
-          "current_spend": null,
-          "prior_spend": null,
-          "ctr_current": null,
-          "ctr_prior": null,
-          "cpc_current": null,
-          "cpc_prior": null,
-          "freq_current": null,
-          "freq_prior": null,
-          "ctr_trend_pct": null,
-          "cpc_trend_pct": null,
-          "freq_trend_pct": null
-        }
-      },
-      "ctr": 5.759,
-      "cpc": 0.105,
-      "frequency": 1.144,
-      "spend": 169.98,
       "fatigue_signal": "stable",
       "fatigue_score": 0.0
     },
@@ -662,10 +578,10 @@
           "freq_trend_pct": null
         }
       },
-      "ctr": 4.026,
+      "ctr": 4.043,
       "cpc": 0.186,
-      "frequency": 1.151,
-      "spend": 122.76,
+      "frequency": 1.178,
+      "spend": 142.93,
       "fatigue_signal": "stable",
       "fatigue_score": 0.0
     }
@@ -707,10 +623,10 @@
           "freq_trend_pct": null
         }
       },
-      "ctr": 5.775,
-      "cpc": 0.12,
-      "frequency": 1.208,
-      "spend": 693.95,
+      "ctr": 5.488,
+      "cpc": 0.126,
+      "frequency": 1.202,
+      "spend": 691.67,
       "fatigue_signal": "stable",
       "fatigue_score": 0.0
     },
@@ -750,10 +666,53 @@
           "freq_trend_pct": null
         }
       },
-      "ctr": 4.448,
-      "cpc": 0.169,
-      "frequency": 1.375,
-      "spend": 343.48,
+      "ctr": 4.387,
+      "cpc": 0.172,
+      "frequency": 1.362,
+      "spend": 342.59,
+      "fatigue_signal": "stable",
+      "fatigue_score": 0.0
+    },
+    {
+      "ad_id": "6974197316757",
+      "ad": "New Traffic Ad",
+      "adset_id": "6974197316557",
+      "campaign_id": "6974197316357",
+      "entity_type": "ad",
+      "trends": {
+        "d3": {
+          "status": "na",
+          "current_spend": null,
+          "prior_spend": null,
+          "ctr_current": null,
+          "ctr_prior": null,
+          "cpc_current": null,
+          "cpc_prior": null,
+          "freq_current": null,
+          "freq_prior": null,
+          "ctr_trend_pct": null,
+          "cpc_trend_pct": null,
+          "freq_trend_pct": null
+        },
+        "d7": {
+          "status": "na",
+          "current_spend": null,
+          "prior_spend": null,
+          "ctr_current": null,
+          "ctr_prior": null,
+          "cpc_current": null,
+          "cpc_prior": null,
+          "freq_current": null,
+          "freq_prior": null,
+          "ctr_trend_pct": null,
+          "cpc_trend_pct": null,
+          "freq_trend_pct": null
+        }
+      },
+      "ctr": 5.888,
+      "cpc": 0.103,
+      "frequency": 1.154,
+      "spend": 189.64,
       "fatigue_signal": "stable",
       "fatigue_score": 0.0
     },
@@ -793,96 +752,10 @@
           "freq_trend_pct": null
         }
       },
-      "ctr": 5.396,
-      "cpc": 0.173,
-      "frequency": 1.478,
-      "spend": 207.56,
-      "fatigue_signal": "stable",
-      "fatigue_score": 0.0
-    },
-    {
-      "ad_id": "6960435854157",
-      "ad": "Seattle launch | v104b_vo_c",
-      "adset_id": "6960435841557",
-      "campaign_id": "6960435028357",
-      "entity_type": "ad",
-      "trends": {
-        "d3": {
-          "status": "na",
-          "current_spend": null,
-          "prior_spend": null,
-          "ctr_current": null,
-          "ctr_prior": null,
-          "cpc_current": null,
-          "cpc_prior": null,
-          "freq_current": null,
-          "freq_prior": null,
-          "ctr_trend_pct": null,
-          "cpc_trend_pct": null,
-          "freq_trend_pct": null
-        },
-        "d7": {
-          "status": "na",
-          "current_spend": null,
-          "prior_spend": null,
-          "ctr_current": null,
-          "ctr_prior": null,
-          "cpc_current": null,
-          "cpc_prior": null,
-          "freq_current": null,
-          "freq_prior": null,
-          "ctr_trend_pct": null,
-          "cpc_trend_pct": null,
-          "freq_trend_pct": null
-        }
-      },
-      "ctr": 3.909,
-      "cpc": 0.267,
-      "frequency": 1.045,
-      "spend": 5.07,
-      "fatigue_signal": "stable",
-      "fatigue_score": 0.0
-    },
-    {
-      "ad_id": "6960435894757",
-      "ad": "Seattle launch | v113_vo_a",
-      "adset_id": "6960435878157",
-      "campaign_id": "6960435028357",
-      "entity_type": "ad",
-      "trends": {
-        "d3": {
-          "status": "na",
-          "current_spend": null,
-          "prior_spend": null,
-          "ctr_current": null,
-          "ctr_prior": null,
-          "cpc_current": null,
-          "cpc_prior": null,
-          "freq_current": null,
-          "freq_prior": null,
-          "ctr_trend_pct": null,
-          "cpc_trend_pct": null,
-          "freq_trend_pct": null
-        },
-        "d7": {
-          "status": "na",
-          "current_spend": null,
-          "prior_spend": null,
-          "ctr_current": null,
-          "ctr_prior": null,
-          "cpc_current": null,
-          "cpc_prior": null,
-          "freq_current": null,
-          "freq_prior": null,
-          "ctr_trend_pct": null,
-          "cpc_trend_pct": null,
-          "freq_trend_pct": null
-        }
-      },
-      "ctr": 3.731,
-      "cpc": 0.265,
-      "frequency": 1.035,
-      "spend": 2.65,
+      "ctr": 5.334,
+      "cpc": 0.172,
+      "frequency": 1.439,
+      "spend": 182.46,
       "fatigue_signal": "stable",
       "fatigue_score": 0.0
     },
@@ -973,49 +846,6 @@
       "fatigue_score": 0.0
     },
     {
-      "ad_id": "6974197316757",
-      "ad": "New Traffic Ad",
-      "adset_id": "6974197316557",
-      "campaign_id": "6974197316357",
-      "entity_type": "ad",
-      "trends": {
-        "d3": {
-          "status": "na",
-          "current_spend": null,
-          "prior_spend": null,
-          "ctr_current": null,
-          "ctr_prior": null,
-          "cpc_current": null,
-          "cpc_prior": null,
-          "freq_current": null,
-          "freq_prior": null,
-          "ctr_trend_pct": null,
-          "cpc_trend_pct": null,
-          "freq_trend_pct": null
-        },
-        "d7": {
-          "status": "na",
-          "current_spend": null,
-          "prior_spend": null,
-          "ctr_current": null,
-          "ctr_prior": null,
-          "cpc_current": null,
-          "cpc_prior": null,
-          "freq_current": null,
-          "freq_prior": null,
-          "ctr_trend_pct": null,
-          "cpc_trend_pct": null,
-          "freq_trend_pct": null
-        }
-      },
-      "ctr": 5.759,
-      "cpc": 0.105,
-      "frequency": 1.144,
-      "spend": 169.98,
-      "fatigue_signal": "stable",
-      "fatigue_score": 0.0
-    },
-    {
       "ad_id": "6969205964357",
       "ad": "New Traffic Ad",
       "adset_id": "6969205964757",
@@ -1094,10 +924,10 @@
           "freq_trend_pct": null
         }
       },
-      "ctr": 4.026,
+      "ctr": 4.043,
       "cpc": 0.186,
-      "frequency": 1.151,
-      "spend": 122.76,
+      "frequency": 1.178,
+      "spend": 142.93,
       "fatigue_signal": "stable",
       "fatigue_score": 0.0
     }
