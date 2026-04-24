@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-24T13:07:10.369018Z",
+  "updated_at": "2026-04-24T14:00:04.507459Z",
   "summary": {
     "ad_account_id": "1379452680603809",
     "total_spend": 1889.17,
@@ -138,7 +138,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-24T13:07:10.367727Z",
+                "action_timestamp": "2026-04-24T14:00:04.502777Z",
                 "inputs": {
                   "spend": 687.74,
                   "ctr": 5.261,
@@ -326,7 +326,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-24T13:07:10.367710Z",
+                "action_timestamp": "2026-04-24T14:00:04.502737Z",
                 "inputs": {
                   "spend": 209.6,
                   "ctr": 6.017,
@@ -514,7 +514,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-24T13:07:10.367701Z",
+                "action_timestamp": "2026-04-24T14:00:04.502716Z",
                 "inputs": {
                   "spend": 342.69,
                   "ctr": 4.379,
@@ -702,7 +702,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-24T13:07:10.367730Z",
+                "action_timestamp": "2026-04-24T14:00:04.502785Z",
                 "inputs": {
                   "spend": 97.09,
                   "ctr": 6.603,
@@ -784,7 +784,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-24T13:07:10.367722Z",
+                "action_timestamp": "2026-04-24T14:00:04.502762Z",
                 "inputs": {
                   "spend": 84.03,
                   "ctr": 8.792,
@@ -972,7 +972,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-24T13:07:10.367725Z",
+                "action_timestamp": "2026-04-24T14:00:04.502769Z",
                 "inputs": {
                   "spend": 158.51,
                   "ctr": 5.292,
@@ -1162,7 +1162,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-24T13:07:10.367727Z",
+                "action_timestamp": "2026-04-24T14:00:04.502777Z",
                 "inputs": {
                   "spend": 687.74,
                   "ctr": 5.261,
@@ -1350,7 +1350,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-24T13:07:10.367710Z",
+                "action_timestamp": "2026-04-24T14:00:04.502737Z",
                 "inputs": {
                   "spend": 209.6,
                   "ctr": 6.017,
@@ -1538,7 +1538,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-24T13:07:10.367701Z",
+                "action_timestamp": "2026-04-24T14:00:04.502716Z",
                 "inputs": {
                   "spend": 342.69,
                   "ctr": 4.379,
@@ -1726,7 +1726,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-24T13:07:10.367730Z",
+                "action_timestamp": "2026-04-24T14:00:04.502785Z",
                 "inputs": {
                   "spend": 97.09,
                   "ctr": 6.603,
@@ -1808,7 +1808,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-24T13:07:10.367722Z",
+                "action_timestamp": "2026-04-24T14:00:04.502762Z",
                 "inputs": {
                   "spend": 84.03,
                   "ctr": 8.792,
@@ -1996,7 +1996,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-24T13:07:10.367725Z",
+                "action_timestamp": "2026-04-24T14:00:04.502769Z",
                 "inputs": {
                   "spend": 158.51,
                   "ctr": 5.292,
@@ -2277,7 +2277,7 @@
     },
     {
       "date": "2026-04-24",
-      "followers_total": 111773.0
+      "followers_total": 111781.0
     }
   ],
   "followers_daily_series": [
@@ -2408,8 +2408,8 @@
     },
     {
       "date": "2026-04-24",
-      "followers_per_day": 20.0,
-      "followers_total": 111773.0
+      "followers_per_day": 28.0,
+      "followers_total": 111781.0
     }
   ],
   "spend_series": [
@@ -2433,7 +2433,7 @@
     },
     {
       "type": "working",
-      "text": "Latest daily followers: 20. Keep top campaign structure stable while testing one variable at a time."
+      "text": "Latest daily followers: 28. Keep top campaign structure stable while testing one variable at a time."
     },
     {
       "type": "action",
@@ -2514,8 +2514,8 @@
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 1889.17,
-    "expected_by_now": 15.29,
-    "pace_ratio": 123.542,
+    "expected_by_now": 17.5,
+    "pace_ratio": 107.953,
     "status": "too_fast",
     "today_spend_db_rollup": 33.19,
     "yesterday_spend_db_rollup": 50.65
@@ -2524,15 +2524,15 @@
     "today_spend_so_far": 0,
     "projected_eod_spend": 0.0,
     "projected_eod_cpc": null,
-    "pace_elapsed_pct": 25.49,
+    "pace_elapsed_pct": 29.17,
     "target_daily_spend": 60.0
   },
   "forecasting_tiles": {
-    "generated_at": "2026-04-24T13:07:10.368650Z",
+    "generated_at": "2026-04-24T14:00:04.506222Z",
     "projected_eod_spend": 1889.17,
     "projected_eod_cpc": null,
     "spend_progress_pct": 0.0,
-    "hour_progress": 25.5,
+    "hour_progress": 29.17,
     "today_spend": 0.0,
     "today_clicks": 0,
     "data_source": "N/A",
@@ -3094,7 +3094,7 @@
               "progress_pct": 100.0
             }
           },
-          "action_timestamp": "2026-04-24T13:07:10.367701Z",
+          "action_timestamp": "2026-04-24T14:00:04.502716Z",
           "inputs": {
             "spend": 342.69,
             "ctr": 4.379,
@@ -3117,7 +3117,7 @@
               "progress_pct": 100.0
             }
           },
-          "action_timestamp": "2026-04-24T13:07:10.367710Z",
+          "action_timestamp": "2026-04-24T14:00:04.502737Z",
           "inputs": {
             "spend": 209.6,
             "ctr": 6.017,
@@ -3140,7 +3140,7 @@
               "progress_pct": 100.0
             }
           },
-          "action_timestamp": "2026-04-24T13:07:10.367715Z",
+          "action_timestamp": "2026-04-24T14:00:04.502746Z",
           "inputs": {
             "spend": 163.6,
             "ctr": 4.11,
@@ -3163,7 +3163,7 @@
               "progress_pct": 100.0
             }
           },
-          "action_timestamp": "2026-04-24T13:07:10.367719Z",
+          "action_timestamp": "2026-04-24T14:00:04.502754Z",
           "inputs": {
             "spend": 145.91,
             "ctr": 2.529,
@@ -3186,7 +3186,7 @@
               "progress_pct": 100.0
             }
           },
-          "action_timestamp": "2026-04-24T13:07:10.367722Z",
+          "action_timestamp": "2026-04-24T14:00:04.502762Z",
           "inputs": {
             "spend": 84.03,
             "ctr": 8.792,
@@ -3209,7 +3209,7 @@
               "progress_pct": 100.0
             }
           },
-          "action_timestamp": "2026-04-24T13:07:10.367725Z",
+          "action_timestamp": "2026-04-24T14:00:04.502769Z",
           "inputs": {
             "spend": 158.51,
             "ctr": 5.292,
@@ -3232,7 +3232,7 @@
               "progress_pct": 100.0
             }
           },
-          "action_timestamp": "2026-04-24T13:07:10.367727Z",
+          "action_timestamp": "2026-04-24T14:00:04.502777Z",
           "inputs": {
             "spend": 687.74,
             "ctr": 5.261,
@@ -3255,7 +3255,7 @@
               "progress_pct": 100.0
             }
           },
-          "action_timestamp": "2026-04-24T13:07:10.367730Z",
+          "action_timestamp": "2026-04-24T14:00:04.502785Z",
           "inputs": {
             "spend": 97.09,
             "ctr": 6.603,
@@ -3521,7 +3521,7 @@
     }
   },
   "trend_intelligence": {
-    "generated_at": "2026-04-24T13:07:10.367788Z",
+    "generated_at": "2026-04-24T14:00:04.502927Z",
     "source": "trend_intelligence_from_kpi_rows",
     "campaigns": [
       {
@@ -4458,7 +4458,7 @@
     "refresh_note": "fallback if insufficient daily history"
   },
   "decision_state": {
-    "generated_at": "2026-04-24T13:07:10.368212Z",
+    "generated_at": "2026-04-24T14:00:04.504844Z",
     "rows": [
       {
         "campaign_id": "6955113574357",
@@ -4483,7 +4483,7 @@
           }
         },
         "action_timestamp": "2026-04-01T18:00:03.722584Z",
-        "updated_at": "2026-04-24T13:07:10.368212Z"
+        "updated_at": "2026-04-24T14:00:04.504844Z"
       },
       {
         "campaign_id": "6974197316357",
@@ -4508,7 +4508,7 @@
           }
         },
         "action_timestamp": "2026-04-21T13:00:03.767291Z",
-        "updated_at": "2026-04-24T13:07:10.368212Z"
+        "updated_at": "2026-04-24T14:00:04.504844Z"
       },
       {
         "campaign_id": "6960086008957",
@@ -4533,7 +4533,7 @@
           }
         },
         "action_timestamp": "2026-04-01T18:00:03.722584Z",
-        "updated_at": "2026-04-24T13:07:10.368212Z"
+        "updated_at": "2026-04-24T14:00:04.504844Z"
       },
       {
         "campaign_id": "6966539858957",
@@ -4558,7 +4558,7 @@
           }
         },
         "action_timestamp": "2026-04-01T18:00:03.722584Z",
-        "updated_at": "2026-04-24T13:07:10.368212Z"
+        "updated_at": "2026-04-24T14:00:04.504844Z"
       },
       {
         "campaign_id": "6966539858957",
@@ -4583,7 +4583,7 @@
           }
         },
         "action_timestamp": "2026-04-03T08:03:36.032281Z",
-        "updated_at": "2026-04-24T13:07:10.368212Z"
+        "updated_at": "2026-04-24T14:00:04.504844Z"
       },
       {
         "campaign_id": "6960435028357",
@@ -4608,7 +4608,7 @@
           }
         },
         "action_timestamp": "2026-04-01T18:00:03.722584Z",
-        "updated_at": "2026-04-24T13:07:10.368212Z"
+        "updated_at": "2026-04-24T14:00:04.504844Z"
       }
     ],
     "counts": {
@@ -4619,7 +4619,7 @@
     }
   },
   "creative_attribution": {
-    "generated_at": "2026-04-24T13:07:10.368498Z",
+    "generated_at": "2026-04-24T14:00:04.505623Z",
     "rows": [
       {
         "campaign_id": "6955113574357",
@@ -4739,14 +4739,14 @@
     }
   },
   "budget_movement": {
-    "generated_at": "2026-04-24T13:07:10.368594Z",
+    "generated_at": "2026-04-24T14:00:04.505951Z",
     "source": "inferred_from_ad_daily_rows",
     "audit_rows": [],
     "notes": "Events inferred from latest ad-level daily row deltas (not control-plane logs).",
     "after_effects_24h_available": false
   },
   "fatigue_radar": {
-    "generated_at": "2026-04-24T13:07:10.368726Z",
+    "generated_at": "2026-04-24T14:00:04.506472Z",
     "rows": [
       {
         "ad_id": "6955113574157",
@@ -4881,7 +4881,7 @@
     "alert_count": 0
   },
   "winner_durability": {
-    "generated_at": "2026-04-24T13:07:10.368837Z",
+    "generated_at": "2026-04-24T14:00:04.506845Z",
     "rows": [
       {
         "entity_type": "campaign",
@@ -5131,7 +5131,7 @@
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 2.2,
+    "last_pull_age_min": 55.1,
     "attribution_confidence": "direct"
   },
   "diagnostics": {
@@ -5181,7 +5181,7 @@
         },
         {
           "factor": "Data freshness (minutes)",
-          "value": 2.2,
+          "value": 55.1,
           "penalty": 0.0
         },
         {
@@ -5232,7 +5232,7 @@
     "pacing": {
       "day_target": 60.0,
       "today_spend": 0.0,
-      "expected_spend_now": 15.29,
+      "expected_spend_now": 17.5,
       "pace_ratio": 0.0
     },
     "geo_efficiency": [],
@@ -5283,7 +5283,7 @@
       "reason": "Using blended model (spend + follower deltas)"
     },
     "data_health": {
-      "stale_minutes": 2,
+      "stale_minutes": 55,
       "status": "ok"
     },
     "creative_leaderboard": [
