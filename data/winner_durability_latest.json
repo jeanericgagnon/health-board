@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-24T05:00:03.567841Z",
+  "generated_at": "2026-04-24T13:00:05.744041Z",
   "rows": [
     {
       "entity_type": "campaign",
@@ -11,10 +11,10 @@
       "stable_3d": false,
       "score": 56,
       "days_under_threshold": 1,
-      "latest_cpc": 0.126,
-      "latest_ctr": 5.488,
-      "latest_frequency": 1.202,
-      "spend_today": 691.69
+      "latest_cpc": 0.132,
+      "latest_ctr": 5.261,
+      "latest_frequency": 1.192,
+      "spend_today": 687.74
     },
     {
       "entity_type": "campaign",
@@ -27,9 +27,9 @@
       "score": 56,
       "days_under_threshold": 1,
       "latest_cpc": 0.172,
-      "latest_ctr": 4.386,
+      "latest_ctr": 4.379,
       "latest_frequency": 1.362,
-      "spend_today": 342.59
+      "spend_today": 342.69
     },
     {
       "entity_type": "campaign",
@@ -41,25 +41,10 @@
       "stable_3d": false,
       "score": 56,
       "days_under_threshold": 1,
-      "latest_cpc": 0.103,
-      "latest_ctr": 5.889,
-      "latest_frequency": 1.155,
-      "spend_today": 189.72
-    },
-    {
-      "entity_type": "campaign",
-      "campaign_id": "6960435028357",
-      "campaign": "TSS Seattle 4-way launch 20260321_095059",
-      "threshold_cpc": 0.55,
-      "durable_3d_min_days": 3,
-      "good_today": true,
-      "stable_3d": false,
-      "score": 56,
-      "days_under_threshold": 1,
-      "latest_cpc": 0.172,
-      "latest_ctr": 5.334,
-      "latest_frequency": 1.439,
-      "spend_today": 182.46
+      "latest_cpc": 0.102,
+      "latest_ctr": 6.017,
+      "latest_frequency": 1.145,
+      "spend_today": 209.6
     },
     {
       "entity_type": "campaign",
@@ -78,6 +63,36 @@
     },
     {
       "entity_type": "campaign",
+      "campaign_id": "6975489971557",
+      "campaign": "New Traffic Campaign",
+      "threshold_cpc": 0.55,
+      "durable_3d_min_days": 3,
+      "good_today": true,
+      "stable_3d": false,
+      "score": 56,
+      "days_under_threshold": 1,
+      "latest_cpc": 0.185,
+      "latest_ctr": 4.11,
+      "latest_frequency": 1.184,
+      "spend_today": 163.6
+    },
+    {
+      "entity_type": "campaign",
+      "campaign_id": "6960435028357",
+      "campaign": "TSS Seattle 4-way launch 20260321_095059",
+      "threshold_cpc": 0.55,
+      "durable_3d_min_days": 3,
+      "good_today": true,
+      "stable_3d": false,
+      "score": 56,
+      "days_under_threshold": 1,
+      "latest_cpc": 0.172,
+      "latest_ctr": 5.292,
+      "latest_frequency": 1.389,
+      "spend_today": 158.51
+    },
+    {
+      "entity_type": "campaign",
       "campaign_id": "6969205964557",
       "campaign": "New Traffic Campaign",
       "threshold_cpc": 0.55,
@@ -92,21 +107,6 @@
       "spend_today": 145.91
     },
     {
-      "entity_type": "campaign",
-      "campaign_id": "6975489971557",
-      "campaign": "New Traffic Campaign",
-      "threshold_cpc": 0.55,
-      "durable_3d_min_days": 3,
-      "good_today": true,
-      "stable_3d": false,
-      "score": 56,
-      "days_under_threshold": 1,
-      "latest_cpc": 0.186,
-      "latest_ctr": 4.043,
-      "latest_frequency": 1.178,
-      "spend_today": 142.94
-    },
-    {
       "entity_type": "ad",
       "ad_id": "6955113574157",
       "ad": "Tailored web traffic campaign 3/11/2026 Ad",
@@ -118,10 +118,10 @@
       "stable_3d": false,
       "score": 56,
       "days_under_threshold": 1,
-      "latest_cpc": 0.126,
-      "latest_ctr": 5.488,
-      "latest_frequency": 1.202,
-      "spend_today": 691.69
+      "latest_cpc": 0.132,
+      "latest_ctr": 5.261,
+      "latest_frequency": 1.192,
+      "spend_today": 687.74
     },
     {
       "entity_type": "ad",
@@ -136,9 +136,9 @@
       "score": 56,
       "days_under_threshold": 1,
       "latest_cpc": 0.172,
-      "latest_ctr": 4.386,
+      "latest_ctr": 4.379,
       "latest_frequency": 1.362,
-      "spend_today": 342.59
+      "spend_today": 342.69
     },
     {
       "entity_type": "ad",
@@ -152,27 +152,10 @@
       "stable_3d": false,
       "score": 56,
       "days_under_threshold": 1,
-      "latest_cpc": 0.103,
-      "latest_ctr": 5.889,
-      "latest_frequency": 1.155,
-      "spend_today": 189.72
-    },
-    {
-      "entity_type": "ad",
-      "ad_id": "6960435771957",
-      "ad": "Seattle launch | v98_vo_b",
-      "campaign_id": "6960435028357",
-      "adset_id": "6960435749557",
-      "threshold_cpc": 0.55,
-      "durable_3d_min_days": 3,
-      "good_today": true,
-      "stable_3d": false,
-      "score": 56,
-      "days_under_threshold": 1,
-      "latest_cpc": 0.172,
-      "latest_ctr": 5.334,
-      "latest_frequency": 1.439,
-      "spend_today": 182.46
+      "latest_cpc": 0.102,
+      "latest_ctr": 6.017,
+      "latest_frequency": 1.145,
+      "spend_today": 209.6
     },
     {
       "entity_type": "ad",
@@ -210,6 +193,40 @@
     },
     {
       "entity_type": "ad",
+      "ad_id": "6975489971757",
+      "ad": "New Traffic Ad",
+      "campaign_id": "6975489971557",
+      "adset_id": "6975489971957",
+      "threshold_cpc": 0.55,
+      "durable_3d_min_days": 3,
+      "good_today": true,
+      "stable_3d": false,
+      "score": 56,
+      "days_under_threshold": 1,
+      "latest_cpc": 0.185,
+      "latest_ctr": 4.11,
+      "latest_frequency": 1.184,
+      "spend_today": 163.6
+    },
+    {
+      "entity_type": "ad",
+      "ad_id": "6960435771957",
+      "ad": "Seattle launch | v98_vo_b",
+      "campaign_id": "6960435028357",
+      "adset_id": "6960435749557",
+      "threshold_cpc": 0.55,
+      "durable_3d_min_days": 3,
+      "good_today": true,
+      "stable_3d": false,
+      "score": 56,
+      "days_under_threshold": 1,
+      "latest_cpc": 0.172,
+      "latest_ctr": 5.292,
+      "latest_frequency": 1.389,
+      "spend_today": 158.51
+    },
+    {
+      "entity_type": "ad",
       "ad_id": "6969205964357",
       "ad": "New Traffic Ad",
       "campaign_id": "6969205964557",
@@ -224,23 +241,6 @@
       "latest_ctr": 2.529,
       "latest_frequency": 1.279,
       "spend_today": 145.91
-    },
-    {
-      "entity_type": "ad",
-      "ad_id": "6975489971757",
-      "ad": "New Traffic Ad",
-      "campaign_id": "6975489971557",
-      "adset_id": "6975489971957",
-      "threshold_cpc": 0.55,
-      "durable_3d_min_days": 3,
-      "good_today": true,
-      "stable_3d": false,
-      "score": 56,
-      "days_under_threshold": 1,
-      "latest_cpc": 0.186,
-      "latest_ctr": 4.043,
-      "latest_frequency": 1.178,
-      "spend_today": 142.94
     }
   ],
   "note": "Durability distinguishes Good today vs stable 3+ days where CPC <= threshold and spend exists."
