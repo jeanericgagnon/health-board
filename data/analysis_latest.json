@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-04-25T18:00:12.778327Z",
-  "source_updated_at": "2026-04-25T18:00:04.045409Z",
+  "generated_at": "2026-04-25T19:00:17.395657Z",
+  "source_updated_at": "2026-04-25T19:00:04.037961Z",
   "decision_confidence": "LOW",
   "core_signal_coverage_pct": 0.0,
   "pacing": {
     "target_daily": 60.0,
-    "today_spend": 1894.65,
-    "expected_by_now": 27.5,
-    "pace_ratio": 68.896,
+    "today_spend": 1894.66,
+    "expected_by_now": 30.0,
+    "pace_ratio": 63.155,
     "status": "too_fast",
     "today_spend_db_rollup": 33.19,
     "yesterday_spend_db_rollup": 50.65
@@ -19,11 +19,11 @@
     "attribution_confidence": "direct"
   },
   "summary": {
-    "total_spend": 1894.65,
+    "total_spend": 1894.66,
     "total_clicks": 14201,
-    "total_impressions": 277786,
-    "daily_gain_live": 96,
-    "current_followers_live": 111952
+    "total_impressions": 277787,
+    "daily_gain_live": 104,
+    "current_followers_live": 111960
   },
   "recommendations": {
     "scale": [
@@ -113,7 +113,7 @@
       "ad_name": "New Traffic Ad",
       "ctr": 4.224,
       "cpc": 0.145,
-      "spend": 554.84,
+      "spend": 554.85,
       "creative_name": null,
       "cta": null,
       "body": null
