@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-25T17:00:02.084968Z",
+  "updated_at": "2026-04-25T18:00:04.045409Z",
   "summary": {
     "ad_account_id": "1379452680603809",
     "total_spend": 1894.65,
@@ -21,8 +21,8 @@
     "blended_cost_per_follow": null,
     "since": null,
     "until": null,
-    "current_followers_live": 111944,
-    "daily_gain_live": 88,
+    "current_followers_live": 111952,
+    "daily_gain_live": 96,
     "baseline_followers": 111856,
     "total_link_clicks": 13457,
     "total_outbound_clicks": 3601,
@@ -138,7 +138,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-25T17:00:02.080872Z",
+                "action_timestamp": "2026-04-25T18:00:04.040326Z",
                 "inputs": {
                   "spend": 683.19,
                   "ctr": 5.074,
@@ -326,7 +326,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-25T17:00:02.080829Z",
+                "action_timestamp": "2026-04-25T18:00:04.040273Z",
                 "inputs": {
                   "spend": 227.7,
                   "ctr": 6.085,
@@ -514,7 +514,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-25T17:00:02.080812Z",
+                "action_timestamp": "2026-04-25T18:00:04.040253Z",
                 "inputs": {
                   "spend": 341.75,
                   "ctr": 4.393,
@@ -702,7 +702,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-25T17:00:02.080880Z",
+                "action_timestamp": "2026-04-25T18:00:04.040336Z",
                 "inputs": {
                   "spend": 97.09,
                   "ctr": 6.603,
@@ -784,7 +784,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-25T17:00:02.080855Z",
+                "action_timestamp": "2026-04-25T18:00:04.040306Z",
                 "inputs": {
                   "spend": 84.03,
                   "ctr": 8.792,
@@ -972,7 +972,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-25T17:00:02.080863Z",
+                "action_timestamp": "2026-04-25T18:00:04.040316Z",
                 "inputs": {
                   "spend": 133.75,
                   "ctr": 5.168,
@@ -1162,7 +1162,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-25T17:00:02.080872Z",
+                "action_timestamp": "2026-04-25T18:00:04.040326Z",
                 "inputs": {
                   "spend": 683.19,
                   "ctr": 5.074,
@@ -1350,7 +1350,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-25T17:00:02.080829Z",
+                "action_timestamp": "2026-04-25T18:00:04.040273Z",
                 "inputs": {
                   "spend": 227.7,
                   "ctr": 6.085,
@@ -1538,7 +1538,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-25T17:00:02.080812Z",
+                "action_timestamp": "2026-04-25T18:00:04.040253Z",
                 "inputs": {
                   "spend": 341.75,
                   "ctr": 4.393,
@@ -1726,7 +1726,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-25T17:00:02.080880Z",
+                "action_timestamp": "2026-04-25T18:00:04.040336Z",
                 "inputs": {
                   "spend": 97.09,
                   "ctr": 6.603,
@@ -1808,7 +1808,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-25T17:00:02.080855Z",
+                "action_timestamp": "2026-04-25T18:00:04.040306Z",
                 "inputs": {
                   "spend": 84.03,
                   "ctr": 8.792,
@@ -1996,7 +1996,7 @@
                     "progress_pct": 100.0
                   }
                 },
-                "action_timestamp": "2026-04-25T17:00:02.080863Z",
+                "action_timestamp": "2026-04-25T18:00:04.040316Z",
                 "inputs": {
                   "spend": 133.75,
                   "ctr": 5.168,
@@ -2281,7 +2281,7 @@
     },
     {
       "date": "2026-04-25",
-      "followers_total": 111952.0
+      "followers_total": 111960.0
     }
   ],
   "followers_daily_series": [
@@ -2417,8 +2417,8 @@
     },
     {
       "date": "2026-04-25",
-      "followers_per_day": 96.0,
-      "followers_total": 111952.0
+      "followers_per_day": 104.0,
+      "followers_total": 111960.0
     }
   ],
   "spend_series": [
@@ -2442,7 +2442,7 @@
     },
     {
       "type": "working",
-      "text": "Latest daily followers: 96. Keep top campaign structure stable while testing one variable at a time."
+      "text": "Latest daily followers: 104. Keep top campaign structure stable while testing one variable at a time."
     },
     {
       "type": "action",
@@ -2523,8 +2523,8 @@
   "pacing": {
     "target_daily": 60.0,
     "today_spend": 1894.65,
-    "expected_by_now": 25.0,
-    "pace_ratio": 75.786,
+    "expected_by_now": 27.5,
+    "pace_ratio": 68.896,
     "status": "too_fast",
     "today_spend_db_rollup": 33.19,
     "yesterday_spend_db_rollup": 50.65
@@ -2533,15 +2533,15 @@
     "today_spend_so_far": 0,
     "projected_eod_spend": 0.0,
     "projected_eod_cpc": null,
-    "pace_elapsed_pct": 41.67,
+    "pace_elapsed_pct": 45.83,
     "target_daily_spend": 60.0
   },
   "forecasting_tiles": {
-    "generated_at": "2026-04-25T17:00:02.083831Z",
+    "generated_at": "2026-04-25T18:00:04.044078Z",
     "projected_eod_spend": 1894.65,
     "projected_eod_cpc": null,
     "spend_progress_pct": 0.0,
-    "hour_progress": 41.67,
+    "hour_progress": 45.84,
     "today_spend": 0.0,
     "today_clicks": 0,
     "data_source": "N/A",
@@ -3103,7 +3103,7 @@
               "progress_pct": 100.0
             }
           },
-          "action_timestamp": "2026-04-25T17:00:02.080812Z",
+          "action_timestamp": "2026-04-25T18:00:04.040253Z",
           "inputs": {
             "spend": 341.75,
             "ctr": 4.393,
@@ -3126,7 +3126,7 @@
               "progress_pct": 100.0
             }
           },
-          "action_timestamp": "2026-04-25T17:00:02.080829Z",
+          "action_timestamp": "2026-04-25T18:00:04.040273Z",
           "inputs": {
             "spend": 227.7,
             "ctr": 6.085,
@@ -3149,7 +3149,7 @@
               "progress_pct": 100.0
             }
           },
-          "action_timestamp": "2026-04-25T17:00:02.080839Z",
+          "action_timestamp": "2026-04-25T18:00:04.040285Z",
           "inputs": {
             "spend": 181.23,
             "ctr": 4.058,
@@ -3172,7 +3172,7 @@
               "progress_pct": 100.0
             }
           },
-          "action_timestamp": "2026-04-25T17:00:02.080847Z",
+          "action_timestamp": "2026-04-25T18:00:04.040295Z",
           "inputs": {
             "spend": 145.91,
             "ctr": 2.529,
@@ -3195,7 +3195,7 @@
               "progress_pct": 100.0
             }
           },
-          "action_timestamp": "2026-04-25T17:00:02.080855Z",
+          "action_timestamp": "2026-04-25T18:00:04.040306Z",
           "inputs": {
             "spend": 84.03,
             "ctr": 8.792,
@@ -3218,7 +3218,7 @@
               "progress_pct": 100.0
             }
           },
-          "action_timestamp": "2026-04-25T17:00:02.080863Z",
+          "action_timestamp": "2026-04-25T18:00:04.040316Z",
           "inputs": {
             "spend": 133.75,
             "ctr": 5.168,
@@ -3241,7 +3241,7 @@
               "progress_pct": 100.0
             }
           },
-          "action_timestamp": "2026-04-25T17:00:02.080872Z",
+          "action_timestamp": "2026-04-25T18:00:04.040326Z",
           "inputs": {
             "spend": 683.19,
             "ctr": 5.074,
@@ -3264,7 +3264,7 @@
               "progress_pct": 100.0
             }
           },
-          "action_timestamp": "2026-04-25T17:00:02.080880Z",
+          "action_timestamp": "2026-04-25T18:00:04.040336Z",
           "inputs": {
             "spend": 97.09,
             "ctr": 6.603,
@@ -3530,7 +3530,7 @@
     }
   },
   "trend_intelligence": {
-    "generated_at": "2026-04-25T17:00:02.081028Z",
+    "generated_at": "2026-04-25T18:00:04.040524Z",
     "source": "trend_intelligence_from_kpi_rows",
     "campaigns": [
       {
@@ -4467,7 +4467,7 @@
     "refresh_note": "fallback if insufficient daily history"
   },
   "decision_state": {
-    "generated_at": "2026-04-25T17:00:02.082432Z",
+    "generated_at": "2026-04-25T18:00:04.042518Z",
     "rows": [
       {
         "campaign_id": "6955113574357",
@@ -4492,7 +4492,7 @@
           }
         },
         "action_timestamp": "2026-04-01T18:00:03.722584Z",
-        "updated_at": "2026-04-25T17:00:02.082432Z"
+        "updated_at": "2026-04-25T18:00:04.042518Z"
       },
       {
         "campaign_id": "6974197316357",
@@ -4517,7 +4517,7 @@
           }
         },
         "action_timestamp": "2026-04-21T13:00:03.767291Z",
-        "updated_at": "2026-04-25T17:00:02.082432Z"
+        "updated_at": "2026-04-25T18:00:04.042518Z"
       },
       {
         "campaign_id": "6960086008957",
@@ -4542,7 +4542,7 @@
           }
         },
         "action_timestamp": "2026-04-01T18:00:03.722584Z",
-        "updated_at": "2026-04-25T17:00:02.082432Z"
+        "updated_at": "2026-04-25T18:00:04.042518Z"
       },
       {
         "campaign_id": "6966539858957",
@@ -4567,7 +4567,7 @@
           }
         },
         "action_timestamp": "2026-04-01T18:00:03.722584Z",
-        "updated_at": "2026-04-25T17:00:02.082432Z"
+        "updated_at": "2026-04-25T18:00:04.042518Z"
       },
       {
         "campaign_id": "6966539858957",
@@ -4592,7 +4592,7 @@
           }
         },
         "action_timestamp": "2026-04-03T08:03:36.032281Z",
-        "updated_at": "2026-04-25T17:00:02.082432Z"
+        "updated_at": "2026-04-25T18:00:04.042518Z"
       },
       {
         "campaign_id": "6960435028357",
@@ -4617,7 +4617,7 @@
           }
         },
         "action_timestamp": "2026-04-01T18:00:03.722584Z",
-        "updated_at": "2026-04-25T17:00:02.082432Z"
+        "updated_at": "2026-04-25T18:00:04.042518Z"
       }
     ],
     "counts": {
@@ -4628,7 +4628,7 @@
     }
   },
   "creative_attribution": {
-    "generated_at": "2026-04-25T17:00:02.083248Z",
+    "generated_at": "2026-04-25T18:00:04.043490Z",
     "rows": [
       {
         "campaign_id": "6955113574357",
@@ -4748,14 +4748,14 @@
     }
   },
   "budget_movement": {
-    "generated_at": "2026-04-25T17:00:02.083577Z",
+    "generated_at": "2026-04-25T18:00:04.043816Z",
     "source": "inferred_from_ad_daily_rows",
     "audit_rows": [],
     "notes": "Events inferred from latest ad-level daily row deltas (not control-plane logs).",
     "after_effects_24h_available": false
   },
   "fatigue_radar": {
-    "generated_at": "2026-04-25T17:00:02.084035Z",
+    "generated_at": "2026-04-25T18:00:04.044298Z",
     "rows": [
       {
         "ad_id": "6955113574157",
@@ -4890,7 +4890,7 @@
     "alert_count": 0
   },
   "winner_durability": {
-    "generated_at": "2026-04-25T17:00:02.084401Z",
+    "generated_at": "2026-04-25T18:00:04.044681Z",
     "rows": [
       {
         "entity_type": "campaign",
@@ -5140,7 +5140,7 @@
   "data_health": {
     "status": "ok",
     "reason": "Fresh pull and non-empty campaign data",
-    "last_pull_age_min": 55.0,
+    "last_pull_age_min": 55.1,
     "attribution_confidence": "direct"
   },
   "diagnostics": {
@@ -5190,7 +5190,7 @@
         },
         {
           "factor": "Data freshness (minutes)",
-          "value": 55.0,
+          "value": 55.1,
           "penalty": 0.0
         },
         {
@@ -5241,7 +5241,7 @@
     "pacing": {
       "day_target": 60.0,
       "today_spend": 0.0,
-      "expected_spend_now": 25.0,
+      "expected_spend_now": 27.5,
       "pace_ratio": 0.0
     },
     "geo_efficiency": [],
