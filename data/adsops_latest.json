@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-27T15:05:00.471964Z",
+  "updated_at": "2026-04-27T16:05:01.188049Z",
   "label": "TSSAds",
   "account": {
     "id": "act_1379452680603809",
@@ -10,15 +10,15 @@
     "timezone_name": "America/Los_Angeles"
   },
   "insights": {
-    "spend": 22.87,
-    "clicks": 148,
-    "impressions": 3161,
-    "cpc": 0.154527,
-    "cpm": 7.235052,
-    "ctr": 4.682063,
-    "reach": 2974,
-    "frequency": "1.062878",
-    "unique_clicks": "137",
+    "spend": 28.95,
+    "clicks": 185,
+    "impressions": 3945,
+    "cpc": 0.156486,
+    "cpm": 7.338403,
+    "ctr": 4.68948,
+    "reach": 3774,
+    "frequency": "1.04531",
+    "unique_clicks": "182",
     "actions": [
       {
         "action_type": "onsite_conversion.total_messaging_connection",
@@ -26,27 +26,27 @@
       },
       {
         "action_type": "link_click",
-        "value": "132"
+        "value": "178"
       },
       {
         "action_type": "page_engagement",
-        "value": "1692"
+        "value": "2225"
       },
       {
         "action_type": "onsite_conversion.post_unlike",
-        "value": "2"
+        "value": "3"
       },
       {
         "action_type": "post_engagement",
-        "value": "1692"
+        "value": "2225"
       },
       {
         "action_type": "post_interaction_gross",
-        "value": "49"
+        "value": "68"
       },
       {
         "action_type": "post_interaction_net",
-        "value": "51"
+        "value": "71"
       },
       {
         "action_type": "onsite_conversion.messaging_first_reply",
@@ -58,15 +58,15 @@
       },
       {
         "action_type": "onsite_conversion.post_save",
-        "value": "6"
+        "value": "9"
       },
       {
         "action_type": "onsite_conversion.post_net_save",
-        "value": "6"
+        "value": "9"
       },
       {
         "action_type": "onsite_conversion.post_net_like",
-        "value": "38"
+        "value": "53"
       },
       {
         "action_type": "onsite_conversion.messaging_conversation_started_7d",
@@ -74,16 +74,16 @@
       },
       {
         "action_type": "video_view",
-        "value": "1511"
+        "value": "1979"
       },
       {
         "action_type": "post_reaction",
-        "value": "40"
+        "value": "56"
       }
     ],
     "date_start": "2026-04-27",
     "date_stop": "2026-04-27",
-    "link_clicks": 132.0,
+    "link_clicks": 178.0,
     "outbound_clicks": 1.0,
     "landing_page_views": 1.0,
     "purchases": 0.0,
@@ -108,11 +108,11 @@
       "video_view",
       "post_reaction"
     ],
-    "frequency_avg": 1.062878,
-    "outbound_ctr": 0.03163555836760519,
+    "frequency_avg": 1.04531,
+    "outbound_ctr": 0.025348542458808618,
     "lpv_rate": 100.0,
-    "cost_per_lpv": 22.87,
-    "first_time_impression_ratio": 94.08415058525783
+    "cost_per_lpv": 28.95,
+    "first_time_impression_ratio": 95.66539923954373
   },
   "campaigns": [
     {
@@ -503,9 +503,9 @@
               "date_stop": "2026-04-26",
               "creative_id": "1598889647989602",
               "creative_name": "Not your average night out: drinks + ideas + people who actually want to learn something. 2026-03-11-d903cc461832f20f0639f16d24cca0d4",
-              "spend": 704.38,
+              "spend": 704.39,
               "clicks": 4807,
-              "impressions": 101452,
+              "impressions": 101453,
               "reach": 82646,
               "link_clicks": 4837,
               "outbound_clicks": 6,
@@ -515,14 +515,14 @@
               "view_content": 0,
               "add_to_cart": 0,
               "initiate_checkout": 0,
-              "ctr": 4.738201,
-              "cpm": 6.942988,
-              "cpc": 0.146532,
-              "frequency_avg": 1.227549,
-              "outbound_ctr": 0.005914126877735283,
+              "ctr": 4.738155,
+              "cpm": 6.943018,
+              "cpc": 0.146534,
+              "frequency_avg": 1.227561,
+              "outbound_ctr": 0.005914068583482006,
               "lpv_rate": 100.0,
-              "cost_per_lpv": 117.39666666666666,
-              "first_time_impression_ratio": 81.46315498955171,
+              "cost_per_lpv": 117.39833333333333,
+              "first_time_impression_ratio": 81.46235202507565,
               "actions": [
                 {
                   "action_type": "onsite_conversion.total_messaging_connection",
@@ -534,7 +534,7 @@
                 },
                 {
                   "action_type": "page_engagement",
-                  "value": "65778"
+                  "value": "65780"
                 },
                 {
                   "action_type": "onsite_conversion.post_unlike",
@@ -542,7 +542,7 @@
                 },
                 {
                   "action_type": "post_engagement",
-                  "value": "65778"
+                  "value": "65780"
                 },
                 {
                   "action_type": "post_interaction_gross",
@@ -598,7 +598,7 @@
                 },
                 {
                   "action_type": "video_view",
-                  "value": "57671"
+                  "value": "57673"
                 },
                 {
                   "action_type": "post_reaction",
@@ -611,9 +611,9 @@
               "winner_durability": null
             }
           ],
-          "spend": 704.38,
+          "spend": 704.39,
           "clicks": 4807,
-          "impressions": 101452,
+          "impressions": 101453,
           "reach": 82646,
           "link_clicks": 4837,
           "outbound_clicks": 6,
@@ -629,13 +629,13 @@
           "frequency_avg": 1.228,
           "outbound_ctr": 0.006,
           "lpv_rate": 100.0,
-          "cost_per_lpv": 117.397,
-          "first_time_impression_ratio": 81.463
+          "cost_per_lpv": 117.398,
+          "first_time_impression_ratio": 81.462
         }
       ],
-      "spend": 704.38,
+      "spend": 704.39,
       "clicks": 4807,
-      "impressions": 101452,
+      "impressions": 101453,
       "reach": 82646,
       "link_clicks": 4837,
       "outbound_clicks": 6,
@@ -651,8 +651,8 @@
       "frequency_avg": 1.228,
       "outbound_ctr": 0.006,
       "lpv_rate": 100.0,
-      "cost_per_lpv": 117.397,
-      "first_time_impression_ratio": 81.463
+      "cost_per_lpv": 117.398,
+      "first_time_impression_ratio": 81.462
     },
     {
       "campaign_id": "6960086008957",
@@ -674,7 +674,7 @@
               "creative_name": "Sounds like an ideal night out if you ask us. \ud83d\udc40\ud83c\udf7b Tickets drop every Sunday at 10 AM PST at the link 2026-03-20-1cf64a246dbc22003bfc846333d2c282",
               "spend": 346.64,
               "clicks": 2130,
-              "impressions": 47062,
+              "impressions": 47063,
               "reach": 35717,
               "link_clicks": 2136,
               "outbound_clicks": 4,
@@ -684,14 +684,14 @@
               "view_content": 0,
               "add_to_cart": 0,
               "initiate_checkout": 0,
-              "ctr": 4.525945,
-              "cpm": 7.365603,
+              "ctr": 4.525848,
+              "cpm": 7.365446,
               "cpc": 0.162742,
-              "frequency_avg": 1.317636,
-              "outbound_ctr": 0.008499426288725511,
+              "frequency_avg": 1.317664,
+              "outbound_ctr": 0.00849924569194484,
               "lpv_rate": 100.0,
               "cost_per_lpv": 86.66,
-              "first_time_impression_ratio": 75.89350218860227,
+              "first_time_impression_ratio": 75.89188959479846,
               "actions": [
                 {
                   "action_type": "onsite_conversion.total_messaging_connection",
@@ -786,7 +786,7 @@
           ],
           "spend": 346.64,
           "clicks": 2130,
-          "impressions": 47062,
+          "impressions": 47063,
           "reach": 35717,
           "link_clicks": 2136,
           "outbound_clicks": 4,
@@ -797,18 +797,18 @@
           "add_to_cart": 0,
           "initiate_checkout": 0,
           "ctr": 4.526,
-          "cpm": 7.366,
+          "cpm": 7.365,
           "cpc": 0.163,
           "frequency_avg": 1.318,
           "outbound_ctr": 0.008,
           "lpv_rate": 100.0,
           "cost_per_lpv": 86.66,
-          "first_time_impression_ratio": 75.894
+          "first_time_impression_ratio": 75.892
         }
       ],
       "spend": 346.64,
       "clicks": 2130,
-      "impressions": 47062,
+      "impressions": 47063,
       "reach": 35717,
       "link_clicks": 2136,
       "outbound_clicks": 4,
@@ -819,13 +819,13 @@
       "add_to_cart": 0,
       "initiate_checkout": 0,
       "ctr": 4.526,
-      "cpm": 7.366,
+      "cpm": 7.365,
       "cpc": 0.163,
       "frequency_avg": 1.318,
       "outbound_ctr": 0.008,
       "lpv_rate": 100.0,
       "cost_per_lpv": 86.66,
-      "first_time_impression_ratio": 75.894
+      "first_time_impression_ratio": 75.892
     },
     {
       "campaign_id": "6974197316357",
@@ -845,9 +845,9 @@
               "date_stop": "2026-04-26",
               "creative_id": "1246554427206922",
               "creative_name": "Drink Smarter Not harder. 60 minute expert talks in bars and breweries 2026-04-13-ac5aca8a726c4a6f2c306b9160b0ff63",
-              "spend": 272.01,
+              "spend": 272.02,
               "clicks": 2781,
-              "impressions": 44807,
+              "impressions": 44808,
               "reach": 37552,
               "link_clicks": 2035,
               "outbound_clicks": 2,
@@ -857,14 +857,14 @@
               "view_content": 0,
               "add_to_cart": 0,
               "initiate_checkout": 0,
-              "ctr": 6.20662,
-              "cpm": 6.070703,
-              "cpc": 0.09781,
-              "frequency_avg": 1.193199,
-              "outbound_ctr": 0.00446358827861718,
+              "ctr": 6.206481,
+              "cpm": 6.070791,
+              "cpc": 0.097814,
+              "frequency_avg": 1.193225,
+              "outbound_ctr": 0.004463488662738796,
               "lpv_rate": 100.0,
-              "cost_per_lpv": 136.005,
-              "first_time_impression_ratio": 83.80833351931618,
+              "cost_per_lpv": 136.01,
+              "first_time_impression_ratio": 83.80646313158364,
               "actions": [
                 {
                   "action_type": "onsite_conversion.total_messaging_connection",
@@ -957,9 +957,9 @@
               "winner_durability": null
             }
           ],
-          "spend": 272.01,
+          "spend": 272.02,
           "clicks": 2781,
-          "impressions": 44807,
+          "impressions": 44808,
           "reach": 37552,
           "link_clicks": 2035,
           "outbound_clicks": 2,
@@ -969,19 +969,19 @@
           "view_content": 0,
           "add_to_cart": 0,
           "initiate_checkout": 0,
-          "ctr": 6.207,
+          "ctr": 6.206,
           "cpm": 6.071,
           "cpc": 0.098,
           "frequency_avg": 1.193,
           "outbound_ctr": 0.004,
           "lpv_rate": 100.0,
-          "cost_per_lpv": 136.005,
-          "first_time_impression_ratio": 83.808
+          "cost_per_lpv": 136.01,
+          "first_time_impression_ratio": 83.806
         }
       ],
-      "spend": 272.01,
+      "spend": 272.02,
       "clicks": 2781,
-      "impressions": 44807,
+      "impressions": 44808,
       "reach": 37552,
       "link_clicks": 2035,
       "outbound_clicks": 2,
@@ -991,14 +991,14 @@
       "view_content": 0,
       "add_to_cart": 0,
       "initiate_checkout": 0,
-      "ctr": 6.207,
+      "ctr": 6.206,
       "cpm": 6.071,
       "cpc": 0.098,
       "frequency_avg": 1.193,
       "outbound_ctr": 0.004,
       "lpv_rate": 100.0,
-      "cost_per_lpv": 136.005,
-      "first_time_impression_ratio": 83.808
+      "cost_per_lpv": 136.01,
+      "first_time_impression_ratio": 83.806
     },
     {
       "campaign_id": "6975489971557",
@@ -1045,7 +1045,7 @@
                 },
                 {
                   "action_type": "page_engagement",
-                  "value": "13333"
+                  "value": "13334"
                 },
                 {
                   "action_type": "onsite_conversion.post_unlike",
@@ -1053,7 +1053,7 @@
                 },
                 {
                   "action_type": "post_engagement",
-                  "value": "13333"
+                  "value": "13334"
                 },
                 {
                   "action_type": "post_interaction_gross",
@@ -1089,7 +1089,7 @@
                 },
                 {
                   "action_type": "video_view",
-                  "value": "11738"
+                  "value": "11739"
                 },
                 {
                   "action_type": "post_reaction",
