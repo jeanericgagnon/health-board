@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-27T22:05:00.316111Z",
+  "updated_at": "2026-04-27T23:05:00.570764Z",
   "label": "TSSAds",
   "account": {
     "id": "act_1379452680603809",
@@ -10,15 +10,15 @@
     "timezone_name": "America/Los_Angeles"
   },
   "insights": {
-    "spend": 54.2,
-    "clicks": 345,
-    "impressions": 7260,
-    "cpc": 0.157101,
-    "cpm": 7.465565,
-    "ctr": 4.752066,
-    "reach": 6903,
-    "frequency": "1.051717",
-    "unique_clicks": "341",
+    "spend": 58.92,
+    "clicks": 382,
+    "impressions": 7885,
+    "cpc": 0.154241,
+    "cpm": 7.472416,
+    "ctr": 4.844642,
+    "reach": 7406,
+    "frequency": "1.064677",
+    "unique_clicks": "375",
     "actions": [
       {
         "action_type": "onsite_conversion.total_messaging_connection",
@@ -26,27 +26,27 @@
       },
       {
         "action_type": "link_click",
-        "value": "340"
+        "value": "372"
       },
       {
         "action_type": "page_engagement",
-        "value": "3952"
+        "value": "4283"
       },
       {
         "action_type": "onsite_conversion.post_unlike",
-        "value": "9"
+        "value": "10"
       },
       {
         "action_type": "post_engagement",
-        "value": "3952"
+        "value": "4283"
       },
       {
         "action_type": "post_interaction_gross",
-        "value": "131"
+        "value": "141"
       },
       {
         "action_type": "post_interaction_net",
-        "value": "140"
+        "value": "151"
       },
       {
         "action_type": "onsite_conversion.messaging_user_depth_2_message_send",
@@ -70,7 +70,7 @@
       },
       {
         "action_type": "onsite_conversion.post_net_like",
-        "value": "100"
+        "value": "109"
       },
       {
         "action_type": "onsite_conversion.messaging_conversation_started_7d",
@@ -82,16 +82,16 @@
       },
       {
         "action_type": "video_view",
-        "value": "3481"
+        "value": "3770"
       },
       {
         "action_type": "post_reaction",
-        "value": "109"
+        "value": "119"
       }
     ],
     "date_start": "2026-04-27",
     "date_stop": "2026-04-27",
-    "link_clicks": 340.0,
+    "link_clicks": 372.0,
     "outbound_clicks": 1.0,
     "landing_page_views": 1.0,
     "purchases": 0.0,
@@ -118,11 +118,11 @@
       "video_view",
       "post_reaction"
     ],
-    "frequency_avg": 1.051717,
-    "outbound_ctr": 0.013774104683195591,
+    "frequency_avg": 1.064677,
+    "outbound_ctr": 0.012682308180088777,
     "lpv_rate": 100.0,
-    "cost_per_lpv": 54.2,
-    "first_time_impression_ratio": 95.08264462809917
+    "cost_per_lpv": 58.92,
+    "first_time_impression_ratio": 93.92517438173748
   },
   "campaigns": [
     {
